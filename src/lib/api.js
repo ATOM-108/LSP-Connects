@@ -227,25 +227,40 @@ export async function listCategories() {
 /* ----------------------------------------------------------------- providers */
 
 export async function loadProviderDirectory() {
-  const [providerRows, profileRows, categoryRows] = await Promise.all([
+  const [providerRows, profileRows, categoryRows, skillRows] = await Promise.all([
     fetchAll('provider_profiles'),
     safeFetchAll('profiles'),
     safeFetchAll('service_categories'),
+    safeFetchAll('provider_skills'),
   ]);
 
   const categories = categoryRows.map(normalizeCategory).filter(Boolean);
   const categoryById = new Map(categories.map((category) => [String(category.id), category]));
   const profileById = new Map(profileRows.map((row) => [String(row.id), normalizeProfile(row)]));
 
+  // provider_profiles has no category column in this database, so a provider's
+  // category comes from provider_skills. Without this, browsing by category
+  // would never match anyone.
+  const categoryByProvider = new Map();
+  for (const row of skillRows) {
+    const owner = String(row.provider_id ?? row.user_id ?? '');
+    if (owner && row.category_id && !categoryByProvider.has(owner)) {
+      categoryByProvider.set(owner, row.category_id);
+    }
+  }
+
   const providers = providerRows
     .map(normalizeProvider)
     .filter(Boolean)
     .map((provider) => {
       const profile = profileById.get(String(provider.userId)) || null;
+      const resolvedCategoryId =
+        provider.categoryId || categoryByProvider.get(String(provider.userId)) || '';
       return {
         ...provider,
+        categoryId: resolvedCategoryId,
         profile,
-        categoryName: categoryById.get(String(provider.categoryId))?.name || '',
+        categoryName: categoryById.get(String(resolvedCategoryId))?.name || '',
         displayName: provider.businessName || profile?.fullName || 'Service provider',
       };
     });
