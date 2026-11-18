@@ -132,6 +132,8 @@ export function confirmDialog({
   confirmText = 'Confirm',
   cancelText = 'Cancel',
   danger = false,
+  withReason = false,
+  reasonLabel = 'Reason',
 }) {
   return new Promise((resolve) => {
     const backdrop = document.createElement('div');
@@ -140,15 +142,23 @@ export function confirmDialog({
       <div class="modal" role="dialog" aria-modal="true" aria-label="${esc(title)}">
         <h2>${esc(title)}</h2>
         <p class="muted">${esc(message)}</p>
+        ${
+          withReason
+            ? `<div class="field"><label for="modal-reason">${esc(reasonLabel)}</label>
+                 <textarea class="input" id="modal-reason" placeholder="Tell the customer why"></textarea></div>`
+            : ''
+        }
         <div class="btn-row" style="justify-content:flex-end;margin-top:18px">
           <button class="btn ghost" data-modal="cancel">${esc(cancelText)}</button>
           <button class="btn ${danger ? 'danger' : 'primary'}" data-modal="ok">${esc(confirmText)}</button>
         </div>
       </div>`;
+    const reasonField = backdrop.querySelector('#modal-reason');
     const close = (value) => {
+      const reason = reasonField ? reasonField.value.trim() : '';
       backdrop.remove();
       document.removeEventListener('keydown', onKey);
-      resolve(value);
+      resolve(value === true ? { reason } : false);
     };
     const onKey = (event) => {
       if (event.key === 'Escape') close(false);
@@ -161,7 +171,7 @@ export function confirmDialog({
     });
     document.addEventListener('keydown', onKey);
     document.body.appendChild(backdrop);
-    backdrop.querySelector('[data-modal="ok"]')?.focus();
+    (reasonField || backdrop.querySelector('[data-modal="ok"]'))?.focus();
   });
 }
 
