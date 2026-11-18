@@ -133,6 +133,40 @@ export async function deleteRow(table, id) {
   if (error) throw new DataError(table, error);
 }
 
+// Update a row by a column other than `id` (provider_profiles is keyed by user_id).
+async function updateRowBy(table, column, value, patch) {
+  const body = { ...patch };
+  for (let attempt = 0; attempt < 20; attempt += 1) {
+    const { data, error } = await client().from(table).update(body).eq(column, value).select();
+    if (!error) {
+      const rows = Array.isArray(data) ? data : data ? [data] : [];
+      return rows[0] || null;
+    }
+    const unknown = missingColumn(error);
+    if (unknown && Object.prototype.hasOwnProperty.call(body, unknown)) {
+      delete body[unknown];
+      continue;
+    }
+    if (error.code === 'PGRST116') return null;
+    throw new DataError(table, error);
+  }
+  throw new DataError(table, { message: 'Too many unknown columns in payload.' });
+}
+
+// The existing bookings table may not have structured date/time columns. Probe once
+// so a request is either stored in real columns or kept in the description text.
+let scheduleColumns = null;
+async function supportsBookingSchedule() {
+  if (scheduleColumns !== null) return scheduleColumns;
+  try {
+    const { error } = await client().from('bookings').select('scheduled_date').limit(1);
+    scheduleColumns = !error;
+  } catch {
+    scheduleColumns = false;
+  }
+  return scheduleColumns;
+}
+
 /* ------------------------------------------------------------------ profiles */
 
 export async function getProfile(userId) {
@@ -243,6 +277,8 @@ export async function createProviderProfile({
   hourlyRate,
   bio,
 }) {
+  // provider_profiles is keyed by user_id in this database; unknown columns are
+  // dropped automatically by insertRow so the profile still saves.
   const payload = {
     user_id: userId,
     business_name: businessName || '',
@@ -256,11 +292,11 @@ export async function createProviderProfile({
   };
 
   try {
-    return normalizeProvider(await insertRow('provider_profiles', { ...payload, id: userId }));
+    return normalizeProvider(await insertRow('provider_profiles', payload));
   } catch (error) {
     if (isDuplicate(error)) {
       try {
-        return normalizeProvider(await updateRow('provider_profiles', userId, payload));
+        return normalizeProvider(await updateRowBy('provider_profiles', 'user_id', userId, payload));
       } catch (updateError) {
         console.warn('[LSP] provider profile update failed:', updateError.message);
       }
@@ -273,7 +309,9 @@ export async function createProviderProfile({
 }
 
 export async function updateProviderProfile(providerId, patch) {
-  const row = await updateRow('provider_profiles', providerId, patch);
+  const row =
+    (await updateRowBy('provider_profiles', 'user_id', providerId, patch)) ||
+    (await updateRowBy('provider_profiles', 'id', providerId, patch).catch(() => null));
   if (!row) throw new Error('Your provider profile could not be updated.');
   return normalizeProvider(row);
 }
@@ -284,19 +322,24 @@ export async function setProviderAvailability(providerId, isAvailable) {
 
 /* ------------------------------------------------------- provider services */
 
+// `services` is a shared catalogue in this database (it has no provider column),
+// so a provider sees the catalogue entries that match the categories they offer.
 export async function listProviderServices(providerId) {
-  const rows = await safeFetchAll('services');
-  return rows
+  const [serviceRows, skills] = await Promise.all([
+    safeFetchAll('services'),
+    listProviderSkills(providerId),
+  ]);
+  const offered = new Set(skills.map((skill) => String(skill.categoryId || '')).filter(Boolean));
+  return serviceRows
     .map(normalizeService)
-    .filter((service) => service && String(service.providerId) === String(providerId));
+    .filter((service) => service && service.isActive !== false)
+    .filter((service) => !offered.size || offered.has(String(service.categoryId || '')));
 }
 
-export async function addProviderService(providerId, { title, price, description }) {
+export async function addProviderService(providerId, { title, description }) {
   return normalizeService(
     await insertRow('services', {
-      provider_id: providerId,
-      title,
-      price: price === '' || price === null ? null : Number(price),
+      name: title,
       description: description || '',
       is_active: true,
     }),
@@ -309,24 +352,46 @@ export async function removeProviderService(serviceId) {
 
 /* --------------------------------------------------------- provider skills */
 
+// provider_skills links a provider to a service category in this database.
 export async function listProviderSkills(providerId) {
-  const rows = await safeFetchAll('provider_skills');
+  const [rows, categories] = await Promise.all([
+    safeFetchAll('provider_skills'),
+    safeFetchAll('service_categories'),
+  ]);
+  const nameById = new Map(categories.map((category) => [String(category.id), category.name]));
   return rows
-    .map(normalizeSkill)
-    .filter((skill) => skill && String(skill.providerId) === String(providerId));
+    .filter((row) => String(row.provider_id ?? row.user_id ?? '') === String(providerId))
+    .map((row) => ({
+      id: row.id ?? row.category_id,
+      providerId,
+      categoryId: row.category_id ?? null,
+      name:
+        nameById.get(String(row.category_id)) ||
+        pick(row, 'skill_name', 'name', 'skill', 'title') ||
+        'Skill',
+      raw: row,
+    }));
 }
 
 export async function addProviderSkill(providerId, name) {
-  return normalizeSkill(
-    await insertRow('provider_skills', {
-      provider_id: providerId,
-      skill_name: name,
-    }),
-  );
+  const categories = await safeFetchAll('service_categories');
+  const wanted = String(name || '').trim().toLowerCase();
+  const match =
+    categories.find((category) => String(category.name || '').toLowerCase() === wanted) ||
+    categories.find((category) => String(category.name || '').toLowerCase().includes(wanted));
+  if (!match) {
+    throw new Error('Choose one of the listed service categories to add as a skill.');
+  }
+  const row = await insertRow('provider_skills', {
+    provider_id: providerId,
+    category_id: match.id,
+  });
+  return { id: row.id ?? match.id, providerId, categoryId: match.id, name: match.name, raw: row };
 }
 
 export async function removeProviderSkill(skillId) {
-  await deleteRow('provider_skills', skillId);
+  const { error } = await client().from('provider_skills').delete().eq('category_id', skillId);
+  if (error) throw new DataError('provider_skills', error);
 }
 
 /* ---------------------------------------------------------------- addresses */
@@ -388,31 +453,33 @@ export async function createBooking(input) {
       ? crypto.randomUUID()
       : `token-${Date.now()}-${Math.random().toString(36).slice(2)}`;
 
+  // The existing bookings table stores the problem in `issue_description`. When it
+  // has no date/time columns the requested slot is kept in that text so nothing the
+  // customer entered is ever lost.
+  const hasSchedule = await supportsBookingSchedule();
+  const requestedSlot = [input.date, input.time].filter(Boolean).join(' at ');
+  const descriptionText = [input.description, hasSchedule || !requestedSlot ? '' : `Requested: ${requestedSlot}`]
+    .filter(Boolean)
+    .join('\n\n');
+
   const base = {
-    id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : undefined,
     client_token: clientToken,
     customer_id: input.customerId,
     service_id: input.serviceId || null,
     category_id: input.categoryId || null,
-    scheduled_date: input.date,
-    scheduled_time: input.time,
     service_address: input.address,
-    description: input.description,
+    issue_description: descriptionText,
     status: 'pending',
-    amount: input.amount === '' || input.amount === undefined ? null : input.amount,
-    created_at: new Date().toISOString(),
   };
+  if (hasSchedule) {
+    base.scheduled_date = input.date;
+    base.scheduled_time = input.time;
+  }
 
-  // provider_id may reference either the provider profile row or the auth user.
+  // provider_id may reference the provider's auth user id or the profile row.
   const variants = [
-    {
-      provider_id: input.providerUserId,
-      provider_user_id: input.providerUserId,
-      provider_profile_id: input.providerProfileId,
-    },
-    { provider_id: input.providerUserId, provider_user_id: input.providerUserId },
-    { provider_id: input.providerProfileId },
     { provider_id: input.providerUserId },
+    { provider_id: input.providerProfileId },
   ];
 
   let lastError;

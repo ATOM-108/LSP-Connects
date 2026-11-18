@@ -90,7 +90,8 @@ export function normalizeProvider(row) {
   if (!row) return null;
   const userId = pick(row, 'user_id', 'profile_id', 'provider_id', 'provider_user_id') || row.id;
   return {
-    id: row.id,
+    // provider_profiles is keyed by user_id in this database, so fall back to it.
+    id: row.id ?? userId,
     userId,
     businessName: pick(row, 'business_name', 'businessName', 'company_name', 'display_name', 'full_name', 'name') || '',
     bio: pick(row, 'bio', 'about', 'description', 'summary') || '',
