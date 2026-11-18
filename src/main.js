@@ -214,6 +214,7 @@ async function render() {
       await ensureIdentity(true);
       render();
     },
+    reloadIdentity: async () => ensureIdentity(true),
     toast,
     confirmDialog,
     role: route.role,
