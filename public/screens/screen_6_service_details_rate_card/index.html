@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>LSP Connect</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#4dffb2", "surface-dim": "#0e131e", "secondary-fixed": "#d8e2ff", "secondary": "#b9c6e8", "on-secondary": "#23304a", "surface-container-highest": "#303541", "on-primary": "#522300", "inverse-surface": "#dee2f2", "surface": "#0e131e", "tertiary": "#00e297", "secondary-container": "#3c4965", "surface-bright": "#343946", "on-error": "#690005", "on-surface": "#dee2f2", "primary-fixed-dim": "#ffb68b", "outline-variant": "#584235", "primary-container": "#ff7a00", "tertiary-fixed-dim": "#00e297", "background": "#0e131e", "on-primary-fixed": "#321200", "on-primary-fixed-variant": "#753400", "inverse-primary": "#994700", "on-tertiary-container": "#004028", "surface-variant": "#303541", "tertiary-container": "#00b779", "on-tertiary-fixed-variant": "#005234", "primary-fixed": "#ffdbc8", "surface-container-low": "#161b27", "on-primary-container": "#5c2800", "error": "#ffb4ab", "on-surface-variant": "#e0c0af", "on-secondary-fixed": "#0d1b34", "outline": "#a78b7c", "primary": "#ffb68b", "secondary-fixed-dim": "#b9c6e8", "on-secondary-fixed-variant": "#3a4762", "on-secondary-container": "#abb8d9", "inverse-on-surface": "#2b303d", "surface-container-high": "#252a36", "surface-container-lowest": "#090e19", "surface-container": "#1b1f2b", "on-error-container": "#ffdad6", "error-container": "#93000a", "on-tertiary": "#003822", "on-tertiary-fixed": "#002112", "on-background": "#dee2f2", "surface-tint": "#ffb68b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-xl": "2rem" }, "fontFamily": { "headline-sm": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "label-lg": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"] }, "fontSize": { "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container shadow-[0_0_12px_-2px_rgba(255,122,0,0.3)]"><span class="material-symbols-outlined text-xl">construction</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none tracking-tight font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Verified Local Direct</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-tertiary text-base">verified</span><span class="font-label-sm text-label-sm text-on-surface">100% Background-Verified</span></div></div><nav class="hidden md:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low" data-active-classes="bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg shadow-[0_0_15px_-3px_rgba(255,122,0,0.3)]"><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg shadow-[0_0_15px_-3px_rgba(255,122,0,0.3)]" data-path="services" href="#">Services</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="customer-profile" href="#">Profile</a></nav><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-low text-primary"><span class="material-symbols-outlined text-sm text-primary-container">payments</span><span class="font-label-sm text-label-sm font-semibold text-primary">Direct Cash &amp; UPI • Zero Fee</span></div><a class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-[0_0_16px_-4px_rgba(255,122,0,0.5)]" data-path="quick-request" href="#"><span class="material-symbols-outlined text-base">bolt</span>Quick Request</a><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Customer</span><span class="font-label-sm text-label-sm text-tertiary flex items-center justify-end gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span>Active Area</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-highest" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Subtle decorative ambient glow behind top section -->
+<div class="relative w-full max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-16">
+<div class="absolute top-10 left-1/3 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-20 right-10 w-80 h-80 bg-tertiary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Breadcrumb Hierarchy -->
+<nav class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant mb-6">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm">home</span>
+<span>Home</span>
+</a>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+<a class="hover:text-primary transition-colors" data-path="services" href="#">Services</a>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+<span class="text-primary font-semibold">Electrical Repairs</span>
+</nav>
+<!-- Header Hero Banner Card -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-high p-8 lg:p-10 shadow-xl mb-10">
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<div class="space-y-3 max-w-3xl">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-container/20 text-tertiary font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-sm">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+              Admin-Standardized Rates
+            </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-lowest text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs text-primary-container">lock</span>
+              Protected Cap Pricing
+            </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-lowest text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs">pin_drop</span>
+              Direct Pincode Dispatch
+            </span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-extrabold tracking-tight">
+            Electrical Repairs &amp; Installation
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+            Standardized catalog labor tariffs verified by platform administration. No surge pricing, hidden charges, or arbitrary quote inflations.
+          </p>
+</div>
+<!-- Live Dispatch Telemetry Widget -->
+<div class="flex flex-col sm:flex-row lg:flex-col gap-3 min-w-[240px] bg-surface-container-lowest/80 p-5 rounded-lg shadow-inner backdrop-blur-md">
+<div class="flex items-center justify-between gap-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Active Technicians</span>
+<span class="flex items-center gap-1.5 font-label-md text-label-md text-tertiary font-bold">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+              14 Online Nearby
+            </span>
+</div>
+<div class="flex items-center justify-between gap-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Average Dispatch</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">18 - 25 Mins</span>
+</div>
+<div class="flex items-center justify-between gap-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Settlement Mode</span>
+<span class="font-label-md text-label-md text-primary font-bold">Cash / UPI (100% Direct)</span>
+</div>
+</div>
+</div>
+<!-- Subtle background line graphic -->
+<div class="absolute -right-16 -bottom-16 w-80 h-80 rounded-full opacity-5 pointer-events-none bg-gradient-to-tr from-primary to-tertiary"></div>
+</div>
+<!-- Main Workbench: 2-Column Split (9 Cols Grid / 3 Cols Policy Card) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+<!-- Catalog Grid (8-9 columns) -->
+<div class="xl:col-span-8 flex flex-col gap-6">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Verified Services Catalog</h2>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Showing 4 Standardized Packages</span>
+</div>
+<!-- Service Item 1 -->
+<div class="group relative rounded-xl bg-surface-container p-6 lg:p-7 shadow-lg transition-all duration-300 hover:bg-surface-container-high hover:shadow-[0_0_24px_-4px_rgba(255,122,0,0.2)]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-container shrink-0 shadow-md">
+<span class="material-symbols-outlined text-3xl">mode_fan</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-tertiary font-bold tracking-wider uppercase">LSP-EL-101</span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+                    Standard Base
+                  </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
+                  Ceiling Fan Installation / Replacement
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                  Mounting, balancing blade alignment, down-rod wiring, canopy lock check, and safety earthing test on standard RCC ceiling hooks.
+                </p>
+</div>
+</div>
+<!-- Pricing Breakdown Pill Group -->
+<div class="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center gap-2 bg-surface-container-lowest/80 px-4 py-3 rounded-lg shrink-0">
+<div class="text-left md:text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Inspection Fee</div>
+<div class="font-label-lg text-label-lg font-bold text-on-surface">₹150</div>
+</div>
+<div class="h-6 w-px bg-surface-container-highest md:hidden"></div>
+<div class="text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Fixed Base Labor</div>
+<div class="font-headline-sm text-headline-sm font-extrabold text-primary-container">₹250</div>
+</div>
+</div>
+</div>
+<!-- Card Actions Toolbar -->
+<div class="mt-6 pt-5 flex flex-col sm:flex-row items-center justify-between gap-4 bg-surface-container-low/50 -mx-6 lg:-mx-7 -mb-6 lg:-mb-7 p-4 sm:px-7 rounded-b-xl">
+<div class="flex items-center gap-3 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs text-tertiary">schedule</span> 45 Mins Avg.</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs text-primary">currency_rupee</span> Cash / UPI Post Service</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-surface-container-highest hover:bg-secondary-container text-on-surface font-label-md text-label-md font-semibold transition-all" onclick="requestService('Ceiling Fan Installation / Replacement', 'regular')">
+<span class="material-symbols-outlined text-base">calendar_month</span>
+                Book Regular Service
+              </button>
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-md text-label-md font-bold transition-all shadow-[0_0_12px_-2px_rgba(255,122,0,0.4)]" onclick="requestService('Ceiling Fan Installation / Replacement', 'quick')">
+<span class="material-symbols-outlined text-base">bolt</span>
+                Request Quick Service
+              </button>
+</div>
+</div>
+</div>
+<!-- Service Item 2 -->
+<div class="group relative rounded-xl bg-surface-container p-6 lg:p-7 shadow-lg transition-all duration-300 hover:bg-surface-container-high hover:shadow-[0_0_24px_-4px_rgba(255,122,0,0.2)]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-container shrink-0 shadow-md">
+<span class="material-symbols-outlined text-3xl">toggle_on</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-tertiary font-bold tracking-wider uppercase">LSP-EL-102</span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+                    Standard Base
+                  </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
+                  Switchboard Repair &amp; MCB Replacement
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                  Replacement of burnt rocker switches, fuse reset, socket contact realignments, and mini circuit breaker (MCB) terminal swap.
+                </p>
+</div>
+</div>
+<!-- Pricing Breakdown Pill Group -->
+<div class="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center gap-2 bg-surface-container-lowest/80 px-4 py-3 rounded-lg shrink-0">
+<div class="text-left md:text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Inspection Fee</div>
+<div class="font-label-lg text-label-lg font-bold text-on-surface">₹100</div>
+</div>
+<div class="h-6 w-px bg-surface-container-highest md:hidden"></div>
+<div class="text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Fixed Base Labor</div>
+<div class="font-headline-sm text-headline-sm font-extrabold text-primary-container">₹200</div>
+</div>
+</div>
+</div>
+<!-- Card Actions Toolbar -->
+<div class="mt-6 pt-5 flex flex-col sm:flex-row items-center justify-between gap-4 bg-surface-container-low/50 -mx-6 lg:-mx-7 -mb-6 lg:-mb-7 p-4 sm:px-7 rounded-b-xl">
+<div class="flex items-center gap-3 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs text-tertiary">schedule</span> 30 Mins Avg.</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs text-primary">currency_rupee</span> Cash / UPI Post Service</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-surface-container-highest hover:bg-secondary-container text-on-surface font-label-md text-label-md font-semibold transition-all" onclick="requestService('Switchboard Repair &amp; MCB Replacement', 'regular')">
+<span class="material-symbols-outlined text-base">calendar_month</span>
+                Book Regular Service
+              </button>
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-md text-label-md font-bold transition-all shadow-[0_0_12px_-2px_rgba(255,122,0,0.4)]" onclick="requestService('Switchboard Repair &amp; MCB Replacement', 'quick')">
+<span class="material-symbols-outlined text-base">bolt</span>
+                Request Quick Service
+              </button>
+</div>
+</div>
+</div>
+<!-- Service Item 3 -->
+<div class="group relative rounded-xl bg-surface-container p-6 lg:p-7 shadow-lg transition-all duration-300 hover:bg-surface-container-high hover:shadow-[0_0_24px_-4px_rgba(255,122,0,0.2)]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-container shrink-0 shadow-md">
+<span class="material-symbols-outlined text-3xl">offline_bolt</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-tertiary font-bold tracking-wider uppercase">LSP-EL-103</span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-primary-container/10 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs">troubleshoot</span>
+                    Comprehensive
+                  </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
+                  Complete Room Wiring Diagnostics
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                  Comprehensive multi-meter phase-neutral load testing, concealed conduit short-circuit isolation, and master breaker load analysis.
+                </p>
+</div>
+</div>
+<!-- Pricing Breakdown Pill Group -->
+<div class="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center gap-2 bg-surface-container-lowest/80 px-4 py-3 rounded-lg shrink-0">
+<div class="text-left md:text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Inspection Fee</div>
+<div class="font-label-lg text-label-lg font-bold text-on-surface">₹200</div>
+</div>
+<div class="h-6 w-px bg-surface-container-highest md:hidden"></div>
+<div class="text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Fixed Base Labor</div>
+<div class="font-headline-sm text-headline-sm font-extrabold text-primary-container">₹500</div>
+</div>
+</div>
+</div>
+<!-- Card Actions Toolbar -->
+<div class="mt-6 pt-5 flex flex-col sm:flex-row items-center justify-between gap-4 bg-surface-container-low/50 -mx-6 lg:-mx-7 -mb-6 lg:-mb-7 p-4 sm:px-7 rounded-b-xl">
+<div class="flex items-center gap-3 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs text-tertiary">schedule</span> 90 Mins Avg.</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs text-primary">currency_rupee</span> Cash / UPI Post Service</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-surface-container-highest hover:bg-secondary-container text-on-surface font-label-md text-label-md font-semibold transition-all" onclick="requestService('Complete Room Wiring Diagnostics', 'regular')">
+<span class="material-symbols-outlined text-base">calendar_month</span>
+                Book Regular Service
+              </button>
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-md text-label-md font-bold transition-all shadow-[0_0_12px_-2px_rgba(255,122,0,0.4)]" onclick="requestService('Complete Room Wiring Diagnostics', 'quick')">
+<span class="material-symbols-outlined text-base">bolt</span>
+                Request Quick Service
+              </button>
+</div>
+</div>
+</div>
+<!-- Service Item 4 -->
+<div class="group relative rounded-xl bg-surface-container p-6 lg:p-7 shadow-lg transition-all duration-300 hover:bg-surface-container-high hover:shadow-[0_0_24px_-4px_rgba(255,122,0,0.2)]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-container shrink-0 shadow-md">
+<span class="material-symbols-outlined text-3xl">water_heater</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-tertiary font-bold tracking-wider uppercase">LSP-EL-104</span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+                    Standard Base
+                  </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold group-hover:text-primary transition-colors">
+                  Geyser Connection &amp; Earthing Check
+                </h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                  Heavy-load 16A/25A power plug fitting, high-amp thermal cutout check, tank grounding loop verification, and leakage current test.
+                </p>
+</div>
+</div>
+<!-- Pricing Breakdown Pill Group -->
+<div class="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center gap-2 bg-surface-container-lowest/80 px-4 py-3 rounded-lg shrink-0">
+<div class="text-left md:text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Inspection Fee</div>
+<div class="font-label-lg text-label-lg font-bold text-on-surface">₹150</div>
+</div>
+<div class="h-6 w-px bg-surface-container-highest md:hidden"></div>
+<div class="text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Fixed Base Labor</div>
+<div class="font-headline-sm text-headline-sm font-extrabold text-primary-container">₹350</div>
+</div>
+</div>
+</div>
+<!-- Card Actions Toolbar -->
+<div class="mt-6 pt-5 flex flex-col sm:flex-row items-center justify-between gap-4 bg-surface-container-low/50 -mx-6 lg:-mx-7 -mb-6 lg:-mb-7 p-4 sm:px-7 rounded-b-xl">
+<div class="flex items-center gap-3 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs text-tertiary">schedule</span> 60 Mins Avg.</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs text-primary">currency_rupee</span> Cash / UPI Post Service</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-surface-container-highest hover:bg-secondary-container text-on-surface font-label-md text-label-md font-semibold transition-all" onclick="requestService('Geyser Connection &amp; Earthing Check', 'regular')">
+<span class="material-symbols-outlined text-base">calendar_month</span>
+                Book Regular Service
+              </button>
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-md text-label-md font-bold transition-all shadow-[0_0_12px_-2px_rgba(255,122,0,0.4)]" onclick="requestService('Geyser Connection &amp; Earthing Check', 'quick')">
+<span class="material-symbols-outlined text-base">bolt</span>
+                Request Quick Service
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Policy, Rate Transparency & Verification Inspector (4 columns) -->
+<div class="xl:col-span-4 flex flex-col gap-6 sticky top-24">
+<!-- Mandatory Pricing Guidelines Card -->
+<div class="rounded-xl bg-surface-container-high p-6 lg:p-7 shadow-xl">
+<div class="flex items-center gap-3 mb-5">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 text-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">policy</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Pricing Guidelines</h3>
+<p class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Direct Direct-Settlement Protocol</p>
+</div>
+</div>
+<!-- Highlight Box -->
+<div class="rounded-lg bg-surface-container-lowest p-4 mb-5 text-on-surface leading-relaxed">
+<p class="font-body-md text-body-md text-on-surface-variant">
+              All base labor fees are fixed by <span class="font-semibold text-on-surface">LSP Admin</span>. Any additional replacement parts require an upfront <span class="text-primary font-semibold">Custom Quotation</span> approved by you before installation. Payments made directly via <span class="text-tertiary font-semibold">Cash or UPI</span> upon completion.
+            </p>
+</div>
+<!-- Step-by-Step Policy Checklist -->
+<ul class="space-y-4 mb-6 font-body-sm text-body-sm">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg shrink-0 mt-0.5">verified</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface block font-semibold">Admin-Capped Labor</span>
+<span class="text-on-surface-variant">Technicians cannot charge more than the specified labor fee for the assigned task.</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg shrink-0 mt-0.5">price_check</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface block font-semibold">Prior Approval for Spares</span>
+<span class="text-on-surface-variant">Technicians present real-time material receipts or digital estimates. No work starts until you sign off.</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-lg shrink-0 mt-0.5">point_of_sale</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface block font-semibold">100% Direct Settlement</span>
+<span class="text-on-surface-variant">Direct cash handover or UPI QR scan directly to the technician. Zero portal commission deduction.</span>
+</div>
+</li>
+</ul>
+<!-- Compliance Metric Bar -->
+<div class="p-4 rounded-lg bg-surface-container flex flex-col gap-2">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Admin Standard Compliance</span>
+<span class="text-tertiary font-bold">100% Guaranteed</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="w-full h-full bg-tertiary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Verified Safety Guarantee Card -->
+<div class="rounded-xl bg-surface-container p-6 shadow-md flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-tertiary-container/20 text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">shield_person</span>
+</div>
+<div class="space-y-1">
+<h4 class="font-label-lg text-label-lg text-on-surface font-semibold">Need Instant Help?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Quick service matches the nearest verified technician with a 30-minute arrival window.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Modal / Notification Trigger Simulation -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 pointer-events-none" id="bookingConfirmationToast">
+<div class="flex items-center gap-3 bg-surface-container-highest text-on-surface px-5 py-4 rounded-xl shadow-2xl">
+<span class="material-symbols-outlined text-tertiary text-2xl" id="toastIcon">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold" id="toastTitle">Service Initiated</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="toastDesc">Looking for nearby verified technicians...</span>
+</div>
+<button class="ml-4 text-on-surface-variant hover:text-on-surface" onclick="hideToast()">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+</div>
+<script>
+    function requestService(serviceName, type) {
+      const toast = document.getElementById('bookingConfirmationToast');
+      const toastTitle = document.getElementById('toastTitle');
+      const toastDesc = document.getElementById('toastDesc');
+      const toastIcon = document.getElementById('toastIcon');
+
+      if (!toast) return;
+
+      if (type === 'quick') {
+        toastTitle.innerText = 'Quick Dispatch Queued';
+        toastDesc.innerText = serviceName + ' — Priority dispatch triggered.';
+        toastIcon.innerText = 'bolt';
+        toastIcon.className = 'material-symbols-outlined text-primary-container text-2xl';
+      } else {
+        toastTitle.innerText = 'Regular Booking Slot Selected';
+        toastDesc.innerText = serviceName + ' — Select preferred time in schedule.';
+        toastIcon.innerText = 'calendar_month';
+        toastIcon.className = 'material-symbols-outlined text-tertiary text-2xl';
+      }
+
+      toast.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        hideToast();
+      }, 4500);
+    }
+
+    function hideToast() {
+      const toast = document.getElementById('bookingConfirmationToast');
+      if (toast) {
+        toast.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
+        toast.classList.remove('translate-y-0', 'opacity-100');
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl py-space-xl shadow-[0_-1px_12px_rgba(0,0,0,0.5)]"><div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-body-sm text-body-sm text-on-surface-variant">Direct Local Service Dispatch System</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-sm">currency_rupee</span>100% Cash / UPI Direct Settlement</span><span class="flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-sm">security</span>Verified Technicians</span></div><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 LSP Connect Platform. Direct Provider Operations.</div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>

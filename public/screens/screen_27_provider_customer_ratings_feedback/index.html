@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"inverse-primary":"#994700","surface-bright":"#343946","surface-tint":"#ffb68b","on-surface-variant":"#e0c0af","surface-dim":"#0e131e","tertiary":"#00e297","secondary":"#b9c6e8","primary-fixed":"#ffdbc8","secondary-container":"#3c4965","surface-container-high":"#252a36","on-tertiary-container":"#004028","outline-variant":"#584235","on-tertiary-fixed":"#002112","secondary-fixed":"#d8e2ff","error-container":"#93000a","on-primary-fixed-variant":"#753400","surface-variant":"#303541","inverse-surface":"#dee2f2","tertiary-fixed-dim":"#00e297","on-tertiary":"#003822","on-primary-fixed":"#321200","surface-container-lowest":"#090e19","primary-fixed-dim":"#ffb68b","on-error":"#690005","surface":"#0e131e","on-primary-container":"#5c2800","tertiary-container":"#00b779","on-primary":"#522300","primary":"#ffb68b","surface-container":"#1b1f2b","on-tertiary-fixed-variant":"#005234","on-surface":"#dee2f2","on-secondary-container":"#abb8d9","background":"#0e131e","on-secondary-fixed":"#0d1b34","surface-container-highest":"#303541","tertiary-fixed":"#4dffb2","inverse-on-surface":"#2b303d","surface-container-low":"#161b27","on-secondary":"#23304a","on-background":"#dee2f2","on-secondary-fixed-variant":"#3a4762","primary-container":"#ff7a00","secondary-fixed-dim":"#b9c6e8","outline":"#a78b7c","on-error-container":"#ffdad6","error":"#ffb4ab"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"gutter":"1.5rem","space-lg":"1.5rem","space-xl":"2rem","margin":"2rem","space-md":"1rem","space-xs":"0.25rem","space-sm":"0.5rem"},"fontFamily":{"headline-xl":["Inter"],"label-md":["Inter"],"label-lg":["Inter"],"body-lg":["Inter"],"headline-md":["Inter"],"headline-sm":["Inter"],"label-sm":["Inter"],"headline-lg":["Inter"],"body-md":["Inter"],"body-sm":["Inter"]},"fontSize":{"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"700"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface selection:bg-primary-container selection:text-on-primary min-h-screen"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-7xl mx-auto px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><div class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-surface-container-high overflow-hidden shadow-[0_0_20px_-3px_rgba(255,122,0,0.25)]"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">LSP Connect</span><span class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-bold uppercase tracking-wider">Provider Portal</span></div><span class="font-label-sm text-label-sm text-on-surface-variant">Operations Desk</span></div></div></div><nav class="hidden xl:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low" data-active-classes="bg-primary-container text-on-primary font-bold rounded-lg shadow-[0_0_20px_-3px_rgba(255,122,0,0.25)]"><a class="px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" data-path="provider-jobs-dashboard" href="#">Jobs &amp; Requests</a><a class="px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" data-path="provider-earnings-&amp;-payment-history" href="#">Earnings &amp; History</a><a class="px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" data-path="provider-profile-&amp;-skills" href="#">Profile &amp; Skills</a><a class="px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" data-path="provider-customer-ratings-&amp;-feedback" href="#">Reviews &amp; Ratings</a></nav><div class="flex items-center gap-space-sm"><div class="hidden lg:flex items-center gap-space-xs px-space-sm py-1.5 rounded-full bg-surface-container-low"><span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary"></span></span><span class="font-label-sm text-label-sm text-tertiary font-bold tracking-wider">ONLINE / READY</span></div><div class="hidden md:flex items-center gap-1 px-space-sm py-1.5 rounded-full bg-surface-container-low text-tertiary"><span class="material-symbols-outlined text-label-md">verified</span><span class="font-label-sm text-label-sm font-bold">KYC Verified</span></div><div class="hidden 2xl:flex items-center gap-1 px-space-sm py-1.5 rounded-full bg-surface-container-low text-primary"><span class="material-symbols-outlined text-label-md">savings</span><span class="font-label-sm text-label-sm font-bold">0% Commission</span></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary ring-2 ring-surface"></span></div><div class="hidden sm:flex flex-col text-left"><span class="font-label-md text-label-md text-on-surface font-semibold">Santosh Pandey</span><span class="font-label-sm text-label-sm text-on-surface-variant">Master Electrician</span></div></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-140px)]"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Orbs (Contained) -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-32 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-20 right-10 w-80 h-80 bg-tertiary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-margin py-space-lg w-full flex flex-col gap-space-xl relative z-10">
+<!-- Breadcrumbs & Operational Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<!-- Breadcrumb Rail -->
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<span class="hover:text-primary transition-colors cursor-pointer">Provider Portal</span>
+<span class="text-secondary/40 font-bold">/</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Performance</span>
+<span class="text-secondary/40 font-bold">/</span>
+<span class="text-primary font-bold">Customer Ratings &amp; Feedback</span>
+</div>
+<!-- Page Title + Subtitle -->
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight mt-1">
+            Customer Ratings &amp; Verified Feedback
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+            Authentic reviews submitted by verified clients after completed bookings and direct doorstep settlements.
+          </p>
+</div>
+<!-- System Readout / Read-Only Tag -->
+<div class="flex items-center gap-space-sm bg-surface-container-high px-space-md py-2.5 rounded-xl shadow-sm self-start md:self-auto">
+<div class="flex items-center gap-1.5 text-secondary">
+<span class="material-symbols-outlined text-base">verified_user</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Strict Client-Authored Feed</span>
+</div>
+<span class="w-1 h-3.5 bg-surface-variant rounded-full"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Immutable Logs</span>
+</div>
+</div>
+<!-- Top Summary Grid (3 Cards Bento) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Card 1: Overall Average Score -->
+<div class="lg:col-span-4 bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/10 rounded-full blur-2xl"></div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-bold">Verified Reputation</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-tertiary font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span> Top 2% Provider
+            </span>
+</div>
+<div class="flex items-baseline gap-3 my-2">
+<span class="font-headline-xl text-[56px] leading-none text-on-surface font-extrabold tracking-tight">4.85</span>
+<div class="flex flex-col">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">out of 5.0 base</span>
+</div>
+</div>
+<div class="mt-4 pt-4 bg-surface-container/60 -mx-space-lg -mb-space-lg px-space-lg py-space-md flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Total Audited Reviews</span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">290</span>
+</div>
+<div class="h-8 w-px bg-surface-variant"></div>
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Recommendation Rate</span>
+<span class="font-headline-sm text-headline-sm font-bold text-tertiary">98.4%</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Star Distribution Histogram -->
+<div class="lg:col-span-4 bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest font-bold">Star Breakdown</span>
+<span class="font-label-sm text-label-sm text-secondary">290 Total Ratings</span>
+</div>
+<!-- Histogram Rows -->
+<div class="flex flex-col gap-2 my-auto">
+<!-- 5 Star -->
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm">
+<span class="w-12 text-on-surface flex items-center gap-1 font-semibold">5 <span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">star</span></span>
+<div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 88%;"></div>
+</div>
+<span class="w-14 text-right text-on-surface font-semibold">88% <span class="text-on-surface-variant text-[10px]">(255)</span></span>
+</div>
+<!-- 4 Star -->
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm">
+<span class="w-12 text-on-surface flex items-center gap-1 font-semibold">4 <span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">star</span></span>
+<div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary-container/70 rounded-full" style="width: 9%;"></div>
+</div>
+<span class="w-14 text-right text-on-surface font-semibold">9% <span class="text-on-surface-variant text-[10px]">(26)</span></span>
+</div>
+<!-- 3 Star -->
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm">
+<span class="w-12 text-on-surface-variant flex items-center gap-1">3 <span class="material-symbols-outlined text-xs text-outline" style="font-variation-settings: 'FILL' 1;">star</span></span>
+<div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-outline rounded-full" style="width: 2%;"></div>
+</div>
+<span class="w-14 text-right text-on-surface-variant">2% <span class="text-[10px]">(6)</span></span>
+</div>
+<!-- 2 Star -->
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm">
+<span class="w-12 text-on-surface-variant flex items-center gap-1">2 <span class="material-symbols-outlined text-xs text-outline" style="font-variation-settings: 'FILL' 1;">star</span></span>
+<div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-outline/60 rounded-full" style="width: 1%;"></div>
+</div>
+<span class="w-14 text-right text-on-surface-variant">0.5% <span class="text-[10px]">(2)</span></span>
+</div>
+<!-- 1 Star -->
+<div class="flex items-center gap-space-sm font-label-sm text-label-sm">
+<span class="w-12 text-on-surface-variant flex items-center gap-1">1 <span class="material-symbols-outlined text-xs text-outline" style="font-variation-settings: 'FILL' 1;">star</span></span>
+<div class="flex-1 h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 1%;"></div>
+</div>
+<span class="w-14 text-right text-on-surface-variant">0.5% <span class="text-[10px]">(1)</span></span>
+</div>
+</div>
+<div class="mt-2 text-right">
+<span class="font-label-sm text-[11px] text-tertiary flex items-center justify-end gap-1 font-medium">
+<span class="material-symbols-outlined text-xs">shield_lock</span> Direct Doorstep Handover Audited
+            </span>
+</div>
+</div>
+<!-- Card 3: Top Performance Tags Awarded by Customers -->
+<div class="lg:col-span-4 bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest font-bold">Top Praised Qualities</span>
+<span class="font-label-sm text-label-sm text-primary">Customer Badges</span>
+</div>
+<div class="flex flex-wrap gap-2 my-auto">
+<div class="px-space-sm py-1.5 rounded-lg bg-surface-container flex items-center gap-2 group hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm text-primary">schedule</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Punctual Arrival</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-primary font-bold text-[10px]">214</span>
+</div>
+<div class="px-space-sm py-1.5 rounded-lg bg-surface-container flex items-center gap-2 group hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm text-tertiary">cleaning_services</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Clean Workmanship</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-tertiary font-bold text-[10px]">198</span>
+</div>
+<div class="px-space-sm py-1.5 rounded-lg bg-surface-container flex items-center gap-2 group hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm text-primary-fixed">payments</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Fair Pricing / No Markups</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-primary-fixed font-bold text-[10px]">182</span>
+</div>
+<div class="px-space-sm py-1.5 rounded-lg bg-surface-container flex items-center gap-2 group hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm text-secondary">forum</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Polite &amp; Explanatory</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary font-bold text-[10px]">164</span>
+</div>
+<div class="px-space-sm py-1.5 rounded-lg bg-surface-container flex items-center gap-2 group hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm text-tertiary-fixed">health_and_safety</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Followed Safety Protocols</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-tertiary-fixed font-bold text-[10px]">145</span>
+</div>
+</div>
+<div class="mt-2 text-left">
+<span class="font-label-sm text-[11px] text-on-surface-variant">Calculated automatically from post-service checklist tags</span>
+</div>
+</div>
+</div>
+<!-- Filter, Search & Controls Bar -->
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-sm flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-space-md">
+<!-- Left Filter Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pb-2 xl:pb-0 scrollbar-none">
+<button class="px-space-md py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-bold shadow-[0_0_15px_-3px_rgba(255,122,0,0.3)] whitespace-nowrap">
+            All Reviews (290)
+          </button>
+<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-semibold transition-colors whitespace-nowrap">
+            5 Stars (255)
+          </button>
+<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-semibold transition-colors whitespace-nowrap">
+            4 Stars (26)
+          </button>
+<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center gap-1.5 whitespace-nowrap">
+<span class="material-symbols-outlined text-sm text-primary">photo_library</span>
+            With Photos / Proof
+          </button>
+<button class="px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-semibold transition-colors whitespace-nowrap">
+            Recent 30 Days
+          </button>
+</div>
+<!-- Right Controls: Search & Sort -->
+<div class="flex items-center gap-space-sm flex-wrap sm:flex-nowrap">
+<div class="relative flex-1 sm:w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-base pointer-events-none">search</span>
+<input class="w-full bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 font-body-md text-body-md pl-9 pr-3 py-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="Search reviews by keyword or booking ref..." type="text"/>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest text-on-surface font-label-md text-label-md pl-3 pr-8 py-2 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary-container cursor-pointer font-medium">
+<option>Sort by: Most Recent</option>
+<option>Sort by: Highest Rated</option>
+<option>Sort by: Lowest Rated</option>
+<option>Sort by: Booking Value</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-base">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Customer Reviews Feed Section -->
+<div class="flex flex-col gap-space-lg">
+<!-- Review Card 1 (Ceiling Fan & MCB) -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md transition-all hover:bg-surface-container duration-150">
+<!-- Top Row: Customer Info, Rating, Date, Booking Badge -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-bold font-headline-sm">
+                RV
+              </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Rohit Verma / Aris Thorne</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary">check_circle</span> Verified Client
+                  </span>
+</div>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-xs">location_on</span> Madhapur, Hyderabad</span>
+<span>•</span>
+<span>Nov 17, 2025</span>
+</div>
+</div>
+</div>
+<!-- Stars & Audit Badge -->
+<div class="flex flex-col md:items-end gap-1">
+<div class="flex items-center gap-1">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface ml-1">5.0</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">Job Completed &amp; Signed Off</span>
+</div>
+</div>
+<!-- Metadata Pill Bar (Booking Ref, Settlement, Task) -->
+<div class="flex flex-wrap items-center gap-space-xs p-space-sm rounded-lg bg-surface-container">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface font-mono">
+<span class="material-symbols-outlined text-xs text-primary">tag</span>
+              #LSP-2025-88392
+            </div>
+<span class="text-surface-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Ceiling Fan Installation &amp; Switchboard Check</span>
+<span class="text-surface-variant">•</span>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-tertiary font-bold">
+<span class="material-symbols-outlined text-xs">payments</span>
+              ₹800.00 Settled via UPI
+            </div>
+<span class="text-surface-variant">•</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Direct Doorstep Handover (0% Admin Fee)</span>
+</div>
+<!-- Tags Awarded -->
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span> Punctual Arrival
+            </span>
+<span class="px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">cleaning_services</span> Clean Workmanship
+            </span>
+<span class="px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-primary-fixed flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">currency_rupee</span> Fair Pricing
+            </span>
+<span class="px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-tertiary-fixed flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">shield</span> Safety Protocols
+            </span>
+</div>
+<!-- Written Review Body -->
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+            “Santosh arrived right on time, explained the MCB switch issue clearly with no hidden markups, and cleaned up the drill dust after finishing. Very professional direct service.”
+          </p>
+<!-- Customer Uploaded Proof -->
+<div class="flex flex-col gap-2 pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Attached Completion Photo</span>
+<div class="flex items-center gap-space-md">
+<div class="relative group cursor-pointer overflow-hidden rounded-lg w-40 h-28 bg-surface-container-lowest shadow-sm">
+<img class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" data-alt="Close up photography of a newly installed modern matte black ceiling fan neatly balanced against a clean residential ceiling, alongside an opened modular distribution board with fresh labeled MCB circuit breakers. Dim atmospheric warm lighting, clean industrial dark tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt0IkXLz83Yw7PkeOSSeGXs1fEZeNVb94xTrabtz2xo5Cn3V1-ZsjaTfW9NJDn_ZGO_wNGdTnJp0Ca1ag31JiXZ-SCkWGc4KFs2LCcOtOELP3uqh8SAHEFzB_1xbVt80EMtUJ-hdgXEO-Sn0DpUej4H8d6Q0nnp-K38qjVKdPrpXESR45IUhOllD1oPugGXicv9h8nm6hVOWncgXzsYwsImJqlh5dvc3Fz4LjLeCFu"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/80 via-transparent to-transparent flex items-end p-2">
+<span class="font-label-sm text-[10px] text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary">check</span> Fan &amp; MCB Mounted
+                  </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Review Card 2 (Geyser Tripping Repair) -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md transition-all hover:bg-surface-container duration-150">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-tertiary font-bold font-headline-sm">
+                RN
+              </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Rajeshwar Nair</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary">check_circle</span> Verified Client
+                  </span>
+</div>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-xs">location_on</span> HAL 2nd Stage</span>
+<span>•</span>
+<span>Nov 17, 2025</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:items-end gap-1">
+<div class="flex items-center gap-1">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface ml-1">5.0</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">Job Completed &amp; Signed Off</span>
+</div>
+</div>
+<!-- Metadata Pill Bar -->
+<div class="flex flex-wrap items-center gap-space-xs p-space-sm rounded-lg bg-surface-container">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface font-mono">
+<span class="material-symbols-outlined text-xs text-primary">tag</span>
+              #LSP-2025-88204
+            </div>
+<span class="text-surface-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Geyser Tripping Repair &amp; Coil Replacement</span>
+<span class="text-surface-variant">•</span>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-tertiary font-bold">
+<span class="material-symbols-outlined text-xs">payments</span>
+              ₹650.00 Settled via UPI
+            </div>
+<span class="text-surface-variant">•</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Direct Doorstep Handover (0% Admin Fee)</span>
+</div>
+<!-- Tags Awarded -->
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">bolt</span> Diagnostic Precision
+            </span>
+<span class="px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-tertiary-fixed flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified</span> Prompt Handover
+            </span>
+<span class="px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-primary-fixed flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">currency_rupee</span> Zero Extra Charges
+            </span>
+</div>
+<!-- Written Review Body -->
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+            “Quick response to the geyser heating coil short circuit. Diagnosed the earth leakage with multi-meter and replaced thermostat. Zero drama on payment, paid directly via GPay.”
+          </p>
+</div>
+<!-- Review Card 3 (Main Distribution Board Earthing) -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md transition-all hover:bg-surface-container duration-150">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary-fixed font-bold font-headline-sm">
+                PR
+              </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Preethi Raman</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary">check_circle</span> Verified Client
+                  </span>
+</div>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-xs">location_on</span> Domlur</span>
+<span>•</span>
+<span>Nov 16, 2025</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:items-end gap-1">
+<div class="flex items-center gap-1">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface ml-1">5.0</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">Job Completed &amp; Signed Off</span>
+</div>
+</div>
+<!-- Metadata Pill Bar -->
+<div class="flex flex-wrap items-center gap-space-xs p-space-sm rounded-lg bg-surface-container">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface font-mono">
+<span class="material-symbols-outlined text-xs text-primary">tag</span>
+              #LSP-2025-88190
+            </div>
+<span class="text-surface-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Main Distribution Board Earthing &amp; Fuse Overhaul</span>
+<span class="text-surface-variant">•</span>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-tertiary font-bold">
+<span class="material-symbols-outlined text-xs">payments</span>
+              ₹890.00 Settled via Cash
+            </div>
+<span class="text-surface-variant">•</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Direct Doorstep Handover (0% Admin Fee)</span>
+</div>
+<!-- Tags Awarded -->
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">handyman</span> Technical Mastery
+            </span>
+<span class="px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">chat</span> Polite &amp; Explanatory
+            </span>
+<span class="px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-tertiary-fixed flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">shield</span> Followed Safety Protocols
+            </span>
+</div>
+<!-- Written Review Body -->
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+            “Excellent technician. Checked all earthing circuits and replaced corroded fuse links. Highly recommend for any serious domestic electrical repair.”
+          </p>
+</div>
+<!-- Review Card 4 (Kitchen Modular Socket) -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-md flex flex-col gap-space-md transition-all hover:bg-surface-container duration-150">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-secondary font-bold font-headline-sm">
+                AG
+              </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Ananya Goswami</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary">check_circle</span> Verified Client
+                  </span>
+</div>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-xs">location_on</span> Koramangala 4th Block</span>
+<span>•</span>
+<span>Nov 15, 2025</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:items-end gap-1">
+<div class="flex items-center gap-1">
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base text-surface-variant" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface ml-1">4.0</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">Job Completed &amp; Signed Off</span>
+</div>
+</div>
+<!-- Metadata Pill Bar -->
+<div class="flex flex-wrap items-center gap-space-xs p-space-sm rounded-lg bg-surface-container">
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface font-mono">
+<span class="material-symbols-outlined text-xs text-primary">tag</span>
+              #LSP-2025-88145
+            </div>
+<span class="text-surface-variant">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Kitchen Chimney 16A Modular Socket Replacement</span>
+<span class="text-surface-variant">•</span>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-tertiary font-bold">
+<span class="material-symbols-outlined text-xs">payments</span>
+              ₹380.00 Settled via UPI
+            </div>
+<span class="text-surface-variant">•</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Direct Doorstep Handover (0% Admin Fee)</span>
+</div>
+<!-- Tags Awarded -->
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">build</span> Fixed Issue Properly
+            </span>
+<span class="px-2 py-1 rounded bg-surface-container-high font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">traffic</span> Traffic Delay (10 mins)
+            </span>
+</div>
+<!-- Written Review Body -->
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+            “Replaced 16A chimney switch socket. Fixed the problem properly. Arrived 10 minutes late due to traffic, but did great work.”
+          </p>
+</div>
+</div>
+<!-- Pagination / Feed Footer -->
+<div class="flex items-center justify-between p-space-md bg-surface-container-low rounded-xl shadow-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+          Showing <span class="text-on-surface font-semibold">1 - 4</span> of <span class="text-on-surface font-semibold">290</span> verified customer reviews
+        </span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors cursor-not-allowed opacity-50" disabled="">
+            Previous
+          </button>
+<span class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary font-label-sm text-label-sm font-bold">
+            1
+          </span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors">
+            2
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors">
+            3
+          </button>
+<span class="text-on-surface-variant text-xs">...</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors">
+            73
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors">
+            Next
+          </button>
+</div>
+</div>
+<!-- Strict Platform Policy Notice Bar -->
+<div class="rounded-xl p-space-lg bg-surface-container-low flex flex-col md:flex-row items-start md:items-center gap-space-md shadow-inner">
+<div class="p-3 rounded-lg bg-surface-container-high text-primary flex-shrink-0">
+<span class="material-symbols-outlined text-2xl">verified</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-lg text-label-lg text-on-surface font-bold tracking-tight">
+            LSP Connect Authentic Review Policy
+          </span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Reviews are immutable and indexed exclusively from customers with verified completed bookings and signed-off direct settlements. Providers cannot rate customers or delete reviews.
+          </p>
+</div>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl"><div class="max-w-7xl mx-auto px-margin py-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-col items-center md:items-start gap-space-xs"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">LSP Connect</span><span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Direct Dispatch System</span></div><p class="font-body-sm text-body-sm text-on-surface-variant text-center md:text-left">100% Cash / UPI Direct Doorstep Handover • Zero Platform Commission Deductions • Admin Standardized Base Tariffs</p></div><div class="flex flex-col items-center md:items-end gap-space-xs text-on-surface-variant"><div class="flex items-center gap-space-md font-body-sm text-body-sm"><a class="hover:text-primary transition-colors duration-150" data-path="provider-jobs-dashboard" href="#">Dispatch Hub</a><span>•</span><a class="hover:text-primary transition-colors duration-150" data-path="provider-availability-indicator" href="#">Live Radar</a><span>•</span><a class="hover:text-primary transition-colors duration-150" data-path="provider-earnings-&amp;-payment-history" href="#">Ledger</a></div><span class="font-label-sm text-label-sm text-on-surface-variant">© 2025 LSP Connect Platform. Provider Field Operations Network.</span></div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>

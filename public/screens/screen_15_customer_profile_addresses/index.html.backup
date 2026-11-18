@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>LSP Connect</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#4dffb2", "surface-dim": "#0e131e", "secondary-fixed": "#d8e2ff", "secondary": "#b9c6e8", "on-secondary": "#23304a", "surface-container-highest": "#303541", "on-primary": "#522300", "inverse-surface": "#dee2f2", "surface": "#0e131e", "tertiary": "#00e297", "secondary-container": "#3c4965", "surface-bright": "#343946", "on-error": "#690005", "on-surface": "#dee2f2", "primary-fixed-dim": "#ffb68b", "outline-variant": "#584235", "primary-container": "#ff7a00", "tertiary-fixed-dim": "#00e297", "background": "#0e131e", "on-primary-fixed": "#321200", "on-primary-fixed-variant": "#753400", "inverse-primary": "#994700", "on-tertiary-container": "#004028", "surface-variant": "#303541", "tertiary-container": "#00b779", "on-tertiary-fixed-variant": "#005234", "primary-fixed": "#ffdbc8", "surface-container-low": "#161b27", "on-primary-container": "#5c2800", "error": "#ffb4ab", "on-surface-variant": "#e0c0af", "on-secondary-fixed": "#0d1b34", "outline": "#a78b7c", "primary": "#ffb68b", "secondary-fixed-dim": "#b9c6e8", "on-secondary-fixed-variant": "#3a4762", "on-secondary-container": "#abb8d9", "inverse-on-surface": "#2b303d", "surface-container-high": "#252a36", "surface-container-lowest": "#090e19", "surface-container": "#1b1f2b", "on-error-container": "#ffdad6", "error-container": "#93000a", "on-tertiary": "#003822", "on-tertiary-fixed": "#002112", "on-background": "#dee2f2", "surface-tint": "#ffb68b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-xl": "2rem" }, "fontFamily": { "headline-sm": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "label-lg": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"] }, "fontSize": { "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container shadow-[0_0_12px_-2px_rgba(255,122,0,0.3)]"><span class="material-symbols-outlined text-xl">construction</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none tracking-tight font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Verified Local Direct</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-tertiary text-base">verified</span><span class="font-label-sm text-label-sm text-on-surface">100% Background-Verified</span></div></div><nav class="hidden md:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low" data-active-classes="bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg shadow-[0_0_15px_-3px_rgba(255,122,0,0.3)]"><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="services" href="#">Services</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="customer-profile" href="#">Profile</a></nav><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-low text-primary"><span class="material-symbols-outlined text-sm text-primary-container">payments</span><span class="font-label-sm text-label-sm font-semibold text-primary">Direct Cash &amp; UPI • Zero Fee</span></div><a class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-[0_0_16px_-4px_rgba(255,122,0,0.5)]" data-path="quick-request" href="#"><span class="material-symbols-outlined text-base">bolt</span>Quick Request</a><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Customer</span><span class="font-label-sm text-label-sm text-tertiary flex items-center justify-end gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span>Active Area</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-highest" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<div class="max-w-7xl mx-auto w-full px-6 lg:px-12 py-space-xl">
+<!-- Top Breadcrumb & Metadata Stream -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm mb-space-lg">
+<nav class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm">home</span>
+          Home
+        </a>
+<span class="text-outline text-xs">/</span>
+<span class="text-on-surface font-semibold">Profile &amp; Account Settings</span>
+</nav>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-high text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Hyderabad Hub Online</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant hidden sm:inline">CID #LSP-8942-IN</span>
+</div>
+</div>
+<!-- Page Header Ribbon -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md mb-space-xl pb-space-lg bg-surface-container-lowest/60 rounded-xl p-space-lg">
+<div>
+<div class="flex items-center gap-space-xs text-primary font-label-sm text-label-sm uppercase tracking-widest font-bold mb-1">
+<span class="material-symbols-outlined text-base">manage_accounts</span>
+          Customer Command Center
+        </div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Customer Profile &amp; Service Locations</h1>
+</div>
+<div class="flex items-center gap-space-sm self-start sm:self-auto">
+<span class="flex items-center gap-1 text-tertiary font-label-md text-label-md bg-tertiary-container/10 px-space-sm py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-base">verified_user</span>
+          Direct Dispatch Account
+        </span>
+</div>
+</div>
+<!-- Main 30/70 Asymmetric Split Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT COLUMN: User Summary & Navigation Rail (approx 30% -> col-span-4) -->
+<aside class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Summary Profile Card -->
+<div class="relative bg-surface-container-low rounded-xl p-space-lg overflow-hidden shadow-xl shadow-surface-container-lowest/50">
+<div class="absolute -top-16 -right-16 w-36 h-36 rounded-full bg-primary/10 blur-2xl pointer-events-none"></div>
+<div class="flex items-start gap-space-md mb-space-lg">
+<div class="relative">
+<div class="w-16 h-16 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary-container font-headline-md text-headline-md font-bold shadow-md">
+                AT
+              </div>
+<span class="absolute -bottom-1 -right-1 bg-tertiary text-on-tertiary rounded-full w-5 h-5 flex items-center justify-center text-xs shadow-sm">
+<span class="material-symbols-outlined text-xs">verified</span>
+</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Aris Thorne</h2>
+</div>
+<span class="inline-flex items-center gap-1 mt-1 px-space-xs py-0.5 rounded bg-tertiary-container/15 text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-xs">shield_person</span>
+                Verified Customer
+              </span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5">Hyderabad Urban • Madhapur</p>
+</div>
+</div>
+<!-- Credential Stats Matrix -->
+<div class="grid grid-cols-2 gap-space-sm p-space-md rounded-lg bg-surface-container mb-space-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Member Since</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold mt-0.5">Jan 2024</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Direct Jobs</span>
+<span class="font-label-lg text-label-lg text-primary font-bold mt-0.5 flex items-center gap-1">
+                11 Completed
+                <span class="material-symbols-outlined text-sm text-tertiary">task_alt</span>
+</span>
+</div>
+</div>
+<!-- Quick Micro Contact Info -->
+<div class="space-y-2.5 font-body-sm text-body-sm mb-space-md">
+<div class="flex items-center justify-between text-on-surface-variant bg-surface-container-high/40 p-space-sm rounded-lg">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary">call</span>
+                +91 98765 43210
+              </span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">verified</span> verification code OK
+              </span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant bg-surface-container-high/40 p-space-sm rounded-lg truncate">
+<span class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-base text-primary">mail</span>
+                aris.thorne@domain.com
+              </span>
+<span class="material-symbols-outlined text-sm text-tertiary">check_circle</span>
+</div>
+</div>
+<!-- Visual Activity Mini-Chart -->
+<div class="mt-space-md pt-space-md bg-surface-container-lowest/50 rounded-lg p-space-sm">
+<div class="flex items-center justify-between text-label-sm font-label-sm mb-1">
+<span class="text-on-surface-variant uppercase tracking-wide">Dispatch Trust Score</span>
+<span class="text-tertiary font-bold">98.4 / 100</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary-container to-tertiary rounded-full" style="width: 98.4%"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 text-xs">Zero platform cancellations; prompt on-site UPI cash dispatch clearance.</p>
+</div>
+</div>
+<!-- Sidebar Vertical Tabs Navigation -->
+<nav class="bg-surface-container-low rounded-xl p-space-sm space-y-1 shadow-lg shadow-surface-container-lowest/40" id="profile-side-tabs">
+<button class="w-full flex items-center justify-between px-space-md py-3 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg transition-all shadow-md group">
+<div class="flex items-center gap-space-sm font-bold">
+<span class="material-symbols-outlined text-lg">badge</span>
+              Personal Information
+            </div>
+<span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-0.5">chevron_right</span>
+</button>
+<a class="w-full flex items-center justify-between px-space-md py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-lg text-label-lg" href="#addresses-section">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-lg">home_pin</span>
+              Saved Service Addresses
+            </div>
+<span class="bg-surface-container-highest text-on-surface text-xs font-bold px-2 py-0.5 rounded-full">2 Active</span>
+</a>
+<button class="w-full flex items-center justify-between px-space-md py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-lg text-label-lg">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-lg">notifications_active</span>
+              Notification Preferences
+            </div>
+<span class="material-symbols-outlined text-base text-outline">tune</span>
+</button>
+<button class="w-full flex items-center justify-between px-space-md py-3 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-lg text-label-lg">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-lg">security</span>
+              Account Security &amp; Passwords
+            </div>
+<span class="material-symbols-outlined text-base text-tertiary">key</span>
+</button>
+</nav>
+<!-- Zero-Commission Notice Widget -->
+<div class="bg-surface-container rounded-xl p-space-md relative overflow-hidden">
+<div class="flex items-center gap-space-sm text-primary mb-2">
+<span class="material-symbols-outlined text-xl text-primary-container">handshake</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">100% Peer Dispatch</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">LSP Connect does not broker, skim, or escrow client money. You settle invoices directly with the on-site technician.</p>
+</div>
+</aside>
+<!-- RIGHT COLUMN: Deep Workflows & Address Registry (approx 70% -> col-span-8) -->
+<main class="lg:col-span-8 flex flex-col gap-space-xl">
+<!-- SECTION 1: Personal Details (Editable Form) -->
+<section class="bg-surface-container-low rounded-xl p-space-lg shadow-xl shadow-surface-container-lowest/60">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-md mb-space-lg bg-surface-container-lowest/40 -mx-space-lg -mt-space-lg p-space-lg rounded-t-xl">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">contact_page</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Personal Information</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Primary dispatch contact details utilized for field technician coordination.</p>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary bg-tertiary/10 px-2.5 py-1 rounded-md self-start sm:self-auto flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-xs">shield</span> Level 2 Verified Profile
+            </span>
+</div>
+<form class="space-y-space-lg" id="personal-info-form" onsubmit="event.preventDefault(); showToast('Profile details updated successfully!');">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Full Name Field -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between" for="fullName">
+                  Full Name
+                  <span class="text-primary text-xs">* Required</span>
+</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-base">person</span>
+</div>
+<input class="w-full h-11 pl-10 pr-3 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:bg-surface-container-high focus:outline-none focus:ring-1 focus:ring-primary-container transition-all" id="fullName" type="text" value="Aris Thorne"/>
+</div>
+</div>
+<!-- Mobile Number Field (Verified) -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between" for="mobileNumber">
+                  Mobile Number
+                  <span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-tertiary">
+<span class="material-symbols-outlined text-xs">verified</span> verification code Verified
+                  </span>
+</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-base">phone_iphone</span>
+</div>
+<input class="w-full h-11 pl-10 pr-24 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:bg-surface-container-high focus:outline-none focus:ring-1 focus:ring-primary-container transition-all" id="mobileNumber" type="tel" value="+91 98765 43210"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+<button class="text-xs font-label-sm text-primary hover:underline" type="button">Change</button>
+</div>
+</div>
+</div>
+<!-- Email Address Field -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between" for="emailAddress">
+                  Email Address
+                  <span class="font-label-sm text-label-sm text-tertiary">Confirmed</span>
+</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-base">alternate_email</span>
+</div>
+<input class="w-full h-11 pl-10 pr-3 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:bg-surface-container-high focus:outline-none focus:ring-1 focus:ring-primary-container transition-all" id="emailAddress" type="email" value="aris.thorne@domain.com"/>
+</div>
+</div>
+<!-- Emergency Contact Field -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between" for="altContact">
+                  Alternate / Emergency Contact
+                  <span class="text-on-surface-variant text-xs">Optional</span>
+</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-base">ring_volume</span>
+</div>
+<input class="w-full h-11 pl-10 pr-3 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:bg-surface-container-high focus:outline-none focus:ring-1 focus:ring-primary-container transition-all" id="altContact" type="tel" value="+91 98111 22334"/>
+</div>
+</div>
+</div>
+<!-- Form Footer Actions -->
+<div class="flex items-center justify-between pt-space-md bg-surface-container-lowest/30 p-space-md rounded-lg">
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-tertiary">lock</span>
+                Data stored encrypted in compliance with local privacy frameworks.
+              </span>
+<button class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-lg bg-surface-container-highest hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-lg text-label-lg font-bold transition-all shadow-md" type="submit">
+<span class="material-symbols-outlined text-base">save</span>
+                Save Changes
+              </button>
+</div>
+</form>
+</section>
+<!-- SECTION 2: Saved Service Addresses -->
+<section class="bg-surface-container-low rounded-xl p-space-lg shadow-xl shadow-surface-container-lowest/60" id="addresses-section">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md pb-space-md mb-space-lg bg-surface-container-lowest/40 -mx-space-lg -mt-space-lg p-space-lg rounded-t-xl">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">pin_drop</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Saved Service Addresses</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Technicians are dispatched direct to these validated geo-coordinates.</p>
+</div>
+<button class="inline-flex items-center gap-1.5 px-space-md py-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-lg shadow-primary-container/20 self-start sm:self-auto" onclick="toggleNewAddressModal(true)">
+<span class="material-symbols-outlined text-base">add_location_alt</span>
+              Add New Address
+            </button>
+</div>
+<!-- Address Cards Stack -->
+<div class="space-y-space-md">
+<!-- ADDRESS CARD 1 (Default Home - Active Prominence) -->
+<div class="relative bg-surface-container rounded-xl p-space-lg shadow-lg transition-all hover:bg-surface-container-high/80">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-primary-container rounded-l-xl"></div>
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-md">
+<div class="flex-1 space-y-space-sm pl-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="inline-flex items-center gap-1 font-headline-sm text-headline-sm text-on-surface font-bold">
+<span class="material-symbols-outlined text-primary">roofing</span>
+                      Home (Primary)
+                    </span>
+<span class="bg-primary-container text-on-primary-container px-2 py-0.5 rounded font-label-sm text-label-sm font-bold tracking-wider uppercase shadow-sm">
+                      DEFAULT DISPATCH
+                    </span>
+<span class="bg-tertiary-container/20 text-tertiary px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">radar</span> Active Zone (500081)
+                    </span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface font-medium leading-relaxed">
+                    Flat 402, Nilgiri Heights, 12th Main, 4th Cross, HAL 2nd Stage, Madhapur, Hyderabad, Andhra Pradesh - 500081
+                  </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm pt-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-2 bg-surface-container-lowest/60 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-base text-primary">signpost</span>
+<span><strong>Landmark:</strong> Near City Central Park &amp; BSNL Exchange</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest/60 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-base text-primary">person_pin</span>
+<span><strong>Contact on Site:</strong> Aris Thorne (+91 98765 43210)</span>
+</div>
+</div>
+</div>
+<!-- Card Actions -->
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-start gap-2 shrink-0 pt-space-sm md:pt-0">
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="px-space-sm py-1.5 rounded text-on-surface hover:bg-surface-container-highest hover:text-primary transition-colors text-label-md font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">edit</span> Edit
+                    </button>
+<button class="px-space-sm py-1.5 rounded text-error hover:bg-error-container/20 transition-colors text-label-md font-label-md flex items-center gap-1 opacity-70 hover:opacity-100">
+<span class="material-symbols-outlined text-sm">delete</span> Delete
+                    </button>
+</div>
+<span class="text-tertiary font-label-sm text-label-sm flex items-center gap-1 py-1">
+<span class="material-symbols-outlined text-sm">check_circle</span> Active Default
+                  </span>
+</div>
+</div>
+</div>
+<!-- ADDRESS CARD 2 (Workplace) -->
+<div class="relative bg-surface-container rounded-xl p-space-lg shadow-md transition-all hover:bg-surface-container-high/80">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-space-md">
+<div class="flex-1 space-y-space-sm">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="inline-flex items-center gap-1 font-headline-sm text-headline-sm text-on-surface font-bold">
+<span class="material-symbols-outlined text-secondary">corporate_fare</span>
+                      Office / Workplace
+                    </span>
+<span class="bg-surface-container-highest text-on-surface-variant px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold tracking-wider uppercase">
+                      SECONDARY
+                    </span>
+<span class="bg-tertiary-container/20 text-tertiary px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">radar</span> Active Zone (500081)
+                    </span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface font-medium leading-relaxed">
+                    TechSpark Hub, Block C, Inner Ring Road, Koramangala 4th Block, Hyderabad, Andhra Pradesh - 500081
+                  </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm pt-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-2 bg-surface-container-lowest/60 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-base text-primary">signpost</span>
+<span><strong>Access Note:</strong> Gate 2 Visitor Entry • Security desk badge needed</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-lowest/60 p-space-sm rounded-lg">
+<span class="material-symbols-outlined text-base text-primary">person_pin</span>
+<span><strong>Contact on Site:</strong> Aris Thorne / Reception Dispatch</span>
+</div>
+</div>
+</div>
+<!-- Card Actions -->
+<div class="flex md:flex-col items-center md:items-end justify-between md:justify-start gap-2 shrink-0 pt-space-sm md:pt-0">
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="px-space-sm py-1.5 rounded text-on-surface hover:bg-surface-container-highest hover:text-primary transition-colors text-label-md font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">edit</span> Edit
+                    </button>
+<button class="px-space-sm py-1.5 rounded text-error hover:bg-error-container/20 transition-colors text-label-md font-label-md flex items-center gap-1 opacity-70 hover:opacity-100">
+<span class="material-symbols-outlined text-sm">delete</span> Delete
+                    </button>
+</div>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary text-on-surface font-label-sm text-label-sm font-semibold transition-all" onclick="showToast('Primary address set to Office / Workplace')">
+                    Set as Default
+                  </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Operational Service Map Strip -->
+<div class="mt-space-lg pt-space-md bg-surface-container-lowest/40 rounded-xl p-space-md">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-md text-label-md text-on-surface font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-tertiary">hub</span>
+                Verified Dispatch Proximity
+              </span>
+<span class="font-label-sm text-label-sm text-primary">Avg. Technician Arrival: 18-35 mins</span>
+</div>
+<div class="w-full h-36 bg-cover bg-center rounded-lg relative overflow-hidden shadow-inner flex items-end p-space-sm" data-location="Madhapur Hyderabad, India" style="">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md px-3 py-1.5 rounded-lg flex items-center gap-3 text-xs">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> 14 Technicians Available
+                </div>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm">currency_rupee</span> Cash / UPI Accepted
+                </div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Platform Transparency & Direct Settlement Commitment -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-2xl relative overflow-hidden">
+<div class="flex flex-col md:flex-row items-start md:items-center gap-space-lg">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary-container shrink-0 shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined text-3xl">no_accounts</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold">Direct Settlement Security Policy</h4>
+<span class="bg-primary/10 text-primary px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-bold tracking-wide uppercase">
+                  Zero Platform Retainers
+                </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                LSP Connect never retains your credit cards, CVVs, or auto-debit accounts. All fees for hardware, spares, and service labor are settled in-person directly with providers via Cash, UPI QR code, or instant bank transfer upon full job satisfaction.
+              </p>
+</div>
+<div class="shrink-0 flex flex-col gap-1 items-start md:items-end">
+<span class="font-label-md text-label-md text-tertiary flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-base">lock_open</span> 0% Card Escrow
+              </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pure peer-to-peer settlement</span>
+</div>
+</div>
+</section>
+</main>
+</div>
+</div>
+<!-- Micro Modal for Add New Address -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-surface-dim/80 backdrop-blur-md hidden" id="add-address-modal">
+<div class="bg-surface-container-low max-w-lg w-full rounded-2xl p-space-xl shadow-2xl shadow-surface-container-lowest relative">
+<div class="flex items-center justify-between pb-space-md mb-space-md bg-surface-container-lowest/40 -mx-space-xl -mt-space-xl p-space-lg rounded-t-2xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-2xl">add_business</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Register Service Address</h3>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1 rounded-lg" onclick="toggleNewAddressModal(false)">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<form class="space-y-space-md" onsubmit="event.preventDefault(); toggleNewAddressModal(false); showToast('New address added to verification queue');">
+<div>
+<label class="font-label-md text-label-md text-on-surface font-semibold block mb-1">Address Label</label>
+<input class="w-full h-11 px-3 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:bg-surface-container-high focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="e.g. Vacation Villa, Secondary Flat, Studio" required="" type="text"/>
+</div>
+<div>
+<label class="font-label-md text-label-md text-on-surface font-semibold block mb-1">Street &amp; Building Details</label>
+<textarea class="w-full p-3 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:bg-surface-container-high focus:outline-none focus:ring-1 focus:ring-primary-container resize-none" placeholder="Door No., Tower, Apartment Name, Street Line" required="" rows="3"></textarea>
+</div>
+<div class="grid grid-cols-2 gap-space-md">
+<div>
+<label class="font-label-md text-label-md text-on-surface font-semibold block mb-1">PIN Code</label>
+<input class="w-full h-11 px-3 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:bg-surface-container-high focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="5000xx" required="" type="text"/>
+</div>
+<div>
+<label class="font-label-md text-label-md text-on-surface font-semibold block mb-1">City</label>
+<input class="w-full h-11 px-3 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:bg-surface-container-high focus:outline-none focus:ring-1 focus:ring-primary-container" type="text" value="Hyderabad"/>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-2">
+<input class="w-4 h-4 rounded bg-surface-container accent-primary-container" id="modal-set-default" type="checkbox"/>
+<label class="font-label-md text-label-md text-on-surface select-none" for="modal-set-default">Set as primary dispatch address immediately</label>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-md">
+<button class="px-space-md py-2 rounded-lg bg-surface-container-high text-on-surface font-label-md text-label-md" onclick="toggleNewAddressModal(false)" type="button">Cancel</button>
+<button class="px-space-lg py-2 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-bold hover:bg-primary transition-all" type="submit">Save &amp; Verify Pin</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Interactive Feedback Toast -->
+<div class="fixed bottom-8 right-8 z-50 bg-surface-container-highest text-on-surface px-space-lg py-3 rounded-xl shadow-2xl flex items-center gap-space-sm transition-all transform translate-y-24 opacity-0 pointer-events-none" id="status-toast">
+<span class="material-symbols-outlined text-tertiary">check_circle</span>
+<span class="font-label-lg text-label-lg font-semibold" id="status-toast-msg">Action completed successfully</span>
+</div>
+<!-- Inline Micro-Behavior script -->
+<script>
+    function toggleNewAddressModal(show) {
+      const modal = document.getElementById('add-address-modal');
+      if (show) {
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('status-toast');
+      const toastMsg = document.getElementById('status-toast-msg');
+      toastMsg.textContent = message;
+      toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+      }, 3500);
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl py-space-xl shadow-[0_-1px_12px_rgba(0,0,0,0.5)]"><div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-body-sm text-body-sm text-on-surface-variant">Direct Local Service Dispatch System</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-sm">currency_rupee</span>100% Cash / UPI Direct Settlement</span><span class="flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-sm">security</span>Verified Technicians</span></div><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 LSP Connect Platform. Direct Provider Operations.</div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-background":"#dee2f2","error-container":"#93000a","surface-container-highest":"#303541","tertiary":"#00e297","on-tertiary":"#003822","surface-container-low":"#161b27","inverse-primary":"#994700","on-error":"#690005","on-secondary-container":"#abb8d9","outline":"#a78b7c","on-tertiary-fixed-variant":"#005234","surface-bright":"#343946","tertiary-fixed":"#4dffb2","surface-container-high":"#252a36","on-secondary":"#23304a","on-surface":"#dee2f2","surface":"#0e131e","surface-dim":"#0e131e","on-tertiary-fixed":"#002112","secondary-container":"#3c4965","on-primary-fixed-variant":"#753400","primary-fixed-dim":"#ffb68b","background":"#0e131e","tertiary-container":"#00b779","error":"#ffb4ab","outline-variant":"#584235","on-secondary-fixed":"#0d1b34","surface-variant":"#303541","surface-tint":"#ffb68b","on-primary":"#522300","on-primary-container":"#5c2800","on-secondary-fixed-variant":"#3a4762","secondary-fixed":"#d8e2ff","surface-container-lowest":"#090e19","surface-container":"#1b1f2b","on-tertiary-container":"#004028","secondary-fixed-dim":"#b9c6e8","inverse-surface":"#dee2f2","primary-fixed":"#ffdbc8","tertiary-fixed-dim":"#00e297","on-surface-variant":"#e0c0af","primary":"#ffb68b","on-primary-fixed":"#321200","primary-container":"#ff7a00","inverse-on-surface":"#2b303d","on-error-container":"#ffdad6","secondary":"#b9c6e8"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2rem","margin":"2rem","gutter":"1.5rem","space-lg":"1.5rem","space-xs":"0.25rem","space-md":"1rem","space-sm":"0.5rem"},"fontFamily":{"body-lg":["Inter"],"label-lg":["Inter"],"headline-lg":["Inter"],"label-sm":["Inter"],"headline-xl":["Inter"],"label-md":["Inter"],"body-md":["Inter"],"headline-sm":["Inter"],"headline-md":["Inter"],"body-sm":["Inter"]},"fontSize":{"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"700"}],"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-low/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-headline-sm font-bold">L</div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-bold">LSP Connect</span></div><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-wider">ADMIN CONSOLE</span></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-lg"><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="dashboard" href="#">Dashboard</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="users" href="#">Users</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="services-and-rates" href="#">Services & Rates</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="bookings" href="#">Bookings</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="verifications" href="#">Verifications</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="complaints" href="#">Complaints</a><a aria-current="page" class="px-space-sm py-1.5 transition-colors bg-primary-container text-on-primary-container font-label-md rounded-lg" data-path="settings" href="#">Settings</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-lowest"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-sm text-label-sm text-tertiary">Admin Operations Active</span></div><div class="hidden lg:flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm px-space-xs py-1 rounded bg-surface-container-high"><span class="material-symbols-outlined text-sm text-primary">verified_user</span><span>SEC-L3 CLEARANCE</span></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden sm:block"><div class="font-label-md text-label-md text-on-surface">Root Administrator</div><div class="font-label-sm text-label-sm text-on-surface-variant">ops-node-01@lsp.internal</div></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div></div></div></header><main class="w-full pt-16 bg-surface flex-1 flex flex-col"><div class="flex flex-col w-full">
+<div class="w-full px-margin py-space-xl max-w-[1440px] mx-auto flex flex-col gap-space-xl">
+<!-- Top Configuration Header & Master Node Status -->
+<section class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-sm text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed-dim">Operational Governance Node</span>
+<span class="text-surface-variant font-body-sm">•</span>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+            Real-Time Policy Sync
+          </span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Administrative Settings & System Configuration</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Manage administrative operator credentials, platform operational parameters, and direct settlement enforcement rules.</p>
+</div>
+<!-- Security Hash & Authentication Badge -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md p-space-md rounded-xl bg-surface-container-low shadow-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Super-Admin Authenticated</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant tracking-wider font-mono">#OPS-NODE-BLR-01</span>
+</div>
+</div>
+<div class="hidden sm:block w-px h-8 bg-surface-container-highest"></div>
+<div class="flex items-center gap-2 px-space-sm py-1.5 rounded-md bg-surface-container text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-base">lock</span>
+<span>Zero-Escrow Mode Enforced</span>
+</div>
+</div>
+</section>
+<!-- Main 2-Column Administrative Configuration Layout (1440px desktop balanced 45% / 55%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT COLUMN (45% -> 5 cols on 12-grid, approx 42-45%) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- CARD 1: Operator Profile & Credentials -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary">badge</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Administrator Profile</h2>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm uppercase">Level 1 Clearance</span>
+</div>
+<!-- Operator Details Block -->
+<div class="flex items-start gap-space-md p-space-md rounded-lg bg-surface-container">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="Close up portrait photograph of an Indian senior technical operations officer in late forties wearing modern rimless glasses and dark slate industrial tech uniform, moody ambient blue and warm amber rim lighting in a high-tech control room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAXrGa_Cqpn0XmHPkJFDEEKs_FSYSP3ygoulgNkihqSp4B4PDLgk1wpZX5XLvqnZbWP0u8AuErkk9n9tECOveaTxWfTBkNfMkXsRwGxXSTUaLTpmxbQ16w5mAUipjacVKfcWZ1NSH93_clMk7N1KjpypiUkOsd_xzXivVhAXrekdty7aZJdpu1d6tuViSS7m3RvqlPkNxOGEM7kmlJGMqRtzMj7fxj2UWYgGLjQf86"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Vikramaditya Sengupta</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Chief Operations Auditor</span>
+<div class="flex items-center gap-1.5 mt-1 text-primary-fixed-dim font-label-sm text-label-sm font-mono truncate">
+<span class="material-symbols-outlined text-xs">alternate_email</span>
+<span>admin.ops@lspconnect.gov.in</span>
+</div>
+</div>
+</div>
+<!-- Role & Security Tier Metadata -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Designation</span>
+<span class="font-label-md text-label-md text-on-surface mt-0.5">Central Ops Lead</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Security Tier</span>
+<span class="font-label-md text-label-md text-tertiary mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">shield</span>
+                Tier-1 Root Node
+              </span>
+</div>
+</div>
+<!-- Password & Authentication Tools -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between p-space-md rounded-lg bg-surface-container">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Two-Factor Authentication</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hardware Token & additional authentication Authenticator</span>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-tertiary-container/20 text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Active & Enforced
+              </span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-base text-primary">key</span>
+<span>Change Security Password</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm underline" type="button">
+                Rotate Security Keys
+              </button>
+</div>
+</div>
+<!-- Active Administrative Sessions List -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Active Admin Sessions</span>
+<!-- Session 1: Current -->
+<div class="p-space-md rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-xl">laptop_mac</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface">Current Workstation (macOS)</span>
+<span class="px-1.5 py-0.5 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm uppercase">THIS DEVICE</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono">103.21.74.19 • Hyderabad Urban (Andhra Pradesh)</span>
+</div>
+</div>
+<span class="text-tertiary font-label-sm text-label-sm">Active Now</span>
+</div>
+<!-- Session 2: Failover Backup -->
+<div class="p-space-md rounded-lg bg-surface-container-highest/40 flex items-center justify-between opacity-80">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-xl">terminal</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Secure CLI Gateway (Kube-Ops)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono">10.14.0.88 • Hyderabad Hub Rack 4</span>
+</div>
+</div>
+<button class="text-error hover:text-error-container font-label-sm text-label-sm" type="button">Terminate</button>
+</div>
+</div>
+</div>
+<!-- CARD 2: Platform Security & Access Governance -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary">security</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Security & Governance</h2>
+</div>
+<!-- Parameter 1: Public Registration Lockdown -->
+<div class="p-space-md rounded-lg bg-surface-container flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">Public Registration Lockdown</span>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error font-label-sm text-label-sm uppercase tracking-wide">Locked</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Permanently Disabled. Operator creation restricted strictly to offline cryptographically signed Super-Admin invitations.</p>
+</div>
+<!-- Parameter 2: Session Timeout Policy (Interactive Toggle) -->
+<div class="p-space-md rounded-lg bg-surface-container flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Inactivity Auto-Logout</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Auto-logout after 30 minutes of administrative inactivity</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" id="session-timeout-toggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Parameter 3: Audit Logging Status -->
+<div class="p-space-md rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary">receipt_long</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Immutable Audit Trail</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Append-only WAL log with cryptographic SHA-256 blocks</span>
+</div>
+</div>
+<span class="text-tertiary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+              Active
+            </span>
+</div>
+<!-- Regulatory Hash Sparkline Chart (Under 2KB SVG) -->
+<div class="p-space-md rounded-lg bg-surface-container-lowest flex flex-col gap-1">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>SECURITY RE-HASH LATENCY (24H)</span>
+<span class="text-tertiary font-mono">Avg 14ms</span>
+</div>
+<svg class="w-full h-12 text-primary" fill="none" preserveaspectratio="none" viewbox="0 0 400 48">
+<path d="M0,38 L30,32 L60,35 L90,20 L120,24 L150,15 L180,28 L210,12 L240,22 L270,18 L300,10 L330,22 L360,14 L400,18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M0,38 L30,32 L60,35 L90,20 L120,24 L150,15 L180,28 L210,12 L240,22 L270,18 L300,10 L330,22 L360,14 L400,18 L400,48 L0,48 Z" fill="currentColor" fill-opacity="0.08"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (55% -> 7 cols on 12-grid, approx 55-58%) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- CARD 1: Operational Parameters & Postal Coverage -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary">pin_drop</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Operational Parameters & Postal Coverage</h2>
+</div>
+<span class="px-space-sm py-1 rounded bg-surface-container text-primary font-label-sm text-label-sm font-mono">METRO: BLR-URBAN</span>
+</div>
+<!-- Dispatch Mesh Radii Controls -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="p-space-md rounded-lg bg-surface-container flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-label-md text-label-md">Dispatch Search Radius</span>
+<span class="font-headline-sm text-headline-sm text-primary font-mono" id="radius-val">5.0 km</span>
+</div>
+<input class="w-full accent-primary-container bg-surface-container-highest h-2 rounded-lg cursor-pointer" id="radius-slider" max="15" min="2" step="0.5" type="range" value="5.0"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Default mesh coverage threshold per incident</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-label-md text-label-md">Auto-Rebroadcast Window</span>
+<span class="font-headline-sm text-headline-sm text-tertiary font-mono" id="rebroadcast-val">120 s</span>
+</div>
+<input class="w-full accent-tertiary bg-surface-container-highest h-2 rounded-lg cursor-pointer" id="rebroadcast-slider" max="300" min="30" step="15" type="range" value="120"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Escalation threshold if technician unassigned</span>
+</div>
+</div>
+<!-- Active Postal Sectors (PIN Codes) Interactive List -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Authorized Postal Sectors</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-mono">4 Sectors Live</span>
+</div>
+<button class="px-space-sm py-1 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold flex items-center gap-1 hover:brightness-110 transition-all" id="btn-add-pin" type="button">
+<span class="material-symbols-outlined text-sm font-bold">add</span>
+                Add Operating Postal Code
+              </button>
+</div>
+<!-- PIN Code Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm" id="postal-grid">
+<!-- Sector 1 -->
+<div class="p-space-md rounded-lg bg-surface-container flex items-center justify-between group">
+<div class="flex items-center gap-space-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary shadow-[0_0_8px_rgba(0,226,151,0.6)]"></div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-mono">500081</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Madhapur Sector</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-2 py-0.5 rounded bg-tertiary-container/20 text-tertiary font-label-sm text-label-sm">Active</span>
+<button class="p-1 text-on-surface-variant hover:text-error rounded transition-colors" title="Decommission Sector" type="button">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+</div>
+<!-- Sector 2 -->
+<div class="p-space-md rounded-lg bg-surface-container flex items-center justify-between group">
+<div class="flex items-center gap-space-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary shadow-[0_0_8px_rgba(0,226,151,0.6)]"></div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-mono">500081</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Koramangala Sector</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-2 py-0.5 rounded bg-tertiary-container/20 text-tertiary font-label-sm text-label-sm">Active</span>
+<button class="p-1 text-on-surface-variant hover:text-error rounded transition-colors" title="Decommission Sector" type="button">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+</div>
+<!-- Sector 3 -->
+<div class="p-space-md rounded-lg bg-surface-container flex items-center justify-between group">
+<div class="flex items-center gap-space-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary shadow-[0_0_8px_rgba(0,226,151,0.6)]"></div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-mono">560071</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Domlur Sector</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-2 py-0.5 rounded bg-tertiary-container/20 text-tertiary font-label-sm text-label-sm">Active</span>
+<button class="p-1 text-on-surface-variant hover:text-error rounded transition-colors" title="Decommission Sector" type="button">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+</div>
+<!-- Sector 4 -->
+<div class="p-space-md rounded-lg bg-surface-container flex items-center justify-between group">
+<div class="flex items-center gap-space-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary shadow-[0_0_8px_rgba(0,226,151,0.6)]"></div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-mono">560008</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ulsoor Sector</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="px-2 py-0.5 rounded bg-tertiary-container/20 text-tertiary font-label-sm text-label-sm">Active</span>
+<button class="p-1 text-on-surface-variant hover:text-error rounded transition-colors" title="Decommission Sector" type="button">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Inline Map Visual of Core Operational Territory -->
+<div class="w-full h-36 rounded-lg bg-cover bg-center overflow-hidden relative shadow-inner mt-space-xs" data-location="Hyderabad Urban, Andhra Pradesh, India" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAiybfcyJYO0rZlKs06ef6XhRaZYl7CyZKkfyllvw-AmLBAXm-DMWhVso_S290Wr4lwFisINnpomrOkzkcmb0eQhipiHTKIBIkcydtTXeC2vkurFknlk8KJskoC6eN5qT_DIuP7behwFNFrA2HHotpU2uPCXi2ree-bqkGpzlQR7FCgizk9ThNJvkxSC9-CfHGQNdmwdCehJwIDJgFBDmicwCHglsfkLgd1HhzYDa9f')">
+<div class="absolute inset-0 bg-surface-container-lowest/40 backdrop-blur-[2px] flex items-end justify-between p-space-md">
+<div class="flex items-center gap-2 px-space-sm py-1 rounded bg-surface/90 text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs text-primary">hub</span>
+<span>Mesh Density: 142 Active Technicians in Polygon</span>
+</div>
+<span class="text-tertiary font-mono font-label-sm text-label-sm bg-surface/90 px-space-sm py-1 rounded">12.9716° N, 77.5946° E</span>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 2: Direct Settlement & Regulatory Enforcement -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary">payments</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Direct Settlement & Regulatory Mandate</h2>
+</div>
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">gavel</span>
+<span>Statutory Compliance</span>
+</div>
+</div>
+<!-- Highlight: 0.00% Zero-Commission Rule -->
+<div class="p-space-lg rounded-xl bg-gradient-to-r from-surface-container to-surface-container-high flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary">Platform Commission Cut</span>
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface font-mono">0.00%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Strict Direct-Settlement Mandate • Hardcoded Zero Middleman Retainers</span>
+</div>
+<div class="px-space-md py-space-sm rounded-lg bg-surface-container-lowest text-tertiary font-label-sm text-label-sm font-mono flex items-center gap-2">
+<span class="material-symbols-outlined text-base">verified_user</span>
+<span>ESCROW BYPASS CERTIFIED</span>
+</div>
+</div>
+<!-- Permitted Rails Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Cash Rail -->
+<div class="p-space-md rounded-lg bg-surface-container flex items-start gap-space-sm">
+<div class="mt-0.5 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_box</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Doorstep Physical Cash</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Direct physical currency exchange upon job completion with printed digital receipt.</span>
+</div>
+</div>
+<!-- UPI QR Rail -->
+<div class="p-space-md rounded-lg bg-surface-container flex items-start gap-space-sm">
+<div class="mt-0.5 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_box</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Direct Technician UPI QR</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">P2P UPI transaction immediately to provider VPA without platform wallet middleman.</span>
+</div>
+</div>
+</div>
+<!-- Intermediary Gateway Lockdown & Dispute SLA Target -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-space-xs">
+<!-- Escrow Intermediary Lockdown -->
+<div class="p-space-md rounded-lg bg-surface-container-lowest flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-error">
+<span class="material-symbols-outlined text-sm">block</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Payment Gateway / Escrow</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-mono">PERMANENTLY DISABLED</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">System architecture forbids centralizing user funds.</span>
+</div>
+<!-- Dispute SLA Target -->
+<div class="p-space-md rounded-lg bg-surface-container flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Dispute SLA Target</span>
+<span class="font-headline-sm text-headline-sm text-primary font-mono">4.0 Hrs</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full rounded-full" style="width: 85%;"></div>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Current monthly resolution benchmark: 2.8 hrs</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- BOTTOM CONTROLS & COMPLIANCE FOOTER ACTION BAR -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-lg shadow-xl flex flex-col lg:flex-row items-center justify-between gap-space-lg">
+<!-- Compliance Notice Banner -->
+<div class="flex items-start sm:items-center gap-space-sm text-on-surface-variant max-w-2xl">
+<span class="material-symbols-outlined text-primary text-xl shrink-0 mt-0.5 sm:mt-0">info</span>
+<p class="font-body-sm text-body-sm leading-relaxed">
+<strong class="text-on-surface font-medium">Compliance Notice:</strong> Any modifications to postal zones or baseline rate policies immediately broadcast to all registered field technicians via secure push packet.
+        </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-space-md w-full lg:w-auto justify-end shrink-0">
+<button class="px-space-md py-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" id="btn-revert" type="button">
+          Revert to Benchmarks
+        </button>
+<button class="px-space-lg py-3 rounded-lg bg-primary-container hover:brightness-110 text-on-primary-container font-label-md text-label-md font-semibold transition-all shadow-[0_0_24px_-4px_rgba(255,122,0,0.45)] flex items-center gap-2" id="btn-save" type="button">
+<span class="material-symbols-outlined text-base">save</span>
+<span>Save Platform Configuration Changes</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Inline Micro-Interactions Script -->
+<script>
+    (function() {
+      // Dynamic range feedback
+      const radiusSlider = document.getElementById('radius-slider');
+      const radiusVal = document.getElementById('radius-val');
+      if (radiusSlider && radiusVal) {
+        radiusSlider.addEventListener('input', (e) => {
+          radiusVal.textContent = parseFloat(e.target.value).toFixed(1) + ' km';
+        });
+      }
+
+      const rebroadcastSlider = document.getElementById('rebroadcast-slider');
+      const rebroadcastVal = document.getElementById('rebroadcast-val');
+      if (rebroadcastSlider && rebroadcastVal) {
+        rebroadcastSlider.addEventListener('input', (e) => {
+          rebroadcastVal.textContent = e.target.value + ' s';
+        });
+      }
+
+      // Save confirmation micro-feedback
+      const saveBtn = document.getElementById('btn-save');
+      if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+          const originalText = saveBtn.innerHTML;
+          saveBtn.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">sync</span><span>Broadcasting Configuration...</span>';
+          setTimeout(() => {
+            saveBtn.innerHTML = '<span class="material-symbols-outlined text-base">check</span><span>Changes Synchronized Globally</span>';
+            setTimeout(() => {
+              saveBtn.innerHTML = originalText;
+            }, 2500);
+          }, 900);
+        });
+      }
+
+      // Revert feedback
+      const revertBtn = document.getElementById('btn-revert');
+      if (revertBtn) {
+        revertBtn.addEventListener('click', () => {
+          if (radiusSlider && radiusVal) {
+            radiusSlider.value = 5.0;
+            radiusVal.textContent = '5.0 km';
+          }
+          if (rebroadcastSlider && rebroadcastVal) {
+            rebroadcastSlider.value = 120;
+            rebroadcastVal.textContent = '120 s';
+          }
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-md"><div class="w-full px-margin flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-body-sm text-body-sm"><div>© 2025 LSP Connect Local Service Provider Network. Admin Core Node.</div><div class="flex items-center gap-space-md font-label-sm text-label-sm"><span class="text-tertiary">System Integrity: Optimal (99.98%)</span><span class="text-outline">Zero-Commission Direct Settlement Mode</span><span>Kernel v4.19-audit</span></div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>

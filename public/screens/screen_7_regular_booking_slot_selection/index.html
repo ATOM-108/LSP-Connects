@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>LSP Connect</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#4dffb2", "surface-dim": "#0e131e", "secondary-fixed": "#d8e2ff", "secondary": "#b9c6e8", "on-secondary": "#23304a", "surface-container-highest": "#303541", "on-primary": "#522300", "inverse-surface": "#dee2f2", "surface": "#0e131e", "tertiary": "#00e297", "secondary-container": "#3c4965", "surface-bright": "#343946", "on-error": "#690005", "on-surface": "#dee2f2", "primary-fixed-dim": "#ffb68b", "outline-variant": "#584235", "primary-container": "#ff7a00", "tertiary-fixed-dim": "#00e297", "background": "#0e131e", "on-primary-fixed": "#321200", "on-primary-fixed-variant": "#753400", "inverse-primary": "#994700", "on-tertiary-container": "#004028", "surface-variant": "#303541", "tertiary-container": "#00b779", "on-tertiary-fixed-variant": "#005234", "primary-fixed": "#ffdbc8", "surface-container-low": "#161b27", "on-primary-container": "#5c2800", "error": "#ffb4ab", "on-surface-variant": "#e0c0af", "on-secondary-fixed": "#0d1b34", "outline": "#a78b7c", "primary": "#ffb68b", "secondary-fixed-dim": "#b9c6e8", "on-secondary-fixed-variant": "#3a4762", "on-secondary-container": "#abb8d9", "inverse-on-surface": "#2b303d", "surface-container-high": "#252a36", "surface-container-lowest": "#090e19", "surface-container": "#1b1f2b", "on-error-container": "#ffdad6", "error-container": "#93000a", "on-tertiary": "#003822", "on-tertiary-fixed": "#002112", "on-background": "#dee2f2", "surface-tint": "#ffb68b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-xl": "2rem" }, "fontFamily": { "headline-sm": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "label-lg": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"] }, "fontSize": { "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container shadow-[0_0_12px_-2px_rgba(255,122,0,0.3)]"><span class="material-symbols-outlined text-xl">construction</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none tracking-tight font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Verified Local Direct</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-tertiary text-base">verified</span><span class="font-label-sm text-label-sm text-on-surface">100% Background-Verified</span></div></div><nav class="hidden md:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low" data-active-classes="bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg shadow-[0_0_15px_-3px_rgba(255,122,0,0.3)]"><a aria-current="page" class="px-space-md py-space-xs transition-colors bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg shadow-[0_0_15px_-3px_rgba(255,122,0,0.3)]" data-path="services" href="#">Services</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="customer-profile" href="#">Profile</a></nav><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-low text-primary"><span class="material-symbols-outlined text-sm text-primary-container">payments</span><span class="font-label-sm text-label-sm font-semibold text-primary">Direct Cash &amp; UPI • Zero Fee</span></div><a class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-[0_0_16px_-4px_rgba(255,122,0,0.5)]" data-path="quick-request" href="#"><span class="material-symbols-outlined text-base">bolt</span>Quick Request</a><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Customer</span><span class="font-label-sm text-label-sm text-tertiary flex items-center justify-end gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span>Active Area</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-highest" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<div class="max-w-7xl mx-auto w-full px-6 lg:px-12 py-8">
+<!-- Top Progress Architecture -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary-container font-bold">Direct Dispatch Flow</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Instant Provider Notification
+          </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">Configure Service Schedule</h1>
+</div>
+<!-- Stepper Status Pills -->
+<div class="flex items-center gap-2 p-1.5 rounded-xl bg-surface-container-low shadow-sm">
+<span class="px-3 py-1 rounded-lg bg-surface-container-high text-primary font-label-md text-label-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span> 1. Category
+        </span>
+<span class="text-outline-variant font-label-md text-label-md">›</span>
+<span class="px-3 py-1 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md shadow-sm font-bold">
+          2. Slot &amp; Details
+        </span>
+<span class="text-outline-variant font-label-md text-label-md">›</span>
+<span class="px-3 py-1 rounded-lg text-on-surface-variant font-label-md text-label-md">
+          3. Final Review
+        </span>
+</div>
+</div>
+<!-- Main 2-Column Desktop Grid (65% / 35%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Booking Workflow Canvas (65% -> col-span-8 approx ~66%) -->
+<div class="lg:col-span-8 flex flex-col gap-6">
+<!-- Step 1: Selected Service Summary -->
+<section class="bg-surface-container rounded-xl p-space-lg shadow-sm relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-primary-container/5 blur-3xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-surface-container-highest text-primary-container flex items-center justify-center font-label-sm text-label-sm font-bold">01</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Selected Electrical Service</h2>
+</div>
+<a class="font-label-md text-label-md text-primary hover:text-primary-container transition-colors flex items-center gap-1" href="#">
+              Change Service <span class="material-symbols-outlined text-sm">edit</span>
+</a>
+</div>
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-space-md rounded-lg bg-surface-container-high">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary-container shadow-inner">
+<span class="material-symbols-outlined text-3xl">electric_bolt</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Ceiling Fan Installation &amp; Switchboard Check</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified</span> Certified
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Heavy-duty hook anchors, blade balance calibration &amp; 3-point loop resistance audit</p>
+</div>
+</div>
+<div class="flex sm:flex-col items-baseline sm:items-end justify-between w-full sm:w-auto pt-2 sm:pt-0">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Base Rate</span>
+<span class="font-headline-md text-headline-md text-primary-container font-bold">₹450</span>
+</div>
+</div>
+</section>
+<!-- Step 2: Date Selector (Horizontal Desktop Calendar) -->
+<section class="bg-surface-container rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-surface-container-highest text-primary-container flex items-center justify-center font-label-sm text-label-sm font-bold">02</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Select Appointment Date</h2>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-tertiary">event_available</span>
+<span>November 2025</span>
+</div>
+</div>
+<!-- Horizontal 7-Day Matrix -->
+<div class="grid grid-cols-7 gap-2.5" id="dateSelectorGroup">
+<!-- Day 1: Mon Nov 17 (Active / Selected) -->
+<button class="date-btn group flex flex-col items-center justify-center p-3 rounded-xl bg-primary-container text-on-primary-container shadow-md transition-all cursor-pointer" data-date="2025-11-17" data-display="Mon, Nov 17" type="button">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold opacity-90">Mon</span>
+<span class="font-headline-md text-headline-md font-bold mt-1">17</span>
+<span class="font-label-sm text-label-sm mt-1 px-1.5 py-0.5 rounded bg-on-primary-container/20 font-bold">Today</span>
+</button>
+<!-- Day 2: Tue Nov 18 -->
+<button class="date-btn group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all cursor-pointer" data-date="2025-11-18" data-display="Tue, Nov 18" type="button">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant group-hover:text-on-surface font-semibold">Tue</span>
+<span class="font-headline-md text-headline-md font-bold mt-1">18</span>
+<span class="font-label-sm text-label-sm mt-1 text-tertiary font-medium">14 Slots</span>
+</button>
+<!-- Day 3: Wed Nov 19 -->
+<button class="date-btn group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all cursor-pointer" data-date="2025-11-19" data-display="Wed, Nov 19" type="button">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant group-hover:text-on-surface font-semibold">Wed</span>
+<span class="font-headline-md text-headline-md font-bold mt-1">19</span>
+<span class="font-label-sm text-label-sm mt-1 text-tertiary font-medium">9 Slots</span>
+</button>
+<!-- Day 4: Thu Nov 20 -->
+<button class="date-btn group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all cursor-pointer" data-date="2025-11-20" data-display="Thu, Nov 20" type="button">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant group-hover:text-on-surface font-semibold">Thu</span>
+<span class="font-headline-md text-headline-md font-bold mt-1">20</span>
+<span class="font-label-sm text-label-sm mt-1 text-tertiary font-medium">11 Slots</span>
+</button>
+<!-- Day 5: Fri Nov 21 -->
+<button class="date-btn group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all cursor-pointer" data-date="2025-11-21" data-display="Fri, Nov 21" type="button">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant group-hover:text-on-surface font-semibold">Fri</span>
+<span class="font-headline-md text-headline-md font-bold mt-1">21</span>
+<span class="font-label-sm text-label-sm mt-1 text-tertiary font-medium">6 Slots</span>
+</button>
+<!-- Day 6: Sat Nov 22 -->
+<button class="date-btn group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all cursor-pointer" data-date="2025-11-22" data-display="Sat, Nov 22" type="button">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant group-hover:text-on-surface font-semibold">Sat</span>
+<span class="font-headline-md text-headline-md font-bold mt-1">22</span>
+<span class="font-label-sm text-label-sm mt-1 text-primary-fixed-dim font-medium">Fast Fill</span>
+</button>
+<!-- Day 7: Sun Nov 23 -->
+<button class="date-btn group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all cursor-pointer" data-date="2025-11-23" data-display="Sun, Nov 23" type="button">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant group-hover:text-on-surface font-semibold">Sun</span>
+<span class="font-headline-md text-headline-md font-bold mt-1">23</span>
+<span class="font-label-sm text-label-sm mt-1 text-tertiary font-medium">8 Slots</span>
+</button>
+</div>
+</section>
+<!-- Step 3: Time Slot Grid -->
+<section class="bg-surface-container rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-surface-container-highest text-primary-container flex items-center justify-center font-label-sm text-label-sm font-bold">03</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Select Time Window</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Guaranteed arrival within chosen 3hr span</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3" id="slotSelectorGroup">
+<!-- Morning Slot -->
+<button class="slot-btn text-left p-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright transition-all cursor-pointer flex flex-col justify-between h-32 group" data-slot="Morning (09:00 AM - 12:00 PM)" type="button">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">wb_sunny</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-tertiary">4 Techs</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-wider font-semibold">Morning</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block mt-0.5">09:00 - 12:00</span>
+<span class="font-body-sm text-body-sm text-primary">Standard arrival</span>
+</div>
+</button>
+<!-- Afternoon Slot (Default Selected) -->
+<button class="slot-btn text-left p-space-md rounded-xl bg-primary-container text-on-primary-container shadow-md transition-all cursor-pointer flex flex-col justify-between h-32 group" data-slot="Afternoon (12:00 PM - 03:00 PM)" type="button">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-on-primary-container group-hover:scale-110 transition-transform">light_mode</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-on-primary-container/20 text-on-primary-container font-bold">Recommended</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-primary-container/80 block uppercase tracking-wider font-semibold">Afternoon</span>
+<span class="font-headline-sm text-headline-sm text-on-primary-container font-bold block mt-0.5">12:00 - 03:00</span>
+<span class="font-body-sm text-body-sm text-on-primary-container/90 font-medium">Quickest assignment</span>
+</div>
+</button>
+<!-- Evening Slot -->
+<button class="slot-btn text-left p-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright transition-all cursor-pointer flex flex-col justify-between h-32 group" data-slot="Evening (03:00 PM - 06:00 PM)" type="button">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">wb_twilight</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-tertiary">3 Techs</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-wider font-semibold">Evening</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block mt-0.5">03:00 - 06:00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Post-work schedule</span>
+</div>
+</button>
+<!-- Night Slot -->
+<button class="slot-btn text-left p-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright transition-all cursor-pointer flex flex-col justify-between h-32 group" data-slot="Night (06:00 PM - 08:00 PM)" type="button">
+<div class="flex items-center justify-between">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">dark_mode</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-primary-fixed-dim">2 Techs</span>
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant block uppercase tracking-wider font-semibold">Night</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold block mt-0.5">06:00 - 08:00</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Twilight window</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Step 4: Service Address Picker -->
+<section class="bg-surface-container rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-surface-container-highest text-primary-container flex items-center justify-center font-label-sm text-label-sm font-bold">04</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Service Location</h2>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-sm">my_location</span> Geotag Matched
+            </span>
+</div>
+<div class="space-y-3">
+<!-- Option A: Saved Home Address (Selected) -->
+<label class="flex items-start gap-3.5 p-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright cursor-pointer transition-colors">
+<input checked="" class="mt-1 w-4 h-4 accent-primary-container cursor-pointer" name="service_address" type="radio" value="home"/>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Flat 402, Nilgiri Heights</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-bold uppercase tracking-wider">Default Home</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Road 12, Madhapur, Hyderabad - 500081</p>
+<div class="flex items-center gap-4 mt-2 text-primary font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">near_me</span> Sector 4 Hub (1.2 km away)</span>
+<span class="text-outline-variant">•</span>
+<span class="text-tertiary">Verified Cluster</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary-container">check_circle</span>
+</label>
+<!-- Option B: Saved Office Address -->
+<label class="flex items-start gap-3.5 p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-high cursor-pointer transition-colors">
+<input class="mt-1 w-4 h-4 accent-primary-container cursor-pointer" name="service_address" type="radio" value="office"/>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">TechSpark Hub, Block C</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-bold uppercase tracking-wider">Workplace</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Inner Ring Road, Koramangala 4th Block, Hyderabad - 500081</p>
+</div>
+</label>
+<!-- Option C: Enter New Postal Code & Address Accordion/Trigger -->
+<div class="p-space-md rounded-xl bg-surface-container-low">
+<div class="flex items-center justify-between cursor-pointer" onclick="document.getElementById('newAddressForm').classList.toggle('hidden')">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary-container">add_location_alt</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Deliver to a different address or PIN</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">unfold_more</span>
+</div>
+<div class="hidden mt-4 pt-4 space-y-3" id="newAddressForm">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<div class="sm:col-span-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Postal Code (PIN)</label>
+<input class="w-full h-11 px-3.5 rounded-lg bg-surface-container text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary-container font-body-md text-body-md" placeholder="e.g. 520001" type="text"/>
+</div>
+<div class="sm:col-span-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Area / Society / Landmark</label>
+<input class="w-full h-11 px-3.5 rounded-lg bg-surface-container text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary-container font-body-md text-body-md" placeholder="House #, Street, Colony" type="text"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Step 5: Issue Description & Notes -->
+<section class="bg-surface-container rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-surface-container-highest text-primary-container flex items-center justify-center font-label-sm text-label-sm font-bold">05</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Job Notes &amp; Special Instructions</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Visible directly to technician</span>
+</div>
+<div class="space-y-4">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-1.5 font-medium" for="issueDescription">
+                Describe the specific issue or equipment model (Optional)
+              </label>
+<textarea class="w-full p-3.5 rounded-xl bg-surface-container-high text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary-container font-body-md text-body-md resize-none" id="issueDescription" placeholder="e.g. Havells 1200mm ceiling fan needs assembly and bracket fitting. Switchboard has one loose modular switch that sparks intermittently. Ladder is available on site." rows="3"></textarea>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-1">Quick Add:</span>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm hover:bg-surface-bright transition-colors" onclick="appendNote('High ceiling (12ft+)')" type="button">+ High ceiling (12ft+)</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm hover:bg-surface-bright transition-colors" onclick="appendNote('Bring spare heavy anchor bolts')" type="button">+ Need anchor bolts</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm hover:bg-surface-bright transition-colors" onclick="appendNote('Power backup inverter connected')" type="button">+ Inverter connected</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm hover:bg-surface-bright transition-colors" onclick="appendNote('Call 10 mins before arrival')" type="button">+ Call 10m before arrival</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sticky Summary & Direct Payment Review Card (35% -> col-span-4 approx ~33%) -->
+<div class="lg:col-span-4">
+<div class="sticky top-20 bg-surface-container rounded-xl p-space-lg shadow-xl relative overflow-hidden flex flex-col gap-6">
+<!-- Card Header & Badge -->
+<div class="flex items-center justify-between pb-4">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Direct Contract</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Booking Summary</h3>
+</div>
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container shadow-sm">
+<span class="material-symbols-outlined text-2xl">receipt_long</span>
+</div>
+</div>
+<!-- Schedule Snapshot -->
+<div class="p-space-md rounded-xl bg-surface-container-high flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Scheduled Slot</span>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1 font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Slot Guaranteed
+              </span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-lg">calendar_month</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight" id="summarySelectedDate">Mon, Nov 17, 2025</span>
+<span class="font-body-sm text-body-sm text-primary" id="summarySelectedSlot">Afternoon (12:00 PM - 03:00 PM)</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm text-primary-container">pin_drop</span>
+<span class="truncate">Flat 402, Nilgiri Heights, Madhapur</span>
+</div>
+</div>
+<!-- Fee Calculation Breakdown -->
+<div class="flex flex-col gap-3">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Standard Tariff Breakdown</span>
+<div class="flex items-center justify-between font-body-md text-body-md text-on-surface">
+<span>Standard Installation Base</span>
+<span class="font-semibold text-on-surface">₹450.00</span>
+</div>
+<div class="flex items-center justify-between font-body-md text-body-md text-on-surface">
+<span>Switchboard Safety Inspection</span>
+<span class="font-semibold text-on-surface">₹0.00 <span class="font-label-sm text-label-sm text-tertiary font-bold ml-1">INCLUDED</span></span>
+</div>
+<div class="flex items-center justify-between font-body-md text-body-md text-on-surface">
+<span class="flex items-center gap-1">
+                LSP Direct Facilitation Fee
+                <span class="material-symbols-outlined text-xs text-primary cursor-help" title="No platform commission or gateway surcharges">info</span>
+</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold px-2 py-0.5 rounded bg-tertiary/10">₹0 (ZERO)</span>
+</div>
+<div class="flex items-center justify-between font-body-md text-body-md text-on-surface">
+<span>Emergency Surcharge</span>
+<span class="font-semibold text-on-surface-variant">₹0.00</span>
+</div>
+<!-- Total Bar -->
+<div class="pt-3 mt-1 flex items-baseline justify-between bg-surface-container-high p-space-md rounded-xl">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant block font-bold">Estimated Pay-At-Door</span>
+<span class="font-body-sm text-body-sm text-outline">Inclusive of all local inspection tests</span>
+</div>
+<div class="text-right">
+<span class="font-headline-lg text-headline-lg text-primary-container font-extrabold tracking-tight">₹450</span>
+</div>
+</div>
+</div>
+<!-- Strict Cash & UPI Doorstep Guarantee Notice -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container/10 flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-primary-container text-base">payments</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Zero Pre-Payment Required</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+                Direct Payment to Provider (<span class="text-primary font-semibold">Cash or UPI</span>) at doorstep strictly after job completion and your satisfaction sign-off.
+              </p>
+<div class="flex items-center gap-2 mt-2">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-primary font-semibold">Google Pay</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-primary font-semibold">PhonePe</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-primary font-semibold">Cash</span>
+</div>
+</div>
+</div>
+<!-- Trust Callout -->
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-tertiary">
+<span class="material-symbols-outlined text-base">shield</span>
+<span>100% Verified Direct Technician Assignment</span>
+</div>
+<!-- Primary CTA Button -->
+<div class="pt-1 flex flex-col gap-2">
+<a class="w-full h-12 rounded-xl bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_-3px_rgba(255,122,0,0.35)] group" data-path="booking-review" href="#">
+<span>Proceed to Booking Review</span>
+<span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+<div class="flex items-center justify-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm text-center">
+<span class="material-symbols-outlined text-xs text-tertiary">lock</span>
+<span>Direct reservation • Free cancellation up to 1 hr before arrival</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Client-side Script for slot & date switching -->
+<script>
+    function appendNote(text) {
+      const textarea = document.getElementById('issueDescription');
+      if (textarea.value.trim().length > 0) {
+        textarea.value += ', ' + text;
+      } else {
+        textarea.value = text;
+      }
+      textarea.focus();
+    }
+
+    // Interactive Date Selector Matrix
+    const dateButtons = document.querySelectorAll('#dateSelectorGroup .date-btn');
+    const summaryDate = document.getElementById('summarySelectedDate');
+
+    dateButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        dateButtons.forEach(b => {
+          b.className = 'date-btn group flex flex-col items-center justify-center p-3 rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-bright transition-all cursor-pointer';
+          const sub = b.querySelector('.font-label-sm:last-child');
+          if (sub && !sub.classList.contains('text-tertiary') && !sub.classList.contains('text-primary-fixed-dim')) {
+            sub.className = 'font-label-sm text-label-sm mt-1 text-on-surface-variant font-medium';
+          }
+        });
+
+        btn.className = 'date-btn group flex flex-col items-center justify-center p-3 rounded-xl bg-primary-container text-on-primary-container shadow-md transition-all cursor-pointer';
+        const activeSub = btn.querySelector('.font-label-sm:last-child');
+        if (activeSub) {
+          activeSub.className = 'font-label-sm text-label-sm mt-1 px-1.5 py-0.5 rounded bg-on-primary-container/20 font-bold';
+        }
+
+        if (summaryDate) {
+          summaryDate.textContent = btn.getAttribute('data-display') + ', 2025';
+        }
+      });
+    });
+
+    // Interactive Slot Selector Matrix
+    const slotButtons = document.querySelectorAll('#slotSelectorGroup .slot-btn');
+    const summarySlot = document.getElementById('summarySelectedSlot');
+
+    slotButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        slotButtons.forEach(b => {
+          b.className = 'slot-btn text-left p-space-md rounded-xl bg-surface-container-high hover:bg-surface-bright transition-all cursor-pointer flex flex-col justify-between h-32 group';
+          const icon = b.querySelector('.material-symbols-outlined');
+          if (icon) icon.className = 'material-symbols-outlined text-primary group-hover:scale-110 transition-transform';
+          const title = b.querySelector('.font-headline-sm');
+          if (title) title.className = 'font-headline-sm text-headline-sm text-on-surface font-bold block mt-0.5';
+          const sub = b.querySelector('.font-body-sm');
+          if (sub) sub.className = 'font-body-sm text-body-sm text-on-surface-variant';
+        });
+
+        btn.className = 'slot-btn text-left p-space-md rounded-xl bg-primary-container text-on-primary-container shadow-md transition-all cursor-pointer flex flex-col justify-between h-32 group';
+        const activeIcon = btn.querySelector('.material-symbols-outlined');
+        if (activeIcon) activeIcon.className = 'material-symbols-outlined text-on-primary-container group-hover:scale-110 transition-transform';
+        const activeTitle = btn.querySelector('.font-headline-sm');
+        if (activeTitle) activeTitle.className = 'font-headline-sm text-headline-sm text-on-primary-container font-bold block mt-0.5';
+        const activeSub = btn.querySelector('.font-body-sm');
+        if (activeSub) activeSub.className = 'font-body-sm text-body-sm text-on-primary-container/90 font-medium';
+
+        if (summarySlot) {
+          summarySlot.textContent = btn.getAttribute('data-slot');
+        }
+      });
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl py-space-xl shadow-[0_-1px_12px_rgba(0,0,0,0.5)]"><div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-body-sm text-body-sm text-on-surface-variant">Direct Local Service Dispatch System</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-sm">currency_rupee</span>100% Cash / UPI Direct Settlement</span><span class="flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-sm">security</span>Verified Technicians</span></div><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 LSP Connect Platform. Direct Provider Operations.</div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>

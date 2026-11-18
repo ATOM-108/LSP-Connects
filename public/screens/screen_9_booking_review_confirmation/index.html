@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>LSP Connect</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#4dffb2", "surface-dim": "#0e131e", "secondary-fixed": "#d8e2ff", "secondary": "#b9c6e8", "on-secondary": "#23304a", "surface-container-highest": "#303541", "on-primary": "#522300", "inverse-surface": "#dee2f2", "surface": "#0e131e", "tertiary": "#00e297", "secondary-container": "#3c4965", "surface-bright": "#343946", "on-error": "#690005", "on-surface": "#dee2f2", "primary-fixed-dim": "#ffb68b", "outline-variant": "#584235", "primary-container": "#ff7a00", "tertiary-fixed-dim": "#00e297", "background": "#0e131e", "on-primary-fixed": "#321200", "on-primary-fixed-variant": "#753400", "inverse-primary": "#994700", "on-tertiary-container": "#004028", "surface-variant": "#303541", "tertiary-container": "#00b779", "on-tertiary-fixed-variant": "#005234", "primary-fixed": "#ffdbc8", "surface-container-low": "#161b27", "on-primary-container": "#5c2800", "error": "#ffb4ab", "on-surface-variant": "#e0c0af", "on-secondary-fixed": "#0d1b34", "outline": "#a78b7c", "primary": "#ffb68b", "secondary-fixed-dim": "#b9c6e8", "on-secondary-fixed-variant": "#3a4762", "on-secondary-container": "#abb8d9", "inverse-on-surface": "#2b303d", "surface-container-high": "#252a36", "surface-container-lowest": "#090e19", "surface-container": "#1b1f2b", "on-error-container": "#ffdad6", "error-container": "#93000a", "on-tertiary": "#003822", "on-tertiary-fixed": "#002112", "on-background": "#dee2f2", "surface-tint": "#ffb68b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-xl": "2rem" }, "fontFamily": { "headline-sm": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "label-lg": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"] }, "fontSize": { "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container shadow-[0_0_12px_-2px_rgba(255,122,0,0.3)]"><span class="material-symbols-outlined text-xl">construction</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none tracking-tight font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Verified Local Direct</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-tertiary text-base">verified</span><span class="font-label-sm text-label-sm text-on-surface">100% Background-Verified</span></div></div><nav class="hidden md:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low" data-active-classes="bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg shadow-[0_0_15px_-3px_rgba(255,122,0,0.3)]"><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="services" href="#">Services</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="customer-profile" href="#">Profile</a></nav><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-low text-primary"><span class="material-symbols-outlined text-sm text-primary-container">payments</span><span class="font-label-sm text-label-sm font-semibold text-primary">Direct Cash &amp; UPI • Zero Fee</span></div><a class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-[0_0_16px_-4px_rgba(255,122,0,0.5)]" data-path="quick-request" href="#"><span class="material-symbols-outlined text-base">bolt</span>Quick Request</a><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Customer</span><span class="font-label-sm text-label-sm text-tertiary flex items-center justify-end gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span>Active Area</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-highest" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Top Progress & Path Context -->
+<div class="w-full bg-surface-container-lowest/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 py-space-md flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<!-- Breadcrumb & Step Label -->
+<div class="flex flex-col gap-1">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-xs">home</span> Home
+          </a>
+<span class="text-outline">/</span>
+<a class="hover:text-primary transition-colors" href="#">Bookings</a>
+<span class="text-outline">/</span>
+<span class="text-primary font-label-md text-label-md">Review &amp; Confirm</span>
+</nav>
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">Review Work Order</h1>
+<span class="bg-primary-container/15 text-primary-container px-2 py-0.5 rounded-full font-label-sm text-label-sm font-bold tracking-wider uppercase">Order #LSP-8942-BLR</span>
+</div>
+</div>
+<!-- Step Indicator -->
+<div class="flex items-center gap-space-md bg-surface-container-low px-space-md py-space-sm rounded-xl">
+<div class="flex items-center gap-space-xs text-tertiary">
+<span class="w-5 h-5 rounded-full bg-tertiary/20 flex items-center justify-center font-label-sm text-label-sm font-bold">✓</span>
+<span class="font-label-md text-label-md">Service Details</span>
+</div>
+<div class="w-6 h-0.5 bg-tertiary/40"></div>
+<div class="flex items-center gap-space-xs text-tertiary">
+<span class="w-5 h-5 rounded-full bg-tertiary/20 flex items-center justify-center font-label-sm text-label-sm font-bold">✓</span>
+<span class="font-label-md text-label-md">Schedule &amp; Slot</span>
+</div>
+<div class="w-6 h-0.5 bg-primary-container"></div>
+<div class="flex items-center gap-space-xs text-primary-container">
+<span class="w-5 h-5 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-label-sm text-label-sm font-bold">3</span>
+<span class="font-label-md text-label-md font-bold">Final Review</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Body Grid: 65% Main Details / 35% Sticky Transaction Summary -->
+<div class="max-w-7xl mx-auto px-6 lg:px-12 py-space-xl w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT WORKSPACE COLUMN (Approx 65% / 8 cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- CARD 1: Selected Service & Technician Assignment -->
+<section class="bg-surface-container-low rounded-xl p-space-lg shadow-md relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-44 h-44 bg-primary-container/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between flex-wrap gap-space-sm mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="p-2 rounded-lg bg-surface-container-high text-primary-container">
+<span class="material-symbols-outlined text-2xl">bolt</span>
+</span>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="bg-secondary-container/60 text-secondary-fixed font-label-sm text-label-sm uppercase px-2 py-0.5 rounded-full font-semibold">Electrical Diagnostics</span>
+<span class="text-outline text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Standard Rate Direct</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold mt-0.5">Ceiling Fan Installation &amp; Switchboard Check</h2>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">₹450.00</span>
+</div>
+<!-- Technician Highlight Module -->
+<div class="bg-surface-container rounded-lg p-space-md mt-space-md flex flex-col sm:flex-row items-center sm:items-stretch justify-between gap-space-md">
+<div class="flex items-center gap-space-md w-full sm:w-auto">
+<div class="relative">
+<img alt="Santosh Pandey" class="w-16 h-16 rounded-xl object-cover" data-alt="Portrait of Santosh Pandey, an experienced Indian electrical technician in clean dark blue uniform with reflective striping, looking confidently at the camera with industrial lighting and tools in soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALWKq9sGUWxn2kE-4b1MiMkQdrxV-8kXt2yBw6m9Rp2J7nV-oeKqUnXp0IUNkbUXfUyAYrd4ISWWX4AqhgvSrZC09OclRMKgxDxnoRSHB0YGiQnRo2wPlY0SCRqRmw9oIan_dlKd_2s2_ZVt0wXQa8EIQs3AdvhXTMhLZQhVr6pVvJ1X8Ilxo8PfTDTGLcuZNRq5Bbu5Md0WpZClEKUhe7_NsrZIZoiklasYzrdbun"/>
+<span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center">
+<span class="w-3.5 h-3.5 rounded-full bg-tertiary inline-block animate-pulse"></span>
+</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold">Santosh Pandey</h3>
+<span class="inline-flex items-center gap-1 bg-tertiary/15 text-tertiary font-label-sm text-label-sm px-2 py-0.5 rounded-full font-semibold">
+<span class="material-symbols-outlined text-xs">verified_user</span> KYC &amp; Police Verified
+                  </span>
+</div>
+<div class="flex items-center gap-space-sm mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<strong class="font-semibold text-on-surface">4.85</strong> (314 Jobs)
+                  </span>
+<span>•</span>
+<span>9 Yrs Experience</span>
+<span>•</span>
+<span class="text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">format_image_left</span> Level 3 Certified
+                  </span>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col items-end justify-center self-stretch sm:border-l sm:border-surface-variant/40 sm:pl-space-md">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider">Arrival Window</span>
+<span class="font-label-lg text-label-lg text-primary font-bold flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-sm text-primary-container">calendar_clock</span>
+                Mon, Nov 17, 2025
+              </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">12:00 PM – 03:00 PM</span>
+</div>
+</div>
+</section>
+<!-- CARD 2: Service Location & Contact Details -->
+<section class="bg-surface-container-low rounded-xl p-space-lg shadow-md">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="p-2 rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-xl">pin_drop</span>
+</span>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Dispatch Target</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Service Location &amp; Contact</h3>
+</div>
+</div>
+<a class="font-label-md text-label-md text-primary-container hover:text-primary transition-colors flex items-center gap-0.5 font-semibold" href="#">
+<span class="material-symbols-outlined text-sm">edit</span> Change
+            </a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Location Details Box -->
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Service Address</span>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold mt-1">Flat 402, Nilgiri Heights</p>
+<p class="font-body-md text-body-md text-on-surface-variant">12th Main, 4th Cross, HAL 2nd Stage</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Madhapur, Hyderabad, Andhra Pradesh - 500081</p>
+</div>
+<div class="mt-space-md pt-space-sm bg-surface-container-high/50 -mx-space-md -mb-space-md p-space-md rounded-b-lg flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-base">info</span>
+<span>Gate Pass: Inform Security Guard at Tower B entrance.</span>
+</div>
+</div>
+<!-- Customer Contact Profile & Map Indicator -->
+<div class="bg-surface-container rounded-lg p-space-md flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Authorized Point of Contact</span>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold mt-1">Vikramaditya Sengupta</p>
+<div class="flex items-center gap-space-xs mt-1 text-on-surface">
+<span class="material-symbols-outlined text-sm text-primary-container">phone_iphone</span>
+<span class="font-label-lg text-label-lg font-bold tracking-wide">+91 98765 43210</span>
+<span class="bg-tertiary/20 text-tertiary font-label-sm text-label-sm px-1.5 py-0.2 rounded font-semibold ml-1">Verified verification code</span>
+</div>
+</div>
+<!-- Inline Micro Map Thumbnail -->
+<div class="mt-space-md h-24 rounded-lg overflow-hidden relative shadow-inner" data-location="Madhapur Hyderabad" style="">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Satellite night dark mode aerial road map view of Madhapur Hyderabad neighborhood with clean cyan and amber glowing GPS waypoint pin labeled Nilgiri Heights" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBXvXellIPML8GrsQ-H7sDFXAENuHzcQRCJpWM6og7fi_SIz8sLgcB6nMdp3eAIH8ZgmS9ScXbkTC_5S14nAT7aRmxY2s45-P7aRCEyG6LeLLHLRQsZvJP-BT_KYcu-l3u-LEXDLJOFsz1k1X5kJBnnW0aBf_YgQ6HJXkoBKfNwa8G4D2NId0BvbQz1lPJumL7PpRwJONQxWfN5m4_PFZkChcDbwvpJFq23CgTy48-x');">
+<div class="absolute inset-0 bg-surface-container-lowest/40 backdrop-blur-[1px]"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 text-primary-container font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-sm text-primary-container">location_on</span> Lat: 12.9784° N, 77.6408° E
+                    </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CARD 3: Problem Description & Special Instructions -->
+<section class="bg-surface-container-low rounded-xl p-space-lg shadow-md">
+<div class="flex items-center gap-space-sm mb-space-md">
+<span class="p-2 rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-xl">assignment</span>
+</span>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Diagnosis Scope</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Problem Description &amp; Instructions</h3>
+</div>
+</div>
+<div class="space-y-space-md">
+<div class="bg-surface-container rounded-lg p-space-md">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-1">Customer Problem Statement</span>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                "The living room ceiling fan wobbles violently on speed 4 and 5 with an intermittent metallic buzzing noise. Additionally, the primary switchboard behind the entertainment console sparks faintly when flipping the master inverter breaker."
+              </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="bg-surface-container rounded-lg p-space-md">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-1">Equipment On-Site</span>
+<ul class="text-on-surface-variant font-body-sm text-body-sm space-y-1">
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-primary-container">check_circle</span>
+<span>1x Crompton Uranus 1200mm Decorative Fan (New Unit)</span>
+</li>
+<li class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-primary-container">check_circle</span>
+<span>Anchor Roma 8-Module Modular Switchboard</span>
+</li>
+</ul>
+</div>
+<div class="bg-surface-container rounded-lg p-space-md">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block mb-1">Site Access Protocol</span>
+<p class="text-on-surface-variant font-body-sm text-body-sm leading-relaxed">
+                  Stepladder available inside the utility balcony. Main circuit breaker box is located right next to the foyer entrance. Service dog will be leashed.
+                </p>
+</div>
+</div>
+</div>
+</section>
+<!-- CARD 4: MANDATORY Direct Settlement Notice -->
+<section class="bg-primary-container/10 rounded-xl p-space-lg shadow-lg relative overflow-hidden">
+<div class="flex flex-col sm:flex-row items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container flex-shrink-0 shadow-[0_0_20px_-3px_rgba(255,122,0,0.4)]">
+<span class="material-symbols-outlined text-2xl font-bold">payments</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">Direct Cash / UPI Doorstep Payment Policy</h3>
+<span class="bg-primary-container text-on-primary-container px-2 py-0.5 rounded font-label-sm text-label-sm font-bold uppercase tracking-wider">Zero Portal Commission</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-2 leading-relaxed">
+<strong>LSP Connect does not collect prepayment or store credit card data.</strong> You pay exactly the verified tariff of <span class="text-primary font-bold">₹450.00</span> directly to technician <span class="text-on-surface font-semibold underline decoration-primary/50">Santosh Pandey</span> via direct <strong>Cash or technician UPI QR</strong> strictly upon service completion and your explicit satisfaction sign-off.
+              </p>
+<!-- Direct Payment Reassurance Badges -->
+<div class="mt-space-md pt-space-md border-t border-outline-variant/30 flex flex-wrap items-center gap-space-lg text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-base">qr_code_2</span> Instant UPI QR Scan at Door
+                </span>
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-base text-primary-container">receipt_long</span> Itemized Direct Digital Invoice Generated
+                </span>
+<span class="flex items-center gap-1.5 text-tertiary">
+<span class="material-symbols-outlined text-base">verified</span> Zero Surcharges or Convenience Fees
+                </span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- RIGHT COLUMN: Sticky Tariff Breakdown & Final Action Rail (Approx 35% / 4 cols) -->
+<aside class="lg:col-span-4 lg:sticky lg:top-20 flex flex-col gap-space-lg">
+<!-- Tariff Breakdown Card -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-xl relative">
+<div class="flex items-center justify-between pb-space-md mb-space-md border-b border-surface-container-highest">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">receipt</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Tariff Summary</h3>
+</div>
+<span class="bg-surface-container text-primary font-label-sm text-label-sm px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">Standard Slot</span>
+</div>
+<!-- Price Line Items -->
+<div class="space-y-space-md pb-space-lg border-b border-surface-container-highest">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">Standard Labor Tariff</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Fan unboxing, bracket fitting &amp; switch check</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">₹450.00</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">Inspection &amp; Safety Diagnostic</span>
+<span class="font-body-sm text-body-sm text-tertiary font-medium">Standard baseline check included</span>
+</div>
+<span class="font-label-lg text-label-lg text-tertiary font-bold">₹0.00</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">Platform Facilitation Fee</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Non-intermediated direct dispatch</span>
+</div>
+<span class="font-label-lg text-label-lg text-primary font-bold">FREE</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">Doorstep Visit &amp; Transit</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Madhapur Local Zone A</span>
+</div>
+<span class="font-label-lg text-label-lg text-tertiary font-bold">₹0.00</span>
+</div>
+</div>
+<!-- Final Total Due at Door -->
+<div class="pt-space-md pb-space-md">
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block">Total Payable at Door</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Via Cash or Direct UPI upon sign-off</span>
+</div>
+<div class="text-right">
+<span class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">₹450.00</span>
+<span class="block font-label-sm text-label-sm text-tertiary font-semibold">No Hidden Charges</span>
+</div>
+</div>
+</div>
+<!-- Terms & Condition Interactive Agreement -->
+<div class="bg-surface-container rounded-lg p-space-md mb-space-lg">
+<label class="flex items-start gap-space-sm cursor-pointer select-none group">
+<input checked="" class="mt-1 w-4 h-4 rounded text-primary-container bg-surface-container-high border-outline focus:ring-0 focus:ring-offset-0 cursor-pointer" id="agree-terms" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface leading-tight group-hover:text-primary transition-colors">
+                I agree to inspect technician credentials upon doorstep arrival and settle payment of <strong>₹450</strong> directly via Cash or UPI QR upon work completion.
+              </span>
+</label>
+</div>
+<!-- Primary CTA Button -->
+<button class="w-full h-12 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold uppercase tracking-wider flex items-center justify-center gap-space-sm transition-all shadow-[0_0_20px_-3px_rgba(255,122,0,0.5)] active:scale-[0.99]" id="btn-confirm-booking">
+<span>Confirm Booking &amp; Reserve Slot</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<!-- Secondary Modification Action -->
+<div class="mt-space-md flex items-center justify-center">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 font-semibold" href="#">
+<span class="material-symbols-outlined text-sm">schedule</span> Modify Slot or Address
+            </a>
+</div>
+<!-- Security Badges Section -->
+<div class="mt-space-lg pt-space-md border-t border-surface-container-highest flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-tertiary text-base">verified</span>
+<span>100% Background &amp; identity proof Verified Technicians</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary text-base">cancel</span>
+<span>Zero Cancellation Fee before technician transit</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-primary-container text-base">handshake</span>
+<span>Direct Customer-to-Worker Settlement Protection</span>
+</div>
+</div>
+</div>
+<!-- Dispatch Help Pill -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary">support_agent</span>
+<span class="font-body-sm text-body-sm">Need help with this order?</span>
+</div>
+<a class="font-label-sm text-label-sm text-primary font-bold hover:underline" href="#">Call Operations Desk</a>
+</div>
+</aside>
+</div>
+</div>
+<!-- Interactive Client Behavior for Order Confirmation Feedback -->
+<script>
+    (function() {
+      const confirmBtn = document.getElementById('btn-confirm-booking');
+      const termsCheck = document.getElementById('agree-terms');
+
+      if (confirmBtn && termsCheck) {
+        termsCheck.addEventListener('change', function() {
+          if (!this.checked) {
+            confirmBtn.disabled = true;
+            confirmBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            confirmBtn.classList.remove('hover:bg-primary');
+          } else {
+            confirmBtn.disabled = false;
+            confirmBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            confirmBtn.classList.add('hover:bg-primary');
+          }
+        });
+
+        confirmBtn.addEventListener('click', function() {
+          if (!termsCheck.checked) return;
+          confirmBtn.innerHTML = `
+            <span class="material-symbols-outlined text-lg animate-spin">progress_activity</span>
+            <span>Reserving Slot with Santosh...</span>
+          `;
+          confirmBtn.disabled = true;
+          
+          setTimeout(function() {
+            confirmBtn.innerHTML = `
+              <span class="material-symbols-outlined text-lg text-on-primary">check_circle</span>
+              <span>Slot Reserved Successfully!</span>
+            `;
+            confirmBtn.classList.add('bg-tertiary', 'text-on-tertiary');
+            confirmBtn.classList.remove('bg-primary-container');
+          }, 1200);
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl py-space-xl shadow-[0_-1px_12px_rgba(0,0,0,0.5)]"><div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-body-sm text-body-sm text-on-surface-variant">Direct Local Service Dispatch System</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-sm">currency_rupee</span>100% Cash / UPI Direct Settlement</span><span class="flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-sm">security</span>Verified Technicians</span></div><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 LSP Connect Platform. Direct Provider Operations.</div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>LSP Connect</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#4dffb2", "surface-dim": "#0e131e", "secondary-fixed": "#d8e2ff", "secondary": "#b9c6e8", "on-secondary": "#23304a", "surface-container-highest": "#303541", "on-primary": "#522300", "inverse-surface": "#dee2f2", "surface": "#0e131e", "tertiary": "#00e297", "secondary-container": "#3c4965", "surface-bright": "#343946", "on-error": "#690005", "on-surface": "#dee2f2", "primary-fixed-dim": "#ffb68b", "outline-variant": "#584235", "primary-container": "#ff7a00", "tertiary-fixed-dim": "#00e297", "background": "#0e131e", "on-primary-fixed": "#321200", "on-primary-fixed-variant": "#753400", "inverse-primary": "#994700", "on-tertiary-container": "#004028", "surface-variant": "#303541", "tertiary-container": "#00b779", "on-tertiary-fixed-variant": "#005234", "primary-fixed": "#ffdbc8", "surface-container-low": "#161b27", "on-primary-container": "#5c2800", "error": "#ffb4ab", "on-surface-variant": "#e0c0af", "on-secondary-fixed": "#0d1b34", "outline": "#a78b7c", "primary": "#ffb68b", "secondary-fixed-dim": "#b9c6e8", "on-secondary-fixed-variant": "#3a4762", "on-secondary-container": "#abb8d9", "inverse-on-surface": "#2b303d", "surface-container-high": "#252a36", "surface-container-lowest": "#090e19", "surface-container": "#1b1f2b", "on-error-container": "#ffdad6", "error-container": "#93000a", "on-tertiary": "#003822", "on-tertiary-fixed": "#002112", "on-background": "#dee2f2", "surface-tint": "#ffb68b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-xl": "2rem" }, "fontFamily": { "headline-sm": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "label-lg": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"] }, "fontSize": { "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container shadow-[0_0_12px_-2px_rgba(255,122,0,0.3)]"><span class="material-symbols-outlined text-xl">construction</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none tracking-tight font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Verified Local Direct</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-tertiary text-base">verified</span><span class="font-label-sm text-label-sm text-on-surface">100% Background-Verified</span></div></div><nav class="hidden md:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low" data-active-classes="bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg shadow-[0_0_15px_-3px_rgba(255,122,0,0.3)]"><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="services" href="#">Services</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="customer-profile" href="#">Profile</a></nav><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-low text-primary"><span class="material-symbols-outlined text-sm text-primary-container">payments</span><span class="font-label-sm text-label-sm font-semibold text-primary">Direct Cash &amp; UPI • Zero Fee</span></div><a class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-[0_0_16px_-4px_rgba(255,122,0,0.5)]" data-path="quick-request" href="#"><span class="material-symbols-outlined text-base">bolt</span>Quick Request</a><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Customer</span><span class="font-label-sm text-label-sm text-tertiary flex items-center justify-end gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span>Active Area</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-highest" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<div class="max-w-7xl mx-auto w-full px-6 lg:px-12 py-space-xl flex flex-col gap-space-lg">
+<!-- Stepper / Breadcrumb Navigation -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm font-label-md text-label-md text-on-surface-variant">
+<span class="text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-base">task_alt</span> Booking Confirmed
+        </span>
+<span class="text-outline">/</span>
+<span class="text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-base">location_on</span> Technician Arrived
+        </span>
+<span class="text-outline">/</span>
+<span class="text-primary-container font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-base">rate_review</span> On-Site Quotation Revision
+        </span>
+<span class="text-outline">/</span>
+<span class="text-outline-variant">Direct Settlement</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="text-primary-container font-bold">STATUS:</span> Awaiting Customer Approval
+      </div>
+</div>
+<!-- Page Title & Ticket Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-xs">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-container font-bold px-2 py-0.5 rounded bg-surface-container-high">Scope Revision Ticket</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Created 4 mins ago by Verified Tech</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+          Quotation Revision Required for Booking <span class="text-primary-container">#LSP-2025-88392</span>
+</h1>
+</div>
+<div class="flex items-center gap-space-md bg-surface-container-low px-space-md py-space-sm rounded-xl">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-2xl">electrical_services</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Assigned Service</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Ceiling Fan &amp; Switchgear Retrofit</span>
+</div>
+</div>
+</div>
+<!-- Prominent Amber Info Banner -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-lg shadow-lg">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary-container"></div>
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md pl-space-xs">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-full bg-primary-container/15 flex items-center justify-center text-primary-container shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-primary-container">Scope Adjustment Discovered During Inspection</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+              Technician has submitted a custom itemized estimate for additional scope discovered during inspection. No additional work will proceed until you review and approve this quote.
+            </p>
+</div>
+</div>
+<div class="shrink-0 flex items-center gap-2 self-end sm:self-center px-space-md py-1.5 rounded-lg bg-surface-container-high text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-base">lock</span>
+          Zero Price Escalation Guarantee
+        </div>
+</div>
+</div>
+<!-- Main 2-Column Grid (65% / 35%) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN (65% / 8 Cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Itemized Quotation Table Container -->
+<div class="rounded-xl bg-surface-container-low shadow-xl overflow-hidden flex flex-col">
+<div class="px-space-lg py-space-md bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-xl">receipt_long</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface uppercase tracking-wider">Itemized Scope Breakdown</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2.5 py-1 rounded-full">4 Line Items Listed</span>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/60 text-on-surface-variant font-label-md text-label-md">
+<th class="py-space-md px-space-lg font-semibold">Description</th>
+<th class="py-space-md px-space-md font-semibold">Category</th>
+<th class="py-space-md px-space-md font-semibold text-center">Qty / Hours</th>
+<th class="py-space-md px-space-md font-semibold text-right">Unit Price</th>
+<th class="py-space-md px-space-lg font-semibold text-right">Total</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high text-on-surface font-body-md text-body-md">
+<!-- Row 1: Original Standard Labor -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="py-space-md px-space-lg">
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface">Ceiling Fan Installation</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Original Standard Labor Package</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-secondary font-label-sm text-label-sm bg-surface-container-high">Labor</span>
+</td>
+<td class="py-space-md px-space-md text-center text-on-surface-variant font-label-md text-label-md">1 Unit</td>
+<td class="py-space-md px-space-md text-right text-on-surface-variant">₹250.00</td>
+<td class="py-space-md px-space-lg text-right font-bold text-on-surface">₹250.00</td>
+</tr>
+<!-- Row 2: Heavy-Duty Anchor Bolt & Hook Replacement -->
+<tr class="bg-primary-container/5 hover:bg-primary-container/10 transition-colors">
+<td class="py-space-md px-space-lg">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-semibold text-on-surface">Heavy-Duty Anchor Bolt &amp; Hook Replacement</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-primary-container/20 text-primary-container">Added Scope</span>
+</div>
+<div class="flex items-center gap-1.5 text-tertiary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm">verified</span>
+<span>Receipt photo attached / verified genuine</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-tertiary font-label-sm text-label-sm bg-surface-container-high">Materials</span>
+</td>
+<td class="py-space-md px-space-md text-center text-on-surface-variant font-label-md text-label-md">1 Set</td>
+<td class="py-space-md px-space-md text-right text-on-surface-variant">₹120.00</td>
+<td class="py-space-md px-space-lg text-right font-bold text-primary">₹120.00</td>
+</tr>
+<!-- Row 3: Burnt Switchboard Rocker & 25A MCB Replacement -->
+<tr class="bg-primary-container/5 hover:bg-primary-container/10 transition-colors">
+<td class="py-space-md px-space-lg">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-semibold text-on-surface">Burnt Switchboard Rocker &amp; 25A MCB Replacement</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-primary-container/20 text-primary-container">Added Scope</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Havells 25A Single Pole C-Curve MCB certified replacement</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-tertiary font-label-sm text-label-sm bg-surface-container-high">Materials</span>
+</td>
+<td class="py-space-md px-space-md text-center text-on-surface-variant font-label-md text-label-md">1 Unit</td>
+<td class="py-space-md px-space-md text-right text-on-surface-variant">₹280.00</td>
+<td class="py-space-md px-space-lg text-right font-bold text-primary">₹280.00</td>
+</tr>
+<!-- Row 4: Concealed Conduit Wire Splicing & Insulation -->
+<tr class="bg-primary-container/5 hover:bg-primary-container/10 transition-colors">
+<td class="py-space-md px-space-lg">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-semibold text-on-surface">Concealed Conduit Wire Splicing &amp; Insulation</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-primary-container/20 text-primary-container">Added Scope</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Stripping heat-degraded wire &amp; heat-shrink sleeve re-routing</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-secondary font-label-sm text-label-sm bg-surface-container-high">Labor</span>
+</td>
+<td class="py-space-md px-space-md text-center text-on-surface-variant font-label-md text-label-md">1 Hour</td>
+<td class="py-space-md px-space-md text-right text-on-surface-variant">₹150.00</td>
+<td class="py-space-md px-space-lg text-right font-bold text-primary">₹150.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Summary Breakdown Box -->
+<div class="p-space-lg bg-surface-container-high/40 flex flex-col md:flex-row justify-between items-center gap-space-lg">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-2xl">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">LSP Connect Material Cost Guard</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hardware billed strictly at local wholesale retail price without markup.</span>
+</div>
+</div>
+<!-- Totals Grid -->
+<div class="w-full md:w-80 flex flex-col gap-2 bg-surface-container-low p-space-md rounded-xl">
+<div class="flex justify-between items-center font-body-sm text-body-sm text-on-surface-variant">
+<span>Standard Base Amount:</span>
+<span class="font-semibold text-on-surface">₹250.00</span>
+</div>
+<div class="flex justify-between items-center font-body-sm text-body-sm text-on-surface-variant">
+<span>Additional Labor:</span>
+<span class="font-semibold text-primary">₹150.00</span>
+</div>
+<div class="flex justify-between items-center font-body-sm text-body-sm text-on-surface-variant">
+<span>Replacement Materials (at cost):</span>
+<span class="font-semibold text-primary">₹400.00</span>
+</div>
+<div class="h-px bg-surface-container-high my-1"></div>
+<div class="flex justify-between items-baseline">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Total Revised Estimate:</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary-container">₹800.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Technician Inspection Notes & Profile Snippet -->
+<div class="rounded-xl bg-surface-container-low p-space-lg shadow-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-space-sm">
+<img alt="Rajesh Sharma" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary-container" data-alt="Portrait photo of a certified Indian male electrician technician Rajesh wearing professional blue uniform and badge smiling confidently with tools in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBi3kGGcF6UHZ42I60JiNbyRyrS1Sm0fPVQzEQ7TZNWbxnen4ujCJQv_3mLu-VXBqvUCl9qEYq11OmsCN32v9HjGDn2WefFWm8zcztwlgvsCqEoWqEf2wPd4qsJ0W4X0UFg_0VUAkbTe7yWCeWtczkHzyYRllcMNrtDSQAlLwr1NugRtQBRLdZHGXcPETsxKxKqO7vpR_qTxRCoMdkcopJgmIzbMZnU0PydXAKlQhO"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Rajesh Sharma</span>
+<span class="material-symbols-outlined text-tertiary text-base" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Badge ID: #LSP-EL-9921 • Level 4 Senior Electrician</span>
+</div>
+</div>
+<div class="flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Logged On-Site: 11:24 AM</span>
+</div>
+</div>
+<!-- Notes Card -->
+<div class="p-space-md rounded-xl bg-surface-container-high/50 flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm font-bold text-primary uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-base">engineering</span> Technician Inspection Field Notes
+            </span>
+<p class="font-body-md text-body-md text-on-surface italic pl-1 leading-relaxed">
+              “Found old anchor bolt corroded and ungrounded wire near the junction box. Highly recommend replacing MCB switch to prevent short circuit.”
+            </p>
+</div>
+<!-- Attached Material Invoices & Photos Section -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary-container">attachment</span>
+                Uploaded Site Inspection Evidence &amp; Invoices (3)
+              </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Click to view high-res</span>
+</div>
+<!-- Thumbnails Mosaic -->
+<div class="grid grid-cols-3 gap-space-md">
+<div class="group relative rounded-lg overflow-hidden bg-surface-container aspect-video cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="High resolution close-up photograph of corroded ceiling fan anchor bolt attached to cracked concrete ceiling plaster inside an Indian home apartment showing rust and structural wear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFA2bSxRI2haOUyGwGZs511AtFnIM4XPCCfIzHigXcUZafoO-51vfUdflrlG2P5u35EaOeyC0duL1MBpZT_ETu3is4l1KvbdqgiwVIwPOu2Ha9MzFgRsq55Os_tVP8mVq1WtRIsoKCMME49miABAus2jE-D1aLPYn_l7cGGeG81QDyR4IQ0SWWTpeIby27dD6Yu57sPn-RYT3YBkYNujK_fRY-t3_o-YWeb5rftFA4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/80 via-transparent to-transparent flex items-end p-2">
+<span class="font-label-sm text-label-sm text-on-surface truncate">Corroded Anchor Bolt.jpg</span>
+</div>
+</div>
+<div class="group relative rounded-lg overflow-hidden bg-surface-container aspect-video cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Detailed macro photo of burnt electrical switchboard rocker terminal and charred wire insulation inside modular wall plate switch enclosure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkOVVHaA25ihTmogLbrVFSnTyhVplc8zv_H_M7--mXPxgBVq4jKPWQttATJIrvKbz6UVA-5i-xpXKZPpaXy419Q6kfv8aCI0DYl0Y-7Lc80j17MW7RVA1Y7R2aZuhXssPCj03d7Is8ef5aLMgZmYT2kloZBsLNqUYs48kge6P-JPOyxGYeA4X27Umt4i_7kpaX99TqOfjGxU4FVaKwaEnIetT3gz4H1Oj4Ak367l7K"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/80 via-transparent to-transparent flex items-end p-2">
+<span class="font-label-sm text-label-sm text-on-surface truncate">Burnt MCB Terminal.jpg</span>
+</div>
+</div>
+<div class="group relative rounded-lg overflow-hidden bg-surface-container aspect-video cursor-pointer">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Clean paper receipt printed from local electrical hardware retail store showing stamped itemized billing for 25A MCB and anchor fasteners in Indian rupees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGPjOCecqN6fedkbpf3_fmkKqTVLY3qtGHxnR7p8NkX1NP055WzGIHPVVdBAP_dlajdaGEqLHlCBlCz7zcyguQ2I6SjMhX-5O4aCPgpOk-bUSkWYBighGxBwMd-GVPTeH4h-TXLUSS4av_4fculTyXoZWiaTAj_z2fyrVWsOBqFUWQGRKq-grf2nrQs9YMvYFKml8qqA4BX2VpJxvOhoENlIyxVGHEiQoG-h_HYWNv"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/80 via-transparent to-transparent flex items-end p-2">
+<span class="font-label-sm text-label-sm text-on-surface truncate">Hardware Store Invoice.jpg</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (35% / 4 Cols) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg sticky top-20">
+<!-- Approval Action Card -->
+<div class="rounded-xl bg-surface-container-low p-space-lg shadow-2xl flex flex-col gap-space-lg relative overflow-hidden">
+<!-- Subtle Amber Gradient Sheen -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary-container/10 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Card Header & Total -->
+<div class="flex flex-col gap-2 pb-space-xs">
+<span class="font-label-sm text-label-sm uppercase font-bold tracking-widest text-primary-container">Quotation Final Settlement</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Total Revised Doorstep Payable</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface">₹800.00</span>
+<span class="font-label-md text-label-md text-tertiary font-semibold">(Direct Settlement)</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high text-primary font-label-md text-label-md mt-1">
+<span class="material-symbols-outlined text-base">payments</span>
+<span>Strictly Cash or UPI to Technician directly</span>
+</div>
+</div>
+<!-- Quick Scope Delta Comparison -->
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">Estimate Comparison</span>
+<div class="flex justify-between items-center font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Original Estimate:</span>
+<span class="text-on-surface line-through font-semibold">₹250.00</span>
+</div>
+<div class="flex justify-between items-center font-body-sm text-body-sm">
+<span class="text-on-surface-variant">Approved Parts + Scope:</span>
+<span class="text-primary font-semibold">+₹550.00</span>
+</div>
+<div class="flex justify-between items-center font-label-md text-label-md font-bold text-on-surface pt-1 border-t border-surface-container-high">
+<span>Customer Payable Upon Completion:</span>
+<span class="text-primary-container">₹800.00</span>
+</div>
+</div>
+<!-- Decision Action CTA Buttons -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Primary Amber Button -->
+<button class="w-full py-3.5 px-space-md rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_-3px_rgba(255,122,0,0.4)] hover:shadow-[0_0_25px_-1px_rgba(255,122,0,0.6)] cursor-pointer" id="approve-btn">
+<span>Approve Quotation &amp; Authorize Work</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<!-- Secondary Outline Button -->
+<button class="w-full py-3 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-colors cursor-pointer text-center" id="reject-additional-btn">
+<span class="material-symbols-outlined text-base text-on-surface-variant">remove_circle_outline</span>
+<span>Reject Additional Scope (Proceed with Original ₹250 Only)</span>
+</button>
+<!-- Danger Link -->
+<button class="w-full py-2.5 px-space-md rounded-lg text-error hover:bg-error-container/20 font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer" id="decline-all-btn">
+<span class="material-symbols-outlined text-base">cancel</span>
+<span>Decline &amp; Request Immediate Job Wrap-up</span>
+</button>
+</div>
+<!-- Policy Disclaimer -->
+<div class="p-space-md rounded-lg bg-surface-container-lowest/80 flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-lg shrink-0 mt-0.5">policy</span>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">LSP Connect Standard Protocol</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                In accordance with LSP Connect Standard Protocol, technicians cannot charge beyond approved quotations. You pay directly via Cash/UPI on completion.
+              </p>
+</div>
+</div>
+</div>
+<!-- Technician Verified Guarantee Box -->
+<div class="rounded-xl bg-surface-container-low p-space-md flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-2xl">shield</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">30-Day Service Warranty</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">All approved rewiring &amp; MCB materials carry full doorstep repair cover.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Confirmation Modal (Hidden by Default) -->
+<div class="fixed inset-0 z-50 hidden bg-surface-dim/80 backdrop-blur-md flex items-center justify-center p-6" id="approval-modal">
+<div class="w-full max-w-lg rounded-2xl bg-surface-container p-space-xl shadow-2xl flex flex-col gap-space-lg">
+<div class="w-14 h-14 rounded-full bg-primary-container/20 text-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">verified</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Authorize Revised Scope of ₹800.00?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Technician Rajesh Sharma will be notified immediately on his mobile terminal to commence installation with the new materials. Settlement of ₹800 will be collected directly via Cash or UPI only upon job satisfaction.
+        </p>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-high flex flex-col gap-1 font-body-sm text-body-sm">
+<div class="flex justify-between text-on-surface">
+<span>Base Labor:</span>
+<span>₹250.00</span>
+</div>
+<div class="flex justify-between text-primary font-semibold">
+<span>Added Conduit Labor + Materials:</span>
+<span>₹550.00</span>
+</div>
+<div class="flex justify-between font-label-lg text-label-lg font-bold text-primary-container pt-1 border-t border-surface-container">
+<span>Final Doorstep Payable:</span>
+<span>₹800.00</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-md">
+<button class="px-space-lg py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-lg text-label-lg font-semibold transition-colors" id="modal-cancel-btn">
+          Cancel
+        </button>
+<button class="px-space-lg py-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-[0_0_15px_-3px_rgba(255,122,0,0.5)]" id="modal-confirm-btn">
+          Confirm Authorization
+        </button>
+</div>
+</div>
+</div>
+<script>
+    (function() {
+      const approveBtn = document.getElementById('approve-btn');
+      const rejectAdditionalBtn = document.getElementById('reject-additional-btn');
+      const declineAllBtn = document.getElementById('decline-all-btn');
+      const modal = document.getElementById('approval-modal');
+      const modalCancelBtn = document.getElementById('modal-cancel-btn');
+      const modalConfirmBtn = document.getElementById('modal-confirm-btn');
+
+      if (approveBtn && modal) {
+        approveBtn.addEventListener('click', function() {
+          modal.classList.remove('hidden');
+        });
+      }
+
+      if (modalCancelBtn && modal) {
+        modalCancelBtn.addEventListener('click', function() {
+          modal.classList.add('hidden');
+        });
+      }
+
+      if (modalConfirmBtn && modal) {
+        modalConfirmBtn.addEventListener('click', function() {
+          modal.classList.add('hidden');
+          approveBtn.disabled = true;
+          approveBtn.innerHTML = '<span class="material-symbols-outlined text-lg">check_circle</span> Scope Revision Authorized (₹800)';
+          approveBtn.classList.remove('bg-primary-container', 'hover:bg-primary');
+          approveBtn.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+        });
+      }
+
+      if (rejectAdditionalBtn) {
+        rejectAdditionalBtn.addEventListener('click', function() {
+          if (confirm('Proceed ONLY with original ceiling fan installation at ₹250? Technician will bypass worn wiring and replacement MCB.')) {
+            alert('Technician notified: Proceeding with original scope of ₹250.00 only.');
+          }
+        });
+      }
+
+      if (declineAllBtn) {
+        declineAllBtn.addEventListener('click', function() {
+          if (confirm('Are you sure you want to stop all work and request immediate wrap-up? You may be subject to the minimum site-inspection fee.')) {
+            alert('Wrap-up request transmitted to technician and dispatch manager.');
+          }
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl py-space-xl shadow-[0_-1px_12px_rgba(0,0,0,0.5)]"><div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-body-sm text-body-sm text-on-surface-variant">Direct Local Service Dispatch System</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-sm">currency_rupee</span>100% Cash / UPI Direct Settlement</span><span class="flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-sm">security</span>Verified Technicians</span></div><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 LSP Connect Platform. Direct Provider Operations.</div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>

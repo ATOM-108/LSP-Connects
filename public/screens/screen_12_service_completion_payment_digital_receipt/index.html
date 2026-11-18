@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>LSP Connect</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#4dffb2", "surface-dim": "#0e131e", "secondary-fixed": "#d8e2ff", "secondary": "#b9c6e8", "on-secondary": "#23304a", "surface-container-highest": "#303541", "on-primary": "#522300", "inverse-surface": "#dee2f2", "surface": "#0e131e", "tertiary": "#00e297", "secondary-container": "#3c4965", "surface-bright": "#343946", "on-error": "#690005", "on-surface": "#dee2f2", "primary-fixed-dim": "#ffb68b", "outline-variant": "#584235", "primary-container": "#ff7a00", "tertiary-fixed-dim": "#00e297", "background": "#0e131e", "on-primary-fixed": "#321200", "on-primary-fixed-variant": "#753400", "inverse-primary": "#994700", "on-tertiary-container": "#004028", "surface-variant": "#303541", "tertiary-container": "#00b779", "on-tertiary-fixed-variant": "#005234", "primary-fixed": "#ffdbc8", "surface-container-low": "#161b27", "on-primary-container": "#5c2800", "error": "#ffb4ab", "on-surface-variant": "#e0c0af", "on-secondary-fixed": "#0d1b34", "outline": "#a78b7c", "primary": "#ffb68b", "secondary-fixed-dim": "#b9c6e8", "on-secondary-fixed-variant": "#3a4762", "on-secondary-container": "#abb8d9", "inverse-on-surface": "#2b303d", "surface-container-high": "#252a36", "surface-container-lowest": "#090e19", "surface-container": "#1b1f2b", "on-error-container": "#ffdad6", "error-container": "#93000a", "on-tertiary": "#003822", "on-tertiary-fixed": "#002112", "on-background": "#dee2f2", "surface-tint": "#ffb68b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-xl": "2rem" }, "fontFamily": { "headline-sm": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "label-lg": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"] }, "fontSize": { "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container shadow-[0_0_12px_-2px_rgba(255,122,0,0.3)]"><span class="material-symbols-outlined text-xl">construction</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none tracking-tight font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Verified Local Direct</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-tertiary text-base">verified</span><span class="font-label-sm text-label-sm text-on-surface">100% Background-Verified</span></div></div><nav class="hidden md:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low" data-active-classes="bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg shadow-[0_0_15px_-3px_rgba(255,122,0,0.3)]"><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="services" href="#">Services</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="customer-profile" href="#">Profile</a></nav><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-low text-primary"><span class="material-symbols-outlined text-sm text-primary-container">payments</span><span class="font-label-sm text-label-sm font-semibold text-primary">Direct Cash &amp; UPI • Zero Fee</span></div><a class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-[0_0_16px_-4px_rgba(255,122,0,0.5)]" data-path="quick-request" href="#"><span class="material-symbols-outlined text-base">bolt</span>Quick Request</a><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Customer</span><span class="font-label-sm text-label-sm text-tertiary flex items-center justify-end gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span>Active Area</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-highest" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<div class="w-full max-w-7xl mx-auto px-6 lg:px-12 py-8 flex flex-col gap-8">
+<!-- Screen Identifier Header Bar -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-surface-container-highest/60">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-tertiary-container/20 text-tertiary font-label-sm text-label-sm uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+            Awaiting Customer Sign-off &amp; Direct Settlement
+          </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">• Terminal Flow Step 04/04</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+          Service Completion &amp; Payment Settlement
+        </h1>
+<div class="flex items-center gap-3 text-on-surface-variant font-body-sm text-body-sm">
+<span class="font-semibold text-primary">Booking ID: #LSP-2025-88392</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">schedule</span> Job Dispatched: 01:20 PM</span>
+<span>•</span>
+<span class="flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-sm">verified_user</span> Direct Technician Handover Protocol</span>
+</div>
+</div>
+<!-- Quick Context Micro-stats -->
+<div class="flex items-center gap-3 self-start md:self-auto bg-surface-container-low px-4 py-2.5 rounded-xl shadow-inner">
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Settlement Payable</span>
+<span class="font-headline-md text-headline-md text-primary font-bold leading-none mt-0.5">₹800<span class="text-sm font-normal text-on-surface-variant">.00</span></span>
+</div>
+<div class="w-9 h-9 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-xl">account_balance_wallet</span>
+</div>
+</div>
+</div>
+<!-- Main Operational Grid: 55% Left, 45% Right -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: Verification & Payment (7 of 12 cols = ~58%) -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Card 1: Provider Handover Verification -->
+<div class="bg-surface-container-low rounded-2xl p-6 shadow-xl relative overflow-hidden flex flex-col gap-6">
+<div class="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-tertiary/5 blur-3xl pointer-events-none"></div>
+<!-- Provider Submission Banner -->
+<div class="flex items-start justify-between gap-4 p-4 rounded-xl bg-surface-container">
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-tertiary flex items-center justify-center text-on-tertiary shrink-0 shadow-lg shadow-tertiary/20">
+<span class="material-symbols-outlined text-2xl font-bold">task_alt</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Santosh Pandey</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-tertiary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified</span> KYC #LSP-PRO-4102
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Marked Job as <strong class="text-tertiary font-semibold">COMPLETED</strong> at <span class="text-on-surface font-mono">02:15 PM</span> (17 Nov 2025)
+                </p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-tertiary/15 text-tertiary font-label-sm text-label-sm font-bold uppercase tracking-wider flex items-center gap-1 shrink-0">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span> Work Finished
+            </span>
+</div>
+<!-- Technician Debrief Note -->
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary">engineering</span> Technician Handover Log
+            </span>
+<div class="p-4 rounded-xl bg-surface-container-lowest font-body-md text-body-md text-on-surface leading-relaxed italic relative">
+<span class="text-primary font-serif text-xl leading-none">“</span>
+              Ceiling fan installed, balanced with zero wobble. MCB replaced and 230V safety earthing tested. Cleaned wiring terminal box and calibrated high-speed regulator.
+              <span class="text-primary font-serif text-xl leading-none">”</span>
+</div>
+</div>
+<!-- Inspection Checkpoints & Photo Proofs -->
+<div class="flex flex-col gap-3">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Field Quality Inspection Badges</span>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+<div class="p-2.5 rounded-lg bg-surface-container flex flex-col gap-1 items-center text-center">
+<span class="material-symbols-outlined text-tertiary text-lg">electric_bolt</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">230V Earthing</span>
+<span class="font-body-sm text-body-sm text-tertiary">Pass • Safe</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container flex flex-col gap-1 items-center text-center">
+<span class="material-symbols-outlined text-tertiary text-lg">cyclone</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Blade Balance</span>
+<span class="font-body-sm text-body-sm text-tertiary">Zero Wobble</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container flex flex-col gap-1 items-center text-center">
+<span class="material-symbols-outlined text-tertiary text-lg">safety_check</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">C&amp;S 16A MCB</span>
+<span class="font-body-sm text-body-sm text-tertiary">Tripping Verified</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container flex flex-col gap-1 items-center text-center">
+<span class="material-symbols-outlined text-tertiary text-lg">clean_hands</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Debris Cleanup</span>
+<span class="font-body-sm text-body-sm text-tertiary">Cleared Spot</span>
+</div>
+</div>
+</div>
+<!-- Before / After Photo Comparison Proofs -->
+<div class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Field Audit Snapshots</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 Verification Shots Logged</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="relative rounded-xl overflow-hidden group bg-surface-container-high h-36">
+<img class="w-full h-full object-cover brightness-90 group-hover:scale-105 transition-transform duration-300" data-alt="Close up photographic inspection of a stripped ceiling junction box with old scorched electrical wires before replacement, captured under sharp warm service spotlight in dark apartment room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVNgudQTtA-TG7wFGVt87Bt5wi98VAt2cGZlZ2p6gp5SK5kEOK5y_HJPkAT8WZWKOfRDn1C22ocnnhKxp5O2ZyWGZmZ45PcRJottncRxdPpVi9aYfddGo0NKYCljN97wfVYknhljMpSrjgUunqlzbwb9d-HSdEIyg755y2ciTY7CP9_Cis_IS8s3uaAkeYmt5jPWkG_jo2U0n9goLlxG8VOLprY-c-pZi5XnJ6K0Rf"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm font-semibold text-error uppercase">Before: Faulty Wiring</span>
+</div>
+</div>
+<div class="relative rounded-xl overflow-hidden group bg-surface-container-high h-36">
+<img class="w-full h-full object-cover brightness-95 group-hover:scale-105 transition-transform duration-300" data-alt="High quality finished ceiling fan installation mounted seamlessly on high white ceiling with clean matte black blades and new modular switchboard illuminated by clean interior warm lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUMsUZKa-F3KmZM9XPrMgjNglN-sQ9WQx_qh2ghOwv1d0211yVpGle9aLRZtYUGGHrO0S2yTeK7yMQ_U5Kz6gudb25eh0st6TMuH3DATyCkQHjRUPnRt4LJT1v56hk9zzmlx2BSWEUcpoUKNHlbmaSl6LkA9_1eud9O8NI9X69Fdih3oBlhnBmAyqw1FoF-R77mk-rO67I8VY5pEuRdH9TdrX-99IBQCyfcynSxTtU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm font-semibold text-tertiary uppercase">After: Mounted &amp; Balanced</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Customer Signoff Checkbox -->
+<div class="p-4 rounded-xl bg-surface-container border border-surface-container-highest/80 flex flex-col gap-3">
+<label class="flex items-start gap-3 cursor-pointer select-none">
+<input checked="" class="mt-1 w-5 h-5 rounded accent-primary-container cursor-pointer shrink-0" id="clientConfirmCheck" onchange="toggleConfirmButton(this)" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Customer Completion Confirmation</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  I have inspected the completed electrical work, verified equipment function (fan run-test &amp; MCB switch), and confirm the service is complete to my satisfaction.
+                </p>
+</div>
+</label>
+<div class="flex items-center gap-2 text-tertiary font-label-sm text-label-sm pl-8">
+<span class="material-symbols-outlined text-sm">format_image_left</span>
+<span>Protects your 30-day LSP direct workmanship assurance</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Payment Method Selection & Settlement Recording -->
+<div class="bg-surface-container-low rounded-2xl p-6 shadow-xl flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-lg">currency_rupee</span>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Direct Provider Payment Handover</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Strictly direct settlement • 0% Portal Deduction</span>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-primary/10 text-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">lock</span> Direct P2P
+            </span>
+</div>
+<!-- Radio Selector Accordion -->
+<div class="flex flex-col gap-3">
+<!-- OPTION 1: UPI DIRECT QR SCAN (Selected by default) -->
+<label class="block p-4 rounded-xl bg-surface-container cursor-pointer transition-all duration-200 ring-2 ring-primary-container/80 shadow-[0_0_15px_-3px_rgba(255,122,0,0.25)]" id="upiLabel">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 accent-primary-container cursor-pointer" name="paymentOption" onchange="handlePaymentSwitch('upi')" type="radio" value="upi"/>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">qr_code_scanner</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">UPI Direct QR Scan</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-semibold">Recommended • Instant</span>
+</div>
+<!-- UPI Details Sub-panel -->
+<div class="flex flex-col sm:flex-row gap-4 pl-7 pt-2" id="upiPanel">
+<!-- Simulated High-Precision QR Code Card -->
+<div class="bg-surface-container-lowest p-3 rounded-xl flex flex-col items-center justify-center shrink-0 w-36 h-36 border border-surface-container-highest">
+<!-- Custom Scalable Vector QR Visual -->
+<svg class="w-28 h-28 text-on-surface" fill="currentColor" viewbox="0 0 120 120">
+<!-- Outer Top-Left Target -->
+<rect fill="none" height="30" rx="4" stroke="currentColor" stroke-width="4" width="30" x="10" y="10"></rect>
+<rect fill="currentColor" height="14" rx="2" width="14" x="18" y="18"></rect>
+<!-- Outer Top-Right Target -->
+<rect fill="none" height="30" rx="4" stroke="currentColor" stroke-width="4" width="30" x="80" y="10"></rect>
+<rect fill="currentColor" height="14" rx="2" width="14" x="88" y="18"></rect>
+<!-- Outer Bottom-Left Target -->
+<rect fill="none" height="30" rx="4" stroke="currentColor" stroke-width="4" width="30" x="10" y="80"></rect>
+<rect fill="currentColor" height="14" rx="2" width="14" x="18" y="88"></rect>
+<!-- Data Matrices -->
+<rect height="6" width="6" x="48" y="12"></rect>
+<rect height="12" width="6" x="58" y="18"></rect>
+<rect height="6" width="14" x="48" y="28"></rect>
+<rect height="6" width="6" x="68" y="12"></rect>
+<rect height="10" width="10" x="48" y="48"></rect>
+<rect height="8" width="8" x="64" y="48"></rect>
+<rect height="8" width="8" x="12" y="48"></rect>
+<rect height="16" width="8" x="28" y="52"></rect>
+<rect height="6" width="12" x="80" y="48"></rect>
+<rect height="12" width="12" x="98" y="48"></rect>
+<rect height="14" width="8" x="80" y="60"></rect>
+<rect height="6" width="14" x="94" y="68"></rect>
+<rect height="18" width="6" x="48" y="66"></rect>
+<rect height="8" width="12" x="60" y="66"></rect>
+<rect height="14" width="8" x="60" y="80"></rect>
+<rect height="18" width="6" x="48" y="90"></rect>
+<rect height="8" width="18" x="68" y="100"></rect>
+<rect height="6" width="18" x="90" y="84"></rect>
+<rect height="14" width="8" x="90" y="96"></rect>
+<rect height="14" width="6" x="104" y="96"></rect>
+<!-- Center Logo Symbol -->
+<circle class="text-primary-container" cx="60" cy="60" fill="currentColor" r="7"></circle>
+</svg>
+<span class="font-label-sm text-[10px] text-on-surface-variant font-mono mt-1">GPay • PhonePe • Paytm</span>
+</div>
+<!-- UPI ID readout & Reference Field -->
+<div class="flex flex-col justify-between flex-1 gap-3">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Provider Direct UPI Handle</span>
+<div class="flex items-center gap-2 p-2 rounded-lg bg-surface-container-lowest font-mono text-label-lg font-bold text-tertiary select-all">
+<span>santosh.pandey@okaxis</span>
+<button class="ml-auto text-on-surface-variant hover:text-on-surface text-xs flex items-center gap-1 font-body-sm" onclick="navigator.clipboard?.writeText('santosh.pandey@okaxis')" type="button">
+<span class="material-symbols-outlined text-sm">content_copy</span> Copy
+                      </button>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Pay exactly ₹800.00 directly to Santosh Pandey via any UPI app.</span>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold">UPI Transaction Reference / UTR (Optional)</label>
+<div class="relative">
+<input class="w-full h-10 px-3 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/40 font-mono text-label-lg focus:outline-none focus:ring-1 focus:ring-primary-container" placeholder="e.g. 532189028471" type="text"/>
+<span class="absolute right-3 top-2.5 material-symbols-outlined text-base text-tertiary">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+</label>
+<!-- OPTION 2: DIRECT DOORSTEP CASH HANDOVER -->
+<label class="block p-4 rounded-xl bg-surface-container cursor-pointer transition-all duration-200" id="cashLabel">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 accent-primary-container cursor-pointer" name="paymentOption" onchange="handlePaymentSwitch('cash')" type="radio" value="cash"/>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">payments</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Direct Doorstep Cash Handover</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Exact Cash</span>
+</div>
+<div class="hidden pl-7 pt-3 flex-col gap-2 text-on-surface-variant font-body-sm text-body-sm" id="cashPanel">
+<div class="p-3 rounded-lg bg-surface-container-lowest flex items-center justify-between">
+<span class="text-on-surface font-semibold">Hand exactly ₹800 directly to Santosh Pandey</span>
+<span class="font-mono text-primary font-bold text-label-lg">₹800 in Cash</span>
+</div>
+<p class="text-xs text-on-surface-variant">The technician will instantly mark receipt on his technician terminal once cash is received.</p>
+</div>
+</label>
+</div>
+<!-- Settlement Submission Action -->
+<div class="flex flex-col gap-3 pt-2">
+<button class="w-full h-12 rounded-xl bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-[0_0_24px_-4px_rgba(255,122,0,0.6)] transition-all" id="submitSettlementBtn" onclick="recordPaymentSettlement()" type="button">
+<span class="material-symbols-outlined text-xl">handshake</span>
+<span>Mark Payment as Settled Handover →</span>
+</button>
+<div class="flex items-center justify-center gap-4 text-center font-body-sm text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Direct Provider Handover</span>
+<span>•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-tertiary">check</span> Instant Tax Receipt</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Digital Receipt & Itemized Invoice (5 of 12 cols = ~42%) -->
+<div class="lg:col-span-5 flex flex-col gap-4 sticky top-24">
+<!-- Physical Receipt Stylized Card -->
+<div class="relative bg-surface-container-lowest rounded-2xl shadow-2xl p-6 lg:p-7 flex flex-col gap-5 overflow-hidden">
+<!-- Subtle Top Decorative Zig-Zag / Receipt Notching Simulation -->
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-primary-container via-tertiary to-primary-container"></div>
+<!-- Watermark Logo Background Stamp -->
+<div class="absolute -right-8 top-20 text-surface-container-highest/20 pointer-events-none select-none">
+<span class="material-symbols-outlined text-[160px] opacity-10">verified</span>
+</div>
+<!-- Receipt Top Header -->
+<div class="flex flex-col gap-3 pb-5 border-b border-surface-container-highest/80 relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-sm">
+<span class="material-symbols-outlined text-base">construction</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">LSP<span class="text-primary-container">Connect</span></span>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary/15 text-tertiary font-label-sm text-label-sm font-bold uppercase tracking-wider">
+                Settlement Ready
+              </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-widest">Official Direct Settlement Digital Receipt</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono mt-0.5">Dispatched under Section 4B Direct Local Technician Protocol</span>
+</div>
+</div>
+<!-- Metadata Grid -->
+<div class="grid grid-cols-2 gap-4 text-xs font-mono pb-4 border-b border-surface-container-highest/80">
+<div class="flex flex-col gap-0.5">
+<span class="text-on-surface-variant uppercase font-label-sm font-semibold">Receipt Number</span>
+<span class="text-on-surface font-bold text-label-md">REC-2025-11-88392</span>
+</div>
+<div class="flex flex-col gap-0.5 text-right">
+<span class="text-on-surface-variant uppercase font-label-sm font-semibold">Issue Date &amp; Time</span>
+<span class="text-on-surface font-bold text-label-md">17 Nov 2025 • 02:18 PM</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="text-on-surface-variant uppercase font-label-sm font-semibold">Customer Record</span>
+<span class="text-on-surface font-bold text-label-md font-sans">Aris Thorne</span>
+<span class="text-on-surface-variant font-sans text-body-sm truncate">Madhapur, Hyderabad - 500081</span>
+</div>
+<div class="flex flex-col gap-0.5 text-right">
+<span class="text-on-surface-variant uppercase font-label-sm font-semibold">KYC Technician</span>
+<span class="text-on-surface font-bold text-label-md font-sans">Santosh Pandey</span>
+<span class="text-tertiary font-sans text-body-sm">KYC-Verified #LSP-PRO-4102</span>
+</div>
+</div>
+<!-- Itemized Breakdown -->
+<div class="flex flex-col gap-2.5 pb-4 border-b border-surface-container-highest/80">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm uppercase font-semibold pb-1">
+<span>Service &amp; Component Description</span>
+<span>Amount (INR)</span>
+</div>
+<!-- Item 1 -->
+<div class="flex items-start justify-between gap-4 py-1.5">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Ceiling Fan Installation &amp; Alignment</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Standard high-torque motor mount, dynamic balancing test</span>
+</div>
+<span class="font-mono text-on-surface font-semibold text-body-md shrink-0">₹250.00</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start justify-between gap-4 py-1.5">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-semibold">MCB &amp; Anchor Replacement Materials</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Heavy-duty anchor bolt + C&amp;S 16A SP miniature circuit breaker</span>
+</div>
+<span class="font-mono text-on-surface font-semibold text-body-md shrink-0">₹400.00</span>
+</div>
+<!-- Item 3 -->
+<div class="flex items-start justify-between gap-4 py-1.5">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-semibold">Additional Splicing Labor</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Heat-shrink insulation &amp; wire extension sleeve</span>
+</div>
+<span class="font-mono text-on-surface font-semibold text-body-md shrink-0">₹150.00</span>
+</div>
+<!-- Commission Highlight (Zero Fee Guarantee) -->
+<div class="flex items-center justify-between gap-4 py-2 px-3 rounded-lg bg-surface-container text-tertiary mt-1">
+<div class="flex items-center gap-1.5 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">savings</span>
+<span>Platform Commission / Middleman Fees</span>
+</div>
+<span class="font-mono font-bold text-label-md">₹0.00 (Zero Cut)</span>
+</div>
+</div>
+<!-- Total Calculation Summary -->
+<div class="flex flex-col gap-2 pt-1 pb-4 border-b border-surface-container-highest/80">
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>Subtotal Services &amp; Hardware</span>
+<span class="font-mono text-on-surface">₹800.00</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>Platform Booking Dispatch Fee</span>
+<span class="font-mono text-tertiary">Waived (₹0.00)</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>Local Service GST @ 0% (Direct Local Contract)</span>
+<span class="font-mono text-on-surface">₹0.00</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-bold uppercase">Total Settled Amount</span>
+<span class="font-label-sm text-label-sm text-tertiary">100% Retained by Technician</span>
+</div>
+<span class="font-headline-md text-headline-md font-bold text-primary font-mono leading-none">₹800.00</span>
+</div>
+</div>
+<!-- Legal & Compliance Stamp Note -->
+<div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-lg shrink-0">verified</span>
+<span>Tamper-evident hash digital record: <code class="font-mono text-[10px] text-primary">#sha256-a9f82d1c4e7b89...</code> registered on LSP decentralized network.</span>
+</div>
+<!-- Post-Payment Actions -->
+<div class="flex flex-col gap-2.5 pt-2">
+<div class="grid grid-cols-2 gap-2">
+<button class="h-10 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors" onclick="simulateReceiptDownload()" type="button">
+<span class="material-symbols-outlined text-base">picture_as_pdf</span>
+<span>Download PDF</span>
+</button>
+<button class="h-10 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors" onclick="window.print()" type="button">
+<span class="material-symbols-outlined text-base">print</span>
+<span>Print Invoice</span>
+</button>
+</div>
+<a class="w-full h-11 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 transition-all" href="#">
+<span class="material-symbols-outlined text-primary text-base">star</span>
+<span>Proceed to Rate Provider Santosh →</span>
+</a>
+</div>
+</div>
+<!-- Direct Protection Badge Card -->
+<div class="p-4 rounded-xl bg-surface-container-low flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-xl">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">30-Day Workmanship Warranty</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Direct recall guarantee included with this settlement receipt.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    function handlePaymentSwitch(mode) {
+      const upiLabel = document.getElementById('upiLabel');
+      const cashLabel = document.getElementById('cashLabel');
+      const upiPanel = document.getElementById('upiPanel');
+      const cashPanel = document.getElementById('cashPanel');
+      const submitBtn = document.getElementById('submitSettlementBtn');
+
+      if (mode === 'upi') {
+        upiLabel.classList.add('ring-2', 'ring-primary-container/80', 'shadow-[0_0_15px_-3px_rgba(255,122,0,0.25)]');
+        cashLabel.classList.remove('ring-2', 'ring-primary-container/80', 'shadow-[0_0_15px_-3px_rgba(255,122,0,0.25)]');
+        upiPanel.classList.remove('hidden');
+        upiPanel.classList.add('flex');
+        cashPanel.classList.add('hidden');
+        cashPanel.classList.remove('flex');
+        submitBtn.innerHTML = '<span class="material-symbols-outlined text-xl">qr_code_2</span><span>Mark UPI Direct Payment as Settled →</span>';
+      } else {
+        cashLabel.classList.add('ring-2', 'ring-primary-container/80', 'shadow-[0_0_15px_-3px_rgba(255,122,0,0.25)]');
+        upiLabel.classList.remove('ring-2', 'ring-primary-container/80', 'shadow-[0_0_15px_-3px_rgba(255,122,0,0.25)]');
+        cashPanel.classList.remove('hidden');
+        cashPanel.classList.add('flex');
+        upiPanel.classList.add('hidden');
+        upiPanel.classList.remove('flex');
+        submitBtn.innerHTML = '<span class="material-symbols-outlined text-xl">payments</span><span>Confirm Cash Handover to Santosh (₹800) →</span>';
+      }
+    }
+
+    function toggleConfirmButton(checkbox) {
+      const btn = document.getElementById('submitSettlementBtn');
+      if (checkbox.checked) {
+        btn.disabled = false;
+        btn.classList.remove('opacity-40', 'cursor-not-allowed');
+      } else {
+        btn.disabled = true;
+        btn.classList.add('opacity-40', 'cursor-not-allowed');
+      }
+    }
+
+    function recordPaymentSettlement() {
+      const btn = document.getElementById('submitSettlementBtn');
+      btn.innerHTML = '<span class="material-symbols-outlined text-xl animate-spin">progress_activity</span><span>Recording Direct Settlement...</span>';
+      setTimeout(() => {
+        btn.classList.remove('bg-primary-container', 'hover:bg-primary');
+        btn.classList.add('bg-tertiary', 'text-on-tertiary');
+        btn.innerHTML = '<span class="material-symbols-outlined text-xl">check_circle</span><span>Settlement Completed & Verified!</span>';
+      }, 900);
+    }
+
+    function simulateReceiptDownload() {
+      const toast = document.createElement('div');
+      toast.className = 'fixed bottom-6 right-6 z-50 bg-tertiary text-on-tertiary px-4 py-3 rounded-xl font-label-lg text-label-lg flex items-center gap-2 shadow-2xl animate-bounce';
+      toast.innerHTML = '<span class="material-symbols-outlined">download_done</span> Generating REC-2025-11-88392.pdf...';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 2600);
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl py-space-xl shadow-[0_-1px_12px_rgba(0,0,0,0.5)]"><div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-body-sm text-body-sm text-on-surface-variant">Direct Local Service Dispatch System</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-sm">currency_rupee</span>100% Cash / UPI Direct Settlement</span><span class="flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-sm">security</span>Verified Technicians</span></div><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 LSP Connect Platform. Direct Provider Operations.</div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>

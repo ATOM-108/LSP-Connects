@@ -1,0 +1,117 @@
+﻿(()=>{
+'use strict';
+const map={"1": {"folder": "screen_1_loading_splash", "label": "Loading / Splash"}, "2": {"folder": "screen_2_introduction", "label": "Introduction"}, "3": {"folder": "screen_3_role_selection", "label": "Role Selection"}, "4": {"folder": "screen_4_customer_login", "label": "Customer Login"}, "5": {"folder": "screen_5_customer_registration", "label": "Customer Registration"}, "6": {"folder": "screen_6_service_details_rate_card", "label": "Service Details & Rate Card"}, "7": {"folder": "screen_7_regular_booking_slot_selection", "label": "Regular Booking & Slot Selection"}, "8": {"folder": "screen_8_customer_quick_service_request", "label": "Customer Quick Service Request"}, "9": {"folder": "screen_9_booking_review_confirmation", "label": "Booking Review & Confirmation"}, "10": {"folder": "screen_10_booking_status_tracking", "label": "Booking Status Tracking"}, "11": {"folder": "screen_11_custom_quotation_review_approval", "label": "Custom Quotation Review & Approval"}, "12": {"folder": "screen_12_service_completion_payment_digital_receipt", "label": "Service Completion, Payment & Digital Receipt"}, "13": {"folder": "screen_13_customer_review_rating", "label": "Customer Review & Rating"}, "14": {"folder": "screen_14_customer_my_bookings", "label": "Customer My Bookings"}, "15": {"folder": "screen_15_customer_profile_addresses", "label": "Customer Profile & Addresses"}, "16": {"folder": "screen_16_customer_complaint_submission", "label": "Customer Complaint Submission"}, "17": {"folder": "screen_17_provider_login", "label": "Provider Login"}, "18": {"folder": "screen_18_provider_registration", "label": "Provider Registration"}, "19": {"folder": "screen_19_provider_verification_status", "label": "Provider Verification Status"}, "20": {"folder": "screen_20_provider_jobs_dashboard", "label": "Provider Jobs Dashboard"}, "21": {"folder": "screen_21_provider_availability_indicator", "label": "Provider Availability Indicator"}, "22": {"folder": "screen_22_provider_job_execution_status_management", "label": "Provider Job Execution & Status Management"}, "23": {"folder": "screen_23_provider_custom_quotation_submission", "label": "Provider Custom Quotation Submission"}, "24": {"folder": "screen_24_provider_doorstep_payment_completion", "label": "Provider Doorstep Payment & Completion"}, "25": {"folder": "screen_25_provider_earnings_payment_history", "label": "Provider Earnings & Payment History"}, "26": {"folder": "screen_26_provider_profile_skills", "label": "Provider Profile & Skills"}, "27": {"folder": "screen_27_provider_customer_ratings_feedback", "label": "Provider Customer Ratings & Feedback"}, "28": {"folder": "screen_28_admin_login", "label": "Admin Login"}, "29": {"folder": "screen_29_admin_dashboard_overview", "label": "Admin Dashboard Overview"}, "30": {"folder": "screen_30_admin_user_management", "label": "Admin User Management"}, "31": {"folder": "screen_31_admin_service_category_standard_rate_management", "label": "Admin Service Category & Standard Rate Management"}, "32": {"folder": "screen_32_admin_booking_management", "label": "Admin Booking Management"}, "33": {"folder": "screen_33_admin_provider_verification_document_audit", "label": "Admin Provider Verification & Document Audit"}, "34": {"folder": "screen_34_admin_customer_complaints_dispute_handling", "label": "Admin Customer Complaints & Dispute Handling"}, "35": {"folder": "screen_35_admin_management_overview_settings", "label": "Admin Management Overview / Settings"}};
+const idMatch=location.pathname.match(/screen_(\d+)_/);
+const current=idMatch?Number(idMatch[1]):1;
+const route=n=>'/screens/'+map[n].folder+'/index.html';
+const get=(k,d)=>{try{return JSON.parse(localStorage.getItem('lsp_demo_'+k))??d}catch{return d}};
+const set=(k,v)=>localStorage.setItem('lsp_demo_'+k,JSON.stringify(v));
+const toast=(message)=>{let t=document.getElementById('lsp-toast');if(!t){t=document.createElement('div');t.id='lsp-toast';t.setAttribute('role','status');document.body.appendChild(t)}t.textContent=message;t.classList.add('show');clearTimeout(window.__lspToastTimer);window.__lspToastTimer=setTimeout(()=>t.classList.remove('show'),2600)};
+const go=n=>{if(!map[n])return;location.href=route(n)};
+const norm=s=>(s||'').replace(/\s+/g,' ').trim().toLowerCase();
+const txt=el=>norm(el?.innerText||el?.textContent||el?.getAttribute?.('aria-label')||'');
+const bookingDefaults=()=>get('bookings',[]);
+const addBooking=(data={})=>{const rows=bookingDefaults();rows.unshift({id:'LSP-'+Date.now().toString().slice(-8),service:data.service||get('selectedService','Electrical service'),status:'Pending',createdAt:new Date().toISOString(),...data});set('bookings',rows);return rows[0]};
+const routeByLabel=(s)=>{
+  if(current===2 && /get started/.test(s))return 3;
+ if(/broadcast quick service|quick service request now/.test(s))return null;
+ if(/continue as customer|customer portal|customer login|sign in as customer/.test(s))return 4;
+ if(/continue as provider|provider portal|provider login|sign in as provider/.test(s))return 17;
+ if(/admin console|administrator login|admin login|access admin/.test(s))return 28;
+ if(/create customer account|register as customer|sign up as customer/.test(s))return 5;
+ if(/register as an independent|provider registration|create provider account/.test(s))return 18;
+ if(/quick request|quick service/.test(s))return 8;
+ if(/my bookings|bookings history/.test(s))return 14;
+ if(/profile|saved addresses/.test(s)&&current<=16)return 15;
+ if(/services|browse services|home/.test(s)&&current<=16)return 6;
+ if(/jobs & requests|dispatch hub|provider dashboard/.test(s))return 20;
+ if(/earnings|ledger/.test(s))return 25;
+ if(/profile & skills/.test(s))return 26;
+ if(/reviews & ratings|feedback/.test(s))return 27;
+ if(/availability/.test(s))return 21;
+ if(/dashboard/.test(s)&&current>=28)return 29;
+ if(/users/.test(s)&&current>=28)return 30;
+ if(/services & rates|service categories/.test(s)&&current>=28)return 31;
+ if(/bookings/.test(s)&&current>=28)return 32;
+ if(/verifications/.test(s))return 33;
+ if(/complaints/.test(s))return 34;
+ if(/settings/.test(s))return 35;
+ if(/track status|tracking/.test(s))return 10;
+ if(/receipt|payment/.test(s)&&current<=16)return 12;
+ if(/rate provider|submit review/.test(s))return 13;
+ if(/book regular service|regular booking/.test(s))return 7;
+ if(/change service/.test(s))return 6;
+ if(/proceed to booking review|review & confirm/.test(s))return 9;
+ if(/quotation/.test(s)&&current>=17)return 23;
+ if(/job execution/.test(s))return 22;
+ return null;
+};
+const screenAction=(s,el)=>{
+ const tag=el.tagName;
+ if(el.matches('[data-lsp-ignore]'))return;
+ if(tag==='BUTTON' || el.getAttribute('role')==='button'){
+   const t=txt(el); const v=t.replace(/^[^a-z0-9]+/,'');
+   const destination=routeByLabel(t); if(destination){go(destination);return true;}
+   if(/visibility|show password|hide password/.test(t)){const input=el.parentElement?.querySelector('input');if(input){input.type=input.type==='password'?'text':'password';toast(input.type==='text'?'Password visible':'Password hidden')}return true}
+   if(/close|cancel modal|dismiss/.test(t)&&el.closest('[role=dialog],.modal,[class*=modal]')){const m=el.closest('[role=dialog],.modal,[class*=modal]');m.hidden=true;m.style.display='none';return true}
+   if(/star/.test(t)&&current===13){const stars=[...document.querySelectorAll('button')].filter(b=>/star/.test(txt(b)));const idx=stars.indexOf(el);stars.forEach((b,i)=>b.style.opacity=i<=idx?'1':'.45');set('rating',idx+1);return true}
+   if(/copy/.test(t)){const value=el.parentElement?.innerText||'LSP Connect';navigator.clipboard?.writeText(value).then(()=>toast('Copied to clipboard')).catch(()=>toast('Copy is not available in this browser'));return true}
+   if(/print/.test(t)||/download pdf|download ledger|export csv/.test(t)){window.print();toast('Print dialog opened');return true}
+   if(/add labor|add material|add skill|add new service category|add service package|add new address|add operating postal code|add evidence/.test(t)){const container=el.parentElement||document.body;const row=document.createElement('div');row.className='lsp-added-row';row.innerHTML='<input type="text" placeholder="Enter details" aria-label="New item details"><button type="button" class="lsp-remove">Remove</button>';container.insertBefore(row,el);row.querySelector('input').focus();return true}
+   if(/delete|remove/.test(t)){const row=el.closest('.lsp-added-row, tr, li, [data-row]');if(row){row.remove();toast('Item removed')}else toast('No removable item selected');return true}
+   if(/save availability|availability status/.test(t)){set('providerAvailable',!!document.querySelector('input[type=checkbox]:checked'));toast('Availability saved in this demo');return true}
+   if(/mark payment as settled|customer.*paid|mark.*paid/.test(t)){set('paymentStatus','Customer marked payment as paid');toast('Payment marked as paid in demo. Provider verification is still required.');return true}
+   if(/mark job as completed|mark job completed|service completed/.test(t)){set('jobStatus','Completed â€” awaiting customer confirmation');toast('Completion recorded. Customer confirmation is still required.');go(12);return true}
+   if(/accept job|accept booking|accept request/.test(t)){set('jobStatus','Accepted');toast('Request accepted in demo');go(22);return true}
+   if(/decline request|reject request/.test(t)){set('jobStatus','Rejected');toast('Request declined in demo');go(20);return true}
+   if(/approve quotation|confirm authorization/.test(t)){set('quotationStatus','Approved');toast('Quotation approved in demo');go(12);return true}
+   if(/reject additional scope|decline.*quotation/.test(t)){set('quotationStatus','Declined');toast('Additional scope declined');go(10);return true}
+   if(/submit review|submit.*rating/.test(t)){set('reviewSubmitted',true);toast('Review saved in this demo');go(14);return true}
+   if(/authorize provider|unlock dispatch/.test(t)){set('providerVerification','Approved');toast('Provider approved in demo');go(20);return true}
+   if(/submit complaint|transmit ticket|formal resolution/.test(t)){set('lastComplaint',{text:document.querySelector('textarea')?.value||'',status:'Submitted'});toast('Demo complaint submitted');go(current===34?34:14);return true}
+   if(/save changes|save category|save configuration|save profile|save & verify|save.*draft/.test(t)){const fields=[...document.querySelectorAll('input,textarea,select')].map(x=>({name:x.name||x.placeholder||x.type,value:x.type==='checkbox'?x.checked:x.value}));set('lastSavedForm',fields);toast('Changes saved locally in this demo');return true}
+   if(/refresh|sync/.test(t)){toast('Demo data refreshed');return true}
+   if(/cancel booking/.test(t)){if(confirm('Cancel this demo booking?')){set('bookingStatus','Cancelled');toast('Booking cancelled in demo')}return true}
+   if(/book again|rebook service/.test(t)){go(6);return true}
+   if(/proceed to booking review/.test(t)){go(9);return true}
+   if(/confirm booking|reserve slot/.test(t)){const b=addBooking({service:get('selectedService','Selected service'),status:'Pending'});set('activeBooking',b);toast('Demo booking created');go(10);return true}
+   if(/broadcast quick service/.test(t)){const b=addBooking({service:get('selectedService','Quick service'),bookingType:'Quick Service',status:'Searching for available providers'});set('activeBooking',b);toast('Quick request created in demo');go(10);return true}
+   if(/complete customer registration/.test(t)){set('demoUser',{role:'customer',name:document.querySelector('input')?.value||'Customer'});toast('Demo customer account created');go(6);return true}
+   if(/submit application/.test(t)){set('demoUser',{role:'provider'});set('providerVerification','Pending admin review');toast('Provider application submitted in demo');go(19);return true}
+   if(/sign in to customer/.test(t)){set('demoUser',{role:'customer'});toast('Demo customer sign-in successful');go(6);return true}
+   if(/sign in to provider/.test(t)){set('demoUser',{role:'provider'});if(get('providerVerification','Pending admin review')==='Approved'){toast('Demo provider sign-in successful');go(20)}else{toast('Provider account is awaiting admin verification');go(19)}return true}
+   if(/admin.*sign in|access.*console|authenticate/.test(t)){set('demoUser',{role:'admin'});toast('Demo admin console opened');go(29);return true}
+   if(/sign out|logout/.test(t)){localStorage.removeItem('lsp_demo_demoUser');go(3);return true}
+   if(/verify/.test(t)){toast('Demo verification step â€” backend verification will be connected later');return true}
+   // Tab/filter/pagination controls remain interactive even when they do not navigate.
+   if(/all bookings|active|completed|cancelled|upi direct|cash direct|pending verification|under investigation|resolved|pending review|approved & active|rejected/.test(t)){
+     const group=el.parentElement;group?.querySelectorAll('button').forEach(b=>b.classList.remove('lsp-selected'));el.classList.add('lsp-selected');
+     const rows=[...document.querySelectorAll('tbody tr, [data-record]')];rows.forEach(r=>r.hidden=false);return true;
+   }
+   if(/filter|sort|search|view|details|edit|change|report|support|help|contact|open|history|download|more|skip|proceed|continue|submit|send|transmit|authorize|acknowledge|discard|replace|update|deactivate|activate|lock rate|broadcast/.test(t)){toast((v||'Action')+' selected');return true}
+   toast((v||'Control')+' is interactive in demo mode');return true;
+ }
+ if(tag==='A'){
+   const href=el.getAttribute('href')||'';
+   if(href.startsWith('tel:')||href.startsWith('mailto:')||href.startsWith('http'))return;
+   const dest=routeByLabel(txt(el));
+   if(dest){go(dest);return true}
+   if(href==='#'||href.startsWith('javascript:')){const t=txt(el);if(/forgot password/.test(t)){toast('Password recovery will be connected with Supabase later')}else if(/terms|policy|safety/.test(t)){toast('Information panel will be available in the final content pass')}else if(/change|modify/.test(t)){toast('You can update the selected details on the previous step')}else toast('Selected: '+(t||'link'));return true}
+ }
+ return false;
+};
+// Shared lightweight styling; source screens retain their original design CSS.
+const style=document.createElement('style');style.textContent=`#lsp-toast{position:fixed;z-index:999999;left:50%;bottom:24px;transform:translate(-50%,18px);background:#172338;color:#fff;border:1px solid #d79a38;border-radius:10px;padding:12px 18px;font:600 13px Inter,Arial,sans-serif;box-shadow:0 12px 36px #0005;opacity:0;pointer-events:none;transition:.2s;max-width:min(92vw,560px);text-align:center}#lsp-toast.show{opacity:1;transform:translate(-50%,0)}.lsp-added-row{display:flex;gap:8px;margin:8px 0;align-items:center}.lsp-added-row input{min-width:0;flex:1;padding:8px;border:1px solid #64748b;border-radius:6px}.lsp-added-row button{padding:8px;border:1px solid #64748b;border-radius:6px}.lsp-selected{outline:2px solid #d99a35!important;outline-offset:2px}button,a,[role=button]{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #e3a33e!important;outline-offset:2px}@media(max-width:700px){body{overflow-x:hidden}img,svg,video{max-width:100%}table{display:block;max-width:100%;overflow-x:auto}button,a{max-width:100%}}@media print{#lsp-toast{display:none!important}}`;
+document.head.appendChild(style);
+// Route known internal navigation links without changing source screen layout.
+document.addEventListener('click',e=>{const el=e.target.closest('button,a,[role=button]');if(!el)return;const handled=screenAction(current,el);if(handled){e.preventDefault();e.stopPropagation();}},true);
+// Form submissions: validate required controls and preserve values locally.
+document.addEventListener('submit',e=>{e.preventDefault();const form=e.target;if(!form.reportValidity())return;const fields=[...form.elements].filter(x=>x.name||x.placeholder).map(x=>({name:x.name||x.placeholder,value:x.type==='checkbox'?x.checked:x.value}));set('lastForm',fields);toast('Form details saved locally in demo mode');},true);
+// Make selected service and date/time choices persist between screen transitions.
+document.addEventListener('change',e=>{const el=e.target;if(el.matches('input,select,textarea')){const key=el.name||el.id||el.placeholder;if(key)set('field_'+key,el.type==='checkbox'?el.checked:el.value)}});
+// Add demo navigation fallback to logo/home-like brand clicks.
+document.querySelectorAll('a').forEach(a=>{if(a.getAttribute('href')==='#'&&!a.textContent.trim())a.setAttribute('aria-label','Navigation link')});
+if(current===1){setTimeout(()=>{if(location.pathname.includes('screen_1_'))go(2)},1800)}
+// Keep the selected service and a usable demo context across screens.
+if(current===6){document.querySelectorAll('button').forEach(b=>{if(/book regular service|quick service/i.test(txt(b)))b.addEventListener('click',()=>set('selectedService',document.querySelector('h1')?.textContent||'Selected service'),{once:true})})}
+})();

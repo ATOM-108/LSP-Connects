@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>LSP Connect</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#4dffb2", "surface-dim": "#0e131e", "secondary-fixed": "#d8e2ff", "secondary": "#b9c6e8", "on-secondary": "#23304a", "surface-container-highest": "#303541", "on-primary": "#522300", "inverse-surface": "#dee2f2", "surface": "#0e131e", "tertiary": "#00e297", "secondary-container": "#3c4965", "surface-bright": "#343946", "on-error": "#690005", "on-surface": "#dee2f2", "primary-fixed-dim": "#ffb68b", "outline-variant": "#584235", "primary-container": "#ff7a00", "tertiary-fixed-dim": "#00e297", "background": "#0e131e", "on-primary-fixed": "#321200", "on-primary-fixed-variant": "#753400", "inverse-primary": "#994700", "on-tertiary-container": "#004028", "surface-variant": "#303541", "tertiary-container": "#00b779", "on-tertiary-fixed-variant": "#005234", "primary-fixed": "#ffdbc8", "surface-container-low": "#161b27", "on-primary-container": "#5c2800", "error": "#ffb4ab", "on-surface-variant": "#e0c0af", "on-secondary-fixed": "#0d1b34", "outline": "#a78b7c", "primary": "#ffb68b", "secondary-fixed-dim": "#b9c6e8", "on-secondary-fixed-variant": "#3a4762", "on-secondary-container": "#abb8d9", "inverse-on-surface": "#2b303d", "surface-container-high": "#252a36", "surface-container-lowest": "#090e19", "surface-container": "#1b1f2b", "on-error-container": "#ffdad6", "error-container": "#93000a", "on-tertiary": "#003822", "on-tertiary-fixed": "#002112", "on-background": "#dee2f2", "surface-tint": "#ffb68b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-xl": "2rem" }, "fontFamily": { "headline-sm": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "label-lg": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"] }, "fontSize": { "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container shadow-[0_0_12px_-2px_rgba(255,122,0,0.3)]"><span class="material-symbols-outlined text-xl">construction</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none tracking-tight font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Verified Local Direct</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-tertiary text-base">verified</span><span class="font-label-sm text-label-sm text-on-surface">100% Background-Verified</span></div></div><nav class="hidden md:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low" data-active-classes="bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg shadow-[0_0_15px_-3px_rgba(255,122,0,0.3)]"><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="services" href="#">Services</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="customer-profile" href="#">Profile</a></nav><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-low text-primary"><span class="material-symbols-outlined text-sm text-primary-container">payments</span><span class="font-label-sm text-label-sm font-semibold text-primary">Direct Cash &amp; UPI • Zero Fee</span></div><a class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-[0_0_16px_-4px_rgba(255,122,0,0.5)]" data-path="quick-request" href="#"><span class="material-symbols-outlined text-base">bolt</span>Quick Request</a><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Customer</span><span class="font-label-sm text-label-sm text-tertiary flex items-center justify-end gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span>Active Area</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-highest" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<div class="max-w-7xl mx-auto w-full px-6 lg:px-12 py-8 flex flex-col gap-6">
+<!-- Breadcrumbs & System Status Bar -->
+<div class="flex flex-wrap items-center justify-between gap-4">
+<nav class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm">home</span>
+          Home
+        </a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-on-surface font-semibold">My Bookings</span>
+</nav>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high shadow-inner">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Direct P2P Dispatch Active</span>
+<span class="text-on-surface-variant text-xs">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Zero Hidden Commissions</span>
+</div>
+</div>
+<!-- Header Section with Key Metrics -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Client Operational Center</span>
+<span class="text-xs text-on-surface-variant font-mono">/ BLR-NODE-04</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">My Service Bookings</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Direct field appointments, real-time geolocation telemetry, and physical settlement logs.</p>
+</div>
+<!-- Summary Metric Pills -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<div class="bg-surface-container-low px-4 py-3 rounded-xl shadow-md flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm uppercase">Total Volume</span>
+<span class="material-symbols-outlined text-base">receipt_long</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">12</span>
+</div>
+<div class="bg-surface-container-low px-4 py-3 rounded-xl shadow-md flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-4 -bottom-4 w-12 h-12 bg-primary-container/10 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center justify-between text-primary mb-1">
+<span class="font-label-sm text-label-sm uppercase">In-Transit</span>
+<span class="material-symbols-outlined text-base animate-bounce">near_me</span>
+</div>
+<span class="font-headline-md text-headline-md text-primary font-bold">01</span>
+</div>
+<div class="bg-surface-container-low px-4 py-3 rounded-xl shadow-md flex flex-col justify-between">
+<div class="flex items-center justify-between text-tertiary mb-1">
+<span class="font-label-sm text-label-sm uppercase">Completed</span>
+<span class="material-symbols-outlined text-base">check_circle</span>
+</div>
+<span class="font-headline-md text-headline-md text-tertiary font-bold">10</span>
+</div>
+<div class="bg-surface-container-low px-4 py-3 rounded-xl shadow-md flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-sm text-label-sm uppercase">Cancelled</span>
+<span class="material-symbols-outlined text-base">cancel</span>
+</div>
+<span class="font-headline-md text-headline-md text-on-surface-variant font-bold">01</span>
+</div>
+</div>
+</div>
+<!-- Filter Tabs -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1">
+<button class="px-5 py-2.5 rounded-xl font-label-lg text-label-lg transition-all text-on-surface-variant hover:text-on-surface bg-surface-container-low flex items-center gap-2">
+<span>All Bookings</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-xs">12</span>
+</button>
+<button class="px-5 py-2.5 rounded-xl font-label-lg text-label-lg transition-all bg-primary-container text-on-primary-container font-bold flex items-center gap-2 shadow-[0_0_20px_-4px_rgba(255,122,0,0.4)]">
+<span class="material-symbols-outlined text-base">bolt</span>
+<span>Active &amp; Upcoming</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-primary font-bold text-xs">1</span>
+</button>
+<button class="px-5 py-2.5 rounded-xl font-label-lg text-label-lg transition-all text-on-surface-variant hover:text-on-surface bg-surface-container-low flex items-center gap-2">
+<span>Completed</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-xs">10</span>
+</button>
+<button class="px-5 py-2.5 rounded-xl font-label-lg text-label-lg transition-all text-on-surface-variant hover:text-on-surface bg-surface-container-low flex items-center gap-2">
+<span>Cancelled</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant text-xs">1</span>
+</button>
+</div>
+<!-- Search & Secondary Filter Bar -->
+<div class="bg-surface-container-low p-3 rounded-2xl flex flex-col md:flex-row items-center gap-3 shadow-sm">
+<div class="relative flex-1 w-full">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="w-full h-11 pl-10 pr-4 bg-surface-container text-on-surface placeholder:text-on-surface-variant/60 rounded-xl font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary-container shadow-inner" placeholder="Search by technician name, service type, or #Booking ID..." type="text"/>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto">
+<!-- Date Range Filter -->
+<div class="relative flex-1 md:flex-initial">
+<select class="w-full md:w-48 h-11 pl-9 pr-8 bg-surface-container text-on-surface rounded-xl font-label-md text-label-md appearance-none focus:outline-none focus:ring-1 focus:ring-primary-container cursor-pointer shadow-inner">
+<option>Last 30 Days</option>
+<option>Last 90 Days</option>
+<option>Year to Date (2025)</option>
+<option>All Past Records</option>
+</select>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-base pointer-events-none">calendar_month</span>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-base pointer-events-none">expand_more</span>
+</div>
+<!-- Category Dropdown -->
+<div class="relative flex-1 md:flex-initial">
+<select class="w-full md:w-48 h-11 pl-9 pr-8 bg-surface-container text-on-surface rounded-xl font-label-md text-label-md appearance-none focus:outline-none focus:ring-1 focus:ring-primary-container cursor-pointer shadow-inner">
+<option>All Categories</option>
+<option>Electrical Systems</option>
+<option>Plumbing &amp; Sanitary</option>
+<option>Major Appliances</option>
+<option>Carpentry &amp; Wood</option>
+</select>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-base pointer-events-none">tune</span>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-base pointer-events-none">expand_more</span>
+</div>
+<button class="h-11 w-11 flex-shrink-0 flex items-center justify-center rounded-xl bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Clear Filters">
+<span class="material-symbols-outlined text-lg">restart_alt</span>
+</button>
+</div>
+</div>
+<!-- Bookings Stream List -->
+<div class="flex flex-col gap-5">
+<!-- CARD 1: ACTIVE / IN-TRANSIT (Highlighted Ambient Amber) -->
+<div class="relative rounded-2xl bg-surface-container-low shadow-[0_0_30px_-6px_rgba(255,122,0,0.35)] overflow-hidden">
+<!-- Ambient Top Glow Ribbon -->
+<div class="h-1.5 w-full bg-gradient-to-r from-primary-container via-primary to-primary-container"></div>
+<div class="p-6 flex flex-col gap-6">
+<!-- Card Header / Meta Row -->
+<div class="flex flex-wrap items-center justify-between gap-3 pb-4 bg-surface-container-lowest/40 -mx-6 -mt-6 p-6">
+<div class="flex items-center gap-3">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">#LSP-2025-88392</span>
+<span class="text-on-surface-variant text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Booked: Nov 17, 2025 at 11:15 AM</span>
+<span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold uppercase tracking-wider">Electrical</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold uppercase tracking-wider shadow-[0_0_12px_rgba(255,122,0,0.5)]">
+<span class="w-2 h-2 rounded-full bg-surface-container-lowest animate-ping"></span>
+<span>Technician In Transit</span>
+</div>
+</div>
+</div>
+<!-- Body Grid: Job Details & Map Preview -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Left Info Column (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-4">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Ceiling Fan Installation &amp; Switchboard Check</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Dual appliance high-voltage safety inspection and copper stator ceiling unit mount.</p>
+</div>
+<!-- Dispatch Schedule & Locality Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 rounded-xl bg-surface-container">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-xl mt-0.5">schedule</span>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase">Scheduled Window</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Today, Nov 17</span>
+<span class="font-body-sm text-body-sm text-primary block">12:30 PM - 01:00 PM</span>
+</div>
+</div>
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary-container text-xl mt-0.5">location_on</span>
+<div class="min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant block uppercase">Service Address</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate block">Flat 402, Nilgiri Heights</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Madhapur, Hyderabad 500081</span>
+</div>
+</div>
+</div>
+<!-- Assigned Technician Compact Module -->
+<div class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img class="w-12 h-12 rounded-xl object-cover" data-alt="Professional Indian field technician portrait with focused look wearing industrial polo shirt against dark utility backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7jP_xXagMYxYPn6ibx1lVCHwoKaMnEGQwSGEnOIdOFZSS_RJRqyFwcuF5tTuI7LRaLJBtvxkOFSynFp0zVXU75mUOEXtwLXHA2R0HWbsTTjZKc7I-TH3BpJO9ptD9cJQ67Fh36wnNMRb_QUHorcsSDeDYHKEnBPgvT-UyH-SqhCXlRiycW5vWZU52skc8CSDY0PoOY4Ykbkb-AZIH_BlUgu8upKuoIW37qO_7zwMA"/>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-tertiary flex items-center justify-center text-surface-container-lowest text-[10px] font-bold">✓</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Santosh Pandey</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/15 text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">verified</span>
+                        KYC Verified
+                      </span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="text-primary font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+                        4.85
+                      </span>
+<span>•</span>
+<span>340+ completed jobs</span>
+<span>•</span>
+<span class="text-tertiary">Direct Partner</span>
+</div>
+</div>
+</div>
+<div class="hidden sm:flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Direct Handover</span>
+<span class="font-label-md text-label-md text-primary font-semibold">Cash or UPI at Site</span>
+</div>
+</div>
+</div>
+<!-- Right Telemetry Map & Status Section (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-3">
+<div class="relative h-44 w-full rounded-xl overflow-hidden shadow-inner">
+<!-- Location Static Pipeline Container -->
+<div class="w-full h-full bg-cover bg-center" data-location="Madhapur, Hyderabad, India" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD281t35-P_--AldG7gQXCF831nFtJNTpb1XeAD3Xdjduzchv13u8rgLlRZl2S7uIqwX6LCFhrLHMTdNcKiLaC1jJCc0a_AKcTBEGs3eJQcYzyX9xcOUhDAHFmONPk5pMFnN9rTpawlyt1bfPeV6mFpXfsCzkHguxyAlyNteQzv-Dypa3cpaCcn5gA-yL2Z-6JmBWixsJEcvPXj7swhs5KbtHVPDHoxCyw9ab2dbMjX')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<!-- Live ETA Overlay Capsule -->
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest/90 backdrop-blur-md">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Live GPS: 1.4 km away</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">ETA ~12 Mins</span>
+</div>
+</div>
+<!-- Settlement Ledger Box -->
+<div class="flex items-center justify-between px-4 py-2.5 rounded-xl bg-surface-container-high">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block">Base Estimation</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">₹450</span>
+</div>
+<div class="text-right">
+<span class="px-2.5 py-1 rounded-md bg-primary-container/20 text-primary font-label-sm text-label-sm font-bold uppercase tracking-wider">
+                    Settlement Pending
+                  </span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant mt-0.5">Pay directly post-inspection</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action Deck -->
+<div class="flex flex-wrap items-center justify-between gap-3 pt-3">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-base text-primary">verified_user</span>
+<span>100% Direct Provider settlement guarantee. No convenience platform surcharge.</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-error font-label-md text-label-md font-semibold transition-colors">
+                Cancel Booking
+              </button>
+<button class="px-4 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">call</span>
+                Contact Technician
+              </button>
+<a class="px-5 py-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-[0_0_16px_-3px_rgba(255,122,0,0.6)] flex items-center gap-1" href="#">
+<span>Track Status</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 2: COMPLETED & SETTLED (Cash Handover) -->
+<div class="rounded-2xl bg-surface-container-low shadow-sm hover:bg-surface-container transition-colors">
+<div class="p-6 flex flex-col gap-5">
+<!-- Card Header -->
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">#LSP-2025-87114</span>
+<span class="text-on-surface-variant text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Completed: Nov 04, 2025 at 03:45 PM</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-secondary font-label-sm text-label-sm font-semibold uppercase">Plumbing</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-tertiary/15 text-tertiary font-label-sm text-label-sm font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">task_alt</span>
+                Completed &amp; Settled
+              </span>
+</div>
+</div>
+<!-- Body Info Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+<div class="md:col-span-6 flex flex-col gap-1.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Kitchen Sink Drain Unclogging &amp; Trap Replacement</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Heavy grease clearance, high-pressure line flush, and replacement of anti-siphon bottle trap.</p>
+<div class="flex items-center gap-3 mt-2">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="Close up avatar of experienced senior Indian plumber smiling in clean work uniform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCepf0qj_qOWefgKp7gzoi_v4BZiiWuzZ6Mqhs6_Qi0B_EeQTfbOAFb5dZBjIjY7jlcSCa5sPNY1wk_8xzRkKd_7oqKLeFLCukBu3SYLR4AxpoPtlsnUZsi3HvBb_wiPyLNwnQGtxJOppD9Tf3AeiWoDSOKxgDshBLzL32cj5SKnJTJNHXioIIyn9UJnpbZu2t73-3fPfgX_53wPet_UP283CaTzioRTE_vzsJr520"/>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Ramesh Kumar</span>
+<span class="text-on-surface-variant text-xs">•</span>
+<span class="text-primary font-bold text-xs flex items-center">
+<span class="material-symbols-outlined text-xs mr-0.5" style="font-variation-settings: 'FILL' 1;">star</span>
+                  4.9 Rating
+                </span>
+<span class="text-on-surface-variant text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Madhapur Sector 2</span>
+</div>
+</div>
+<!-- Financial Settlement Metric -->
+<div class="md:col-span-3 p-3.5 rounded-xl bg-surface-container flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Settlement Mechanism</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">₹650</span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">Settled</span>
+</div>
+<span class="font-body-sm text-body-sm text-primary flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-xs">payments</span>
+                Direct Cash Handover
+              </span>
+</div>
+<!-- Card Actions -->
+<div class="md:col-span-3 flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<button class="flex-1 py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-base">receipt</span>
+<span>Receipt</span>
+</button>
+<button class="flex-1 py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-base">star</span>
+<span>Rate</span>
+</button>
+</div>
+<button class="w-full py-2 px-3 rounded-lg bg-surface-container-highest hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-label-md font-bold transition-all flex items-center justify-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-base">repeat</span>
+<span>Book Again</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 3: COMPLETED & SETTLED (UPI QR Handover) -->
+<div class="rounded-2xl bg-surface-container-low shadow-sm hover:bg-surface-container transition-colors">
+<div class="p-6 flex flex-col gap-5">
+<!-- Card Header -->
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">#LSP-2025-84290</span>
+<span class="text-on-surface-variant text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Completed: Oct 21, 2025 at 11:20 AM</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 text-secondary font-label-sm text-label-sm font-semibold uppercase">Appliances</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-tertiary/15 text-tertiary font-label-sm text-label-sm font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">task_alt</span>
+                Completed &amp; Settled
+              </span>
+</div>
+</div>
+<!-- Body Info Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+<div class="md:col-span-6 flex flex-col gap-1.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Geyser Safety Valve Check &amp; Descaling</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Thermal heating element mineral removal and high-pressure release valve verification.</p>
+<div class="flex items-center gap-3 mt-2">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="Portrait photo of an Indian HVAC technician in blue overalls on dark backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdtjnqb-oBS6HK8I7vjT64jlFvt5TKtXbEiCtDpFh0wa1unahct2f-noNWZ6ZGS_QbEt0XtI0qEuAfqv6xLK6eOxux-eVYz4VPsKBno9sdipExa49hpMeKiGjZF8_bMx1OG2nmnEZSiEoYYelWFw5j5e5BpJ4-0xY77kbhU34M5cud0SAYkht6JxF4ydEwhH2QtgAhEvNaX_yiW8p6B_V9acjZn9QOeaJW-Z3QNXdm"/>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Santosh Pandey</span>
+<span class="text-on-surface-variant text-xs">•</span>
+<span class="text-primary font-bold text-xs flex items-center">
+<span class="material-symbols-outlined text-xs mr-0.5" style="font-variation-settings: 'FILL' 1;">star</span>
+                  4.85 Rating
+                </span>
+<span class="text-on-surface-variant text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Madhapur, Hyderabad</span>
+</div>
+</div>
+<!-- Financial Settlement Metric -->
+<div class="md:col-span-3 p-3.5 rounded-xl bg-surface-container flex flex-col justify-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Settlement Mechanism</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">₹500</span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">Settled</span>
+</div>
+<span class="font-body-sm text-body-sm text-tertiary flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-xs">qr_code_2</span>
+                Direct UPI QR Transfer
+              </span>
+</div>
+<!-- Card Actions -->
+<div class="md:col-span-3 flex flex-col gap-2">
+<button class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+<span>View Digital Receipt</span>
+</button>
+<div class="w-full py-2 px-3 rounded-lg bg-surface-container text-primary font-label-md text-label-md font-bold flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>Rated 5 Stars ★</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- CARD 4: CANCELLED (Muted Gray Style) -->
+<div class="rounded-2xl bg-surface-container-lowest/60 shadow-sm opacity-80 hover:opacity-100 transition-opacity">
+<div class="p-6 flex flex-col gap-4">
+<!-- Card Header -->
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="font-label-lg text-label-lg font-bold text-on-surface-variant">#LSP-2025-81049</span>
+<span class="text-on-surface-variant text-xs">•</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cancelled: Sep 15, 2025 at 09:10 AM</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-semibold uppercase">Carpentry</span>
+</div>
+<div>
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">block</span>
+                Cancelled by Customer
+              </span>
+</div>
+</div>
+<!-- Body Info Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+<div class="md:col-span-8 flex flex-col gap-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface-variant font-bold line-through">Door Lock &amp; Latch Repair</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mortise cylinder adjustment and timber door alignment verification.</p>
+<div class="flex items-center gap-2 mt-2 px-3 py-1.5 rounded-lg bg-surface-container w-fit">
+<span class="material-symbols-outlined text-xs text-on-surface-variant">info</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Reason: Cancelled before provider dispatch. Zero fees charged.</span>
+</div>
+</div>
+<!-- Action Button -->
+<div class="md:col-span-4 flex justify-end">
+<button class="py-2.5 px-6 rounded-lg bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-md text-label-md font-bold transition-all flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-base">restart_alt</span>
+<span>Rebook Service</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Direct Settlement Compliance Guarantee Banner -->
+<div class="p-4 rounded-2xl bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-4 mt-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">shield_locked</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg font-bold text-on-surface block">LSP Direct Protocol Protection</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Every service technician is KYC-audited and strictly receives 100% of the invoiced fee via Cash or UPI.</span>
+</div>
+</div>
+<a class="font-label-md text-label-md text-primary hover:underline whitespace-nowrap flex items-center gap-1" href="#">
+        Learn about zero-commission policy
+        <span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+<!-- Pagination Bar -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t-0">
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+        Showing <span class="text-on-surface font-semibold">1-4</span> of <span class="text-on-surface font-semibold">12</span> bookings recorded
+      </span>
+<div class="flex items-center gap-1.5">
+<button class="w-9 h-9 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container disabled:opacity-40 flex items-center justify-center transition-colors" disabled="">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-bold flex items-center justify-center shadow-md">
+          1
+        </button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md font-semibold flex items-center justify-center transition-colors">
+          2
+        </button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container font-label-md text-label-md font-semibold flex items-center justify-center transition-colors">
+          3
+        </button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl py-space-xl shadow-[0_-1px_12px_rgba(0,0,0,0.5)]"><div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-body-sm text-body-sm text-on-surface-variant">Direct Local Service Dispatch System</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-sm">currency_rupee</span>100% Cash / UPI Direct Settlement</span><span class="flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-sm">security</span>Verified Technicians</span></div><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 LSP Connect Platform. Direct Provider Operations.</div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>

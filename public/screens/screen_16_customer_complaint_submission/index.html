@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>LSP Connect</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#4dffb2", "surface-dim": "#0e131e", "secondary-fixed": "#d8e2ff", "secondary": "#b9c6e8", "on-secondary": "#23304a", "surface-container-highest": "#303541", "on-primary": "#522300", "inverse-surface": "#dee2f2", "surface": "#0e131e", "tertiary": "#00e297", "secondary-container": "#3c4965", "surface-bright": "#343946", "on-error": "#690005", "on-surface": "#dee2f2", "primary-fixed-dim": "#ffb68b", "outline-variant": "#584235", "primary-container": "#ff7a00", "tertiary-fixed-dim": "#00e297", "background": "#0e131e", "on-primary-fixed": "#321200", "on-primary-fixed-variant": "#753400", "inverse-primary": "#994700", "on-tertiary-container": "#004028", "surface-variant": "#303541", "tertiary-container": "#00b779", "on-tertiary-fixed-variant": "#005234", "primary-fixed": "#ffdbc8", "surface-container-low": "#161b27", "on-primary-container": "#5c2800", "error": "#ffb4ab", "on-surface-variant": "#e0c0af", "on-secondary-fixed": "#0d1b34", "outline": "#a78b7c", "primary": "#ffb68b", "secondary-fixed-dim": "#b9c6e8", "on-secondary-fixed-variant": "#3a4762", "on-secondary-container": "#abb8d9", "inverse-on-surface": "#2b303d", "surface-container-high": "#252a36", "surface-container-lowest": "#090e19", "surface-container": "#1b1f2b", "on-error-container": "#ffdad6", "error-container": "#93000a", "on-tertiary": "#003822", "on-tertiary-fixed": "#002112", "on-background": "#dee2f2", "surface-tint": "#ffb68b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-xl": "2rem" }, "fontFamily": { "headline-sm": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "label-lg": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"] }, "fontSize": { "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container shadow-[0_0_12px_-2px_rgba(255,122,0,0.3)]"><span class="material-symbols-outlined text-xl">construction</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none tracking-tight font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Verified Local Direct</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-tertiary text-base">verified</span><span class="font-label-sm text-label-sm text-on-surface">100% Background-Verified</span></div></div><nav class="hidden md:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low" data-active-classes="bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg shadow-[0_0_15px_-3px_rgba(255,122,0,0.3)]"><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="services" href="#">Services</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="customer-profile" href="#">Profile</a></nav><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-low text-primary"><span class="material-symbols-outlined text-sm text-primary-container">payments</span><span class="font-label-sm text-label-sm font-semibold text-primary">Direct Cash &amp; UPI • Zero Fee</span></div><a class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-[0_0_16px_-4px_rgba(255,122,0,0.5)]" data-path="quick-request" href="#"><span class="material-symbols-outlined text-base">bolt</span>Quick Request</a><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Customer</span><span class="font-label-sm text-label-sm text-tertiary flex items-center justify-end gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span>Active Area</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-highest" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<div class="w-full max-w-7xl mx-auto px-6 lg:px-12 py-space-xl">
+<!-- Top Meta Hierarchy & Breadcrumbs -->
+<div class="flex flex-col gap-space-sm mb-space-lg">
+<nav class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm">home</span>
+          Home
+        </a>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Support</a>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+<span class="text-primary font-semibold">Submit Complaint / Grievance</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pt-space-xs">
+<div>
+<div class="flex items-center gap-space-sm mb-1">
+<span class="px-space-sm py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm uppercase tracking-wider">
+              Governance &amp; Integrity Desk
+            </span>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Encrypted Ledger
+            </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">
+            Customer Complaint &amp; Dispute Submission
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-3xl">
+            Report issues regarding technician conduct, tariff overcharging, incomplete workmanship, or unauthorized charges. Direct settlement dispute audits are strictly monitored.
+          </p>
+</div>
+<div class="hidden lg:flex items-center gap-space-xs px-space-md py-space-sm rounded-xl bg-surface-container-high shadow-sm">
+<span class="material-symbols-outlined text-primary-container text-xl">verified_user</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Protected Dispatch Guarantee</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Zero hidden surcharge compliance</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Asymmetric 2-Column Workframe -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Primary Grievance Dossier (65%) -->
+<section class="lg:col-span-8 flex flex-col gap-space-lg">
+<div class="rounded-xl bg-surface-container-low p-space-xl shadow-xl relative overflow-hidden">
+<div class="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-primary/5 blur-3xl pointer-events-none"></div>
+<form class="flex flex-col gap-space-lg relative z-10" onsubmit="event.preventDefault();">
+<!-- 1. Booking Reference Selector Card -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">receipt_long</span>
+                  1. Associated Booking Reference
+                </label>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Locked to Incident Job</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-high flex flex-col md:flex-row md:items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-start gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0 shadow-inner">
+<span class="material-symbols-outlined text-xl">electric_meter</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">#LSP-2025-88392</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm">Completed</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface truncate">Ceiling Fan Installation &amp; Switchboard Check</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2 mt-0.5">
+<span class="flex items-center gap-1 text-on-surface"><span class="material-symbols-outlined text-xs">person</span>Santosh Pandey</span>
+<span>•</span>
+<span>Nov 17, 2025 (14:30 IST)</span>
+<span>•</span>
+<span class="text-primary font-semibold">Direct UPI ₹680 Paid</span>
+</span>
+</div>
+</div>
+<button class="self-start md:self-center px-space-md py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors shrink-0" type="button">
+                  Change Booking
+                </button>
+</div>
+</div>
+<!-- 2. Complaint Category Dropdown -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1.5" for="complaint-category">
+<span class="material-symbols-outlined text-primary text-base">category</span>
+                2. Complaint Category
+              </label>
+<div class="relative">
+<select class="w-full h-12 appearance-none rounded-lg bg-surface-container-high px-space-md text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface-container-highest cursor-pointer shadow-sm" id="complaint-category">
+<option selected="" value="tariff">Tariff / Overcharging Beyond Approved Quote</option>
+<option value="incomplete">Incomplete or Defective Workmanship</option>
+<option value="conduct">Unprofessional or Late Conduct</option>
+<option value="safety">Safety or Damage to Property</option>
+<option value="other">Other Concern</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-space-md text-primary">
+<span class="material-symbols-outlined text-lg">expand_more</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-primary flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs">info</span>
+                Tariff variances trigger an automated inspection of verified provider standard price schedules.
+              </p>
+</div>
+<!-- 3. Nature of Grievance / Title -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1.5" for="grievance-title">
+<span class="material-symbols-outlined text-primary text-base">edit_note</span>
+                3. Nature of Grievance / Summary
+              </label>
+<input class="w-full h-12 rounded-lg bg-surface-container-high px-space-md text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface-container-highest shadow-sm" id="grievance-title" placeholder="e.g. Technician requested additional cash without prior quote approval" type="text" value="Technician requested additional cash without prior quote approval"/>
+</div>
+<!-- 4. Detailed Description Textarea -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1.5" for="detailed-explanation">
+<span class="material-symbols-outlined text-primary text-base">description</span>
+                  4. Detailed Explanation of the Incident
+                </label>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">185 / 1000 characters</span>
+</div>
+<textarea class="w-full rounded-lg bg-surface-container-high p-space-md text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface-container-highest resize-y shadow-sm leading-relaxed" id="detailed-explanation" placeholder="Provide step-by-step specifics regarding amounts demanded, verbal commitments, or issues observed..." rows="4">Technician installed the replacement anchor bolt but quoted ₹280 on the verbal invoice instead of the standard ₹120 listed in the verified rate card without showing the physical hardware store receipt.</textarea>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-0.5">
+<span>Include precise payment mode used (Cash / Direct UPI ID) and verbal statements.</span>
+<span class="text-tertiary flex items-center gap-0.5 font-medium"><span class="material-symbols-outlined text-xs">check_circle</span>Sufficient details provided</span>
+</div>
+</div>
+<!-- 5. Supporting Evidence Attachment -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">attachment</span>
+                5. Supporting Evidence Attachment
+              </label>
+<!-- Upload Area -->
+<div class="rounded-xl bg-surface-container-high/60 p-space-lg flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-container-high transition-colors group">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:scale-105 transition-transform mb-space-xs shadow-md">
+<span class="material-symbols-outlined text-2xl">cloud_upload</span>
+</div>
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">
+                  Upload Photos, Video clips, or Cash receipts
+                </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Drag and drop files here, or <span class="text-primary hover:underline font-medium">browse local drive</span>. Max 5 files (PNG, JPG, PDF up to 15MB).
+                </p>
+</div>
+<!-- Attached Chips -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm mt-space-xs">
+<div class="p-space-sm rounded-lg bg-surface-container-high flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm">image</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-medium truncate">verbal_quote_note.jpg</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono">1.2 MB • Ready</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors p-1" title="Remove attachment" type="button">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-high flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-sm">picture_as_pdf</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-medium truncate">receipt_inquiry.pdf</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono">420 KB • Ready</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors p-1" title="Remove attachment" type="button">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 6. Preferred Resolution -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">balance</span>
+                6. Desired Remedial Action
+              </label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+<!-- Option 1: Selected -->
+<label class="flex flex-col p-space-md rounded-xl bg-surface-container-highest cursor-pointer relative shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md text-primary font-bold">Recommended</span>
+<input checked="" class="accent-primary h-4 w-4" name="preferred_resolution" type="radio"/>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Admin Mediation &amp; Rate Readjustment</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Platform reconciles with rate card and directs technician refund directly.</span>
+</label>
+<!-- Option 2 -->
+<label class="flex flex-col p-space-md rounded-xl bg-surface-container-high hover:bg-surface-container-highest transition-colors cursor-pointer relative shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface-variant">Service Rework</span>
+<input class="accent-primary h-4 w-4" name="preferred_resolution" type="radio"/>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Technician Revisit / Rework</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Dispatch verified technician back to rectify installation flaws free of cost.</span>
+</label>
+<!-- Option 3 -->
+<label class="flex flex-col p-space-md rounded-xl bg-surface-container-high hover:bg-surface-container-highest transition-colors cursor-pointer relative shadow-sm">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface-variant">Disciplinary</span>
+<input class="accent-primary h-4 w-4" name="preferred_resolution" type="radio"/>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Formal Provider Warning</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Record demerit strike on the technician's public background scorecard.</span>
+</label>
+</div>
+</div>
+<!-- 7. Actions & Form Footer -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-md">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1.5 order-2 sm:order-1" href="#">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+                Cancel &amp; Return to Bookings
+              </a>
+<button class="w-full sm:w-auto px-space-xl py-3 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg font-bold hover:bg-primary transition-all shadow-[0_0_24px_-4px_rgba(255,122,0,0.5)] flex items-center justify-center gap-2 order-1 sm:order-2" type="submit">
+<span>Submit Complaint for Admin Audit</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</section>
+<!-- Right Column: Protocol Guarantees & Active Status (35%) -->
+<aside class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Resolution Protocol & Direct Guarantee Card -->
+<div class="rounded-xl bg-surface-container-low p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">
+              Direct Handling Protocol
+            </h2>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-base">gavel</span>
+</div>
+</div>
+<!-- SLA Badge -->
+<div class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-high">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary shrink-0 animate-ping"></div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-bold">Strict SLA Target</span>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Admin Review within 4 Business Hours</span>
+</div>
+</div>
+<!-- 3-Step Timeline -->
+<div class="flex flex-col gap-space-md mt-space-xs relative">
+<div class="absolute left-3.5 top-3 bottom-3 w-0.5 bg-surface-container-highest"></div>
+<div class="flex items-start gap-space-md relative z-10">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold flex items-center justify-center shrink-0 shadow-md">
+                1
+              </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Incident Logged &amp; Provider Notified</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Job audit ledger freezes technician payout eligibility for this ticket. Technician has 2h to reply.
+                </span>
+</div>
+</div>
+<div class="flex items-start gap-space-md relative z-10">
+<div class="w-7 h-7 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-bold flex items-center justify-center shrink-0 shadow-inner">
+                2
+              </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Admin Tariff &amp; Evidence Audit</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Compliance officer cross-checks materials cost with standard wholesale hardware indices.
+                </span>
+</div>
+</div>
+<div class="flex items-start gap-space-md relative z-10">
+<div class="w-7 h-7 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-bold flex items-center justify-center shrink-0 shadow-inner">
+                3
+              </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Mutual Resolution &amp; Provider Score</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Refund direct to customer via UPI; persistent violations lead to credential revocation.
+                </span>
+</div>
+</div>
+</div>
+<!-- Direct Cash & UPI Notice -->
+<div class="p-space-md rounded-lg bg-surface-container-high flex flex-col gap-1 mt-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">lock</span> Direct Cash &amp; UPI Protection
+            </span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Because LSP Connect eliminates middleman commissions, providers are strictly bound to honor rate schedules. Overcharging is treated as a material compliance breach.
+            </p>
+</div>
+</div>
+<!-- Active Complaint Status Tracker Card -->
+<div class="rounded-xl bg-surface-container-low p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-xl">pending_actions</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Existing Records</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ticket #CMP-9921</span>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-high flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-space-sm py-1 rounded-full bg-primary-container/15 text-primary-container font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                UNDER INVESTIGATION BY ADMIN
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">1 hr ago</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Discrepancy: Plumbing Joint Coupler Surcharge</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5">
+                Investigator Rahul V. requested supplier invoice verification from Provider Manoj K.
+              </span>
+</div>
+<!-- Mini Progress Visual -->
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-primary-container h-full rounded-full w-2/3"></div>
+</div>
+</div>
+<button class="w-full py-2 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors text-center font-medium" type="button">
+            View Past Grievance History (3)
+          </button>
+</div>
+<!-- Direct Contact Info Helpdesk -->
+<div class="rounded-xl bg-surface-container-low p-space-lg shadow-xl flex flex-col gap-space-sm">
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">support_agent</span>
+            Direct Operations Help Desk
+          </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            If this incident involves imminent property hazard or physical safety, contact operations dispatch directly:
+          </p>
+<div class="flex flex-col gap-space-xs mt-space-xs">
+<a class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container transition-colors" href="mailto:support@lspconnect.local">
+<span class="material-symbols-outlined text-primary text-base">alternate_email</span>
+<span class="font-label-md text-label-md text-on-surface font-mono">support@lspconnect.local</span>
+</a>
+<a class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container transition-colors" href="tel:18005773473">
+<span class="material-symbols-outlined text-tertiary text-base">call</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold font-mono">1800-LSP-DIRECT</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Mon–Sat: 8:00 AM – 9:00 PM IST</span>
+</div>
+</a>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest mt-space-xl py-space-xl shadow-[0_-1px_12px_rgba(0,0,0,0.5)]"><div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-body-sm text-body-sm text-on-surface-variant">Direct Local Service Dispatch System</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-sm">currency_rupee</span>100% Cash / UPI Direct Settlement</span><span class="flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-sm">security</span>Verified Technicians</span></div><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 LSP Connect Platform. Direct Provider Operations.</div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>

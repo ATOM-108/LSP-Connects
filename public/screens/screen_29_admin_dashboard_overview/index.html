@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-background":"#dee2f2","error-container":"#93000a","surface-container-highest":"#303541","tertiary":"#00e297","on-tertiary":"#003822","surface-container-low":"#161b27","inverse-primary":"#994700","on-error":"#690005","on-secondary-container":"#abb8d9","outline":"#a78b7c","on-tertiary-fixed-variant":"#005234","surface-bright":"#343946","tertiary-fixed":"#4dffb2","surface-container-high":"#252a36","on-secondary":"#23304a","on-surface":"#dee2f2","surface":"#0e131e","surface-dim":"#0e131e","on-tertiary-fixed":"#002112","secondary-container":"#3c4965","on-primary-fixed-variant":"#753400","primary-fixed-dim":"#ffb68b","background":"#0e131e","tertiary-container":"#00b779","error":"#ffb4ab","outline-variant":"#584235","on-secondary-fixed":"#0d1b34","surface-variant":"#303541","surface-tint":"#ffb68b","on-primary":"#522300","on-primary-container":"#5c2800","on-secondary-fixed-variant":"#3a4762","secondary-fixed":"#d8e2ff","surface-container-lowest":"#090e19","surface-container":"#1b1f2b","on-tertiary-container":"#004028","secondary-fixed-dim":"#b9c6e8","inverse-surface":"#dee2f2","primary-fixed":"#ffdbc8","tertiary-fixed-dim":"#00e297","on-surface-variant":"#e0c0af","primary":"#ffb68b","on-primary-fixed":"#321200","primary-container":"#ff7a00","inverse-on-surface":"#2b303d","on-error-container":"#ffdad6","secondary":"#b9c6e8"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2rem","margin":"2rem","gutter":"1.5rem","space-lg":"1.5rem","space-xs":"0.25rem","space-md":"1rem","space-sm":"0.5rem"},"fontFamily":{"body-lg":["Inter"],"label-lg":["Inter"],"headline-lg":["Inter"],"label-sm":["Inter"],"headline-xl":["Inter"],"label-md":["Inter"],"body-md":["Inter"],"headline-sm":["Inter"],"headline-md":["Inter"],"body-sm":["Inter"]},"fontSize":{"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"700"}],"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-low/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-headline-sm font-bold">L</div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-bold">LSP Connect</span></div><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-wider">ADMIN CONSOLE</span></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-lg"><a aria-current="page" class="px-space-sm py-1.5 transition-colors bg-primary-container text-on-primary-container font-label-md rounded-lg" data-path="dashboard" href="#">Dashboard</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="users" href="#">Users</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="services-and-rates" href="#">Services & Rates</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="bookings" href="#">Bookings</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="verifications" href="#">Verifications</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="complaints" href="#">Complaints</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="settings" href="#">Settings</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-lowest"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-sm text-label-sm text-tertiary">Admin Operations Active</span></div><div class="hidden lg:flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm px-space-xs py-1 rounded bg-surface-container-high"><span class="material-symbols-outlined text-sm text-primary">verified_user</span><span>SEC-L3 CLEARANCE</span></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden sm:block"><div class="font-label-md text-label-md text-on-surface">Root Administrator</div><div class="font-label-sm text-label-sm text-on-surface-variant">ops-node-01@lsp.internal</div></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div></div></div></header><main class="w-full pt-16 bg-surface flex-1 flex flex-col"><div class="flex flex-col w-full">
+<div class="w-full px-margin py-space-xl flex flex-col gap-space-xl max-w-[1440px] mx-auto">
+<!-- Top Operational Header Section -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<span class="hover:text-primary transition-colors cursor-pointer">Admin Console</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-bold">Platform Overview</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Administrative Operations Overview</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">Real-time platform metrics, user volumes, booking health, and verification queue monitoring.</p>
+</div>
+<div class="flex items-center gap-space-md self-start lg:self-auto bg-surface-container-low px-space-md py-space-sm rounded-xl">
+<div class="flex items-center gap-space-xs">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary"></span>
+</span>
+<span class="font-label-sm text-label-sm text-tertiary uppercase tracking-wide">Live Platform Status</span>
+</div>
+<span class="text-surface-container-highest">|</span>
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+<span>Synced 1 min ago</span>
+</div>
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface p-1 rounded-lg transition-transform active:rotate-180 duration-300 flex items-center justify-center" id="refreshBtn" onclick="refreshPulse()">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+</div>
+</div>
+<!-- Operational Metrics Banner Grid (8 Metric Bento) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- 1. Registered Customers -->
+<div class="bg-surface-container-low rounded-xl p-space-md relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Registered Customers</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">group</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-sm">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">1,420</span>
+<span class="inline-flex items-center gap-0.5 font-label-sm text-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> +18 this week
+          </span>
+</div>
+<div class="mt-space-xs text-on-surface-variant font-body-sm text-body-sm">Active residential accounts</div>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-secondary-container"></div>
+</div>
+<!-- 2. Registered Providers -->
+<div class="bg-surface-container-low rounded-xl p-space-md relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Registered Providers</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">engineering</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-sm">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">348</span>
+<span class="font-label-sm text-label-sm text-primary">Active</span>
+</div>
+<div class="mt-space-xs text-on-surface-variant font-body-sm text-body-sm">Dispatched across 12 postal zones</div>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-container"></div>
+</div>
+<!-- 3. Pending Verifications (Action Needed) -->
+<div class="bg-surface-container-high rounded-xl p-space-md relative overflow-hidden shadow-lg group hover:bg-surface-bright transition-all">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Pending Verifications</span>
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-sm">
+<span class="font-headline-md text-headline-md text-primary font-bold">14</span>
+<span class="bg-primary-container/20 text-primary px-space-xs py-0.5 rounded font-label-sm text-label-sm">Action Needed</span>
+</div>
+<div class="mt-space-xs text-on-surface-variant font-body-sm text-body-sm font-medium">Requires Document Audit</div>
+<div class="absolute bottom-0 left-0 right-0 h-1 bg-primary-container"></div>
+</div>
+<!-- 4. Total Bookings (All-Time) -->
+<div class="bg-surface-container-low rounded-xl p-space-md relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Bookings</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-sm">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">3,892</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">All-Time</span>
+</div>
+<div class="mt-space-xs text-on-surface-variant font-body-sm text-body-sm">Since platform inception</div>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-surface-variant"></div>
+</div>
+<!-- 5. Active Bookings -->
+<div class="bg-surface-container-low rounded-xl p-space-md relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Active Bookings</span>
+<div class="w-8 h-8 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">near_me</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-sm">
+<span class="font-headline-md text-headline-md text-primary font-bold">38</span>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Live
+          </span>
+</div>
+<div class="mt-space-xs text-on-surface-variant font-body-sm text-body-sm">In-transit or on-site execution</div>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"></div>
+</div>
+<!-- 6. Completed Bookings -->
+<div class="bg-surface-container-low rounded-xl p-space-md relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Completed Bookings</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-sm">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">3,710</span>
+<span class="font-label-sm text-label-sm text-tertiary">95.3%</span>
+</div>
+<div class="mt-space-xs text-on-surface-variant font-body-sm text-body-sm">Direct doorstep cash/UPI settled</div>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-tertiary"></div>
+</div>
+<!-- 7. Pending Customer Complaints -->
+<div class="bg-surface-container-low rounded-xl p-space-md relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Pending Grievances</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[18px]">report</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-sm">
+<span class="font-headline-md text-headline-md text-error font-bold">6</span>
+<span class="font-label-sm text-label-sm text-error/80">Pending mediation</span>
+</div>
+<div class="mt-space-xs text-on-surface-variant font-body-sm text-body-sm">Under administrative arbitration</div>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-error"></div>
+</div>
+<!-- 8. Service Categories -->
+<div class="bg-surface-container-low rounded-xl p-space-md relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Service Categories</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined text-[18px]">category</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-sm">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">6</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed">Standard</span>
+</div>
+<div class="mt-space-xs text-on-surface-variant font-body-sm text-body-sm">Admin-controlled rate cards</div>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-secondary"></div>
+</div>
+</div>
+<!-- Operational Core Layout (60% / 40% Grid) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column (60% ~ 7 cols on standard lg screen or 8 cols on xl) -->
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-space-lg">
+<!-- Booking Operations Stream -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-2.5 h-6 rounded-full bg-primary-container"></div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Recent Booking Stream & Direct Handover Audits</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live audit log of platform dispatching and provider execution</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">Active Feed</span>
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm px-space-sm py-1.5 rounded flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">tune</span> Filter
+              </button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left font-body-sm text-body-sm border-collapse">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md rounded-l">Booking ID</th>
+<th class="py-space-sm px-space-md">Category</th>
+<th class="py-space-sm px-space-md">Customer</th>
+<th class="py-space-sm px-space-md">Assigned Technician</th>
+<th class="py-space-sm px-space-md">Type</th>
+<th class="py-space-sm px-space-md">Live Status</th>
+<th class="py-space-sm px-space-md text-right rounded-r">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md font-label-md text-label-md text-primary">#LSP-2025-88392</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">bolt</span>
+<span class="font-body-md text-body-md text-on-surface">Electrical</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-label-md text-label-md text-on-surface">Rajesh Sharma</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Sector 42, Zone A</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-bold text-on-surface">AK</div>
+<span class="font-body-md text-body-md text-on-surface">Anil Kumar</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" title="Verified Technician">verified</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="bg-surface-container-highest text-on-surface-variant px-space-xs py-0.5 rounded font-label-sm text-label-sm uppercase">Quick Service</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span>In-Transit</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm px-space-sm py-1 rounded transition-colors inline-flex items-center gap-1">
+<span>View</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md font-label-md text-label-md text-primary">#LSP-2025-88390</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">plumbing</span>
+<span class="font-body-md text-body-md text-on-surface">Plumbing</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-label-md text-label-md text-on-surface">Pooja Venkatesh</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Green Glen, Zone C</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-bold text-on-surface">MR</div>
+<span class="font-body-md text-body-md text-on-surface">Mohd. Riyaz</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" title="Verified Technician">verified</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="bg-surface-container text-on-surface-variant px-space-xs py-0.5 rounded font-label-sm text-label-sm uppercase">Scheduled</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-secondary-container/40 text-secondary-fixed font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span>Work in Progress</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm px-space-sm py-1 rounded transition-colors inline-flex items-center gap-1">
+<span>View</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="py-space-md px-space-md font-label-md text-label-md text-primary">#LSP-2025-88204</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">hvac</span>
+<span class="font-body-md text-body-md text-on-surface">Appliance</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-label-md text-label-md text-on-surface">Vikramaditya Rao</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Oakridge Hts, Zone D</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-bold text-on-surface">SS</div>
+<span class="font-body-md text-body-md text-on-surface">Satish Solanki</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" title="Verified Technician">verified</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="bg-surface-container text-on-surface-variant px-space-xs py-0.5 rounded font-label-sm text-label-sm uppercase">Scheduled</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">payments</span>
+<span>Direct Settled</span>
+</div>
+</td>
+<td class="py-space-md px-space-md text-right">
+<button class="bg-surface-container-high hover:bg-primary-container hover:text-on-primary-container text-on-surface font-label-sm text-label-sm px-space-sm py-1 rounded transition-colors inline-flex items-center gap-1">
+<span>View</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Direct Settlement Policy Enforced Banner -->
+<div class="mt-space-sm p-space-md rounded-xl bg-surface-container flex items-start sm:items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex-shrink-0 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div class="flex-1 flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div>
+<div class="font-label-md text-label-md text-primary font-bold">Direct Settlement Protocol Enforced</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">All payments transacted directly via Cash/UPI between customer and technician with 0% platform intermediary cut.</div>
+</div>
+<span class="self-start sm:self-auto px-space-sm py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap">Cash & UPI Native</span>
+</div>
+</div>
+</div>
+<!-- System Activity & Dispatch Matrix Map/Visual -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">map</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Metropolitan Dispatch Density</h3>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary">12 Active Operational Clusters</span>
+</div>
+<div class="relative w-full h-48 rounded-xl overflow-hidden bg-surface-container flex items-center justify-center">
+<div class="w-full h-full bg-cover bg-center opacity-70" data-location="Madhapur, Hyderabad, India" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAjumRystxrRvZYqunWadG7ULAxojtU5PMtv4Sy123CuuqG5fnX6GVZyhZRfLGjczwT2ZQStwFQGVoJDk0mukyVS-Nw9pSLuRjUIwN4JWJ8HWDtWa_tkDcESsftxP5ujaRAipZ7FY-uT_pDGmJ1zvk2Q9ofUSiJyGTVCgpqm3-O7Mjku44azrH2DaN4CIOJEMkKDvlXsI96FBlmEtU-H2G7X6QCqFiu6bNEoZYB7hu9')"></div>
+<!-- Overlay Dispatch Radar Elements -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+<div class="absolute top-4 left-4 bg-surface-container-lowest/90 backdrop-blur-md px-space-sm py-1.5 rounded-lg flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Peak Demand: Sector 14 & Outer Ring Road</span>
+</div>
+<div class="absolute bottom-4 right-4 flex items-center gap-2">
+<span class="px-space-sm py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">Average Response: 14m</span>
+<span class="px-space-sm py-1 rounded bg-tertiary/20 text-tertiary font-label-sm text-label-sm font-semibold">99.2% Fulfilment</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (40% ~ 5 cols on lg or 4 cols on xl) -->
+<div class="lg:col-span-5 xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Card 1: Priority Verification Queue -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Priority Verification Queue</h2>
+</div>
+<span class="bg-primary-container/20 text-primary px-space-xs py-0.5 rounded-full font-label-sm text-label-sm font-bold">14 PENDING</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant -mt-space-xs">Technician onboarding applications requiring document checks</p>
+<div class="flex flex-col gap-space-sm mt-space-xs">
+<!-- Provider 1 -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-label-md">MK</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-bold">Manoj Kumar</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Plumbing • ITI Certified</div>
+</div>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm">Awaiting Audit</span>
+</div>
+<div class="mt-space-xs flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-[11px]"><span class="material-symbols-outlined text-[13px] text-tertiary">check_circle</span> identity proof & Trade Cert Uploaded</span>
+<button class="text-primary hover:underline font-label-sm text-label-sm">Inspect</button>
+</div>
+</div>
+<!-- Provider 2 -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-secondary flex items-center justify-center font-bold text-label-md">SR</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-bold">Suresh Raina</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Carpentry & Structural</div>
+</div>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Resubmission</span>
+</div>
+<div class="mt-space-xs flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-[11px] text-error"><span class="material-symbols-outlined text-[13px]">warning</span> Local Shop Lease Clarified</span>
+<button class="text-primary hover:underline font-label-sm text-label-sm">Inspect</button>
+</div>
+</div>
+<!-- Provider 3 -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-tertiary/20 text-tertiary flex items-center justify-center font-bold text-label-md">DP</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-bold">Dinesh Patel</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Appliance Maintenance</div>
+</div>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-tertiary/20 text-tertiary font-label-sm text-label-sm">Pending Sign-off</span>
+</div>
+<div class="mt-space-xs flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1 text-[11px]"><span class="material-symbols-outlined text-[13px] text-tertiary">check_circle</span> identity proof Verified</span>
+<button class="text-primary hover:underline font-label-sm text-label-sm">Inspect</button>
+</div>
+</div>
+</div>
+<a class="w-full mt-space-sm h-11 bg-primary-container hover:bg-inverse-primary text-on-primary-container font-label-lg text-label-lg rounded-lg flex items-center justify-center gap-space-xs transition-colors shadow-md" href="#">
+<span>Open Verification Desk</span>
+<span class="px-1.5 py-0.2 rounded bg-black/20 text-on-primary-container font-bold text-[11px]">14 Pending</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2: Active Grievance & Dispute Log -->
+<div class="bg-surface-container-low rounded-xl p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Active Grievance & Dispute Log</h2>
+</div>
+<span class="bg-error-container/40 text-error px-space-xs py-0.5 rounded-full font-label-sm text-label-sm font-bold">6 ACTIVE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant -mt-space-xs">Consumer complaints currently assigned to platform arbitration</p>
+<div class="flex flex-col gap-space-sm mt-space-xs">
+<!-- Ticket 1 -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-error font-bold">#CMP-9921</span>
+<span class="px-space-xs py-0.5 rounded bg-error-container/30 text-error font-label-sm text-label-sm">Under Admin Audit</span>
+</div>
+<div class="font-body-md text-body-md text-on-surface mt-1">Ceiling Fan Anchor Surcharge dispute</div>
+<div class="flex items-center justify-between mt-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<span>Customer claimed extra hardware fee</span>
+<span class="text-[11px] text-primary">Priority High</span>
+</div>
+</div>
+<!-- Ticket 2 -->
+<div class="p-space-md bg-surface-container rounded-lg flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-bold">#CMP-9918</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">Investigating</span>
+</div>
+<div class="font-body-md text-body-md text-on-surface mt-1">Punctuality delayed by 45 mins</div>
+<div class="flex items-center justify-between mt-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<span>Technician transit traffic delay review</span>
+<span class="text-[11px]">Normal SLA</span>
+</div>
+</div>
+</div>
+<a class="w-full mt-space-sm h-11 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg rounded-lg flex items-center justify-center gap-space-xs transition-colors" href="#">
+<span>Manage Disputes</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-on-surface-variant font-bold text-[11px]">6 Active</span>
+<span class="material-symbols-outlined text-[18px]">launch</span>
+</a>
+</div>
+<!-- Compliance & Network Audit Node -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-tertiary text-[20px]">shield</span>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Zero-Cut Direct Flow Node</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">All cash-points audited daily</div>
+</div>
+</div>
+<span class="text-tertiary font-label-sm text-label-sm uppercase font-bold">Audited</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function refreshPulse() {
+    const btn = document.getElementById('refreshBtn');
+    btn.classList.add('rotate-180');
+    setTimeout(() => {
+      btn.classList.remove('rotate-180');
+    }, 600);
+  }
+</script></main><footer class="w-full bg-surface-container-lowest py-space-md"><div class="w-full px-margin flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-body-sm text-body-sm"><div>© 2025 LSP Connect Local Service Provider Network. Admin Core Node.</div><div class="flex items-center gap-space-md font-label-sm text-label-sm"><span class="text-tertiary">System Integrity: Optimal (99.98%)</span><span class="text-outline">Zero-Commission Direct Settlement Mode</span><span>Kernel v4.19-audit</span></div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>

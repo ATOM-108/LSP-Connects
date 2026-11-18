@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-background":"#dee2f2","error-container":"#93000a","surface-container-highest":"#303541","tertiary":"#00e297","on-tertiary":"#003822","surface-container-low":"#161b27","inverse-primary":"#994700","on-error":"#690005","on-secondary-container":"#abb8d9","outline":"#a78b7c","on-tertiary-fixed-variant":"#005234","surface-bright":"#343946","tertiary-fixed":"#4dffb2","surface-container-high":"#252a36","on-secondary":"#23304a","on-surface":"#dee2f2","surface":"#0e131e","surface-dim":"#0e131e","on-tertiary-fixed":"#002112","secondary-container":"#3c4965","on-primary-fixed-variant":"#753400","primary-fixed-dim":"#ffb68b","background":"#0e131e","tertiary-container":"#00b779","error":"#ffb4ab","outline-variant":"#584235","on-secondary-fixed":"#0d1b34","surface-variant":"#303541","surface-tint":"#ffb68b","on-primary":"#522300","on-primary-container":"#5c2800","on-secondary-fixed-variant":"#3a4762","secondary-fixed":"#d8e2ff","surface-container-lowest":"#090e19","surface-container":"#1b1f2b","on-tertiary-container":"#004028","secondary-fixed-dim":"#b9c6e8","inverse-surface":"#dee2f2","primary-fixed":"#ffdbc8","tertiary-fixed-dim":"#00e297","on-surface-variant":"#e0c0af","primary":"#ffb68b","on-primary-fixed":"#321200","primary-container":"#ff7a00","inverse-on-surface":"#2b303d","on-error-container":"#ffdad6","secondary":"#b9c6e8"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2rem","margin":"2rem","gutter":"1.5rem","space-lg":"1.5rem","space-xs":"0.25rem","space-md":"1rem","space-sm":"0.5rem"},"fontFamily":{"body-lg":["Inter"],"label-lg":["Inter"],"headline-lg":["Inter"],"label-sm":["Inter"],"headline-xl":["Inter"],"label-md":["Inter"],"body-md":["Inter"],"headline-sm":["Inter"],"headline-md":["Inter"],"body-sm":["Inter"]},"fontSize":{"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"700"}],"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-low/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-headline-sm font-bold">L</div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-bold">LSP Connect</span></div><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-wider">ADMIN CONSOLE</span></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-lg"><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="dashboard" href="#">Dashboard</a><a aria-current="page" class="px-space-sm py-1.5 transition-colors bg-primary-container text-on-primary-container font-label-md rounded-lg" data-path="users" href="#">Users</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="services-and-rates" href="#">Services & Rates</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="bookings" href="#">Bookings</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="verifications" href="#">Verifications</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="complaints" href="#">Complaints</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="settings" href="#">Settings</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-lowest"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-sm text-label-sm text-tertiary">Admin Operations Active</span></div><div class="hidden lg:flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm px-space-xs py-1 rounded bg-surface-container-high"><span class="material-symbols-outlined text-sm text-primary">verified_user</span><span>SEC-L3 CLEARANCE</span></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden sm:block"><div class="font-label-md text-label-md text-on-surface">Root Administrator</div><div class="font-label-sm text-label-sm text-on-surface-variant">ops-node-01@lsp.internal</div></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div></div></div></header><main class="w-full pt-16 bg-surface flex-1 flex flex-col"><div class="flex flex-col w-full">
+<!-- Sub-Header & Live Ops Strip -->
+<section class="relative w-full px-margin pt-space-lg pb-space-md bg-surface-container-lowest">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-tertiary/5 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1 max-w-3xl">
+<div class="flex items-center gap-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-primary">IDENTITY & AUDIT KERNEL</span>
+<span class="text-outline text-xs">/</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">REAL-TIME REGISTRY</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">User & Stakeholder Directory</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Audit, manage, activate, or deactivate customer and service provider accounts across all operating postal zones.</p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="hidden 2xl:flex items-center gap-2 px-space-sm py-2 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-base text-primary">shield_person</span>
+<span>Role Policy: SuperAdmin Tier-4 Active</span>
+</div>
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface transition-all font-label-md text-label-md shadow-sm" id="exportAuditBtn">
+<span class="material-symbols-outlined text-base text-secondary">file_download</span>
+<span>Export User Audit Log</span>
+</button>
+<button class="flex items-center gap-2 px-space-md py-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary transition-all font-label-md text-label-md shadow-md">
+<span class="material-symbols-outlined text-base">person_add</span>
+<span>Create Admin User</span>
+</button>
+</div>
+</div>
+<!-- Telemetry Badges Strip -->
+<div class="mt-space-md pt-space-sm grid grid-cols-2 md:grid-cols-4 gap-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Total Stakeholders</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">1,768</span>
+</div>
+<span class="material-symbols-outlined text-primary text-xl">groups</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Active Providers</span>
+<span class="font-headline-sm text-headline-sm text-tertiary font-bold">348</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-xl">handyman</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">KYC Clearance Ratio</span>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">96.8%</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-xl">verified</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Restricted/Deactivated</span>
+<span class="font-headline-sm text-headline-sm text-error font-bold">12</span>
+</div>
+<span class="material-symbols-outlined text-error text-xl">gavel</span>
+</div>
+</div>
+</section>
+<!-- Filter & Segmentation Control Center -->
+<section class="w-full px-margin py-space-md bg-surface">
+<!-- Segmented Segment Switch -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pb-space-sm">
+<div class="inline-flex p-1 rounded-xl bg-surface-container-lowest gap-1">
+<button class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1.5" data-tab="all">
+<span>All Accounts</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-surface-container-highest text-on-surface">1,768</span>
+</button>
+<button class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md bg-primary-container text-on-primary-container transition-all flex items-center gap-1.5" data-tab="providers">
+<span class="material-symbols-outlined text-sm">badge</span>
+<span>Service Providers</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-surface-container-lowest text-primary">348</span>
+</button>
+<button class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-1.5" data-tab="customers">
+<span>Customers</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-surface-container-highest text-on-surface">1,420</span>
+</button>
+<button class="tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-error transition-all flex items-center gap-1.5" data-tab="suspended">
+<span class="material-symbols-outlined text-sm text-error">warning</span>
+<span>Suspended / Deactivated</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-error-container text-on-error-container">12</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm text-tertiary">offline_pin</span>
+<span>Strict Zero-Commission Direct Cash/UPI Verification Protocol Active</span>
+</div>
+</div>
+<!-- Dynamic Query & Filter Bar -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-sm pt-space-xs">
+<!-- Search Input -->
+<div class="md:col-span-5 relative">
+<span class="material-symbols-outlined absolute left-3 top-3 text-outline text-lg">search</span>
+<input class="w-full h-11 pl-10 pr-10 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary shadow-inner" id="tableSearchInput" placeholder="Search by User Name, Mobile, Email, UID, or Postal Code..." type="text"/>
+<button class="absolute right-3 top-3 text-outline hover:text-on-surface" id="clearSearchBtn">
+<span class="material-symbols-outlined text-sm">cancel</span>
+</button>
+</div>
+<!-- Verification Status -->
+<div class="md:col-span-2">
+<select class="w-full h-11 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary">
+<option value="">Verification: All</option>
+<option value="approved">Approved / KYC Ok</option>
+<option value="pending">Pending Document Audit</option>
+<option value="flagged">Flagged / Breach</option>
+</select>
+</div>
+<!-- Service Category -->
+<div class="md:col-span-2">
+<select class="w-full h-11 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary">
+<option value="">Category: All</option>
+<option value="electrical">Electrical</option>
+<option value="plumbing">Plumbing</option>
+<option value="carpentry">Carpentry</option>
+<option value="appliances">Appliances</option>
+</select>
+</div>
+<!-- Postal Zone -->
+<div class="md:col-span-2">
+<select class="w-full h-11 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-primary">
+<option value="">Postal Zone: All</option>
+<option value="500081">500081 - Madhapur</option>
+<option value="500081">500081 - Koramangala</option>
+<option value="560008">560008 - Halasuru</option>
+<option value="560076">560076 - BTM Layout</option>
+</select>
+</div>
+<!-- Sort Criterion -->
+<div class="md:col-span-1">
+<button class="w-full h-11 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high text-on-surface flex items-center justify-center gap-1 font-label-sm text-label-sm px-2" title="Toggle Sort Order">
+<span class="material-symbols-outlined text-base text-primary">swap_vert</span>
+<span class="hidden xl:inline">Newest</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Split Layout: Main Master Table & Contextual Inspector Drawer -->
+<section class="w-full px-margin py-space-sm flex-1 flex flex-col xl:flex-row gap-gutter">
+<!-- Main Workbench Table Column -->
+<div class="flex-1 min-w-0 bg-surface-container-low rounded-xl shadow-lg flex flex-col justify-between overflow-hidden">
+<!-- Table Top Tooltip Bar -->
+<div class="px-space-md py-3 bg-surface-container flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Showing Live Filtered Partition: <span class="text-on-surface font-bold">348 Registered Providers</span></span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-outline">Bulk Action:</span>
+<button class="px-2 py-1 rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors">Audit Flags</button>
+<button class="px-2 py-1 rounded bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors">Broadcast Notice</button>
+</div>
+</div>
+<!-- Responsive Table Viewport -->
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-space-md">User & System UID</th>
+<th class="py-3 px-space-md">Contact & Postal Zone</th>
+<th class="py-3 px-space-md">Trade / Bookings</th>
+<th class="py-3 px-space-md">KYC & Verification</th>
+<th class="py-3 px-space-md text-center">Account State</th>
+<th class="py-3 px-space-md text-right">Admin Actions</th>
+</tr>
+</thead>
+<tbody class="divide-none font-body-md text-body-md text-on-surface">
+<!-- ROW 1: Santosh Pandey (Active Provider / Inspected Row) -->
+<tr class="user-row bg-surface-container-high/60 hover:bg-surface-container-high transition-colors cursor-pointer group" onclick="selectUser('santosh')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Professional studio headshot of an experienced Indian male technician wearing a dark industrial polo shirt, warm lighting with dark slate background, sharp portrait photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-J1QSNs0vaDZFJj9X6rt_koxXTM6ifG5EB9hbXohRyclM8wFY-5xYCeSASJSe42CXqJB7L2_q65RNsXQA4JqZ7XAd7QVV2gaSsYCaXzuhYJ9K4OO_dRcJRFjlmKKkdqMW5mM38IIVuT48OVYj_JCxQjrBtwolUgpzW-2N3GT3t32Cdhp_f7CF_4fjrePQm960DJmyT7c8TY5jjCRHRZdUUJ-nfzsK7o5OhKQjvpt2"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-tertiary rounded-full shadow-sm ring-2 ring-surface"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-body-lg font-bold text-on-surface group-hover:text-primary transition-colors">Santosh Pandey</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-primary-container text-on-primary-container font-label-sm">PROVIDER</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline font-mono">UID #IND-9024</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col font-body-sm text-body-sm">
+<span class="text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-outline">call</span> +91 98765 43210
+                  </span>
+<span class="text-on-surface-variant truncate">santosh.tech@lsp.ind</span>
+<span class="text-secondary font-label-sm text-label-sm mt-0.5 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">location_on</span> 500081 • Madhapur
+                  </span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Electrical Repairs & Inst.</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">ITI Certified • 5 Listed Skills</span>
+<span class="font-label-sm text-label-sm text-tertiary mt-0.5">290 Completed • 4.9 ★</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm">verified</span>
+                  Verified Tier-1
+                </span>
+<div class="font-body-sm text-body-sm text-outline mt-1">identity proof + Trade Lic. Passed</div>
+</td>
+<td class="py-space-md px-space-md text-center">
+<button class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-tertiary/15 text-tertiary transition-transform active:scale-95" onclick="event.stopPropagation(); toggleAccount(this);">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary mr-1.5"></span>
+                  Active
+                </button>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-primary" title="View Inspector Profile">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="Audit Documents">
+<span class="material-symbols-outlined text-base">folder_shared</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-outline hover:text-error" title="Restrict Access">
+<span class="material-symbols-outlined text-base">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 2: Aris Thorne (Customer) -->
+<tr class="user-row hover:bg-surface-container-high/40 transition-colors cursor-pointer group" onclick="selectUser('aris')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Modern confident portrait of young woman customer in minimalist apparel with subtle dark background tone, soft focus natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbtNbpbsqsXZtQzssSVy6qDMcKpRSlfyE2rUobAr4uyU73hkH8X4XCG-S2LS4X3kgy30vKUyrHKLN7AzTh2gegGxpR4QlmX5GlAItJG2Pvo0b6pQCzVdPUMDZp8w18rEOTHdYhA7RQngekOnwGYEQd8-iM7EHQhseP-uw6IjuExrKAzZDb9OeDDn3b81x_Odybo-zDZiL20gMeNcOreb2BENh2qe-I72rUX1jDz535"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-secondary rounded-full ring-2 ring-surface"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-body-lg font-bold text-on-surface group-hover:text-primary transition-colors">Aris Thorne</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-secondary-container text-on-secondary-container font-label-sm">CUSTOMER</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline font-mono">UID #CID-8942</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col font-body-sm text-body-sm">
+<span class="text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-outline">call</span> +91 98765 43210
+                  </span>
+<span class="text-on-surface-variant truncate">aris.thorne@fastmail.com</span>
+<span class="text-secondary font-label-sm text-label-sm mt-0.5 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">location_on</span> 500081 • Koramangala
+                  </span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">11 Completed Bookings</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Direct Cash/UPI Settled</span>
+<span class="font-label-sm text-label-sm text-primary mt-0.5">Trust Score: 98.4 / 100</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container/50 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm">mark_email_read</span>
+                  Identity Confirmed
+                </span>
+<div class="font-body-sm text-body-sm text-outline mt-1">UPI ID linked via NPCI</div>
+</td>
+<td class="py-space-md px-space-md text-center">
+<button class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-tertiary/15 text-tertiary transition-transform active:scale-95" onclick="event.stopPropagation(); toggleAccount(this);">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary mr-1.5"></span>
+                  Active
+                </button>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary" title="View Inspector Profile">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="View Payment Logs">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-outline hover:text-error" title="Restrict Access">
+<span class="material-symbols-outlined text-base">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 3: Ramesh Kumar (Provider) -->
+<tr class="user-row hover:bg-surface-container-high/40 transition-colors cursor-pointer group" onclick="selectUser('ramesh')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Realistic close up portrait of middle-aged Indian male plumber with serious professional expression, dimly lit workshop background with ambient neon reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLDpEJXr9D1rbp9WYMY2uq2WuOWwp1bKfDkEtzuBC1qzxUD4lVevma__WBHAf8bDwJPx0Idfn381WBW-Su3RpiQqcg6QROy8YS6Jky9gDVPotDP_ol2KgxOPyw9maKTsp4hBkxOoybFx85Mg0NTX3NH__2Jy-0kvBrxuQfkO8TsCV0GLPBdQMBvMdA-_cRnN0R1P-h3Sfu_W1JuGP8nxsnzTQQ4-rIeVqtxu9OGIga"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-tertiary rounded-full ring-2 ring-surface"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-body-lg font-bold text-on-surface group-hover:text-primary transition-colors">Ramesh Kumar</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-primary-container text-on-primary-container font-label-sm">PROVIDER</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline font-mono">UID #IND-8812</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col font-body-sm text-body-sm">
+<span class="text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-outline">call</span> +91 98111 22334
+                  </span>
+<span class="text-on-surface-variant truncate">ramesh.plumb@domain.net</span>
+<span class="text-secondary font-label-sm text-label-sm mt-0.5 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">location_on</span> 560008 • Halasuru
+                  </span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Plumbing & Sanitary Solutions</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Master Pipefitter • 8 Skills</span>
+<span class="font-label-sm text-label-sm text-tertiary mt-0.5">142 Completed • 4.8 ★</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm">verified</span>
+                  Verified Tier-1
+                </span>
+<div class="font-body-sm text-body-sm text-outline mt-1">Police Clearance Cleared</div>
+</td>
+<td class="py-space-md px-space-md text-center">
+<button class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-tertiary/15 text-tertiary transition-transform active:scale-95" onclick="event.stopPropagation(); toggleAccount(this);">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary mr-1.5"></span>
+                  Active
+                </button>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary" title="View Inspector Profile">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="Audit Documents">
+<span class="material-symbols-outlined text-base">folder_shared</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-outline hover:text-error" title="Restrict Access">
+<span class="material-symbols-outlined text-base">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 4: Suresh Raina (Provider Under Review) -->
+<tr class="user-row hover:bg-surface-container-high/40 transition-colors cursor-pointer group" onclick="selectUser('suresh')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait photo of an Indian male craftsman carpenter standing next to polished hardwood boards, warm cinematic lighting and depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkb-4i4bd6iyMXJP6OwbMNPIexZRUMcQm07Kf3aDL1bSj4_ujZXHZ-d5q62I_sRCYz0bfu2PqSTkTcljKh8XH6PrzZLPAI4oRdnN4CHwsLxmJv1bwbfSDgrv2jQivFDK7RI9HmsfAjxKjoV7EFpBDIO_av3r30Z1R5IU50aKC1oXSDllGw3xzxkxBEJJtS55dZitmphUW4Fyk1XiyDq7rxeEZhQNfrO3fm7jGH-K3A"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-primary rounded-full ring-2 ring-surface"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-body-lg font-bold text-on-surface group-hover:text-primary transition-colors">Suresh Raina</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-primary-container text-on-primary-container font-label-sm">PROVIDER</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline font-mono">UID #IND-9102</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col font-body-sm text-body-sm">
+<span class="text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-outline">call</span> +91 97400 11223
+                  </span>
+<span class="text-on-surface-variant truncate">suresh.wood@lsp.network</span>
+<span class="text-secondary font-label-sm text-label-sm mt-0.5 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">location_on</span> 560076 • BTM Layout
+                  </span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Carpentry & Woodwork</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Custom Furniture Assembly</span>
+<span class="font-label-sm text-label-sm text-outline mt-0.5">38 Completed • 4.6 ★</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm animate-spin">sync</span>
+                  Under Review
+                </span>
+<div class="font-body-sm text-body-sm text-outline mt-1">Doc Resubmitted 2h ago</div>
+</td>
+<td class="py-space-md px-space-md text-center">
+<button class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-primary/20 text-primary" onclick="event.stopPropagation();">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mr-1.5"></span>
+                  Pending
+                </button>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary" title="View Inspector Profile">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+<button class="p-1.5 rounded bg-primary/15 text-primary hover:bg-primary hover:text-on-primary" title="Expedite Document Audit">
+<span class="material-symbols-outlined text-base">fact_check</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-outline hover:text-error" title="Restrict Access">
+<span class="material-symbols-outlined text-base">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 5: Meenakshi Sundaram (Customer) -->
+<tr class="user-row hover:bg-surface-container-high/40 transition-colors cursor-pointer group" onclick="selectUser('meenakshi')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Editorial portrait of South Indian corporate professional woman in business casual attire with soft blue rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBMaB5joCf6JSwZKEcaWao6wiZLwuXqRfbQt6hTqzhyji9-4WceHIidyshd88lB1sgB4oRod58HipFSY55tWHYHr5GCP7FgNxg3nMc0HpcCMLCFAPv9wW8pdlBIrPv8Ab0dgmEP15FvRRtjYx5_D7slXb8XYtqRMK19LwmBBIf8UU6RCW67zu3Vj-VjaBwz2305OZ1fmsCnC4_-XcI-p7JZus7XE61W1g8UipAAaxF"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-secondary rounded-full ring-2 ring-surface"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-body-lg font-bold text-on-surface group-hover:text-primary transition-colors">Meenakshi S.</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-secondary-container text-on-secondary-container font-label-sm">CUSTOMER</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline font-mono">UID #CID-9108</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col font-body-sm text-body-sm">
+<span class="text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-outline">call</span> +91 94488 77665
+                  </span>
+<span class="text-on-surface-variant truncate">meenakshi.s@techpark.in</span>
+<span class="text-secondary font-label-sm text-label-sm mt-0.5 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">location_on</span> 500081 • Madhapur
+                  </span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">2 Completed Bookings</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Appliance Repair</span>
+<span class="font-label-sm text-label-sm text-primary mt-0.5">Trust Score: 92.0 / 100</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm">phonelink_lock</span>
+                  Mobile verification code Verified
+                </span>
+<div class="font-body-sm text-body-sm text-outline mt-1">Single Device Token Authenticated</div>
+</td>
+<td class="py-space-md px-space-md text-center">
+<button class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-tertiary/15 text-tertiary transition-transform active:scale-95" onclick="event.stopPropagation(); toggleAccount(this);">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary mr-1.5"></span>
+                  Active
+                </button>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-primary" title="View Inspector Profile">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="View Payment Logs">
+<span class="material-symbols-outlined text-base">receipt_long</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-outline hover:text-error" title="Restrict Access">
+<span class="material-symbols-outlined text-base">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 6: Vikash Sharma (Deactivated / Flagged Provider) -->
+<tr class="user-row bg-error-container/10 hover:bg-error-container/20 transition-colors cursor-pointer group" onclick="selectUser('vikash')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover grayscale opacity-80" data-alt="Muted profile portrait of an Indian male with neutral expression against cold gray metallic industrial wall, moody low-key studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3sXtebE-eoHBJbDxvbd_5PVwXxXk1Z6ZwezTjO9JpIf9G38TEv7CK6N-JMgO27L5nGd39krYIeZLUkJdA-CHXiOVYEDRPvcEcjlrLZEXUu4FgdwQsZA1BxNBFpH1JeYxViRH5ewxaCrRUbGYUhOIL2ZjRPzs8xCPLDi0RKtAOrt2slGDVFEtlsJ3P1ko3fmxqLA_IHLbn-WODFUZ_GdiU9mAAK3a3RVbvICT17gnJ"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-error rounded-full ring-2 ring-surface"></span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-body-lg font-bold text-on-surface group-hover:text-error transition-colors">Vikash Sharma</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] bg-primary-container text-on-primary-container font-label-sm">PROVIDER</span>
+</div>
+<span class="font-body-sm text-body-sm text-error font-mono">UID #IND-8419</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col font-body-sm text-body-sm">
+<span class="text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-outline">call</span> +91 93412 88990
+                  </span>
+<span class="text-on-surface-variant truncate">v.sharma@outlaw.in</span>
+<span class="text-secondary font-label-sm text-label-sm mt-0.5 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">location_on</span> 500081 • Koramangala
+                  </span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Electrical Installation</span>
+<span class="font-body-sm text-body-sm text-error">Tariff Breach Flagged (x3)</span>
+<span class="font-label-sm text-label-sm text-outline mt-0.5">41 Completed • 3.2 ★</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm">gavel</span>
+                  Suspended / Disputed
+                </span>
+<div class="font-body-sm text-body-sm text-error mt-1">Audit Case #LSP-AUD-812</div>
+</td>
+<td class="py-space-md px-space-md text-center">
+<button class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-error-container text-on-error-container transition-transform active:scale-95" onclick="event.stopPropagation(); toggleAccount(this);">
+<span class="w-1.5 h-1.5 rounded-full bg-error mr-1.5"></span>
+                  Deactivated
+                </button>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-error" title="View Breach Log">
+<span class="material-symbols-outlined text-base">report</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-tertiary" title="Reinstate Review">
+<span class="material-symbols-outlined text-base">published_with_changes</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-outline hover:text-error" title="Permanent Purge">
+<span class="material-symbols-outlined text-base">delete_forever</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Toolbar -->
+<div class="px-space-md py-space-sm bg-surface-container flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+          Showing <span class="text-on-surface font-semibold">1-10</span> of <span class="text-on-surface font-semibold">348</span> Service Providers
+        </div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold">1</button>
+<button class="w-8 h-8 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm transition-colors">2</button>
+<button class="w-8 h-8 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm transition-colors">3</button>
+<span class="px-1 text-outline font-label-sm text-label-sm">...</span>
+<button class="w-8 h-8 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm transition-colors">35</button>
+<button class="w-8 h-8 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Inspector / Detail Panel (Right Sidebar Anchor: Santosh Pandey Focus) -->
+<aside class="w-full xl:w-[380px] 2xl:w-[420px] flex-shrink-0 flex flex-col gap-space-sm">
+<div class="bg-surface-container-low rounded-xl shadow-xl p-space-lg flex flex-col gap-space-md relative overflow-hidden">
+<!-- Ambient subtle orange ring back glow -->
+<div class="absolute -top-16 -right-16 w-44 h-44 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<!-- Drawer Top Head -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-primary uppercase tracking-wide">QUICK INSPECTOR</span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> LIVE STATUS
+            </span>
+</div>
+<button class="text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-xl">open_in_new</span>
+</button>
+</div>
+<!-- Profile Masthead Card -->
+<div class="flex items-start gap-space-md p-space-sm rounded-lg bg-surface-container-lowest">
+<div class="relative flex-shrink-0">
+<img class="w-16 h-16 rounded-xl object-cover" data-alt="Detailed professional ID headshot of Santosh Pandey with genuine friendly expression, dark industrial polo shirt, sharp studio quality" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOegatY5QHwElc5QLSORUrG0wqXlkrTWK_PX4Zw4Gim7j133SkDHI-7WGLoCXnx7CRduubV_U0UyA6BVOZ4v9NWseIdow3Cp-Hl0G5gz53kMn4NwBoOfzfp8Ezif7IQiOf3oC6I6o0umvriZ5uMh4kDzZpowJE_ySV29dBnj0IKbIfr-LcTtwYrUtkpjkbhUeDGwYrzterKb1KeOPjGqg8x-KJnFFfxb9sNoXAdCZk"/>
+<span class="absolute -bottom-1 -right-1 p-1 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-xs">verified</span>
+</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Santosh Pandey</h2>
+</div>
+<span class="font-label-md text-label-md text-primary font-semibold">Master Electrician • Level 2</span>
+<span class="font-body-sm text-body-sm text-outline font-mono">UID: #IND-9024 • Zone 500081</span>
+</div>
+</div>
+<!-- Verification & Compliance Checklist -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">KYC Verification Audit Vector</span>
+<div class="space-y-1.5">
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">identity proof Cryptographic Hash</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-mono">UIDAI OK</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Andhra Pradesh Trade License</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-mono">LIC# KA-2490</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Police Verification Registry</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-mono">CLEAR-BLR</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface">Cash/UPI Direct Compliance</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-mono">Zero Fee Compliant</span>
+</div>
+</div>
+</div>
+<!-- Performance Metrology Spark -->
+<div class="grid grid-cols-3 gap-2 py-1">
+<div class="p-space-sm rounded-lg bg-surface-container-lowest text-center">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">290</span>
+<span class="block font-label-sm text-[10px] text-outline uppercase">Jobs Done</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest text-center">
+<span class="font-headline-sm text-headline-sm font-bold text-tertiary">0</span>
+<span class="block font-label-sm text-[10px] text-outline uppercase">Active Disputes</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest text-center">
+<span class="font-headline-sm text-headline-sm font-bold text-secondary">4.92</span>
+<span class="block font-label-sm text-[10px] text-outline uppercase">Rating (184)</span>
+</div>
+</div>
+<!-- Inline SVG Performance Sparkline -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex flex-col gap-1">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>90-Day Direct Settlement Velocity</span>
+<span class="text-tertiary font-semibold">+18.4% MoM</span>
+</div>
+<div class="h-10 w-full flex items-center">
+<svg class="w-full h-8 text-primary overflow-visible" fill="none" viewbox="0 0 240 40">
+<path d="M0,35 Q30,10 60,25 T120,15 T180,20 T240,5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<circle class="fill-primary animate-ping" cx="240" cy="5" r="4"></circle>
+<circle class="fill-primary" cx="240" cy="5" r="3"></circle>
+</svg>
+</div>
+</div>
+<!-- Administrative Enforcement Actions -->
+<div class="flex flex-col gap-2 pt-space-xs">
+<button class="w-full py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-base text-secondary">folder_open</span>
+<span>View Full Document Vault</span>
+</button>
+<button class="w-full py-2.5 rounded-lg bg-error-container/20 hover:bg-error-container text-on-error-container font-label-md text-label-md flex items-center justify-center gap-2 transition-all" id="openDeactivateModalBtn">
+<span class="material-symbols-outlined text-base">no_accounts</span>
+<span>Deactivate / Restrict Account</span>
+</button>
+</div>
+</div>
+<!-- Quick Operational Log Feed -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Audit Trail (UID #IND-9024)</span>
+<span class="font-mono text-outline">SEC-L3 LOG</span>
+</div>
+<div class="flex flex-col gap-2 pt-1 font-body-sm text-body-sm">
+<div class="flex items-start gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary mt-1.5"></span>
+<div class="flex flex-col">
+<span class="text-on-surface">verification code Identity login refreshed</span>
+<span class="text-outline text-xs">Today at 10:14 AM • IP 106.51.78.22</span>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary mt-1.5"></span>
+<div class="flex flex-col">
+<span class="text-on-surface">Direct Cash Job Completed (Ticket #7712)</span>
+<span class="text-outline text-xs">Yesterday • Settlement ₹850 recorded</span>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mt-1.5"></span>
+<div class="flex flex-col">
+<span class="text-on-surface">Tier-1 Certification Re-stamped</span>
+<span class="text-outline text-xs">12 May 2025 • Ops Admin cleared</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</section>
+<!-- Account Deactivation Confirmation Modal -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-surface-container-lowest/80 backdrop-blur-md hidden" id="deactivateModal">
+<div class="w-full max-w-lg p-space-lg rounded-2xl bg-surface-container-high shadow-2xl flex flex-col gap-space-md transform transition-all scale-95 opacity-0 duration-200" id="modalContainer">
+<div class="flex items-start gap-space-md">
+<div class="p-3 rounded-xl bg-error-container text-on-error-container">
+<span class="material-symbols-outlined text-2xl">warning</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-error uppercase tracking-wider">RESTRICTION CONFIRMATION</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Restrict Santosh Pandey?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+            This action instantly drops the provider from customer map search, blocks direct booking dispatches, and freezes their zero-fee portal session across Zone 500081.
+          </p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface">Specify Administrative Breach Reason:</label>
+<select class="w-full h-11 px-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-error">
+<option>Tariff Overcharging / Breach of Zero-Commission Transparency</option>
+<option>Customer Complaint / Unresolved Safety Dispute</option>
+<option>Expired or Forged KYC / Trade License Credentials</option>
+<option>Administrative Audit Suspension (Temporary Freeze)</option>
+</select>
+<textarea class="w-full p-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md focus:outline-none focus:ring-1 focus:ring-error placeholder:text-outline resize-none" placeholder="Enter mandatory security audit note for audit trail..." rows="3"></textarea>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-md text-label-md transition-colors" id="cancelDeactivateBtn">
+          Cancel & Keep Active
+        </button>
+<button class="px-space-md py-2.5 rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-on-error font-label-md text-label-md transition-all shadow-md" id="confirmDeactivateBtn">
+          Confirm Account Deactivation
+        </button>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive Script -->
+<script>
+    // Tab switching micro-interactions
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => {
+          b.classList.remove('bg-primary-container', 'text-on-primary-container');
+          b.classList.add('text-on-surface-variant');
+        });
+        btn.classList.add('bg-primary-container', 'text-on-primary-container');
+        btn.classList.remove('text-on-surface-variant');
+      });
+    });
+
+    // Account state toggle demo
+    function toggleAccount(button) {
+      const isCurrentlyActive = button.innerText.includes('Active');
+      if (isCurrentlyActive) {
+        button.className = "inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-error-container text-on-error-container transition-transform active:scale-95";
+        button.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-error mr-1.5"></span>Deactivated';
+      } else {
+        button.className = "inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-tertiary/15 text-tertiary transition-transform active:scale-95";
+        button.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-tertiary mr-1.5"></span>Active';
+      }
+    }
+
+    // Modal behavior for Account Deactivation
+    const modal = document.getElementById('deactivateModal');
+    const modalContainer = document.getElementById('modalContainer');
+    const openBtn = document.getElementById('openDeactivateModalBtn');
+    const cancelBtn = document.getElementById('cancelDeactivateBtn');
+    const confirmBtn = document.getElementById('confirmDeactivateBtn');
+
+    function openModal() {
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modalContainer.classList.remove('scale-95', 'opacity-0');
+        modalContainer.classList.add('scale-100', 'opacity-100');
+      }, 10);
+    }
+
+    function closeModal() {
+      modalContainer.classList.remove('scale-100', 'opacity-100');
+      modalContainer.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 200);
+    }
+
+    if (openBtn) openBtn.addEventListener('click', openModal);
+    if (cancelBtn) cancelBtn.addEventListener('click', closeModal);
+    if (confirmBtn) {
+      confirmBtn.addEventListener('click', () => {
+        alert('Audit security event logged. Account #IND-9024 marked deactivated.');
+        closeModal();
+      });
+    }
+
+    // Quick Search filter simulation
+    const searchInput = document.getElementById('tableSearchInput');
+    const clearBtn = document.getElementById('clearSearchBtn');
+    if (clearBtn && searchInput) {
+      clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        const rows = document.querySelectorAll('.user-row');
+        rows.forEach(r => r.style.display = '');
+      });
+
+      searchInput.addEventListener('input', (e) => {
+        const val = e.target.value.toLowerCase().trim();
+        const rows = document.querySelectorAll('.user-row');
+        rows.forEach(row => {
+          const text = row.innerText.toLowerCase();
+          row.style.display = text.includes(val) ? '' : 'none';
+        });
+      });
+    }
+
+    // Selection helper for inspector preview focus
+    function selectUser(userKey) {
+      const rows = document.querySelectorAll('.user-row');
+      rows.forEach(r => r.classList.remove('bg-surface-container-high/90'));
+      // highlight target visual indicator
+      event.currentTarget.classList.add('bg-surface-container-high/90');
+    }
+
+    // Export audit mock notification
+    const exportBtn = document.getElementById('exportAuditBtn');
+    if (exportBtn) {
+      exportBtn.addEventListener('click', () => {
+        exportBtn.innerHTML = '<span class="material-symbols-outlined text-base animate-spin text-tertiary">sync</span><span>Generating Encrypted CSV...</span>';
+        setTimeout(() => {
+          exportBtn.innerHTML = '<span class="material-symbols-outlined text-base text-tertiary">check</span><span>Audit CSV Downloaded</span>';
+          setTimeout(() => {
+            exportBtn.innerHTML = '<span class="material-symbols-outlined text-base text-secondary">file_download</span><span>Export User Audit Log</span>';
+          }, 2000);
+        }, 1200);
+      });
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-md"><div class="w-full px-margin flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-body-sm text-body-sm"><div>© 2025 LSP Connect Local Service Provider Network. Admin Core Node.</div><div class="flex items-center gap-space-md font-label-sm text-label-sm"><span class="text-tertiary">System Integrity: Optimal (99.98%)</span><span class="text-outline">Zero-Commission Direct Settlement Mode</span><span>Kernel v4.19-audit</span></div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>

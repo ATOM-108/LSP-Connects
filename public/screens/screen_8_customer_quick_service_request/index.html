@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>LSP Connect</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#4dffb2", "surface-dim": "#0e131e", "secondary-fixed": "#d8e2ff", "secondary": "#b9c6e8", "on-secondary": "#23304a", "surface-container-highest": "#303541", "on-primary": "#522300", "inverse-surface": "#dee2f2", "surface": "#0e131e", "tertiary": "#00e297", "secondary-container": "#3c4965", "surface-bright": "#343946", "on-error": "#690005", "on-surface": "#dee2f2", "primary-fixed-dim": "#ffb68b", "outline-variant": "#584235", "primary-container": "#ff7a00", "tertiary-fixed-dim": "#00e297", "background": "#0e131e", "on-primary-fixed": "#321200", "on-primary-fixed-variant": "#753400", "inverse-primary": "#994700", "on-tertiary-container": "#004028", "surface-variant": "#303541", "tertiary-container": "#00b779", "on-tertiary-fixed-variant": "#005234", "primary-fixed": "#ffdbc8", "surface-container-low": "#161b27", "on-primary-container": "#5c2800", "error": "#ffb4ab", "on-surface-variant": "#e0c0af", "on-secondary-fixed": "#0d1b34", "outline": "#a78b7c", "primary": "#ffb68b", "secondary-fixed-dim": "#b9c6e8", "on-secondary-fixed-variant": "#3a4762", "on-secondary-container": "#abb8d9", "inverse-on-surface": "#2b303d", "surface-container-high": "#252a36", "surface-container-lowest": "#090e19", "surface-container": "#1b1f2b", "on-error-container": "#ffdad6", "error-container": "#93000a", "on-tertiary": "#003822", "on-tertiary-fixed": "#002112", "on-background": "#dee2f2", "surface-tint": "#ffb68b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-xl": "2rem" }, "fontFamily": { "headline-sm": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "label-lg": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"] }, "fontSize": { "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container shadow-[0_0_12px_-2px_rgba(255,122,0,0.3)]"><span class="material-symbols-outlined text-xl">construction</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none tracking-tight font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Verified Local Direct</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-tertiary text-base">verified</span><span class="font-label-sm text-label-sm text-on-surface">100% Background-Verified</span></div></div><nav class="hidden md:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low" data-active-classes="bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg shadow-[0_0_15px_-3px_rgba(255,122,0,0.3)]"><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="services" href="#">Services</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="customer-profile" href="#">Profile</a></nav><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-low text-primary"><span class="material-symbols-outlined text-sm text-primary-container">payments</span><span class="font-label-sm text-label-sm font-semibold text-primary">Direct Cash &amp; UPI • Zero Fee</span></div><a class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-[0_0_16px_-4px_rgba(255,122,0,0.5)]" data-path="quick-request" href="#"><span class="material-symbols-outlined text-base">bolt</span>Quick Request</a><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Customer</span><span class="font-label-sm text-label-sm text-tertiary flex items-center justify-end gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span>Active Area</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-highest" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<div class="relative w-full max-w-7xl mx-auto px-6 lg:px-12 py-space-lg">
+<!-- Ambient Luminous Background Orbs -->
+<div class="absolute -top-16 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-1/3 -right-20 w-80 h-80 bg-tertiary/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Dispatch Header Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg">
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-primary-container/15 text-primary-container shadow-[0_0_20px_-3px_rgba(255,122,0,0.35)]">
+<span class="material-symbols-outlined text-base animate-pulse">bolt</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Immediate Doorstep Dispatch (Target: approximately 1–2 hours Mins)</span>
+</div>
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping inline-block"></span>
+<span class="font-label-sm text-label-sm">High-Priority Direct Mesh Active</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md bg-surface-container-low px-space-md py-1.5 rounded-xl">
+<span class="material-symbols-outlined text-primary text-base">verified_user</span>
+<span>Escrow-Free • Zero Platform Cut • Direct Technician Pay</span>
+</div>
+</div>
+<!-- 12-Column Main Workspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: Form & Dispatch Controls (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg">
+<!-- Step 1: Category Selector -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm flex items-center justify-center font-bold">1</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Select Urgent Category</h2>
+</div>
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider">Required Field</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm" id="categoryGrid">
+<!-- Plumbing Leaks -->
+<button class="category-btn group flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container-high hover:bg-surface-container-highest transition-all duration-200 text-center relative text-on-surface ring-primary-container active-category" data-cat="plumbing" type="button">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-space-xs text-primary-container group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+<span class="font-label-md text-label-md leading-tight text-on-surface">Plumbing<br/>Leaks</span>
+<span class="absolute top-2 right-2 text-primary-container">
+<span class="material-symbols-outlined text-base">check_circle</span>
+</span>
+</button>
+<!-- Electrical Hazard -->
+<button class="category-btn group flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container-high hover:bg-surface-container-highest transition-all duration-200 text-center relative text-on-surface-variant" data-cat="electrical" type="button">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-space-xs text-on-surface group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-2xl">electrical_services</span>
+</div>
+<span class="font-label-md text-label-md leading-tight">Electrical<br/>Hazard</span>
+</button>
+<!-- Appliance Breakdown -->
+<button class="category-btn group flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container-high hover:bg-surface-container-highest transition-all duration-200 text-center relative text-on-surface-variant" data-cat="appliance" type="button">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-space-xs text-on-surface group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-2xl">microwave</span>
+</div>
+<span class="font-label-md text-label-md leading-tight">Appliance<br/>Breakdown</span>
+</button>
+<!-- Carpentry Lockout -->
+<button class="category-btn group flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container-high hover:bg-surface-container-highest transition-all duration-200 text-center relative text-on-surface-variant" data-cat="lockout" type="button">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-space-xs text-on-surface group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-2xl">key</span>
+</div>
+<span class="font-label-md text-label-md leading-tight">Carpentry<br/>Lockout</span>
+</button>
+</div>
+</div>
+<!-- Step 2: Postal Code Real-Time Mesh Validator -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm flex items-center justify-center font-bold">2</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Target Postal Zone</h2>
+</div>
+<span class="font-body-sm text-body-sm text-tertiary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> Live Grid Sync
+            </span>
+</div>
+<div class="flex flex-col sm:flex-row items-stretch gap-space-sm mb-space-md">
+<div class="relative flex-1">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 material-symbols-outlined text-primary-container text-lg">pin_drop</span>
+<input class="w-full h-11 bg-surface-container-high text-on-surface pl-10 pr-4 rounded-lg font-headline-sm text-headline-sm focus:outline-none focus:bg-surface-bright focus:text-primary transition-all tracking-wider font-bold" id="postalInput" maxlength="6" placeholder="Postal Code (e.g. 500081)" type="text" value="500081"/>
+</div>
+<button class="px-space-md py-2.5 rounded-lg bg-surface-container-highest hover:bg-surface-bright text-on-surface font-label-md text-label-md flex items-center justify-center gap-space-xs transition-colors" id="recheckBtn" type="button">
+<span class="material-symbols-outlined text-sm">refresh</span> Re-verify Range
+            </button>
+</div>
+<!-- Instant Feedback Alert Banner -->
+<div class="flex items-center justify-between p-space-md rounded-xl bg-tertiary/10 text-on-surface shadow-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<span class="w-3 h-3 rounded-full bg-tertiary flex-shrink-0 animate-pulse shadow-[0_0_8px_#00e297]"></span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-tertiary font-bold truncate">8 Verified Providers Active in Your Postal Zone (500081)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Madhapur, Stage 2 • Avg response velocity: 6 minutes</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-xl flex-shrink-0">check_circle</span>
+</div>
+</div>
+<!-- Step 3: Emergency Problem Description & Urgent Tags -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm flex items-center justify-center font-bold">3</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Emergency Description</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Speed Presets</span>
+</div>
+<!-- Urgent Quick Selection Chips -->
+<div class="mb-space-md">
+<label class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block mb-space-xs">Tap common urgent symptoms:</label>
+<div class="flex flex-wrap gap-space-xs" id="quickTags">
+<button class="tag-chip active-tag px-space-md py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md transition-all shadow-[0_0_12px_-2px_rgba(255,122,0,0.4)] flex items-center gap-1" type="button">
+<span>Water leakage</span>
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+<button class="tag-chip px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" type="button">
+                Sparking wires
+              </button>
+<button class="tag-chip px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" type="button">
+                Appliance tripped breaker
+              </button>
+<button class="tag-chip px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" type="button">
+                Main pipe ruptured
+              </button>
+<button class="tag-chip px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" type="button">
+                Main valve seized
+              </button>
+</div>
+</div>
+<!-- Text Input Area -->
+<div class="mb-space-md relative">
+<textarea class="w-full bg-surface-container-high text-on-surface p-space-md rounded-xl font-body-md text-body-md focus:outline-none focus:bg-surface-bright transition-all placeholder:text-on-surface-variant/50" id="problemDesc" placeholder="Provide extra detail (e.g. Master bathroom sink drain burst, flooding floor quickly. Main cutoff is stiff)..." rows="3">Main pipeline under kitchen sink started gushing 10 minutes ago. Emergency shutoff valve is stuck.</textarea>
+<div class="absolute bottom-3 right-3 text-right">
+<span class="font-body-sm text-body-sm text-on-surface-variant font-mono">82/500</span>
+</div>
+</div>
+<!-- Audio Voice Note Recording Module -->
+<div class="p-space-md rounded-xl bg-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md w-full sm:w-auto">
+<button class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-[0_0_15px_rgba(255,122,0,0.5)] hover:scale-105 active:scale-95 transition-all flex-shrink-0" id="recordBtn" type="button">
+<span class="material-symbols-outlined text-2xl">mic</span>
+</button>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
+                  Urgent Audio Voice Note
+                  <span class="font-label-sm text-label-sm text-tertiary px-1.5 py-0.5 rounded bg-tertiary/15 font-bold">Fastest</span>
+</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Record 15-sec audio for dispatched tech</span>
+</div>
+</div>
+<!-- Waveform Animation Simulation -->
+<div class="flex items-center gap-1 h-8 px-space-md py-1 bg-surface-container-lowest rounded-lg w-full sm:w-48 justify-center">
+<span class="w-1 h-3 bg-primary-container rounded-full animate-pulse"></span>
+<span class="w-1 h-5 bg-primary rounded-full animate-pulse delay-75"></span>
+<span class="w-1 h-7 bg-primary-container rounded-full animate-pulse delay-150"></span>
+<span class="w-1 h-4 bg-tertiary rounded-full animate-pulse delay-100"></span>
+<span class="w-1 h-6 bg-primary-container rounded-full animate-pulse delay-200"></span>
+<span class="w-1 h-3 bg-primary rounded-full animate-pulse"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant ml-2 font-mono">0:14 / 0:30</span>
+</div>
+</div>
+</div>
+<!-- Step 4: Terms & Payment Settlement Transparency -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest flex items-start gap-space-md shadow-inner">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-2xl">handshake</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Direct Transparent Settlement Policy</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Provider will inspect on arrival and present standard baseline rates or an itemized quotation for parts. <strong class="text-primary font-semibold">You only pay Cash or UPI directly after work is signed off.</strong> Platform charges zero commission to you.
+            </p>
+</div>
+</div>
+<!-- Primary Action Broadcast CTA -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<button class="w-full h-14 rounded-xl bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-headline-sm text-headline-sm font-bold flex items-center justify-center gap-space-sm transition-all shadow-[0_0_24px_-4px_rgba(255,122,0,0.6)] group" id="broadcastCta" type="button">
+<span class="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform">podcasts</span>
+<span>Broadcast Quick Service Request Now</span>
+<span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<div class="flex items-center justify-center gap-space-md text-on-surface-variant font-label-sm text-label-sm py-1">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-tertiary">check</span>No upfront card hold</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-tertiary">check</span>100% Verified Technicians</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm text-tertiary">check</span>Cancel anytime before dispatch</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Live Mesh Radials, Map Location & Active Technicians (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<!-- Live Map Cluster Radar Panel -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg relative overflow-hidden flex flex-col">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-ping"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Live Dispatch Radius</h3>
+</div>
+<span class="px-space-sm py-0.5 rounded bg-surface-container-high font-label-sm text-label-sm text-primary font-mono">Radius: 3.5 km</span>
+</div>
+<!-- Interactive Map Container -->
+<div class="relative w-full h-64 rounded-xl overflow-hidden shadow-inner bg-surface-container-lowest">
+<div class="w-full h-full bg-cover bg-center" data-alt="Dark aesthetic satellite styled vector topographic map of Hyderabad Madhapur postal zone 500081, high tech overlay with glowing orange location markers and green pulse circles showing available service technicians on city grid streets." data-location="Madhapur 500081, Hyderabad" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDc2ZhDsesXl7oEloI4ke16XTRncdXqhFJe65OmSKQht-Maora-KpWUxzdBy-1-uQ9IcTzKPP4yFyq2oZxEtShzrHXcZu4geahuTkrXo4cH7GCCOM6898hvgIuXCbchlZi48IRcwLwYN7y32Zh5csXixll7oHpziaK2G-YQfycc9CB7yBnjXUmdG694ttL9I6i_MT5NniPqkF8NGuWqUyELGZX28XzF6tSoVO1_oEAz')"></div>
+<!-- Map Overlay Live Indicators -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent pointer-events-none"></div>
+<!-- Pulsing User Location -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="relative flex items-center justify-center">
+<span class="absolute w-8 h-8 rounded-full bg-primary-container/40 animate-ping"></span>
+<span class="w-4 h-4 rounded-full bg-primary-container shadow-[0_0_12px_#ff7a00]"></span>
+</div>
+<span class="mt-1 px-2 py-0.5 rounded bg-surface-container-lowest/90 font-label-sm text-label-sm text-on-surface backdrop-blur shadow font-semibold">Your Location</span>
+</div>
+<!-- Provider Marker 1 -->
+<div class="absolute top-1/4 left-1/3 flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container-high/90 backdrop-blur shadow">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Ramesh K. (0.8km)</span>
+</div>
+<!-- Provider Marker 2 -->
+<div class="absolute bottom-1/3 right-1/4 flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container-high/90 backdrop-blur shadow">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Santosh P. (1.4km)</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 bg-surface-container-lowest/90 px-2 py-1 rounded backdrop-blur"><span class="material-symbols-outlined text-xs text-tertiary">radar</span> Real-time GPS ping</span>
+<span class="bg-surface-container-lowest/90 px-2 py-1 rounded backdrop-blur text-primary">Avg Arrive: 22m</span>
+</div>
+</div>
+<!-- Standby Metrics Data Row -->
+<div class="grid grid-cols-3 gap-space-sm mt-space-md text-center">
+<div class="p-space-sm rounded-lg bg-surface-container-high">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block">Available</span>
+<span class="font-headline-sm text-headline-sm text-tertiary font-bold">8 Pros</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-high">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block">Avg ETA</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">34 Mins</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-high">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase block">Base Callout</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">₹199</span>
+</div>
+</div>
+</div>
+<!-- Standby Top Rated Immediate Providers -->
+<div class="bg-surface-container-low rounded-xl p-space-lg shadow-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Immediate Responders</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Ready to accept broadcast within 3 min</span>
+</div>
+<span class="material-symbols-outlined text-primary-container text-xl">sensors</span>
+</div>
+<!-- Provider Preview 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-high flex items-center justify-between gap-space-md group hover:bg-surface-container-highest transition-colors">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative flex-shrink-0">
+<img class="w-12 h-12 rounded-xl object-cover" data-alt="Portrait photo of Ramesh Kumar, an experienced certified Indian plumber in dark blue uniform with professional tools, warm and confident expression against neutral dark studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGwr0eJ4HAKuk09VIAW5yIxP8w3gm2WCxVcb0NXuyDGoDlwHpWq6WJKfXclqNmuE-m5uDymORjs88iHhQbq0Fl6kS6P2r_keEW8HNqAR3OE1M4jb16P4kb1wBd8h81MOQ06zTgPiDS_hvpyadqMai8YwOq9zTOiYOjMlu6_xzQfCTxW4ZKFujupr2JqMBO0m0Oywc3dFt1oo4m2SOQPt2aGLa7kKBFpAcsH4fmEyu4"/>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-tertiary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-bold truncate">Ramesh Kumar</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary/20 text-tertiary font-label-sm text-label-sm font-semibold">Plumbing Specialist</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-0.5 text-primary"><span class="material-symbols-outlined text-xs">star</span>4.9 (418 jobs)</span>
+<span>•</span>
+<span>950m away</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="font-label-sm text-label-sm text-tertiary font-mono">Ready Now</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cash / UPI</span>
+</div>
+</div>
+<!-- Provider Preview 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-high flex items-center justify-between gap-space-md group hover:bg-surface-container-highest transition-colors">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative flex-shrink-0">
+<img class="w-12 h-12 rounded-xl object-cover" data-alt="Portrait photo of Santosh Pandey, an experienced certified Indian HVAC and master electrician in utility jacket holding multimeter tool, friendly expression against dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwsK_QfTETiMRzAkE565XTqPe1TS57XHmvJK0X88LgQ5KoTh8ajmU6nYyh7S5VzHxX0thMsbKfvhFOmzky5QO0Wf_iyCOtqgB35W9UasqhX-HFCTCGgni7RpntAqba64OgN8oxG1DdyQpgMV2UvanLPg5xbm3WVlZ8Ai8JHg0Q4eZWbMheRNZxMGqmQtWXBS0zgTVSovOSeNVRASAegBoERcadfrchGMb4PSRvFFZb"/>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-tertiary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-bold truncate">Santosh Pandey</span>
+<span class="px-1.5 py-0.2 rounded bg-primary-container/20 text-primary-container font-label-sm text-label-sm font-semibold">Master Tech</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-0.5 text-primary"><span class="material-symbols-outlined text-xs">star</span>4.85 (290 jobs)</span>
+<span>•</span>
+<span>1.4km away</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="font-label-sm text-label-sm text-tertiary font-mono">Ready Now</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cash / UPI</span>
+</div>
+</div>
+<!-- Direct Dispatch Guarantee Notice -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center gap-space-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary-container text-base flex-shrink-0">timer</span>
+<span class="font-body-sm text-body-sm">If no provider confirms within 120 seconds, request auto-expands to a wider 6 km coverage tier.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interactions for the Quick Request Interface
+  document.addEventListener('DOMContentLoaded', () => {
+    // Category Selector
+    const catButtons = document.querySelectorAll('.category-btn');
+    catButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        catButtons.forEach(b => {
+          b.classList.remove('bg-surface-container', 'text-on-surface', 'shadow-md');
+          b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+          const checkIcon = b.querySelector('.absolute.top-2.right-2');
+          if (checkIcon) checkIcon.remove();
+        });
+
+        btn.classList.add('bg-surface-container', 'text-on-surface', 'shadow-md');
+        btn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+
+        const check = document.createElement('span');
+        check.className = 'absolute top-2 right-2 text-primary-container';
+        check.innerHTML = '<span class="material-symbols-outlined text-base">check_circle</span>';
+        btn.appendChild(check);
+      });
+    });
+
+    // Tag selector toggle
+    const tags = document.querySelectorAll('.tag-chip');
+    tags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        const isCurrentActive = tag.classList.contains('bg-primary-container');
+        if (isCurrentActive) {
+          tag.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_12px_-2px_rgba(255,122,0,0.4)]');
+          tag.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+          const closeIcon = tag.querySelector('.material-symbols-outlined');
+          if (closeIcon) closeIcon.remove();
+        } else {
+          tag.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_12px_-2px_rgba(255,122,0,0.4)]');
+          tag.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+          if (!tag.querySelector('.material-symbols-outlined')) {
+            const span = document.createElement('span');
+            span.className = 'material-symbols-outlined text-sm ml-1';
+            span.textContent = 'close';
+            tag.appendChild(span);
+          }
+        }
+      });
+    });
+
+    // Audio Voice Note Simulation Toggle
+    const recordBtn = document.getElementById('recordBtn');
+    let isRecording = false;
+    if (recordBtn) {
+      recordBtn.addEventListener('click', () => {
+        isRecording = !isRecording;
+        if (isRecording) {
+          recordBtn.classList.remove('bg-primary-container', 'text-on-primary-container');
+          recordBtn.classList.add('bg-error', 'text-on-error', 'animate-pulse');
+        } else {
+          recordBtn.classList.add('bg-primary-container', 'text-on-primary-container');
+          recordBtn.classList.remove('bg-error', 'text-on-error', 'animate-pulse');
+        }
+      });
+    }
+
+    // Broadcast CTA Feedback
+    const broadcastBtn = document.getElementById('broadcastCta');
+    if (broadcastBtn) {
+      broadcastBtn.addEventListener('click', () => {
+        broadcastBtn.innerHTML = '<span class="material-symbols-outlined text-2xl animate-spin">refresh</span><span>Broadcasting to 8 nearby providers...</span>';
+        broadcastBtn.classList.add('opacity-90');
+        setTimeout(() => {
+          broadcastBtn.innerHTML = '<span class="material-symbols-outlined text-2xl text-tertiary">check_circle</span><span>Request Dispatched! Connecting Tech...</span>';
+          broadcastBtn.classList.remove('bg-primary-container');
+          broadcastBtn.classList.add('bg-tertiary', 'text-on-tertiary');
+        }, 1200);
+      });
+    }
+  });
+</script></main><footer class="w-full bg-surface-container-lowest mt-space-xl py-space-xl shadow-[0_-1px_12px_rgba(0,0,0,0.5)]"><div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-body-sm text-body-sm text-on-surface-variant">Direct Local Service Dispatch System</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-sm">currency_rupee</span>100% Cash / UPI Direct Settlement</span><span class="flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-sm">security</span>Verified Technicians</span></div><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 LSP Connect Platform. Direct Provider Operations.</div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>

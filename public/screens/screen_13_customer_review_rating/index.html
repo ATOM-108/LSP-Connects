@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>LSP Connect</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#4dffb2", "surface-dim": "#0e131e", "secondary-fixed": "#d8e2ff", "secondary": "#b9c6e8", "on-secondary": "#23304a", "surface-container-highest": "#303541", "on-primary": "#522300", "inverse-surface": "#dee2f2", "surface": "#0e131e", "tertiary": "#00e297", "secondary-container": "#3c4965", "surface-bright": "#343946", "on-error": "#690005", "on-surface": "#dee2f2", "primary-fixed-dim": "#ffb68b", "outline-variant": "#584235", "primary-container": "#ff7a00", "tertiary-fixed-dim": "#00e297", "background": "#0e131e", "on-primary-fixed": "#321200", "on-primary-fixed-variant": "#753400", "inverse-primary": "#994700", "on-tertiary-container": "#004028", "surface-variant": "#303541", "tertiary-container": "#00b779", "on-tertiary-fixed-variant": "#005234", "primary-fixed": "#ffdbc8", "surface-container-low": "#161b27", "on-primary-container": "#5c2800", "error": "#ffb4ab", "on-surface-variant": "#e0c0af", "on-secondary-fixed": "#0d1b34", "outline": "#a78b7c", "primary": "#ffb68b", "secondary-fixed-dim": "#b9c6e8", "on-secondary-fixed-variant": "#3a4762", "on-secondary-container": "#abb8d9", "inverse-on-surface": "#2b303d", "surface-container-high": "#252a36", "surface-container-lowest": "#090e19", "surface-container": "#1b1f2b", "on-error-container": "#ffdad6", "error-container": "#93000a", "on-tertiary": "#003822", "on-tertiary-fixed": "#002112", "on-background": "#dee2f2", "surface-tint": "#ffb68b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-xl": "2rem" }, "fontFamily": { "headline-sm": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "label-lg": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"] }, "fontSize": { "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.4)]"><div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-sm"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container shadow-[0_0_12px_-2px_rgba(255,122,0,0.3)]"><span class="material-symbols-outlined text-xl">construction</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface leading-none tracking-tight font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Verified Local Direct</span></div></div><div class="hidden xl:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high"><span class="material-symbols-outlined text-tertiary text-base">verified</span><span class="font-label-sm text-label-sm text-on-surface">100% Background-Verified</span></div></div><nav class="hidden md:flex items-center gap-space-xs p-1 rounded-xl bg-surface-container-low" data-active-classes="bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-lg shadow-[0_0_15px_-3px_rgba(255,122,0,0.3)]"><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="services" href="#">Services</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="my-bookings" href="#">My Bookings</a><a class="px-space-md py-space-xs font-label-lg text-label-lg rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" data-path="customer-profile" href="#">Profile</a></nav><div class="flex items-center gap-space-md"><div class="hidden lg:flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-low text-primary"><span class="material-symbols-outlined text-sm text-primary-container">payments</span><span class="font-label-sm text-label-sm font-semibold text-primary">Direct Cash &amp; UPI • Zero Fee</span></div><a class="hidden sm:inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold transition-all shadow-[0_0_16px_-4px_rgba(255,122,0,0.5)]" data-path="quick-request" href="#"><span class="material-symbols-outlined text-base">bolt</span>Quick Request</a><div class="flex items-center gap-space-sm pl-space-xs"><div class="hidden md:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Customer</span><span class="font-label-sm text-label-sm text-tertiary flex items-center justify-end gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span>Active Area</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-surface-container-highest" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Glow Canvas Backdrop -->
+<div class="relative w-full overflow-hidden pb-space-xl">
+<div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-primary-container/10 blur-[130px] rounded-full pointer-events-none"></div>
+<div class="absolute top-96 -right-24 w-[480px] h-[320px] bg-tertiary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="max-w-5xl mx-auto px-6 lg:px-8 pt-space-lg flex flex-col gap-space-lg relative z-10">
+<!-- Breadcrumb Navigation Bar -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm">home</span>
+<span>Home</span>
+</a>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">My Bookings</a>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+<span class="text-on-surface-variant/80 font-mono text-body-sm">Order #LSP-2025-88392</span>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+<span class="text-primary font-semibold">Review &amp; Rating</span>
+</nav>
+<!-- Page Title & Operational Badge -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="inline-flex items-center gap-2 text-primary font-label-sm text-label-sm uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+            Verified Service Completion Log
+          </div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">Rate Your Service Experience</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+            Direct local reviews maintain accountability in Madhapur. Your authentic review will be indexed on the technician's public credential card.
+          </p>
+</div>
+<!-- Direct Settlement Pill -->
+<div class="self-start md:self-auto flex items-center gap-space-sm px-space-md py-2.5 rounded-xl bg-surface-container-high shadow-lg">
+<span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div class="flex flex-col text-left">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold uppercase tracking-wider">KYC Verified Dispatch</span>
+<span class="font-body-sm text-body-sm text-tertiary font-mono">Zero Brokerage Fee</span>
+</div>
+</div>
+</div>
+<!-- Booking Summary Master Context Card -->
+<section class="bg-surface-container rounded-xl p-space-lg shadow-xl relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-tertiary"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+<!-- Left: Technician & Order Metadata -->
+<div class="lg:col-span-8 flex flex-col sm:flex-row items-start sm:items-center gap-space-md">
+<div class="relative shrink-0">
+<img class="w-16 h-16 rounded-xl object-cover shadow-md" data-alt="Close up portrait photograph of Santosh Pandey, an experienced Indian master electrician wearing a neat dark navy uniform polo with tools strapped in shoulder pouch, warm confident smile, studio depth of field, nocturnal tone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBML8kCNEshhrKxveN0jhl4sVjWGxSA87E2UGWdw-MTLNOmy8PxGZWgZ2e6gDZCRRx5HGew7VDpAVrme3ud1qNzIJv8ce6s91jP0jpSjoQEH_9JRC2l_xBejjWCPjbFIqDWmpY_-edxZ41fbocH-3OSDBx3QVv3Hfoj2A6t2J67zKdiVHNwmfSWMSVf2VgRWhMu3wbG8hGaXyZO1jeezpaYMEB7IfUWqvBeLNp2EZWQ"/>
+<div class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-tertiary shadow-sm">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Santosh Pandey</h2>
+<span class="px-2 py-0.5 rounded-md bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">workspace_premium</span>
+                  Master Electrician • KYC Verified
+                </span>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary">electric_bolt</span>
+<span class="font-medium text-on-surface">Ceiling Fan Installation &amp; Switchboard Check</span>
+</div>
+<div class="flex flex-wrap items-center gap-3 text-on-surface-variant font-label-md text-label-md pt-0.5">
+<span class="font-mono text-body-sm text-primary-fixed-dim">Order #LSP-2025-88392</span>
+<span class="text-outline">•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-outline">calendar_today</span>
+                  Completed on Nov 17, 2025 (4:45 PM)
+                </span>
+<span class="text-outline">•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-outline">location_on</span>
+                  Madhapur 100ft Road, Stage 2
+                </span>
+</div>
+</div>
+</div>
+<!-- Right: Direct Settlement Badge -->
+<div class="lg:col-span-4 flex lg:justify-end">
+<div class="w-full sm:w-auto flex flex-col gap-1.5 p-space-md rounded-xl bg-surface-container-low shadow-md">
+<div class="flex items-center justify-between gap-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Settlement Status</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary/20 text-tertiary font-label-sm text-label-sm font-bold tracking-tight">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  PAID DIRECT
+                </span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">₹800</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">via Cash / UPI</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant/70 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">payments</span>
+                Zero intermediary commission withheld
+              </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Interactive Review Form Container -->
+<div class="w-full max-w-4xl mx-auto flex flex-col gap-space-lg">
+<form class="flex flex-col gap-space-lg" id="reviewForm" onsubmit="event.preventDefault();">
+<!-- Card Section 1: Star Rating -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-xl flex flex-col items-center text-center gap-space-md">
+<div class="flex flex-col items-center gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Technician Service Assessment</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">How would you rate Santosh Pandey's service?</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Click or tap to rate. Your rating reflects technical accuracy, promptness, and integrity.</p>
+</div>
+<!-- Star Interaction Widget -->
+<div class="flex flex-col items-center gap-3 pt-2">
+<div class="flex items-center gap-2 p-2 bg-surface-container-low rounded-2xl shadow-inner" id="starContainer">
+<button aria-label="1 Star" class="star-btn p-2 rounded-xl text-primary-container hover:scale-110 transition-transform focus:outline-none" data-star="1" type="button">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button aria-label="2 Stars" class="star-btn p-2 rounded-xl text-primary-container hover:scale-110 transition-transform focus:outline-none" data-star="2" type="button">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button aria-label="3 Stars" class="star-btn p-2 rounded-xl text-primary-container hover:scale-110 transition-transform focus:outline-none" data-star="3" type="button">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button aria-label="4 Stars" class="star-btn p-2 rounded-xl text-primary-container hover:scale-110 transition-transform focus:outline-none" data-star="4" type="button">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button aria-label="5 Stars" class="star-btn p-2 rounded-xl text-primary-container hover:scale-110 transition-transform focus:outline-none" data-star="5" type="button">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+</div>
+<!-- Rating Verbal Status Descriptor -->
+<div class="flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-container/15 text-primary">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary" id="ratingDescriptor">Excellent (5.0)</span>
+</div>
+</div>
+</div>
+<!-- Card Section 2: Quick Review Tags (Pill Badges) -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">What made this experience standout?</h4>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">Select all applicable attributes</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">These badges appear as verified operational tags on Santosh's local ranking profile.</p>
+</div>
+<!-- Badges Grid -->
+<div class="flex flex-wrap gap-2.5 pt-1" id="tagsContainer">
+<!-- Selected Tag: Punctual Arrival -->
+<button class="tag-pill active inline-flex items-center gap-2 px-space-md py-2.5 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg font-semibold shadow-md transition-all" type="button">
+<span class="material-symbols-outlined text-base">check</span>
+<span>Punctual Arrival</span>
+</button>
+<!-- Selected Tag: Clean Workmanship -->
+<button class="tag-pill active inline-flex items-center gap-2 px-space-md py-2.5 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg font-semibold shadow-md transition-all" type="button">
+<span class="material-symbols-outlined text-base">check</span>
+<span>Clean Workmanship</span>
+</button>
+<!-- Selected Tag: Fair Pricing -->
+<button class="tag-pill active inline-flex items-center gap-2 px-space-md py-2.5 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg font-semibold shadow-md transition-all" type="button">
+<span class="material-symbols-outlined text-base">check</span>
+<span>Fair Pricing</span>
+</button>
+<!-- Selected Tag: Followed Safety Protocols -->
+<button class="tag-pill active inline-flex items-center gap-2 px-space-md py-2.5 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg font-semibold shadow-md transition-all" type="button">
+<span class="material-symbols-outlined text-base">check</span>
+<span>Followed Safety Protocols</span>
+</button>
+<!-- Unselected Tag: Courteous & Polite -->
+<button class="tag-pill inline-flex items-center gap-2 px-space-md py-2.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright font-label-lg text-label-lg font-medium transition-all" type="button">
+<span class="material-symbols-outlined text-base text-outline">add</span>
+<span>Courteous &amp; Polite</span>
+</button>
+<!-- Unselected Tag: Quick Resolution -->
+<button class="tag-pill inline-flex items-center gap-2 px-space-md py-2.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright font-label-lg text-label-lg font-medium transition-all" type="button">
+<span class="material-symbols-outlined text-base text-outline">add</span>
+<span>Quick Resolution</span>
+</button>
+<!-- Unselected Tag: Genuine Replacement Parts -->
+<button class="tag-pill inline-flex items-center gap-2 px-space-md py-2.5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright font-label-lg text-label-lg font-medium transition-all" type="button">
+<span class="material-symbols-outlined text-base text-outline">add</span>
+<span>Genuine Replacement Parts</span>
+</button>
+</div>
+</div>
+<!-- Card Section 3: Detailed Written Feedback -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col gap-0.5">
+<label class="font-headline-sm text-headline-sm text-on-surface font-semibold" for="feedbackText">Detailed Feedback <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">(Optional)</span></label>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Help neighbors evaluate technical mastery, troubleshooting skills, and billing transparency.</span>
+</div>
+<span class="font-label-sm text-label-sm font-mono text-primary font-bold" id="charCount">164 / 500 characters</span>
+</div>
+<div class="relative w-full">
+<textarea class="w-full bg-surface-container-low text-on-surface rounded-xl p-space-md font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary-container resize-none transition-all placeholder:text-outline-variant shadow-inner" id="feedbackText" maxlength="500" placeholder="Describe the technical issue, the repair steps taken, and how the technician handled the work..." rows="4">Santosh arrived right on time, explained the MCB switch issue clearly with no hidden markups, and cleaned up the drill dust after finishing. Very professional direct service.</textarea>
+<div class="absolute bottom-3 right-3 pointer-events-none text-outline-variant">
+<span class="material-symbols-outlined text-sm">edit_note</span>
+</div>
+</div>
+</div>
+<!-- Two-Column Grid: Recommendation & Proof of Work Quality -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<!-- Card Section 4: Recommendation Question -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-xl flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-lg">thumb_up</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Would you recommend this technician?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Recommend Santosh Pandey to neighbors and residents across Madhapur direct dispatch network.</p>
+</div>
+<!-- Recommendation Toggle Controls -->
+<div class="flex items-center gap-space-sm pt-2" id="recommendToggleGroup">
+<button class="flex-1 py-3 px-space-md rounded-xl bg-primary-container text-on-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-md transition-all" id="recYes" type="button">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span>Yes, Highly</span>
+</button>
+<button class="flex-1 py-3 px-space-md rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-all" id="recNo" type="button">
+<span class="material-symbols-outlined text-base">cancel</span>
+<span>Not Really</span>
+</button>
+</div>
+</div>
+<!-- Card Section 5: Proof of Work Quality Photo -->
+<div class="bg-surface-container rounded-xl p-space-lg shadow-xl flex flex-col justify-between gap-space-md">
+<div class="flex flex-col gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-lg">add_a_photo</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Proof of Work Quality <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">(Optional)</span></h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Upload photo of the completed installation for community verification.</p>
+</div>
+<!-- Proof Thumbnail Attachment View -->
+<div class="flex items-center gap-space-md p-2 rounded-xl bg-surface-container-low">
+<div class="relative shrink-0 w-20 h-20 rounded-lg overflow-hidden group shadow-md">
+<img class="w-full h-full object-cover" data-alt="Close up photograph showing a newly installed sleek matte black ceiling fan attached securely to a living room ceiling with clean brass wiring plate, freshly finished switchboard in the background, sharp professional craftsmanship, residential interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANVieh_pj4yhTAqKZGbrnfOJX7yDdi3SZKIylPAtDoXTA7w0-cqPaO7-n7tAn6Uvy2vm7pbG7G_DtbDjC5Z2j39_arGiD_2GMSr2xmSDkt0ftoMx0_avF9nJpqd8PqNlcqLcrzzmZgXYo7bq92DbP9P0iffMTyQMGMNh7Toa9M2VkhnTpw5lycidRb50nSHjLW2WYYgLhq8IwiFNUpC1HkgV06OYNNkdYzUsDm43rW"/>
+<div class="absolute inset-0 bg-surface-container-lowest/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-on-surface text-lg">zoom_in</span>
+</div>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">fan_install_final.jpg</span>
+<button class="text-error hover:text-on-error-container p-1 rounded-md transition-colors" title="Remove photo" type="button">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<span class="font-body-sm text-body-sm text-tertiary flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs">verified</span>
+                    Attached to Completion Log (1.8 MB)
+                  </span>
+<button class="mt-2 text-left font-label-sm text-label-sm text-primary hover:underline flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-xs">sync</span>
+                    Replace photo
+                  </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Section 6: Action Buttons Group -->
+<div class="flex flex-col sm:flex-row items-center justify-end gap-space-md pt-2">
+<button class="w-full sm:w-auto px-space-xl py-3 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg font-semibold transition-all text-center" type="button">
+              Skip for Now
+            </button>
+<button class="w-full sm:w-auto px-space-xl py-3 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary font-label-lg text-label-lg font-bold shadow-lg shadow-primary-container/20 hover:shadow-primary-container/40 flex items-center justify-center gap-2 transition-all" id="submitBtn" type="button">
+<span>Submit Review &amp; Rating</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+<!-- Card Section 7: Footer Policy Trust Callout -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest flex items-start gap-space-md shadow-inner">
+<div class="w-8 h-8 rounded-full bg-surface-container-high shrink-0 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-base">format_image_left</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Verified Community Review Guarantee</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                Reviews are published directly on the technician's verified profile to help local community members make informed decisions. LSP Connect enforces authentic reviews only after completed direct settlements.
+              </p>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initReviewInteractions() {
+    // Star Rating Interactivity
+    const starButtons = document.querySelectorAll('.star-btn');
+    const ratingDescriptor = document.getElementById('ratingDescriptor');
+    const ratingLabels = {
+      1: "Poor (1.0)",
+      2: "Fair (2.0)",
+      3: "Good (3.0)",
+      4: "Very Good (4.0)",
+      5: "Excellent (5.0)"
+    };
+
+    function updateStars(rating) {
+      starButtons.forEach(btn => {
+        const starIndex = parseInt(btn.getAttribute('data-star'), 10);
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (starIndex <= rating) {
+          btn.classList.add('text-primary-container');
+          btn.classList.remove('text-surface-container-highest');
+          icon.style.fontVariationSettings = "'FILL' 1";
+        } else {
+          btn.classList.remove('text-primary-container');
+          btn.classList.add('text-surface-container-highest');
+          icon.style.fontVariationSettings = "'FILL' 0";
+        }
+      });
+      if (ratingDescriptor) {
+        ratingDescriptor.textContent = ratingLabels[rating] || (rating + ".0");
+      }
+    }
+
+    starButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const starVal = parseInt(btn.getAttribute('data-star'), 10);
+        updateStars(starVal);
+      });
+    });
+
+    // Quick Tags Toggle Interactivity
+    const tagPills = document.querySelectorAll('.tag-pill');
+    tagPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const isActive = pill.classList.contains('active');
+        const icon = pill.querySelector('.material-symbols-outlined');
+        if (isActive) {
+          pill.classList.remove('active', 'bg-primary-container', 'text-on-primary-container');
+          pill.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+          if (icon) {
+            icon.textContent = 'add';
+            icon.classList.add('text-outline');
+          }
+        } else {
+          pill.classList.add('active', 'bg-primary-container', 'text-on-primary-container');
+          pill.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+          if (icon) {
+            icon.textContent = 'check';
+            icon.classList.remove('text-outline');
+          }
+        }
+      });
+    });
+
+    // Character Counter
+    const feedbackText = document.getElementById('feedbackText');
+    const charCount = document.getElementById('charCount');
+    if (feedbackText && charCount) {
+      const updateCount = () => {
+        const len = feedbackText.value.length;
+        charCount.textContent = len + ' / 500 characters';
+      };
+      feedbackText.addEventListener('input', updateCount);
+    }
+
+    // Recommendation Yes/No Toggle
+    const recYes = document.getElementById('recYes');
+    const recNo = document.getElementById('recNo');
+    if (recYes && recNo) {
+      recYes.addEventListener('click', () => {
+        recYes.className = 'flex-1 py-3 px-space-md rounded-xl bg-primary-container text-on-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-md transition-all';
+        recNo.className = 'flex-1 py-3 px-space-md rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-all';
+      });
+      recNo.addEventListener('click', () => {
+        recNo.className = 'flex-1 py-3 px-space-md rounded-xl bg-primary-container text-on-primary-container font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-md transition-all';
+        recYes.className = 'flex-1 py-3 px-space-md rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-bright font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 transition-all';
+      });
+    }
+
+    // Submit Feedback Toast simulation
+    const submitBtn = document.getElementById('submitBtn');
+    if (submitBtn) {
+      submitBtn.addEventListener('click', () => {
+        submitBtn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">refresh</span><span>Publishing to Profile...</span>';
+        setTimeout(() => {
+          submitBtn.innerHTML = '<span class="material-symbols-outlined text-lg">check_circle</span><span>Review Published!</span>';
+          submitBtn.classList.remove('bg-primary-container', 'hover:bg-primary');
+          submitBtn.classList.add('bg-tertiary-container', 'text-on-tertiary-container');
+        }, 800);
+      });
+    }
+  })();
+</script></main><footer class="w-full bg-surface-container-lowest mt-space-xl py-space-xl shadow-[0_-1px_12px_rgba(0,0,0,0.5)]"><div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-space-lg"><div class="flex items-center gap-space-md"><span class="font-headline-sm text-headline-sm text-on-surface font-bold">LSP<span class="text-primary-container">Connect</span></span><span class="font-body-sm text-body-sm text-on-surface-variant">Direct Local Service Dispatch System</span></div><div class="flex items-center gap-space-lg text-on-surface-variant font-label-md text-label-md"><span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-sm">currency_rupee</span>100% Cash / UPI Direct Settlement</span><span class="flex items-center gap-1 text-tertiary"><span class="material-symbols-outlined text-sm">security</span>Verified Technicians</span></div><div class="font-body-sm text-body-sm text-on-surface-variant">© 2025 LSP Connect Platform. Direct Provider Operations.</div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>

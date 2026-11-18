@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_blank" name="shell-type"/><title>LSP Connect Access</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#4dffb2", "surface-dim": "#0e131e", "secondary-fixed": "#d8e2ff", "secondary": "#b9c6e8", "on-secondary": "#23304a", "surface-container-highest": "#303541", "on-primary": "#522300", "inverse-surface": "#dee2f2", "surface": "#0e131e", "tertiary": "#00e297", "secondary-container": "#3c4965", "surface-bright": "#343946", "on-error": "#690005", "on-surface": "#dee2f2", "primary-fixed-dim": "#ffb68b", "outline-variant": "#584235", "primary-container": "#ff7a00", "tertiary-fixed-dim": "#00e297", "background": "#0e131e", "on-primary-fixed": "#321200", "on-primary-fixed-variant": "#753400", "inverse-primary": "#994700", "on-tertiary-container": "#004028", "surface-variant": "#303541", "tertiary-container": "#00b779", "on-tertiary-fixed-variant": "#005234", "primary-fixed": "#ffdbc8", "surface-container-low": "#161b27", "on-primary-container": "#5c2800", "error": "#ffb4ab", "on-surface-variant": "#e0c0af", "on-secondary-fixed": "#0d1b34", "outline": "#a78b7c", "primary": "#ffb68b", "secondary-fixed-dim": "#b9c6e8", "on-secondary-fixed-variant": "#3a4762", "on-secondary-container": "#abb8d9", "inverse-on-surface": "#2b303d", "surface-container-high": "#252a36", "surface-container-lowest": "#090e19", "surface-container": "#1b1f2b", "on-error-container": "#ffdad6", "error-container": "#93000a", "on-tertiary": "#003822", "on-tertiary-fixed": "#002112", "on-background": "#dee2f2", "surface-tint": "#ffb68b" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-xl": "2rem" }, "fontFamily": { "headline-sm": ["Inter"], "headline-lg": ["Inter"], "body-sm": ["Inter"], "label-md": ["Inter"], "body-lg": ["Inter"], "body-md": ["Inter"], "headline-xl": ["Inter"], "label-lg": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"] }, "fontSize": { "headline-sm": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "600"}], "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "600"}], "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}], "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}], "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}], "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}], "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "700"}], "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex items-center justify-center p-space-md"><div class="w-full max-w-lg mx-auto"><div class="mb-8 flex flex-col items-center justify-center text-center"><div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary-container shadow-[0_0_20px_-3px_rgba(255,122,0,0.35)] mb-3"><span class="material-symbols-outlined text-3xl">construction</span></div><div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">LSP<span class="text-primary-container">Connect</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Direct Local Service Provider &amp; Customer Network</p></div><main class="w-full bg-surface-container-lowest rounded-xl p-space-lg shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)]"><div class="flex flex-col w-full">
+<div class="relative w-full overflow-hidden rounded-xl bg-surface-container-low p-space-lg shadow-xl">
+<div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-tertiary-container/10 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col items-center text-center mb-space-lg">
+<div class="w-48 h-auto mb-space-sm flex items-center justify-center">
+<img alt="LSP Connect Logo" class="max-h-16 w-auto object-contain drop-shadow-[0_0_12px_rgba(255,122,0,0.35)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWrKKmy5U-yHOOqbEmJWtEJbgcv3zddxhh4Xi5UJiCtB25r1BewWYcPtfYOXOG3mmfOK8c6cjFQzM4g3QCelgCkgCLnEAbZX86pYcoZzxb_GfqJkF4rW2gCGf-C0FymNz5tR5XvTk3D3U4PkLRjXHfQ6oc76HApUTMNQeTKDPcotZsyEYh-OXo3wi882dTsSNaw-mzfVH1vNb_1s0kk3fcuzYSw9o4mBl5LoZjcDu_QunZO19mKifPdg"/>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm tracking-widest uppercase mb-space-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+        Direct Settlement Client Access
+      </div>
+<h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">
+        Create Your Customer Account
+      </h1>
+<p class="font-body-md text-body-md text-secondary mt-1 max-w-md">
+        Connect directly with background-verified neighborhood technicians with zero middleman deductions.
+      </p>
+</div>
+<form class="relative z-10 flex flex-col gap-space-md" id="customerRegForm" onsubmit="event.preventDefault(); handleSubmit();">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface flex items-center justify-between" for="fullName">
+<span>Full Name</span>
+<span class="text-secondary font-body-sm text-body-sm text-xs">Required</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-secondary text-lg pointer-events-none">person</span>
+<input class="w-full h-11 pl-10 pr-3.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder:text-secondary-container focus:outline-none focus:bg-surface-bright transition-colors shadow-sm" id="fullName" name="fullName" placeholder="e.g. Aris Thorne" required="" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface flex items-center justify-between" for="mobileNumber">
+<span>Primary Mobile Number</span>
+<span class="text-tertiary font-label-sm text-label-sm text-xs">SMS &amp; verification code</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-secondary text-lg pointer-events-none">call</span>
+<input class="w-full h-11 pl-10 pr-3.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder:text-secondary-container focus:outline-none focus:bg-surface-bright transition-colors shadow-sm" id="mobileNumber" name="mobileNumber" pattern="[0-9+ ]{10,15}" placeholder="+91 98765 43210" required="" type="tel"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface flex items-center justify-between" for="emailAddress">
+<span>Email Address</span>
+<span class="text-secondary font-body-sm text-body-sm text-xs">E-Receipts</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-secondary text-lg pointer-events-none">mail</span>
+<input class="w-full h-11 pl-10 pr-3.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder:text-secondary-container focus:outline-none focus:bg-surface-bright transition-colors shadow-sm" id="emailAddress" name="emailAddress" placeholder="aris.thorne@domain.com" required="" type="email"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface flex items-center justify-between" for="postalCode">
+<span>Postal / PIN Code</span>
+<span class="text-tertiary-container font-label-sm text-label-sm flex items-center gap-1" id="zoneIndicator">
+<span class="material-symbols-outlined text-sm">check_circle</span> Service Ready
+            </span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-primary-container text-lg pointer-events-none">pin_drop</span>
+<input class="w-full h-11 pl-10 pr-16 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder:text-secondary-container focus:outline-none focus:bg-surface-bright transition-colors shadow-sm font-mono tracking-wider" id="postalCode" maxlength="8" name="postalCode" placeholder="500081" required="" type="text"/>
+<button class="absolute right-1.5 px-2.5 py-1 text-xs font-label-sm bg-surface-container-high hover:bg-surface-bright text-primary rounded transition-colors" onclick="validatePostal()" type="button">
+              Verify
+            </button>
+</div>
+</div>
+<div class="flex flex-col gap-1.5 md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface flex items-center justify-between" for="streetAddress">
+<span>Complete Street Address &amp; Landmark</span>
+<span class="text-secondary font-body-sm text-body-sm text-xs">For technician dispatch</span>
+</label>
+<div class="relative flex items-start">
+<span class="material-symbols-outlined absolute left-3 top-3 text-secondary text-lg pointer-events-none">location_on</span>
+<textarea class="w-full py-2.5 pl-10 pr-3.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder:text-secondary-container focus:outline-none focus:bg-surface-bright transition-colors resize-none shadow-sm" id="streetAddress" name="streetAddress" placeholder="Flat / House Number, Apartment Complex, Cross Road, Landmark" required="" rows="2"></textarea>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="password">Create Password</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-secondary text-lg pointer-events-none">lock</span>
+<input class="w-full h-11 pl-10 pr-10 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder:text-secondary-container focus:outline-none focus:bg-surface-bright transition-colors shadow-sm" id="password" minlength="8" name="password" placeholder="••••••••••••" required="" type="password"/>
+<button class="absolute right-3 text-secondary hover:text-on-surface transition-colors flex items-center" onclick="toggleVisibility('password', this)" type="button">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="confirmPassword">Confirm Password</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-secondary text-lg pointer-events-none">lock_reset</span>
+<input class="w-full h-11 pl-10 pr-10 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder:text-secondary-container focus:outline-none focus:bg-surface-bright transition-colors shadow-sm" id="confirmPassword" minlength="8" name="confirmPassword" placeholder="••••••••••••" required="" type="password"/>
+<button class="absolute right-3 text-secondary hover:text-on-surface transition-colors flex items-center" onclick="toggleVisibility('confirmPassword', this)" type="button">
+<span class="material-symbols-outlined text-lg">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container flex items-start gap-3 mt-1">
+<div class="flex items-center h-5 mt-0.5">
+<input class="w-4 h-4 rounded bg-surface-container-high text-primary-container focus:ring-0 focus:outline-none cursor-pointer accent-primary-container" id="termsCheckbox" required="" type="checkbox"/>
+</div>
+<label class="font-body-sm text-body-sm text-secondary select-none cursor-pointer leading-tight" for="termsCheckbox">
+          I agree to the <a class="text-primary hover:underline font-semibold" href="javascript:void(0)">LSP Connect Terms of Service</a> and direct payment terms (<span class="text-tertiary font-semibold">100% Cash / UPI Direct Settlement</span> to technicians upon job verification).
+        </label>
+</div>
+<div class="flex flex-col gap-space-sm mt-2">
+<button class="w-full h-12 rounded-lg bg-primary-container hover:bg-inverse-primary text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-[0_0_20px_-3px_rgba(255,122,0,0.35)] transition-all active:scale-[0.99]" id="submitBtn" type="submit">
+<span>Complete Customer Registration</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<div class="flex items-center justify-center gap-1.5 text-center mt-1">
+<span class="font-body-md text-body-md text-secondary">Already registered?</span>
+<a class="font-label-lg text-label-lg text-primary hover:text-primary-fixed-dim hover:underline font-semibold transition-colors" href="javascript:void(0)">
+            Sign in here
+          </a>
+</div>
+</div>
+</form>
+</div>
+</div>
+<script>
+  function toggleVisibility(inputId, triggerBtn) {
+    const input = document.getElementById(inputId);
+    const icon = triggerBtn.querySelector('.material-symbols-outlined');
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.textContent = 'visibility_off';
+    } else {
+      input.type = 'password';
+      icon.textContent = 'visibility';
+    }
+  }
+
+  function validatePostal() {
+    const pin = document.getElementById('postalCode').value.trim();
+    const ind = document.getElementById('zoneIndicator');
+    if (pin.length >= 5) {
+      ind.innerHTML = '<span class="material-symbols-outlined text-sm">verified</span> Direct Coverage Active';
+      ind.className = 'text-tertiary font-label-sm text-label-sm flex items-center gap-1';
+    } else {
+      ind.innerHTML = '<span class="material-symbols-outlined text-sm">error</span> Enter valid PIN';
+      ind.className = 'text-error font-label-sm text-label-sm flex items-center gap-1';
+    }
+  }
+
+  function handleSubmit() {
+    const p1 = document.getElementById('password').value;
+    const p2 = document.getElementById('confirmPassword').value;
+    if (p1 !== p2) {
+      alert('Passwords do not match. Please verify.');
+      return;
+    }
+    const btn = document.getElementById('submitBtn');
+    btn.innerHTML = '<span class="material-symbols-outlined animate-spin text-lg">progress_activity</span> Provisioning Account...';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = '<span class="material-symbols-outlined text-lg">check_circle</span> Registration Completed';
+      btn.classList.remove('bg-primary-container', 'text-on-primary');
+      btn.classList.add('bg-tertiary-container', 'text-on-tertiary');
+    }, 1200);
+  }
+</script></main><div class="mt-6 text-center text-on-surface-variant font-label-sm text-label-sm"><span class="text-primary">Direct Payment Policy:</span> 100% Cash / UPI Settlement directly with providers. Zero platform deductions.</div></div>
+<script src="/runtime.js" defer></script>
+</body></html>

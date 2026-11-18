@@ -1,0 +1,142 @@
+{
+  "1": {
+    "folder": "screen_1_loading_splash",
+    "label": "Loading / Splash"
+  },
+  "2": {
+    "folder": "screen_2_introduction",
+    "label": "Introduction"
+  },
+  "3": {
+    "folder": "screen_3_role_selection",
+    "label": "Role Selection"
+  },
+  "4": {
+    "folder": "screen_4_customer_login",
+    "label": "Customer Login"
+  },
+  "5": {
+    "folder": "screen_5_customer_registration",
+    "label": "Customer Registration"
+  },
+  "6": {
+    "folder": "screen_6_service_details_rate_card",
+    "label": "Service Details & Rate Card"
+  },
+  "7": {
+    "folder": "screen_7_regular_booking_slot_selection",
+    "label": "Regular Booking & Slot Selection"
+  },
+  "8": {
+    "folder": "screen_8_customer_quick_service_request",
+    "label": "Customer Quick Service Request"
+  },
+  "9": {
+    "folder": "screen_9_booking_review_confirmation",
+    "label": "Booking Review & Confirmation"
+  },
+  "10": {
+    "folder": "screen_10_booking_status_tracking",
+    "label": "Booking Status Tracking"
+  },
+  "11": {
+    "folder": "screen_11_custom_quotation_review_approval",
+    "label": "Custom Quotation Review & Approval"
+  },
+  "12": {
+    "folder": "screen_12_service_completion_payment_digital_receipt",
+    "label": "Service Completion, Payment & Digital Receipt"
+  },
+  "13": {
+    "folder": "screen_13_customer_review_rating",
+    "label": "Customer Review & Rating"
+  },
+  "14": {
+    "folder": "screen_14_customer_my_bookings",
+    "label": "Customer My Bookings"
+  },
+  "15": {
+    "folder": "screen_15_customer_profile_addresses",
+    "label": "Customer Profile & Addresses"
+  },
+  "16": {
+    "folder": "screen_16_customer_complaint_submission",
+    "label": "Customer Complaint Submission"
+  },
+  "17": {
+    "folder": "screen_17_provider_login",
+    "label": "Provider Login"
+  },
+  "18": {
+    "folder": "screen_18_provider_registration",
+    "label": "Provider Registration"
+  },
+  "19": {
+    "folder": "screen_19_provider_verification_status",
+    "label": "Provider Verification Status"
+  },
+  "20": {
+    "folder": "screen_20_provider_jobs_dashboard",
+    "label": "Provider Jobs Dashboard"
+  },
+  "21": {
+    "folder": "screen_21_provider_availability_indicator",
+    "label": "Provider Availability Indicator"
+  },
+  "22": {
+    "folder": "screen_22_provider_job_execution_status_management",
+    "label": "Provider Job Execution & Status Management"
+  },
+  "23": {
+    "folder": "screen_23_provider_custom_quotation_submission",
+    "label": "Provider Custom Quotation Submission"
+  },
+  "24": {
+    "folder": "screen_24_provider_doorstep_payment_completion",
+    "label": "Provider Doorstep Payment & Completion"
+  },
+  "25": {
+    "folder": "screen_25_provider_earnings_payment_history",
+    "label": "Provider Earnings & Payment History"
+  },
+  "26": {
+    "folder": "screen_26_provider_profile_skills",
+    "label": "Provider Profile & Skills"
+  },
+  "27": {
+    "folder": "screen_27_provider_customer_ratings_feedback",
+    "label": "Provider Customer Ratings & Feedback"
+  },
+  "28": {
+    "folder": "screen_28_admin_login",
+    "label": "Admin Login"
+  },
+  "29": {
+    "folder": "screen_29_admin_dashboard_overview",
+    "label": "Admin Dashboard Overview"
+  },
+  "30": {
+    "folder": "screen_30_admin_user_management",
+    "label": "Admin User Management"
+  },
+  "31": {
+    "folder": "screen_31_admin_service_category_standard_rate_management",
+    "label": "Admin Service Category & Standard Rate Management"
+  },
+  "32": {
+    "folder": "screen_32_admin_booking_management",
+    "label": "Admin Booking Management"
+  },
+  "33": {
+    "folder": "screen_33_admin_provider_verification_document_audit",
+    "label": "Admin Provider Verification & Document Audit"
+  },
+  "34": {
+    "folder": "screen_34_admin_customer_complaints_dispute_handling",
+    "label": "Admin Customer Complaints & Dispute Handling"
+  },
+  "35": {
+    "folder": "screen_35_admin_management_overview_settings",
+    "label": "Admin Management Overview / Settings"
+  }
+}

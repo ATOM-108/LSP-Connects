@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-background":"#dee2f2","error-container":"#93000a","surface-container-highest":"#303541","tertiary":"#00e297","on-tertiary":"#003822","surface-container-low":"#161b27","inverse-primary":"#994700","on-error":"#690005","on-secondary-container":"#abb8d9","outline":"#a78b7c","on-tertiary-fixed-variant":"#005234","surface-bright":"#343946","tertiary-fixed":"#4dffb2","surface-container-high":"#252a36","on-secondary":"#23304a","on-surface":"#dee2f2","surface":"#0e131e","surface-dim":"#0e131e","on-tertiary-fixed":"#002112","secondary-container":"#3c4965","on-primary-fixed-variant":"#753400","primary-fixed-dim":"#ffb68b","background":"#0e131e","tertiary-container":"#00b779","error":"#ffb4ab","outline-variant":"#584235","on-secondary-fixed":"#0d1b34","surface-variant":"#303541","surface-tint":"#ffb68b","on-primary":"#522300","on-primary-container":"#5c2800","on-secondary-fixed-variant":"#3a4762","secondary-fixed":"#d8e2ff","surface-container-lowest":"#090e19","surface-container":"#1b1f2b","on-tertiary-container":"#004028","secondary-fixed-dim":"#b9c6e8","inverse-surface":"#dee2f2","primary-fixed":"#ffdbc8","tertiary-fixed-dim":"#00e297","on-surface-variant":"#e0c0af","primary":"#ffb68b","on-primary-fixed":"#321200","primary-container":"#ff7a00","inverse-on-surface":"#2b303d","on-error-container":"#ffdad6","secondary":"#b9c6e8"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2rem","margin":"2rem","gutter":"1.5rem","space-lg":"1.5rem","space-xs":"0.25rem","space-md":"1rem","space-sm":"0.5rem"},"fontFamily":{"body-lg":["Inter"],"label-lg":["Inter"],"headline-lg":["Inter"],"label-sm":["Inter"],"headline-xl":["Inter"],"label-md":["Inter"],"body-md":["Inter"],"headline-sm":["Inter"],"headline-md":["Inter"],"body-sm":["Inter"]},"fontSize":{"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"700"}],"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","fontWeight":"400"}]}}}};</script></head><body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-low/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs"><div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-on-primary-container font-headline-sm font-bold">L</div><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-bold">LSP Connect</span></div><span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm uppercase tracking-wider">ADMIN CONSOLE</span></div><nav class="hidden xl:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-label-md rounded-lg"><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="dashboard" href="#">Dashboard</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="users" href="#">Users</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="services-and-rates" href="#">Services & Rates</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="bookings" href="#">Bookings</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="verifications" href="#">Verifications</a><a aria-current="page" class="px-space-sm py-1.5 transition-colors bg-primary-container text-on-primary-container font-label-md rounded-lg" data-path="complaints" href="#">Complaints</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant font-label-md text-label-md transition-colors hover:bg-surface-container-high hover:text-on-surface" data-path="settings" href="#">Settings</a></nav><div class="flex items-center gap-space-md"><div class="hidden md:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-lowest"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span><span class="font-label-sm text-label-sm text-tertiary">Admin Operations Active</span></div><div class="hidden lg:flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm px-space-xs py-1 rounded bg-surface-container-high"><span class="material-symbols-outlined text-sm text-primary">verified_user</span><span>SEC-L3 CLEARANCE</span></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-right hidden sm:block"><div class="font-label-md text-label-md text-on-surface">Root Administrator</div><div class="font-label-sm text-label-sm text-on-surface-variant">ops-node-01@lsp.internal</div></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/ALJJyrCTdjVNbAMKH8w6e4MskTuVDtZh0u6SqZqXYexSpNIneHufXFg9CwG1UWZzU5PljYo6yv6T2oaGO-VTQJznAtv6CmxXtRlzjSRRL3BG2YB6Ld0p1hZ0209H4r1uJZ6aenSZPjbu2tEPEMHs2i-QjxituGPvBIIDCynJiwe-qtTowUiGRdwG_MFswmz0CRgJIBNB8bh00wPVXzc-rkKZY6dw-lwSYvqYMvwsKmuIcG_D-4ffuFS03_c14Rd_"/></div></div></div></header><main class="w-full pt-16 bg-surface flex-1 flex flex-col"><div class="flex flex-col w-full">
+<div class="w-full px-margin py-space-lg flex flex-col gap-space-lg">
+<!-- Top Header & Metrics Section -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-md">
+<div class="flex flex-col gap-space-xs max-w-3xl">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm uppercase tracking-wider">Operational Integrity Node</span>
+<span class="text-outline text-label-sm">/</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Grievance Resolution Desk</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Customer Complaints & Dispute Mediation</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Investigate customer grievances regarding unauthorized tariff variances, incomplete workmanship, or technician conduct. Enforce fair-pricing compliance.
+        </p>
+</div>
+<!-- Compliance Direct Payment Stamp -->
+<div class="flex items-center gap-space-sm px-space-md py-space-sm rounded-xl bg-surface-container-high/60 backdrop-blur-md self-start xl:self-auto">
+<div class="w-8 h-8 rounded-lg bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">balance</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Platform Settlement Model</span>
+<span class="font-label-md text-label-md text-tertiary">Zero Escrow Direct Cash & UPI Mediation</span>
+</div>
+</div>
+</div>
+<!-- Metrics Banner Bento -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Card 1 -->
+<div class="bg-surface-container/80 backdrop-blur-md rounded-xl p-space-md flex items-center justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="absolute -right-4 -bottom-4 w-20 h-20 bg-primary/5 rounded-full pointer-events-none"></div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Active Disputes</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-xl text-headline-xl text-primary font-bold">6</span>
+<span class="font-label-sm text-label-sm text-error flex items-center">
+<span class="material-symbols-outlined text-xs">trending_up</span>+1 today
+            </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">4 under active investigation</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-primary-container/20 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-2xl">gavel</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container/80 backdrop-blur-md rounded-xl p-space-md flex items-center justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="absolute -right-4 -bottom-4 w-20 h-20 bg-error/5 rounded-full pointer-events-none"></div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tariff Overcharging Flags</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-xl text-headline-xl text-error font-bold">4</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">of 6 total</span>
+</div>
+<span class="font-body-sm text-body-sm text-error">Requires catalog audit</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-2xl">price_change</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container/80 backdrop-blur-md rounded-xl p-space-md flex items-center justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="absolute -right-4 -bottom-4 w-20 h-20 bg-secondary/5 rounded-full pointer-events-none"></div>
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Workmanship Rework Requests</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-xl text-headline-xl text-secondary font-bold">2</span>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center">1 re-dispatch</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sealant & wiring defects</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-secondary-container/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">build_circle</span>
+</div>
+</div>
+<!-- Card 4: SLA Target Gauge -->
+<div class="bg-surface-container/80 backdrop-blur-md rounded-xl p-space-md flex items-center justify-between shadow-sm relative overflow-hidden group hover:bg-surface-container transition-all">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Average Resolution Time</span>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-xl text-headline-xl text-tertiary font-bold">2.4</span>
+<span class="font-headline-sm text-headline-sm text-tertiary font-semibold">Hours</span>
+</div>
+<span class="font-body-sm text-body-sm text-tertiary-fixed-dim">SLA Target: 4.0 Hours (Compliant)</span>
+</div>
+<!-- Inline SLA Progress SVG -->
+<div class="relative w-12 h-12 flex items-center justify-center">
+<svg class="w-12 h-12 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-tertiary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="60, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="material-symbols-outlined absolute text-tertiary text-base">timer</span>
+</div>
+</div>
+</div>
+<!-- Filter & Search Command Strip -->
+<div class="bg-surface-container/90 backdrop-blur-md rounded-xl p-space-sm flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm shadow-sm">
+<!-- Tabs Strip -->
+<div class="flex items-center gap-1 overflow-x-auto p-1 bg-surface-container-lowest rounded-lg">
+<button class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md whitespace-nowrap">
+          All Complaints (42)
+        </button>
+<button class="px-space-sm py-1.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md whitespace-nowrap flex items-center gap-1 shadow-sm">
+<span>Under Investigation (6)</span>
+<span class="w-2 h-2 rounded-full bg-on-primary animate-pulse"></span>
+</button>
+<button class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md whitespace-nowrap">
+          Mediation In-Progress (3)
+        </button>
+<button class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md whitespace-nowrap">
+          Resolved & Closed (33)
+        </button>
+</div>
+<!-- Filters & Query Input -->
+<div class="flex items-center gap-space-sm flex-1 lg:max-w-xl">
+<!-- Category Dropdown Selector -->
+<div class="relative min-w-[170px]">
+<select class="w-full h-11 bg-surface-container-low text-on-surface font-body-sm text-body-sm rounded-lg pl-3 pr-8 appearance-none focus:outline-none focus:bg-surface-container-high cursor-pointer transition-colors">
+<option value="all">Category: All</option>
+<option selected="" value="tariff">Tariff Overcharging</option>
+<option value="workmanship">Workmanship</option>
+<option value="conduct">Conduct</option>
+<option value="spares">Unapproved Spares</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2.5 top-2.5 text-on-surface-variant text-base">expand_more</span>
+</div>
+<!-- Search Input -->
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant text-lg">search</span>
+<input class="w-full h-11 bg-surface-container-low text-on-surface placeholder:text-outline/70 font-body-sm text-body-sm rounded-lg pl-10 pr-3 focus:outline-none focus:bg-surface-container-high transition-colors" placeholder="Search by Ticket #, Booking ID, Customer, Technician..." type="text" value="CMP-9921"/>
+</div>
+<!-- Quick Clear Button -->
+<button class="h-11 px-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant flex items-center justify-center transition-colors" title="Reset Filters">
+<span class="material-symbols-outlined text-base">filter_alt_off</span>
+</button>
+</div>
+</div>
+<!-- Main Workspace (45% Complaints Roster / 55% Active Dossier Workbench) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column: 45% Complaints List Table / Cards -->
+<div class="xl:col-span-5 flex flex-col gap-space-sm">
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-primary text-base">inbox</span>
+<span>Active Mediation Queue</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sorted by: Urgency / Recency</span>
+</div>
+<!-- Ticket 1: Active Focus (CMP-9921) -->
+<div class="w-full rounded-xl bg-surface-container-high/90 backdrop-blur-md p-space-md flex flex-col gap-space-sm cursor-pointer shadow-lg relative overflow-hidden transition-all">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary-container"></div>
+<div class="flex items-start justify-between gap-space-xs pl-2">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-primary-fixed-dim font-bold tracking-tight">CMP-9921</span>
+<span class="px-space-xs py-0.5 rounded bg-error-container/30 text-error font-label-sm text-label-sm uppercase">Overcharging</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Booking #LSP-2025-88392</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-space-xs py-0.5 rounded-full bg-primary-container/20 text-primary-container font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span>
+                Under Investigation
+              </span>
+<span class="font-label-sm text-label-sm text-outline mt-1">1 hr ago</span>
+</div>
+</div>
+<div class="pl-2 pt-1 flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-body-sm font-body-sm bg-surface-container-lowest/60 rounded-lg p-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-sm">person</span>
+<span class="text-on-surface font-semibold">Rohit Verma</span>
+<span class="text-outline text-label-sm">(Cust)</span>
+</div>
+<span class="text-outline">vs</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-sm">handyman</span>
+<span class="text-on-surface font-semibold">Santosh Pandey</span>
+<span class="text-outline text-label-sm">(Tech)</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface/90 line-clamp-2">
+              Tariff / Overcharging Beyond Approved Quote. Verified anchor bolt priced at ₹280 verbal notice without invoice proof.
+            </p>
+</div>
+<div class="pl-2 pt-1 flex items-center justify-between text-label-sm font-label-sm text-outline-variant">
+<span class="text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">visibility</span> Currently Inspected
+            </span>
+<span class="text-on-surface-variant font-mono">Variance: +₹160.00</span>
+</div>
+</div>
+<!-- Ticket 2: CMP-9918 -->
+<div class="w-full rounded-xl bg-surface-container/70 backdrop-blur-md p-space-md flex flex-col gap-space-sm cursor-pointer hover:bg-surface-container-high/60 transition-all">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface font-bold tracking-tight">CMP-9918</span>
+<span class="px-space-xs py-0.5 rounded bg-secondary-container/40 text-secondary font-label-sm text-label-sm uppercase">Workmanship</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Booking #LSP-2025-88190</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-container/30 text-secondary-fixed-dim font-label-sm text-label-sm">
+                Revisit Scheduled
+              </span>
+<span class="font-label-sm text-label-sm text-outline mt-1">4 hrs ago</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-body-sm font-body-sm bg-surface-container-lowest/40 rounded-lg p-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-sm">person</span>
+<span class="text-on-surface">Preethi Raman</span>
+</div>
+<span class="text-outline">vs</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-sm">handyman</span>
+<span class="text-on-surface">Ramesh Kumar</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Incomplete Pipe Sealing. Kitchen sink drain line experiencing persistent seepage post joint-fitting overhaul.
+            </p>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-sm">event_repeat</span> Revisit: Tomorrow, 10:30 AM
+            </span>
+<span class="text-tertiary">Zero Surcharge</span>
+</div>
+</div>
+<!-- Ticket 3: CMP-9912 -->
+<div class="w-full rounded-xl bg-surface-container/50 backdrop-blur-md p-space-md flex flex-col gap-space-sm cursor-pointer hover:bg-surface-container-high/60 transition-all opacity-85">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface-variant font-bold tracking-tight">CMP-9912</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm uppercase">Conduct</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Booking #LSP-2025-87900</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-space-xs py-0.5 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">check_circle</span> Closed
+              </span>
+<span class="font-label-sm text-label-sm text-outline mt-1">Yesterday</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-body-sm font-body-sm bg-surface-container-lowest/30 rounded-lg p-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-sm">person</span>
+<span class="text-on-surface-variant">Karthik S.</span>
+</div>
+<span class="text-outline">vs</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-sm">handyman</span>
+<span class="text-on-surface-variant">Manoj K.</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-outline line-clamp-1">
+              Unprofessional Conduct: Heated exchange regarding parking space accessibility. Demerit strike applied.
+            </p>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="text-error flex items-center gap-1 font-mono">
+<span class="material-symbols-outlined text-sm">warning</span> Demerit Strike 1 Issued
+            </span>
+<span class="text-outline">Audited by Root-Admin</span>
+</div>
+</div>
+<!-- Audit Summary Footprint -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Showing 3 of 6 Pending Mediation Records</span>
+<button class="text-primary hover:underline flex items-center gap-1">
+<span>Audit History Archive</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Right Column: 55% Active Ticket Investigation Dossier -->
+<div class="xl:col-span-7 flex flex-col gap-space-md">
+<!-- Main Dossier Card -->
+<div class="bg-surface-container/90 backdrop-blur-xl rounded-xl p-space-lg flex flex-col gap-space-lg shadow-xl relative">
+<!-- Dossier Header -->
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-space-md pb-space-md bg-surface-container-lowest/40 -mx-space-lg -mt-space-lg p-space-lg rounded-t-xl">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-space-xs py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm font-bold uppercase tracking-wide">Primary Dossier</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Dispute #CMP-9921</span>
+<span class="text-outline">|</span>
+<span class="font-body-sm text-body-sm text-primary font-mono">Associated Booking: #LSP-2025-88392</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Service Class: Residential Electrical & Heavy Ceiling Fan Anchor Fastening</span>
+</div>
+<!-- Priority & Direct Settlement Tag -->
+<div class="flex sm:flex-col items-end gap-1">
+<span class="px-space-sm py-1 rounded-full bg-error-container/30 text-error font-label-sm text-label-sm flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-sm">flag</span> HIGH TARIFF VARIANCE
+              </span>
+<span class="font-label-sm text-label-sm text-outline">Direct Cash Settlement</span>
+</div>
+</div>
+<!-- Involved Parties Comparison Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Customer Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Complainant (Customer)</span>
+<span class="px-space-xs py-0.5 rounded bg-tertiary-container/20 text-tertiary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">shield</span> Trust Score: 98.4
+                </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-secondary font-headline-sm font-bold">
+                  RV
+                </div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Rohit Verma</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hyderabad, Madhapur • Zone 4</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">Direct UPI: rohit.verma@oksbi</span>
+</div>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant pt-1 bg-surface-container/40 p-2 rounded-lg flex items-center justify-between">
+<span>Total platform bookings: 14</span>
+<span class="text-tertiary">Zero past dispute abuse</span>
+</div>
+</div>
+<!-- Technician Card -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Respondent (Provider)</span>
+<span class="px-space-xs py-0.5 rounded bg-primary/10 text-primary font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span> 4.85 ★ (290 jobs)
+                </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-headline-sm font-bold">
+                  SP
+                </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Santosh Pandey</span>
+<span class="material-symbols-outlined text-tertiary text-sm" title="Identity Verified">verified</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Master Electrician & Fitter</span>
+<span class="font-label-sm text-label-sm text-outline font-mono">UPI ID: pandey.electric@okaxis</span>
+</div>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant pt-1 bg-surface-container/40 p-2 rounded-lg flex items-center justify-between">
+<span>Active Demerit Level: 0 Strikes</span>
+<span class="text-primary">Direct Settlement Active</span>
+</div>
+</div>
+</div>
+<!-- Customer Statement Callout -->
+<div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-xl">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-error text-base">format_quote</span>
+<span>Customer Grievance Statement</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface bg-surface-container-lowest/60 p-space-md rounded-lg italic">
+              “Technician installed replacement anchor bolt but initially quoted ₹280 on verbal notice instead of ₹120 listed in verified wholesale catalog without physical retail invoice. When asked for catalog tariff matching, technician insisted on additional ₹160 unitemized convenience fee directly collected via cash.”
+            </p>
+</div>
+<!-- Uploaded Evidence Gallery (Split Customer vs Technician) -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Audited Documentary Evidence (2 Artifacts)</span>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified</span> EXIF & Timestamp Validated
+              </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<!-- Evidence 1: Customer Photo -->
+<div class="group rounded-xl bg-surface-container-low p-space-sm flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="relative w-full h-40 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Close up photograph of a handwritten work receipt note showing verbal tariff quote of two hundred eighty rupees scribbled on paper, resting on a wooden workbench under harsh warm ambient workshop lighting with crisp dark metallic textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM7U8OUMB8NkldpuvXgjW5IytP_yuau-sLXbFoWscPxeTQ02EcxNiW8_VRFOICdks_7x9jzGP18rWTRW_QamgB2n45kIbc5Yw8UOkfBYE-qdQ_Xi3nDKykNlgWjpo2MiqX15AE1YHXX60vP7yCF9qwARl577VDE_k3gZOvt2KLGGQFwvQShiH0VQiQpS5YVDbQXSZ4FQjUemV9-RFuarGvsjq2SF7xzfMmt3Zy1SrA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<span class="absolute bottom-2 left-2 px-space-xs py-0.5 rounded bg-surface-container-highest/90 text-on-surface font-label-sm text-label-sm">
+                    verbal_quote_note.jpg
+                  </span>
+<span class="absolute top-2 right-2 px-space-xs py-0.5 rounded bg-secondary-container text-secondary font-label-sm text-label-sm">
+                    Customer Upload
+                  </span>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant px-1">
+<span>Logged: 14:12 IST</span>
+<span class="text-error font-medium">Claimed: ₹280.00</span>
+</div>
+</div>
+<!-- Evidence 2: Technician Bill -->
+<div class="group rounded-xl bg-surface-container-low p-space-sm flex flex-col gap-space-xs hover:bg-surface-container-high transition-colors">
+<div class="relative w-full h-40 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Digital scan photo of a retail hardware store spare parts cash memo receipt showing printed anchor fastener line item marked at MRP 120 rupees with official blue merchant stamp on crisp white paper under cool warehouse lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIilboR_zX1BeMiHw6E5N6gGOxli5QlTB95ja_6KUxZJ7E35cxUiJmeSeCkH5cSmLqQ4UCPtvkpa-a7pkbFHY0bwqXFGtzZFPeUUBy2-qzefcpB_E4HtaWwRSIwfk0LW3D4fhNlLANRBm81GhDm-kNBotjKwsHt6Ov-APTclL821BRVOmErcuwiB4PXSQWtDwp6aB8xlgwXN0p8zaiEA0COfL80PjKesFr09K0pBbL"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<span class="absolute bottom-2 left-2 px-space-xs py-0.5 rounded bg-surface-container-highest/90 text-on-surface font-label-sm text-label-sm">
+                    hardware_store_bill.jpg
+                  </span>
+<span class="absolute top-2 right-2 px-space-xs py-0.5 rounded bg-tertiary-container/80 text-on-tertiary-container font-label-sm text-label-sm">
+                    Verified MRP: ₹120.00
+                  </span>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant px-1">
+<span>Merchant: Om Hardware</span>
+<span class="text-tertiary font-medium">Catalog Compliant</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Administrative Remedial Resolution Actions -->
+<div class="flex flex-col gap-space-md pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Remedial Resolution Actions</span>
+<span class="font-label-sm text-label-sm text-primary font-mono">AUDIT PROTOCOL ENFORCEMENT</span>
+</div>
+<!-- Radio Options Stack -->
+<div class="flex flex-col gap-space-xs">
+<!-- Option 1: Selected Direct Tariff Refund -->
+<label class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-high cursor-pointer shadow-sm relative overflow-hidden transition-all">
+<div class="pt-0.5">
+<input checked="" class="w-4 h-4 accent-primary-container cursor-pointer" name="mediation_action" type="radio" value="refund"/>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-primary font-bold">Option 1: Direct Tariff Re-adjustment</span>
+<span class="px-space-xs py-0.5 rounded bg-primary-container/20 text-primary-container font-label-sm text-label-sm font-mono font-bold">Refund Variance: ₹160.00</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                    Direct technician to refund variance (₹160.00) directly via UPI to customer. Both parties must submit UPI UTR transaction reference for ticket clearance.
+                  </p>
+</div>
+</label>
+<!-- Option 2: Free Mandatory Revisit -->
+<label class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-high/60 cursor-pointer transition-all">
+<div class="pt-0.5">
+<input class="w-4 h-4 accent-primary-container cursor-pointer" name="mediation_action" type="radio" value="revisit"/>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Option 2: Schedule Free Mandatory Revisit</span>
+<span class="text-label-sm font-label-sm text-outline">Workmanship Rectification</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                    Order mandatory return inspection at provider expense. Validated for incomplete sealing, wiring loose ends, or mechanical misalignment.
+                  </p>
+</div>
+</label>
+<!-- Option 3: Formal Strike -->
+<label class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-high/60 cursor-pointer transition-all">
+<div class="pt-0.5">
+<input class="w-4 h-4 accent-primary-container cursor-pointer" name="mediation_action" type="radio" value="strike"/>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Option 3: Issue Formal Provider Compliance Demerit Strike</span>
+<span class="px-space-xs py-0.5 rounded bg-error/10 text-error font-label-sm text-label-sm">3 Strikes = Deactivation</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                    Log permanent misconduct flag against Santosh Pandey. Automatically reduces marketplace ranking visibility by 35% for 30 calendar days.
+                  </p>
+</div>
+</label>
+<!-- Option 4: Dismiss -->
+<label class="flex items-start gap-space-sm p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container-high/60 cursor-pointer transition-all">
+<div class="pt-0.5">
+<input class="w-4 h-4 accent-primary-container cursor-pointer" name="mediation_action" type="radio" value="dismiss"/>
+</div>
+<div class="flex flex-col flex-1">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Option 4: Dismiss Grievance</span>
+<span class="text-label-sm font-label-sm text-outline">Exonerate Technician</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                    Evidence validates compliant billing. Charges align with verified emergency hourly rates or authentic hardware procurement receipts.
+                  </p>
+</div>
+</label>
+</div>
+<!-- Admin Resolution Decision Log -->
+<div class="flex flex-col gap-space-xs mt-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5" for="admin-log">
+<span class="material-symbols-outlined text-primary text-base">edit_note</span>
+<span>Admin Resolution Decision Log & Mandatory Dispatch Directives</span>
+</label>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Auto-logged to Blockchain Ledger
+                </span>
+</div>
+<textarea class="w-full bg-surface-container-lowest text-on-surface font-body-sm text-body-sm rounded-xl p-space-md focus:outline-none focus:bg-surface-container-low transition-colors leading-relaxed" id="admin-log" rows="3">Audited physical invoice uploaded in booking record. Validated that hardware retail price was ₹120. Technician admitted misunderstanding on additional labor. Directed direct payment adjustment review of ₹160 to customer.</textarea>
+</div>
+<!-- Resolution Status Selector & Actions -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md pt-space-xs">
+<!-- Status Update Dropdown -->
+<div class="flex flex-col gap-1 min-w-[240px]">
+<label class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Lifecycle Status Mutation</label>
+<div class="relative">
+<select class="w-full h-11 bg-surface-container-low text-on-surface font-label-md text-label-md rounded-lg pl-3 pr-8 appearance-none focus:outline-none focus:bg-surface-container-high transition-colors">
+<option selected="" value="resolved">Mark Resolved & Close Dispute</option>
+<option value="mediation">Keep in Mediation In-Progress</option>
+<option value="escalated">Escalate to Legal & Field Audit</option>
+<option value="pending_upi">Awaiting UPI Settlement Proof</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2.5 top-2.5 text-on-surface-variant text-base">expand_more</span>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="flex flex-col sm:flex-row items-center gap-space-sm pt-4 sm:pt-0">
+<button class="w-full sm:w-auto h-11 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base">contact_support</span>
+<span>Request Clarification</span>
+</button>
+<button class="w-full sm:w-auto h-11 px-space-lg rounded-lg bg-primary-container hover:bg-primary-container/90 text-on-primary font-label-md text-label-md font-bold tracking-wide transition-all shadow-lg shadow-primary-container/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Submit Formal Resolution</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Direct Settlement Mediation Disclaimer Footer -->
+<div class="mt-space-sm p-space-sm rounded-lg bg-surface-container-lowest/80 flex items-center gap-space-sm text-label-sm font-label-sm text-outline">
+<span class="material-symbols-outlined text-primary text-base flex-shrink-0">info</span>
+<span>
+<strong>Statutory Operational Notice:</strong> LSP Connect acts strictly as an administrative mediator and rate auditor. Funds are settled directly between parties. Platform holds zero customer funds in custodial escrow.
+            </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest py-space-md"><div class="w-full px-margin flex flex-col sm:flex-row items-center justify-between gap-space-sm text-on-surface-variant font-body-sm text-body-sm"><div>© 2025 LSP Connect Local Service Provider Network. Admin Core Node.</div><div class="flex items-center gap-space-md font-label-sm text-label-sm"><span class="text-tertiary">System Integrity: Optimal (99.98%)</span><span class="text-outline">Zero-Commission Direct Settlement Mode</span><span>Kernel v4.19-audit</span></div></div></footer>
+<script src="/runtime.js" defer></script>
+</body></html>
