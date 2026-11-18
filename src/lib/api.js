@@ -463,6 +463,8 @@ export async function createBooking(input) {
     .join('\n\n');
 
   const base = {
+    // Supply an id so the insert also works when the table has no column default.
+    id: clientToken,
     client_token: clientToken,
     customer_id: input.customerId,
     service_id: input.serviceId || null,
