@@ -9,8 +9,41 @@ const DIST = path.resolve('dist');
 const PORT = Number(process.env.PORT || 3000);
 const HOST = '0.0.0.0';
 
-const supabaseUrl = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL || '';
-const supabaseAnonKey = process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY || '';
+// Some hosts provide configuration through an env file rather than process.env.
+// Read the usual locations so the app works in either setup.
+const ENV_FILES = [process.env.LSP_ENV_FILE, '/app/.env', './.env', '/.env', '/run/appjet/env'].filter(Boolean);
+const fileEnv = {};
+const foundEnvFiles = [];
+for (const file of ENV_FILES) {
+  try {
+    if (!fs.existsSync(file)) continue;
+    foundEnvFiles.push(file);
+    for (const line of fs.readFileSync(file, 'utf8').split('\n')) {
+      const match = line.match(/^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*)\s*$/);
+      if (!match) continue;
+      fileEnv[match[1]] = match[2].replace(/^['"]|['"]$/g, '');
+    }
+  } catch {
+    // ignore unreadable candidates
+  }
+}
+
+const readEnv = (...names) => {
+  for (const name of names) {
+    const value = process.env[name] || fileEnv[name];
+    if (value) return value;
+  }
+  return '';
+};
+
+const supabaseUrl = readEnv('SUPABASE_URL', 'VITE_SUPABASE_URL');
+const supabaseAnonKey = readEnv('SUPABASE_ANON_KEY', 'VITE_SUPABASE_ANON_KEY');
+
+console.log(
+  `[lsp-connect] env sources: process.env SUPABASE_URL=${Boolean(process.env.SUPABASE_URL)} ` +
+    `SUPABASE_ANON_KEY=${Boolean(process.env.SUPABASE_ANON_KEY)}; files=${foundEnvFiles.join(',') || 'none'}; ` +
+    `resolved=${Boolean(supabaseUrl && supabaseAnonKey)}`,
+);
 
 fs.writeFileSync(
   path.join(DIST, 'config.js'),
