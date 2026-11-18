@@ -29,8 +29,8 @@ const { supabase } = await import('../src/lib/supabaseClient.js');
 const api = await import('../src/lib/api.js');
 
 const DEMO_PASSWORD = process.env.DEMO_PASSWORD || 'LspConnect#2026';
-const customerEmail = process.env.DEMO_CUSTOMER_EMAIL || 'demo.customer@lspconnect.app';
-const providerEmail = process.env.DEMO_PROVIDER_EMAIL || 'demo.provider@lspconnect.app';
+const customerEmail = process.env.DEMO_CUSTOMER_EMAIL || 'lspconnect.demo.customer@gmail.com';
+const providerEmail = process.env.DEMO_PROVIDER_EMAIL || 'lspconnect.demo.provider@gmail.com';
 
 const results = [];
 const record = (name, ok, detail = '') => {
