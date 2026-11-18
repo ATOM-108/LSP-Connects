@@ -87,3 +87,25 @@ public/screens/     original 35-screen design reference (kept for the report)
 
 `picomatch@4.0.7` (transitive through Vite, build-time only) has an open ReDoS
 advisory with no fixed release yet. It is not shipped to the browser bundle.
+
+## Demo accounts without waiting for email
+
+If **Confirm email** is enabled in Supabase (Authentication → Providers → Email), a
+normal sign-up returns no session, so nobody can log in to demonstrate the app.
+
+Run `supabase/demo-accounts.sql` once in the Supabase **SQL Editor**. It creates two
+accounts that are already confirmed, so they log in immediately — no email is sent
+and no project setting has to change:
+
+| Role | Email | Password |
+| --- | --- | --- |
+| Customer | `demo.customer@lspconnect.app` | `Demo@2026` |
+| Provider | `demo.provider@lspconnect.app` | `Demo@2026` |
+
+The script is additive and idempotent: no `DROP`/`DELETE`/`TRUNCATE`, and re-running
+it is safe. The provider also gets a `provider_profiles` row and a `provider_skills`
+row so it appears in category browsing and can receive bookings.
+
+To demo the full flow: sign in as the customer, browse the category, open the demo
+provider and book it; then sign in as the provider in a second browser (or private
+window), accept the booking, and refresh the customer view to see the new status.

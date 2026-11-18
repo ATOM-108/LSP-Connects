@@ -106,7 +106,7 @@ begin
   -- 4. Provider profile (this row is what makes the provider appear in browse)
   -- --------------------------------------------------------------------------
   insert into public.provider_profiles (user_id, business_name, city, is_available, verification_status, experience_years)
-  values (v_provider, 'Demo Pluming Co', 'Nairobi', true, 'verified', 5)
+  values (v_provider, 'Demo Plumbing Co', 'Nairobi', true, 'verified', 5)
   on conflict (user_id) do update set
     business_name = excluded.business_name,
     city          = excluded.city,
