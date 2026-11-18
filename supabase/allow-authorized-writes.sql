@@ -474,7 +474,29 @@ grant select, insert, update, delete on all tables in schema public to authentic
 grant select on public.service_categories, public.provider_profiles, public.services, public.provider_skills to anon;
 
 -- ---------------------------------------------------------------------------
--- 15. Check it worked (optional — run on its own afterwards)
+-- 15. Verification — prints a summary so you can confirm it worked
+--     (read-only SELECTs; they change nothing)
 -- ---------------------------------------------------------------------------
--- select tablename, policyname, cmd from pg_policies
---  where schemaname = 'public' order by tablename, policyname;
+select 'policies created' as check, count(*)::text as value
+  from pg_policies
+ where schemaname = 'public' and policyname like 'lsp\_%';
+
+select 'tables with RLS enabled' as check, count(*)::text as value
+  from pg_class c
+  join pg_namespace n on n.oid = c.relnamespace
+ where n.nspname = 'public' and c.relkind = 'r' and c.relrowsecurity;
+
+select 'bookings write columns' as check,
+       string_agg(column_name, ', ' order by column_name) as value
+  from information_schema.columns
+ where table_schema = 'public' and table_name = 'bookings'
+   and column_name in ('customer_id','city','issue_description',
+                       'service_address','category_id','updated_at');
+
+select 'write access by table' as check,
+       tablename || ' -> ' || string_agg(distinct cmd, '/' order by cmd) as value
+  from pg_policies
+ where schemaname = 'public' and policyname like 'lsp\_%'
+   and cmd in ('INSERT','UPDATE','ALL')
+ group by tablename
+ order by tablename;
