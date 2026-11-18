@@ -13,6 +13,18 @@ if (!URL_ || !KEY) {
 }
 globalThis.window = { __LSP_CONFIG__: { supabaseUrl: URL_, supabaseAnonKey: KEY } };
 
+// Node 20 has no global WebSocket; supabase-js requires one at client construction.
+// This script never opens a realtime channel, so a no-op stub is enough.
+if (typeof globalThis.WebSocket === 'undefined') {
+  globalThis.WebSocket = class {
+    constructor() {}
+    addEventListener() {}
+    removeEventListener() {}
+    send() {}
+    close() {}
+  };
+}
+
 const { supabase } = await import('../src/lib/supabaseClient.js');
 const api = await import('../src/lib/api.js');
 
