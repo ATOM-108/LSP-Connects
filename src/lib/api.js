@@ -7,6 +7,7 @@ import {
   normalizeAddress,
   normalizeSkill,
   normalizeBooking,
+  normalizeBookingType,
   bookingBelongsToCustomer,
   bookingBelongsToProvider,
   pick,
@@ -462,16 +463,17 @@ export async function getBooking(bookingId) {
   return normalizeBooking(rows.find((row) => String(row.id) === String(bookingId)) || null);
 }
 
-export async function createBooking(input) {
-  const clientToken =
-    typeof crypto !== 'undefined' && crypto.randomUUID
-      ? crypto.randomUUID()
-      : `token-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+function randomToken() {
+  return typeof crypto !== 'undefined' && crypto.randomUUID
+    ? crypto.randomUUID()
+    : `token-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
 
-  // The existing bookings table stores the problem in `issue_description`. When it
-  // has no date/time columns the requested slot is kept in that text so nothing the
-  // customer entered is ever lost.
-  const hasSchedule = await supportsBookingSchedule();
+// Pure builder so the exact insert payload can be checked without a database.
+// The existing bookings table stores the problem in `issue_description`. When it
+// has no date/time columns the requested slot is kept in that text so nothing the
+// customer entered is ever lost.
+export function buildBookingPayload(input, { hasSchedule = false, clientToken = randomToken() } = {}) {
   const requestedSlot = [input.date, input.time].filter(Boolean).join(' at ');
   const descriptionText = [input.description, hasSchedule || !requestedSlot ? '' : `Requested: ${requestedSlot}`]
     .filter(Boolean)
@@ -487,11 +489,22 @@ export async function createBooking(input) {
     service_address: input.address,
     issue_description: descriptionText,
     status: 'pending',
+    // Required by the bookings table (TEXT NOT NULL, no default). insertRow()
+    // drops it automatically on databases that do not have the column yet.
+    booking_type: normalizeBookingType(input.bookingType),
   };
   if (hasSchedule) {
     base.scheduled_date = input.date;
     base.scheduled_time = input.time;
   }
+
+  return base;
+}
+
+export async function createBooking(input) {
+  const clientToken = randomToken();
+  const hasSchedule = await supportsBookingSchedule();
+  const base = buildBookingPayload(input, { hasSchedule, clientToken });
 
   // provider_id may reference the provider's auth user id or the profile row.
   const variants = [

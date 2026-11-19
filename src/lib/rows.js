@@ -49,6 +49,20 @@ export function normalizeStatus(value) {
   return map[text] || text;
 }
 
+export const BOOKING_TYPES = {
+  regular: 'Regular',
+  quick: 'Quick Service',
+};
+
+// The bookings table requires a booking type (TEXT NOT NULL, no default), so the
+// value written must always be one of the two canonical options the UI offers.
+export function normalizeBookingType(value) {
+  const text = String(value || '').trim().toLowerCase();
+  if (!text) return BOOKING_TYPES.regular;
+  if (/(quick|urgent|asap|immediate|emergency|now)/.test(text)) return BOOKING_TYPES.quick;
+  return BOOKING_TYPES.regular;
+}
+
 export const STATUS_META = {
   pending: { label: 'Pending', tone: 'warn', step: 1 },
   accepted: { label: 'Accepted', tone: 'info', step: 2 },
@@ -161,6 +175,7 @@ export function normalizeBooking(row) {
     address: pick(row, 'service_address', 'address', 'address_line', 'location', 'address_text') || '',
     description: pick(row, 'description', 'problem_description', 'notes', 'issue_description', 'details') || '',
     amount: pick(row, 'amount', 'total_amount', 'price', 'estimated_amount', 'quoted_amount') ?? null,
+    bookingType: pick(row, 'booking_type', 'bookingType', 'booking_mode') || '',
     status: normalizeStatus(rawStatus),
     rawStatus,
     rejectionReason: pick(row, 'rejection_reason', 'reject_reason', 'cancellation_reason', 'status_reason') || '',
