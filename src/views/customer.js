@@ -12,7 +12,7 @@ import {
   createBooking,
   updateBookingStatus,
 } from '../lib/api.js';
-import { addressLine } from '../lib/rows.js';
+import { addressLine, normalizeBookingType } from '../lib/rows.js';
 import { friendlyError } from '../lib/auth.js';
 import {
   esc,
@@ -416,6 +416,8 @@ export async function renderBookingForm(ctx) {
   const services = await listProviderServices(provider.id).catch(() => []);
   const defaultAddress = addresses.find((address) => address.isDefault) || addresses[0];
   const today = new Date().toISOString().slice(0, 10);
+  // ?type=quick (or any quick/urgent wording) opens the form on Quick Service.
+  const initialType = normalizeBookingType(ctx.query.get('type') || '');
 
   return {
     title: `Book ${providerLabel(provider)}`,
@@ -441,6 +443,15 @@ export async function renderBookingForm(ctx) {
               <label for="time">Preferred time</label>
               <input class="input" id="time" name="time" type="time" required />
             </div>
+          </div>
+
+          <div class="field">
+            <label for="bookingType">Booking type</label>
+            <select class="input" id="bookingType" name="bookingType">
+              <option value="Regular" ${initialType === 'Regular' ? 'selected' : ''}>Regular — scheduled date and time</option>
+              <option value="Quick Service" ${initialType === 'Quick Service' ? 'selected' : ''}>Quick Service — same-day request</option>
+            </select>
+            <span class="hint">Quick Service requests are sent to the provider immediately.</span>
           </div>
 
           ${
@@ -553,6 +564,7 @@ export async function renderBookingForm(ctx) {
           return;
         }
 
+        const bookingType = normalizeBookingType(form.bookingType?.value || initialType);
         const serviceSelect = form.serviceId;
         const selectedService = services.find((service) => String(service.id) === String(serviceSelect?.value));
         const button = form.querySelector('[data-submit]');
@@ -570,6 +582,7 @@ export async function renderBookingForm(ctx) {
             time,
             address,
             description,
+            bookingType,
             amount: selectedService?.price ?? null,
           });
 
