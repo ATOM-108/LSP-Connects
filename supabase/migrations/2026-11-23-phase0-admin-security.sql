@@ -1,23 +1,35 @@
 -- ============================================================================
 -- LSP CONNECT — PHASE 0: ADMIN SECURITY FOUNDATION
--- STATUS: PROPOSAL ONLY — REVIEWED BUT NOT APPLIED
+-- STATUS: PROPOSAL ONLY — CORRECTED AFTER REVIEW — NOT APPLIED
 -- ----------------------------------------------------------------------------
 -- DO NOT RUN until the review document has been approved.
 -- Nothing in this file has been executed against the live database.
 --
 -- SCOPE
 --   * Fix role privilege escalation on public.profiles.
---   * Create the admin authorization helpers used by RLS.
+--   * Create/upgrade the admin authorization helpers used by RLS.
 --   * Stop providers from self-approving their own verification status.
 --   * Add a role-value constraint.
+--   * Guarantee a correct provider_profiles INSERT policy exists.
 --   * NO table drops, NO data deletion, NO column removals, NO RLS weakening.
+--
+-- CORRECTION NOTICE (review round 2)
+--   The first draft of this file said the provider_profiles policies "could
+--   never have been created" because they reference a column named `id`. That
+--   is true of supabase/schema.sql, but NOT of what is live:
+--   supabase/allow-authorized-writes.sql (the script that was actually
+--   delivered and applied) defines lsp_providers_insert and lsp_providers_update
+--   against `user_id = auth.uid()`, which is correct. The INSERT path is
+--   therefore already working, and this file now only re-asserts it (B4.0) so
+--   the migration is safe on BOTH databases: one built by
+--   allow-authorized-writes.sql, and one built by a partial schema.sql attempt.
+--   The same correction applies to `services` — see B6.
 --
 -- SAFETY MODEL
 --   * Idempotent: every object is created with IF NOT EXISTS /
 --     CREATE OR REPLACE / DROP ... IF EXISTS before CREATE.
---   * Additive: no existing policy is deleted except the four named lsp_*
---     policies that this file immediately recreates with equal-or-stricter
---     logic.
+--   * Additive: no existing policy is deleted except the lsp_* policies that
+--     this file immediately recreates with equal-or-stricter logic.
 --   * Reversible: see SECTION D (ROLLBACK).
 --
 -- RUN ORDER
@@ -36,8 +48,8 @@
 -- SECTION A — PRE-FLIGHT INSPECTION (READ-ONLY, CHANGES NOTHING)
 -- ----------------------------------------------------------------------------
 -- Run these first and keep the output. They tell us what the live database
--- actually contains, because the two SQL scripts in supabase/ disagree with
--- each other and with the live schema.
+-- actually contains, because the SQL scripts in supabase/ disagree with each
+-- other and with the live schema.
 -- ============================================================================
 
 -- A1. Every RLS policy that currently exists on the public schema.
@@ -49,32 +61,37 @@ where schemaname = 'public'
 order by tablename, policyname;
 
 -- A2. Is RLS enabled (and forced) on every table?
---     relforcerowsecurity must stay false on public.profiles: the SECURITY
---     DEFINER helpers below depend on the owner bypassing RLS.
+--     relforcerowsecurity MUST stay false on public.profiles: the SECURITY
+--     DEFINER helpers below depend on the owner bypassing RLS. If it is true,
+--     the helpers recurse and every profile read fails with 42P17.
 select c.relname,
-       c.relrowsecurity  as rls_enabled,
+       c.relrowsecurity      as rls_enabled,
        c.relforcerowsecurity as rls_forced
 from pg_class c
 join pg_namespace n on n.oid = c.relnamespace
 where n.nspname = 'public' and c.relkind = 'r'
 order by c.relname;
 
--- A3. Which role values exist today? Anything outside customer/provider/admin
---     is legacy data that the new constraint will not validate (NOT VALID).
-select role, count(*) as accounts
+-- A3. Which role values exist today, including NULLs?
+select coalesce(role, '(null)') as role, count(*) as accounts
 from public.profiles
 group by role
 order by accounts desc;
 
--- A4. Do the admin helper functions already exist, and are they SECURITY DEFINER
---     with a pinned search_path?
-select p.proname, p.prosecdef as security_definer, p.proconfig as pinned_settings
+-- A4. Do the admin helper functions already exist? Who owns them, are they
+--     SECURITY DEFINER, and do they pin their search_path?
+--     `proowner` matters: a helper owned by a role that is NOT the table owner
+--     does not bypass RLS and will recurse.
+select p.proname,
+       p.proowner::regrole   as owner,
+       p.prosecdef           as security_definer,
+       p.proconfig           as pinned_settings
 from pg_proc p
 join pg_namespace n on n.oid = p.pronamespace
 where n.nspname = 'public' and p.proname like 'lsp\_%'
 order by p.proname;
 
--- A5. What can the `authenticated` role actually write on public.profiles?
+-- A5. What can anon/authenticated actually write on public.profiles?
 --     If UPDATE on the `role` column is listed here, escalation is live.
 select grantee, privilege_type, column_name
 from information_schema.column_privileges
@@ -91,6 +108,36 @@ join pg_namespace n on n.oid = c.relnamespace
 where n.nspname = 'public' and not t.tgisinternal
 order by c.relname, t.tgname;
 
+-- A7. THE PROVIDER INSERT QUESTION. Does a provider_profiles INSERT policy
+--     exist, and does it use the real key column (user_id) or the absent `id`?
+--     Expect one row named lsp_providers_insert whose with_check contains
+--     "user_id = ( SELECT auth.uid() ...)".
+--     * Row present with user_id  -> provider registration is fine.
+--     * Row present with id       -> impossible; such a policy could not compile.
+--     * No row at all             -> provider registration is DENIED by RLS and
+--                                    B4.0 below is required, not optional.
+select policyname, cmd, roles, qual, with_check
+from pg_policies
+where schemaname = 'public'
+  and tablename = 'provider_profiles'
+order by policyname;
+
+-- A8. THE SERVICES QUESTION. The live policy is expected to be permissive
+--     (`using (true) with check (true)`), not broken. Confirm its real shape.
+select policyname, cmd, roles, qual, with_check
+from pg_policies
+where schemaname = 'public'
+  and tablename = 'services'
+order by policyname;
+
+-- A9. Invalid legacy role values that a NOT VALID constraint will tolerate but
+--     that will block any future UPDATE of those specific rows.
+select id, email, role
+from public.profiles
+where role is null
+   or role not in ('customer', 'provider', 'admin')
+order by role nulls first, email;
+
 
 -- ============================================================================
 -- SECTION B — MIGRATION
@@ -101,13 +148,18 @@ begin;
 -- ----------------------------------------------------------------------------
 -- B1. Role values must be one of the three known roles.
 -- ----------------------------------------------------------------------------
--- The audit assumed an `app_role` enum. It does not exist: profiles.role is
--- plain `text not null default 'customer'` with no constraint anywhere in the
--- repository. This adds the missing guard.
+-- The audit brief assumed an `app_role` enum. It does not exist: profiles.role
+-- is plain `text` (default 'customer') with no constraint in any repository
+-- script. This adds the missing guard.
 --
--- NOT VALID is deliberate: it is enforced for every new INSERT/UPDATE but does
--- not scan or reject existing rows, so it cannot fail on legacy data and cannot
+-- NOT VALID is deliberate: enforced for every new INSERT/UPDATE but does not
+-- scan or reject existing rows, so it cannot fail on legacy data and cannot
 -- modify a single record.
+--
+-- NOTE ON SQL SEMANTICS: a CHECK passes when the expression is NULL, so a NULL
+-- role is not rejected here. B3 coerces NULL to 'customer' on INSERT, and the
+-- profiles INSERT policy rejects it, so no NULL row can be created going
+-- forward. Existing NULL rows are reported by A3/A9 and left untouched.
 do $$
 begin
   if not exists (
@@ -131,13 +183,18 @@ end $$;
 -- PostgreSQL error 42P17). Running as the table owner bypasses RLS, so the
 -- lookup is evaluated exactly once with no recursion.
 --
--- Mitigations applied to both functions:
+-- These statements UPGRADE the versions created by
+-- supabase/allow-authorized-writes.sql, which pinned only `search_path = public`
+-- and left EXECUTE granted to PUBLIC/anon. CREATE OR REPLACE is a no-op when
+-- the objects are already identical.
+--
+-- Mitigations applied to all three functions:
 --   * `set search_path = pg_catalog, public` — prevents object shadowing.
 --   * Every identifier schema-qualified (public.profiles, auth.uid()).
 --   * `stable` — one evaluation per statement, not per row.
 --   * EXECUTE revoked from PUBLIC and anon, granted only to authenticated.
---   * Returns a scalar / boolean, never a row or a table of other users' data,
---     so it cannot be abused as a data-reading oracle.
+--   * Returns a scalar / boolean / the caller's own uuid, never another user's
+--     data, so it cannot be abused as a reading oracle.
 
 create or replace function public.lsp_role()
 returns text
@@ -166,8 +223,9 @@ as $$
   );
 $$;
 
--- Provider identity helper. Already referenced by the provider_documents policy
--- recreated in B4, and by the services/provider_skills policies in schema.sql.
+-- Provider identity helper. Referenced by the provider_documents and
+-- provider_skills policies, and recreated here so its definition is guaranteed
+-- to match the live table's real key (user_id).
 create or replace function public.lsp_provider_ids()
 returns setof uuid
 language sql
@@ -214,11 +272,10 @@ grant execute on function public.lsp_provider_ids() to authenticated;
 --     rather than raising, so legitimate profile saves that echo `role` in the
 --     payload keep succeeding.
 --
---   Note the admin branch is intentionally absent from the UPDATE path. If
---   admins could change role from the client, ensureProfile() would demote an
---   admin on their next login (it sends the metadata role, typically
---   'customer'). Privileged role changes go through service_role or
---   lsp_admin_set_role() below — never through the session's own row.
+--   The admin branch is intentionally absent from the UPDATE path. If admins
+--   could change role from the client, ensureProfile() would demote an admin on
+--   their next login (it sends the metadata role, typically 'customer').
+--   Privileged role changes go through service_role or the SQL editor only.
 
 create or replace function public.lsp_guard_profile_role()
 returns trigger
@@ -266,12 +323,28 @@ create trigger lsp_guard_profile_role
 
 
 -- ----------------------------------------------------------------------------
--- B4. Policy changes (only four, all named lsp_*).
+-- B4. Policy changes (all named lsp_*, each recreated equal-or-stricter).
 -- ----------------------------------------------------------------------------
 -- Everything not listed here keeps its current definition. In particular the
 -- bookings, customer_addresses, notifications and provider_profiles SELECT
 -- policies are NOT touched, because the customer and provider modules depend on
 -- them exactly as they are.
+
+-- B4.0 provider_profiles INSERT — guarantee a correct definition exists.
+--      api.js createProviderProfile() inserts { user_id, business_name,
+--      service_category_id, years_experience, city, hourly_rate, bio,
+--      is_available, verification_status:'pending' }, so the predicate must be
+--      on user_id. The live policy (from allow-authorized-writes.sql) already
+--      matches this; re-creating it is a no-op there and repairs a database
+--      where only the broken schema.sql variant was attempted (which references
+--      a non-existent `id` column and therefore creates no policy at all,
+--      leaving provider registration denied by RLS).
+drop policy if exists lsp_providers_insert on public.provider_profiles;
+create policy lsp_providers_insert on public.provider_profiles for insert to authenticated
+  with check (
+    user_id = (select auth.uid())
+    or public.lsp_is_admin()
+  );
 
 -- B4.1 profiles INSERT — a self-created profile may never be privileged.
 --      (Previously: `with check (id = auth.uid())` only.)
@@ -282,10 +355,10 @@ create policy lsp_profiles_insert on public.profiles for insert to authenticated
     and role in ('customer', 'provider')
   );
 
--- B4.2 provider_profiles UPDATE — the original definition referenced a column
---      that does not exist in the live table (`id`), so it could never have
---      been created. Rewritten against the real primary key (user_id) and
---      extended with the admin branch needed for verification decisions.
+-- B4.2 provider_profiles UPDATE — rewritten against the real primary key
+--      (user_id) and extended with the admin branch needed for verification
+--      decisions. The old schema.sql definition referenced `id`, which does not
+--      exist; the live one already used user_id.
 drop policy if exists lsp_providers_update on public.provider_profiles;
 create policy lsp_providers_update on public.provider_profiles for update to authenticated
   using (
@@ -310,11 +383,18 @@ create policy lsp_documents_owner on public.provider_documents for all to authen
     or public.lsp_is_admin()
   );
 
--- B4.4 provider_profiles UPDATE guard — a provider must not approve themselves.
---      The policy above deliberately still lets a provider edit their own row
---      (business name, availability, city...). This trigger pins the one field
---      that decides verification. Coercion instead of an exception on INSERT
---      keeps provider registration working even if the form submits 'approved'.
+-- B4.4 provider_profiles verification guard — a provider must not approve
+--      themselves. The policy above deliberately still lets a provider edit
+--      their own row (business name, availability, city...). This trigger pins
+--      the one field that decides verification.
+--
+--      Coercion instead of an exception on INSERT keeps provider registration
+--      working: createProviderProfile() already sends 'pending', and a form that
+--      submits 'approved' is silently corrected rather than rejected.
+--
+--      A NULL verification_status on INSERT is left alone (the column default
+--      'pending' has already been applied before a BEFORE trigger runs), so the
+--      normal registration path is untouched.
 create or replace function public.lsp_guard_provider_verification()
 returns trigger
 language plpgsql
@@ -367,6 +447,31 @@ create trigger lsp_guard_provider_verification
 --
 -- revoke create on schema public from anon, authenticated;
 
+
+-- ----------------------------------------------------------------------------
+-- B6. DOCUMENTED, NOT CHANGED — public.services is writable by ANY signed-in
+--     user, including customers.
+-- ----------------------------------------------------------------------------
+-- Live definition (from allow-authorized-writes.sql, section 8):
+--
+--     create policy lsp_services_write on public.services for all
+--       to authenticated using (true) with check (true);
+--
+-- This was intentional: it came from the earlier request to let every
+-- authorized user add details to the database, and api.js addProviderService()
+-- / removeProviderService() depend on it. The risk is real but bounded:
+--   * Any customer can INSERT a junk service row, UPDATE any catalogue entry,
+--     or DELETE the entire catalogue (removeProviderService deletes by id).
+--   * It does NOT expose other users' data, bookings, profiles or payments.
+-- Tightening it to provider-owner scope is IMPOSSIBLE on the live table:
+-- `services` has no provider_id column (id, name, description, category_id,
+-- is_active). An owner-scoped policy therefore needs an additive schema change
+-- first, and an admin-only policy would break the provider "manage services"
+-- screen. Neither belongs in Phase 0.
+--
+-- Decision: leave it. Record it as an accepted, documented risk and address it
+-- in a later phase together with the services table change.
+
 commit;
 
 
@@ -374,9 +479,14 @@ commit;
 -- SECTION C — POST-MIGRATION CHECKS (READ-ONLY)
 -- ============================================================================
 
--- C1. Functions exist, are SECURITY DEFINER, and pin their search_path.
---     Expect three rows, security_definer = true, pinned_settings non-null.
-select p.proname, p.prosecdef as security_definer, p.proconfig as pinned_settings
+-- C1. Functions exist, are owned by a role that can bypass RLS, are
+--     SECURITY DEFINER, and pin their search_path.
+--     Expect three rows: security_definer = true, pinned_settings non-null,
+--     owner = postgres (or the same owner as public.profiles).
+select p.proname,
+       p.proowner::regrole as owner,
+       p.prosecdef         as security_definer,
+       p.proconfig         as pinned_settings
 from pg_proc p
 join pg_namespace n on n.oid = p.pronamespace
 where n.nspname = 'public' and p.proname like 'lsp\_%'
@@ -387,18 +497,35 @@ select c.relname, t.tgname, pg_get_triggerdef(t.oid)
 from pg_trigger t
 join pg_class c on c.oid = t.tgrelid
 join pg_namespace n on n.oid = c.relnamespace
-where n.nspname = 'public' and t.tgname like 'lsp\_guard%';
+where n.nspname = 'public' and t.tgname like 'lsp\_guard%'
+order by t.tgname;
 
--- C3. The four recreated policies have the expected shape.
+-- C3. The recreated policies have the expected shape.
+--     lsp_providers_insert and lsp_providers_update must reference user_id,
+--     never `id`.
 select tablename, policyname, cmd, roles, qual, with_check
 from pg_policies
 where schemaname = 'public'
-  and policyname in ('lsp_profiles_insert', 'lsp_providers_update',
-                     'lsp_documents_owner', 'lsp_profiles_update')
+  and policyname in ('lsp_providers_insert', 'lsp_providers_update',
+                     'lsp_profiles_insert', 'lsp_documents_owner')
 order by policyname;
 
 -- C4. Exactly one admin exists (after Phase 1 provisioning).
 select id, email, role from public.profiles where role = 'admin';
+
+-- C5. Execute privileges on the helpers: authenticated only.
+--     Expect three rows for authenticated, and NO rows for anon or PUBLIC.
+select p.proname, a.grantee::text as grantee
+from pg_proc p
+join pg_namespace n on n.oid = p.pronamespace
+cross join lateral aclexplode(coalesce(p.proacl, acldefault('f', p.proowner))) a
+where n.nspname = 'public' and p.proname like 'lsp\_%'
+order by p.proname, grantee;
+
+-- C6. The constraint exists and is NOT VALID (existing rows not yet scanned).
+select conname, convalidated, pg_get_constraintdef(oid) as definition
+from pg_constraint
+where conname = 'profiles_role_allowed';
 
 
 -- ============================================================================
@@ -418,14 +545,18 @@ drop function if exists public.lsp_guard_profile_role();
 
 alter table public.profiles drop constraint if exists profiles_role_allowed;
 
--- Restore the original definitions (from supabase/schema.sql):
+-- Restore the original definitions (from supabase/allow-authorized-writes.sql):
 drop policy if exists lsp_profiles_insert on public.profiles;
 create policy lsp_profiles_insert on public.profiles for insert to authenticated
   with check (id = auth.uid());
 
+drop policy if exists lsp_providers_insert on public.provider_profiles;
+create policy lsp_providers_insert on public.provider_profiles for insert to authenticated
+  with check (user_id = auth.uid() or public.lsp_is_admin());
+
 -- lsp_role(), lsp_is_admin() and lsp_provider_ids() are left in place: they are
--- inert without callers and dropping them would break any policy still using
--- them. Drop them only after every referencing policy is gone.
+-- still referenced by many policies and are inert on their own. Dropping them
+-- would break every policy that calls them.
 
 commit;
 */
