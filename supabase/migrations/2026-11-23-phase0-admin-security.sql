@@ -3,8 +3,9 @@
 -- STATUS: PROPOSAL ONLY — REVISION 5 — NOT APPLIED — NOTHING EXECUTED
 --
 -- REVISION 5 CHANGES (this review round)
---   1. C7 uses count(*) throughout. Verified: the file contains no bare count()
---      (grep 'count()' returns nothing; every aggregate is count(*)).
+--   1. C7 uses count(*) throughout. Verified: no zero-argument aggregate call
+--      remains anywhere in the file; every aggregate in A3, A11b, C2, C4, C7
+--      and C8 is count(*).
 --   2. C2 now expects THREE guard triggers, matching the three triggers Section D
 --      drops. Section B0 lists every object the migration creates; C8 prints that
 --      inventory so the rollback coverage is checkable, not asserted.
@@ -533,3 +534,208 @@ create trigger lsp_guard_document_status before insert or update on public.provi
 --     provider_id = auth.uid() — a schema change needing its own approval.
 
 commit;
+
+
+-- ============================================================================
+-- SECTION C — POST-MIGRATION VERIFICATION (READ-ONLY)
+-- ============================================================================
+
+-- C1. Helpers: SECURITY DEFINER, pinned search_path, owned by the profiles owner.
+select p.proname, p.proowner::regrole as owner, p.prosecdef as security_definer,
+       p.proconfig as pinned_settings,
+       (p.proowner = (select relowner from pg_class where oid = 'public.profiles'::regclass))
+         as owner_matches_profiles
+from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+where n.nspname = 'public' and p.proname like 'lsp\_%' order by p.proname;
+
+-- C2. Guard triggers. Section B creates EXACTLY THREE (B3, B4.4, B4.5) and
+--     Section D drops exactly those three. There is no fourth trigger: Phase 0
+--     installs nothing on bookings, customer_addresses or notifications.
+select count(*) as guard_triggers
+from pg_trigger
+where not tgisinternal
+  and tgname in ('lsp_guard_profile_role',
+                 'lsp_guard_provider_verification',
+                 'lsp_guard_document_status');
+-- Expect: 3.
+
+select c.relname as table_name, t.tgname, t.tgenabled,
+       pg_get_triggerdef(t.oid) as definition
+from pg_trigger t join pg_class c on c.oid = t.tgrelid
+join pg_namespace n on n.oid = c.relnamespace
+where n.nspname = 'public' and t.tgname like 'lsp\_guard%'
+order by t.tgname;
+-- Expect three rows: profiles / provider_profiles / provider_documents, all tgenabled = 'O'.
+
+select c.relname as table_name, t.tgname
+from pg_trigger t join pg_class c on c.oid = t.tgrelid
+join pg_namespace n on n.oid = c.relnamespace
+where n.nspname = 'public' and not t.tgisinternal and t.tgname like 'lsp\_%'
+  and c.relname not in ('profiles','provider_profiles','provider_documents');
+-- Expect: 0 rows. Any row here is an object Section D does not know about.
+
+-- C3. Recreated policies have the expected shape; the provider ones must use user_id.
+select tablename, policyname, cmd, roles, qual, with_check from pg_policies
+where schemaname = 'public'
+  and policyname in ('lsp_providers_insert','lsp_providers_update',
+                     'lsp_profiles_insert','lsp_documents_owner')
+order by policyname;
+-- Expect: 4 rows, each mentioning user_id (never id) on provider_profiles.
+
+-- C4. Admin accounts — REPORT ONLY. Phase 0 neither creates nor requires an admin
+--     account; provisioning is a separate phase. Zero admins is a PASS here, and
+--     this query never raises. C4 is evidence for Phase 1, not a gate.
+select count(*) filter (where role = 'admin') as admin_accounts,
+       count(*) as total_profiles
+from public.profiles;
+-- Expect: admin_accounts = 0 is valid at this stage.
+
+select id, email, role from public.profiles where role = 'admin' order by email;
+-- Expect: 0 rows, or the existing admin(s) if you already have one.
+
+-- C5. Effective EXECUTE privilege on the helpers, PUBLIC and inheritance included.
+select p.proname,
+       case when a.grantee = 0 then 'PUBLIC' else a.grantee::regrole::text end as grantee,
+       a.privilege_type
+from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+cross join lateral aclexplode(coalesce(p.proacl, acldefault('f', p.proowner))) a
+where n.nspname = 'public' and p.proname like 'lsp\_%' order by 1, 2;
+-- Expect: no row with grantee = 'PUBLIC' and no grantee = 'anon'.
+
+select has_function_privilege('anon','public.lsp_is_admin()','EXECUTE') as anon_can_execute,
+       has_function_privilege('authenticated','public.lsp_is_admin()','EXECUTE') as auth_can_execute;
+-- Expect: anon_can_execute = false, auth_can_execute = true.
+
+-- C6. Constraint present and still NOT VALID (no row scanned or rewritten).
+select conname, convalidated, pg_get_constraintdef(oid) as definition
+from pg_constraint where conname = 'profiles_role_allowed';
+-- Expect: 1 row, convalidated = false.
+
+-- C7. Distributions must equal A3/A11: this migration modifies no existing row.
+select coalesce(role,'(null)') as role, count(*) as accounts
+from public.profiles group by role order by accounts desc;
+
+select coalesce(status,'(null)') as status, count(*) as documents
+from public.provider_documents group by status order by documents desc;
+
+-- C8. Object inventory. Every object Section B creates or replaces, in one list.
+--     This is the checklist Section D must account for.
+select kind, name from (
+  select 'trigger'    as kind, tgname     as name from pg_trigger
+    where not tgisinternal and tgname like 'lsp\_guard%'
+  union all
+  select 'function', proname from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+    where n.nspname = 'public' and p.proname like 'lsp\_guard%'
+  union all
+  select 'policy', policyname from pg_policies
+    where schemaname = 'public'
+      and policyname in ('lsp_providers_insert','lsp_profiles_insert',
+                         'lsp_providers_update','lsp_documents_owner')
+  union all
+  select 'constraint', conname from pg_constraint where conname = 'profiles_role_allowed'
+  union all
+  select 'helper', proname from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+    where n.nspname = 'public' and p.proname in ('lsp_role','lsp_is_admin','lsp_provider_ids')
+) inventory
+order by kind, name;
+-- Expect 11 rows: 3 triggers, 3 guard functions, 4 policies, 1 constraint.
+-- The 3 helpers are replaced in place, not created, so they are listed separately.
+
+
+-- ============================================================================
+-- SECTION D — ROLLBACK (only if a real regression appears)
+-- ----------------------------------------------------------------------------
+-- ROLLBACK IS NOT AUTOMATIC. Section B is transactional: a failure inside it
+-- needs no rollback at all. D is for reverting a SUCCESSFUL migration, and it
+-- can only restore what you captured in Section A. Objects are recreated from
+-- A0/A0b output that you paste in; nothing here can reconstruct them.
+--
+-- HOW TO USE: D.1 is entirely commented out. Copy it to a new SQL Editor tab,
+-- strip the leading "-- " from each line, replace the four markers (R1..R4) with
+-- your A0 output, then run it. Do not run it in place inside this file.
+--
+-- D.1  RESTORE SCRIPT
+--
+-- begin;
+--
+-- -- (1) drop the three guard triggers created by B3, B4.4, B4.5
+-- drop trigger if exists lsp_guard_document_status       on public.provider_documents;
+-- drop trigger if exists lsp_guard_provider_verification on public.provider_profiles;
+-- drop trigger if exists lsp_guard_profile_role          on public.profiles;
+--
+-- -- (2) drop the three guard functions, but only if A0 shows they did not exist
+-- --     before this migration. If A0 returned a row for one of them, restore its
+-- --     A0 definition instead of dropping it.
+-- drop function if exists public.lsp_guard_document_status();
+-- drop function if exists public.lsp_guard_provider_verification();
+-- drop function if exists public.lsp_guard_profile_role();
+--
+-- -- (3) drop the constraint added by B1 (A0/C6 show it did not exist before)
+-- alter table public.profiles drop constraint if exists profiles_role_allowed;
+--
+-- -- (4) drop the four policies recreated by B4
+-- drop policy if exists lsp_profiles_insert  on public.profiles;
+-- drop policy if exists lsp_providers_insert on public.provider_profiles;
+-- drop policy if exists lsp_providers_update on public.provider_profiles;
+-- drop policy if exists lsp_documents_owner  on public.provider_documents;
+--
+-- -- (R1) PASTE the four A0b CREATE POLICY statements for those names here.
+-- --      Without this, the four tables lose the policy entirely and every
+-- --      owner-scoped write stops working.
+--
+-- -- (5) restore the three helper functions replaced in place by B2.
+-- -- (R2) PASTE the three A0 CREATE OR REPLACE FUNCTION statements here.
+--
+-- -- (6) restore helper ownership changed by B2.1 (skip if unchanged).
+-- -- (R3) alter function public.lsp_role()         owner to <A0 owner>;
+-- --      alter function public.lsp_is_admin()     owner to <A0 owner>;
+-- --      alter function public.lsp_provider_ids() owner to <A0 owner>;
+--
+-- -- (7) restore helper ACLs changed by B2.2, using the A0 acl column.
+-- -- (R4) revoke/grant exactly as A0 recorded. If A0 showed no ACL (null), the
+-- --      previous state was the default, which means PUBLIC EXECUTE:
+-- --      grant execute on function public.lsp_is_admin() to public;
+--
+-- commit;
+--
+-- D.2  WHAT MUST BE RESTORED BY HAND (rollback is partial without A0)
+--   Object                        | Restored by | If A0 was not saved
+--   ------------------------------|-------------|---------------------------
+--   lsp_guard_profile_role        | (1)(2)      | droppable; was new
+--   lsp_guard_provider_verification| (1)(2)     | droppable; was new
+--   lsp_guard_document_status     | (1)(2)      | droppable; was new
+--   profiles_role_allowed         | (3)         | droppable; was new
+--   lsp_profiles_insert           | (4)(R1)     | UNRECOVERABLE - policy text lost
+--   lsp_providers_insert          | (4)(R1)     | UNRECOVERABLE - policy text lost
+--   lsp_providers_update          | (4)(R1)     | UNRECOVERABLE - policy text lost
+--   lsp_documents_owner           | (4)(R1)     | UNRECOVERABLE - policy text lost
+--   lsp_role body                 | (R2)        | UNRECOVERABLE - definition lost
+--   lsp_is_admin body             | (R2)        | UNRECOVERABLE - definition lost
+--   lsp_provider_ids body         | (R2)        | UNRECOVERABLE - definition lost
+--   helper owner                  | (R3)        | UNRECOVERABLE - owner lost
+--   helper ACL / proconfig        | (R4)        | UNRECOVERABLE - grants lost
+--
+--   The four policies and three helper bodies are the reason A0/A0b must be run
+--   and saved BEFORE Section B. Nothing in Section D can invent them.
+--
+-- D.3  WHAT ROLLBACK CANNOT REVERSE AT ALL
+--   1. Helper bodies overwritten by CREATE OR REPLACE: the old text exists only in
+--      A0 output.
+--   2. Helper ownership changed by B2.1: one-way unless A0 recorded the original
+--      owner, and moving it back needs the same SET ROLE privilege.
+--   3. EXECUTE grants and revokes applied by B2.2 (re-issuable only from A0's acl).
+--   4. DATA written by the guards: a provider INSERT that claimed 'approved' was
+--      stored as 'pending', and an approved document edited by its provider was
+--      reset to 'pending'. Those rows stay changed; rollback does not restore the
+--      values the client attempted.
+--   5. Writes the guards blocked while active (a refused escalation, a rejected
+--      profile write) are not replayed.
+--   6. Anything else a caller did between B and D is untouched by D, by design.
+--
+-- D.4  NOT AT RISK FROM THIS MIGRATION
+--   No row is deleted, no column or table is dropped, no policy is weakened, no
+--   existing profile row is modified, and no authentication setting is touched.
+
+-- ============================================================================
+-- END OF PROPOSAL — NOTHING EXECUTED
+-- ============================================================================
