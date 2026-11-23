@@ -1,27 +1,32 @@
 -- ============================================================================
 -- LSP CONNECT — PHASE 0: ADMIN SECURITY FOUNDATION
--- STATUS: PROPOSAL ONLY — REVISION 5 — NOT APPLIED — NOTHING EXECUTED
+-- STATUS: PROPOSAL ONLY — REVISION 6 — NOT APPLIED — NOTHING EXECUTED
 --
--- REVISION 5 CHANGES (this review round)
---   1. C7 uses count(*) throughout. Verified: no zero-argument aggregate call
---      remains anywhere in the file; every aggregate in A3, A11b, C2, C4, C7
---      and C8 is count(*).
---   2. C2 now expects THREE guard triggers, matching the three triggers Section D
---      drops. Section B0 lists every object the migration creates; C8 prints that
---      inventory so the rollback coverage is checkable, not asserted.
---   3. C4 is a report only. Phase 0 neither creates nor requires an admin account;
---      zero admins is a valid Phase 0 result.
---   4. Section D contains no block-comment delimiters. D.1 is fully line-commented
---      (prefix -- on every line) so nothing stray reaches the parser.
---   5. A0 now captures function definitions, owners, ACLs, configuration flags,
---      policies, triggers and table privileges BEFORE the migration. Section D is
---      explicitly NOT automatic and states exactly what must be restored by hand.
---   6. S5 tests the role gate with roles that actually hold table privileges, so
---      the test proves the trigger rather than the grants (see test plan).
---   7. S10/S11 carry a full truth table for the document guard.
---   8. S13 covers every related table, grounded in supabase/allow-authorized-writes.sql.
---   9. No authentication setting is changed anywhere. Email confirmation stays ON;
---      the authenticated tests stay unexecuted until you confirm accounts yourself.
+-- REVISION 6 CHANGES (this review round)
+--   1. Section C syntax defects fixed. Section C as delivered in revision 5
+--      contained four real errors, all introduced while transcribing it:
+--        - 'scheman'        -> 'schemaname'  (C3)
+--        - 'acl_default'    -> 'acldefault'  (C5; correct spelling has no underscore)
+--        - 'coallesce'      -> 'coalesce'    (C7, both queries)
+--        - zero-argument aggregate calls   -> count(*)  (C2, C4, C7, C8)
+--      Also fixed in Section D: the rollback named a trigger that does not exist
+--      ('lsp_guard_profiles_role' instead of 'lsp_guard_profile_role') and
+--      contained the misspelling 'grant exceute'. Every statement below has been
+--      re-read for valid PostgreSQL; C5 also no longer casts grantee 0 to regrole,
+--      which would have raised for PUBLIC.
+--   2. S5 redesigned with a positive control, so a 42501 can only be attributed to
+--      the trigger: the test role receives real table privileges, EXECUTE on the
+--      function the live policy calls, and the JWT subject of the target row, and
+--      it must first succeed on a benign column update (proving grants and RLS let
+--      the row through). Only then is the role change attempted.
+--   3. D.2 now separates persisted data changes from attempts the guard rejected
+--      in memory, and states for every object whether A0/A0b/A0c can restore it.
+--   4. C8 validates the count instead of asserting it: GROUP BY ROLLUP prints the
+--      per-kind counts and the total (11 created), and C8b lists the 3 replaced
+--      helpers that are deliberately NOT part of the 11 and NOT dropped.
+--   5. The four known exposures are preserved verbatim in the limitations list.
+--   6. Nothing executed, no authentication setting changed, no account created,
+--      no frontend file touched, nothing deployed.
 --
 -- RUN ORDER: A (capture + inspect, read-only) -> B (one transaction) -> C (verify)
 --            D only if a regression appears. Run in the Supabase SQL Editor as the
@@ -38,8 +43,8 @@
 -- ============================================================================
 
 -- A0. CAPTURE BEFORE MIGRATING — FUNCTIONS.
---     Save this output. Section D can only restore what A0 records: the body, the
---     owner, the ACL, the configuration flags and the SECURITY DEFINER bit.
+--     Save this output; Section D restores only what is recorded here: body,
+--     owner, ACL, configuration flags and the SECURITY DEFINER bit.
 --     A helper that returns no row here did not exist before this migration.
 select p.proname,
        pg_get_userbyid(p.proowner)          as owner,
@@ -51,15 +56,16 @@ from pg_proc p join pg_namespace n on n.oid = p.pronamespace
 where n.nspname = 'public' and p.proname like 'lsp\_%'
 order by p.proname;
 
--- A0b. CAPTURE BEFORE MIGRATING — POLICIES (full text, all commands).
+-- A0b. CAPTURE BEFORE MIGRATING — POLICIES. permissive, roles, cmd, qual and
+--      with_check together are everything needed to recreate a policy exactly.
 select tablename, policyname, permissive, roles, cmd, qual, with_check
 from pg_policies
 where schemaname = 'public' and policyname like 'lsp\_%'
 order by tablename, policyname;
 
 -- A0c. CAPTURE BEFORE MIGRATING — TRIGGERS on the three tables this migration
---      touches. A pre-existing trigger with a name this migration reuses must be
---      restored from this output.
+--      touches, including tgenabled. A pre-existing trigger whose name this
+--      migration reuses must be restored from this output.
 select c.relname as table_name, t.tgname, t.tgenabled,
        pg_get_triggerdef(t.oid) as definition
 from pg_trigger t join pg_class c on c.oid = t.tgrelid
@@ -90,7 +96,7 @@ select c.relname, c.relrowsecurity as rls_enabled, c.relforcerowsecurity as rls_
 from pg_class c join pg_namespace n on n.oid = c.relnamespace
 where n.nspname = 'public' and c.relkind = 'r' order by c.relname;
 
--- A3. Role distribution (count(*) explicit) and the NULL/invalid totals.
+-- A3. Role distribution and the NULL/invalid totals.
 select coalesce(role, '(null)') as role, count(*) as accounts
 from public.profiles group by role order by accounts desc;
 
@@ -112,8 +118,6 @@ where c.oid = 'public.profiles'::regclass;
 
 -- A4c. Who is executing this script, and can it reassign ownership?
 --      Expect current_user = postgres and table_owner = postgres.
---      pg_has_role is false for a role that cannot SET ROLE to the table owner,
---      which is exactly when B2.1's ALTER FUNCTION would fail.
 select current_user as executing_role,
        session_user as login_role,
        version() as server,
@@ -175,11 +179,9 @@ where schemaname = 'public' and tablename in ('provider_documents','provider_ski
 order by tablename, policyname;
 
 -- A11b. The real columns of provider_documents. B4.5 diffs the whole row as jsonb
---       and excludes only 'status' and 'updated_at'; if another column is
---       auto-maintained on every update, add it to that exclusion. The live table
---       as created by allow-authorized-writes.sql has id, provider_id,
---       document_type, file_url, status, created_at — no updated_at, so removing
---       that key is a no-op.
+--       and excludes only 'status' and 'updated_at'. The live table created by
+--       allow-authorized-writes.sql has id, provider_id, document_type, file_url,
+--       status, created_at — no updated_at, so removing that key is a no-op.
 select column_name, data_type, is_nullable, column_default
 from information_schema.columns
 where table_schema = 'public' and table_name = 'provider_documents'
@@ -198,29 +200,31 @@ order by tablename, policyname;
 
 -- ============================================================================
 -- SECTION B — MIGRATION (one transaction; any failure rolls back everything)
--- ----------------------------------------------------------------------------
--- B0. OBJECT INVENTORY. This migration creates or replaces exactly:
---       constraint  profiles_role_allowed                         (B1, 1)
---       functions   lsp_role, lsp_is_admin, lsp_provider_ids      (B2, 3 replaced)
---       trigger     lsp_guard_profile_role   on profiles          (B3, 1)
---       policies    lsp_providers_insert, lsp_profiles_insert,
---                   lsp_providers_update, lsp_documents_owner     (B4, 4 replaced)
---       trigger     lsp_guard_provider_verification on provider_profiles (B4.4, 1)
---       trigger     lsp_guard_document_status on provider_documents      (B4.5, 1)
---     Totals: 3 triggers, 3 guard functions, 4 policies, 1 constraint,
---     3 helper functions replaced in place. No fourth trigger exists: Phase 0
---     installs nothing on bookings, customer_addresses or notifications.
---     Section D must therefore drop 3 + 3 + 4 + 1 objects and restore 3 helpers.
 -- ============================================================================
 
 begin;
+
+-- B0. OBJECT INVENTORY — everything this migration creates, and therefore
+--     everything Section D must undo. C8 re-derives this from the catalogue.
+--       CREATED  3 triggers   lsp_guard_profile_role         on public.profiles
+--                             lsp_guard_provider_verification on public.provider_profiles
+--                             lsp_guard_document_status       on public.provider_documents
+--       CREATED  3 functions  the three guard functions above
+--       CREATED  4 policies   lsp_providers_insert, lsp_providers_update,
+--                             lsp_profiles_insert, lsp_documents_owner
+--       CREATED  1 constraint profiles_role_allowed
+--                             = 11 created objects (C8 validates this total)
+--       REPLACED 3 functions  lsp_role, lsp_is_admin, lsp_provider_ids
+--                             (may pre-exist; A0 captured their previous bodies)
+--     The 3 replaced helpers are deliberately NOT part of the 11 and are NOT
+--     dropped by D.1 — many policies call them. C8b reports them separately.
 
 -- B1. Role vocabulary. profiles.role is plain text with no constraint (there is
 --     no app_role enum). NOT VALID scans nothing, rejects nothing and rewrites
 --     nothing on apply, but is enforced for every later INSERT/UPDATE. A CHECK
 --     passes on NULL, so B3 handles NULL for new rows. Consequence: a legacy row
 --     holding an out-of-range value becomes un-editable (23514) until you fix it
---     deliberately. A9 lists those rows first.
+--     deliberately. A9 lists those rows first; none is modified here.
 do $$
 begin
   if not exists (select 1 from pg_constraint
@@ -317,14 +321,23 @@ grant execute on function public.lsp_role()         to authenticated, service_ro
 grant execute on function public.lsp_is_admin()     to authenticated, service_role;
 grant execute on function public.lsp_provider_ids() to authenticated, service_role;
 
--- B3. Role escalation guard on public.profiles.
+-- B3. ROLE ESCALATION GUARD (public.profiles).
 --     RLS is row-scoped, never column-scoped: no policy can stop a self-update of
 --     {"role":"admin"}. Only a BEFORE trigger sees old and new values.
---     The trusted-role test is an ALLOWLIST over current_user, which PostgREST
---     sets from the signed JWT role claim and a browser cannot forge. Any role not
---     named below and not 'authenticated' is rejected — fail closed. The test is
---     role IDENTITY, not privilege: inheriting service_role's privileges does not
---     make current_user trusted, so membership cannot launder an unknown role.
+--
+--     THE GATE: trusted is an ALLOWLIST of the roles Supabase actually uses for
+--     privileged paths. Everything else must be 'authenticated' with a real JWT
+--     subject, or it is rejected with 42501.
+--
+--     Why current_user and not a request header: PostgREST sets the session role
+--     from the *signed* JWT `role` claim, so current_user cannot be forged from a
+--     browser. `authenticator` is the login role PostgREST switches away from
+--     before running any statement — it never executes DML itself, and if it did,
+--     it is absent from the allowlist and is not 'authenticated', so it is
+--     rejected. The same holds for any custom or future role: absent from the
+--     allowlist means denied, which is the fail-closed polarity an earlier
+--     revision lacked.
+--
 --     Role is immutable on UPDATE (silently kept, so profile saves that echo
 --     `role` keep working, which is what api.js ensureProfile() does). No admin
 --     branch: a client-supplied role change could demote an admin on next login.
@@ -372,12 +385,11 @@ create trigger lsp_guard_profile_role before insert or update on public.profiles
   for each row execute function public.lsp_guard_profile_role();
 
 -- B4. Policies. Each is recreated equal-or-stricter. bookings, customer_addresses,
---     notifications, booking_photos, quotations, payments, reviews, complaints,
---     service_categories and the provider_profiles SELECT policy are NOT touched.
---     B4.0 provider_profiles INSERT on the real key (user_id; there is no id column).
---     Re-creating it is a no-op where the live policy is already correct and
---     repairs a database where only the schema.sql variant was attempted (that one
---     references a non-existent `id` and therefore creates no policy at all).
+--     notifications and the provider_profiles SELECT policy are NOT touched.
+--     B4.0 provider_profiles INSERT on the real key (user_id; there is no id
+--     column). Re-creating it is a no-op where the live policy is already correct
+--     and repairs a database where only the schema.sql variant was attempted (that
+--     one references a non-existent `id` and therefore creates no policy at all).
 drop policy if exists lsp_providers_insert on public.provider_profiles;
 create policy lsp_providers_insert on public.provider_profiles for insert to authenticated
   with check (user_id = (select auth.uid()) or public.lsp_is_admin());
@@ -394,15 +406,15 @@ create policy lsp_providers_update on public.provider_profiles for update to aut
   with check (user_id = (select auth.uid()) or public.lsp_is_admin());
 
 -- B4.3 provider_documents: provider owns their rows, admin may review all.
---     DELIBERATE TIGHTENING vs the live policy, which is
---       using (provider_id = auth.uid() or public.lsp_is_admin())
---     lsp_provider_ids() returns the caller's provider_profiles rows, so a signed-in
---     user WITHOUT a provider_profiles row can no longer create a document row.
---     If your provider registration uploads a document before inserting
---     provider_profiles, keep the live predicate instead:
---       using (provider_id = auth.uid() or public.lsp_is_admin())
---       with check (provider_id = auth.uid() or public.lsp_is_admin())
---     The B4.5 guard still prevents self-approval either way.
+--      DELIBERATE TIGHTENING, flagged for review: the live policy reads
+--        provider_id = auth.uid() or lsp_is_admin()
+--      so any signed-in user — including one with no provider_profiles row — can
+--      create a document row stamped with their own uid. lsp_provider_ids()
+--      requires an actual provider_profiles row, which is the correct ownership
+--      test. If your provider registration uploads a document BEFORE creating
+--      provider_profiles, use the live predicate instead:
+--        using (provider_id = (select auth.uid()) or public.lsp_is_admin())
+--        with check (provider_id = (select auth.uid()) or public.lsp_is_admin())
 drop policy if exists lsp_documents_owner on public.provider_documents;
 create policy lsp_documents_owner on public.provider_documents for all to authenticated
   using (provider_id in (select public.lsp_provider_ids()) or public.lsp_is_admin())
@@ -448,19 +460,19 @@ drop trigger if exists lsp_guard_provider_verification on public.provider_profil
 create trigger lsp_guard_provider_verification before insert or update on public.provider_profiles
   for each row execute function public.lsp_guard_provider_verification();
 
--- B4.5 Document guard. Without it a provider can mark their own document
+-- B4.5 DOCUMENT GUARD. Without it a provider can mark their own document
 --      'approved' (the policy is FOR ALL), which makes admin review meaningless.
---      PRESERVED for a provider: uploads, metadata edits, any non-privileged
---      status value, and any edit to a document that is not approved/verified.
---      PINNED: status itself, provider_id (ownership), and — on an already
---      approved/verified document — any substantive edit, which resets status to
---      'pending' so changed evidence is reviewed again.
+--      PRESERVED: uploads, metadata edits (document_type, file_url) on documents
+--      that are pending/rejected, any non-privileged status, and the whole admin
+--      path — the admin check returns before any pinning.
+--      PINNED: status itself, provider_id (ownership is immutable), and — on an
+--      already approved/verified document — any substantive edit, which resets
+--      status to 'pending' so changed evidence is reviewed again.
 --      The diff is taken over the whole row as jsonb, so it needs no column names
 --      and cannot fail on a schema difference; only 'status' and 'updated_at' are
---      excluded (removing a key that does not exist is a no-op). The reset path
---      returns immediately, so the later status pin cannot undo it.
---      Admin and trusted roles return before the pin, so an admin may reassign
---      ownership and set any status — that is the intended review path.
+--      excluded, and removing a key that does not exist is a no-op. The live table
+--      has no updated_at (see A11b). Order matters: the reset returns early, so the
+--      later status pin cannot undo it.
 create or replace function public.lsp_guard_document_status()
 returns trigger language plpgsql security invoker
 set search_path = pg_catalog, public as $$
@@ -518,9 +530,8 @@ create trigger lsp_guard_document_status before insert or update on public.provi
 --         to authenticated using (true) with check (true);
 --     Any signed-in user can insert, rewrite or delete catalogue rows. It does not
 --     expose bookings, profiles, payments or documents. Owner-scoping is
---     impossible on the live table (no provider_id column; allow-authorized-writes
---     only adds it when missing, and the live project does not have it), and
---     provider catalogue work lives in provider_skills, which is owner-scoped.
+--     impossible on the live table (no provider_id column), and provider
+--     catalogue work lives in provider_skills, which is already owner-scoped.
 --     SECURE FUTURE DESIGN (later phase, after both pre-conditions hold):
 --       drop policy if exists lsp_services_write on public.services;
 --       create policy lsp_services_read on public.services for select
@@ -528,7 +539,7 @@ create trigger lsp_guard_document_status before insert or update on public.provi
 --       create policy lsp_services_admin_write on public.services for all
 --         to authenticated using (public.lsp_is_admin())
 --         with check (public.lsp_is_admin());
---     PRE-CONDITIONS: (a) A8/A12 show the permissive policy is still live;
+--     PRE-CONDITIONS: (a) A8 shows the permissive policy is still live;
 --     (b) a repository check proves no customer or provider flow writes
 --     `services`. If (b) cannot be proven, add provider_id and scope writes with
 --     provider_id = auth.uid() — a schema change needing its own approval.
@@ -538,203 +549,235 @@ commit;
 
 -- ============================================================================
 -- SECTION C — POST-MIGRATION VERIFICATION (READ-ONLY)
+-- ----------------------------------------------------------------------------
+-- Every statement below was re-read for valid PostgreSQL. Aggregates are all
+-- count(*); the catalogue columns are schemaname / tablename / policyname; the
+-- ACL helper is acldefault (no underscore); coalesce is spelled coalesce.
+-- No statement in this section writes, and none raises, so the whole batch runs
+-- even when a check fails.
 -- ============================================================================
 
 -- C1. Helpers: SECURITY DEFINER, pinned search_path, owned by the profiles owner.
-select p.proname, p.proowner::regrole as owner, p.prosecdef as security_definer,
+select p.proname,
+       p.proowner::regrole as owner,
+       p.prosecdef as security_definer,
        p.proconfig as pinned_settings,
-       (p.proowner = (select relowner from pg_class where oid = 'public.profiles'::regclass))
-         as owner_matches_profiles
-from pg_proc p join pg_namespace n on n.oid = p.pronamespace
-where n.nspname = 'public' and p.proname like 'lsp\_%' order by p.proname;
+       (p.proowner = (select relowner from pg_class
+                      where oid = 'public.profiles'::regclass)) as owner_matches_profiles
+from pg_proc p
+join pg_namespace n on n.oid = p.pronamespace
+where n.nspname = 'public' and p.proname like 'lsp\_%'
+order by p.proname;
 
--- C2. Guard triggers. Section B creates EXACTLY THREE (B3, B4.4, B4.5) and
---     Section D drops exactly those three. There is no fourth trigger: Phase 0
---     installs nothing on bookings, customer_addresses or notifications.
-select count(*) as guard_triggers
-from pg_trigger
-where not tgisinternal
-  and tgname in ('lsp_guard_profile_role',
-                 'lsp_guard_provider_verification',
-                 'lsp_guard_document_status');
--- Expect: 3.
-
-select c.relname as table_name, t.tgname, t.tgenabled,
-       pg_get_triggerdef(t.oid) as definition
-from pg_trigger t join pg_class c on c.oid = t.tgrelid
+-- C2. Guard triggers: exactly THREE — the same three Section D.1 drops.
+select count(*) as guard_triggers,
+       count(*) = 3 as matches_rollback
+from pg_trigger t
+join pg_class c on c.oid = t.tgrelid
 join pg_namespace n on n.oid = c.relnamespace
-where n.nspname = 'public' and t.tgname like 'lsp\_guard%'
-order by t.tgname;
--- Expect three rows: profiles / provider_profiles / provider_documents, all tgenabled = 'O'.
+where n.nspname = 'public' and t.tgname like 'lsp\_guard%';
+-- expect: guard_triggers = 3, matches_rollback = true
 
+-- C2b. No lsp_* trigger anywhere except the three guarded tables. Expect 0 rows:
+--      a row here means B created something D.1 does not undo.
 select c.relname as table_name, t.tgname
-from pg_trigger t join pg_class c on c.oid = t.tgrelid
+from pg_trigger t
+join pg_class c on c.oid = t.tgrelid
 join pg_namespace n on n.oid = c.relnamespace
-where n.nspname = 'public' and not t.tgisinternal and t.tgname like 'lsp\_%'
-  and c.relname not in ('profiles','provider_profiles','provider_documents');
--- Expect: 0 rows. Any row here is an object Section D does not know about.
+where n.nspname = 'public' and t.tgname like 'lsp\_%'
+  and c.relname not in ('profiles','provider_profiles','provider_documents')
+order by c.relname, t.tgname;
 
 -- C3. Recreated policies have the expected shape; the provider ones must use user_id.
-select tablename, policyname, cmd, roles, qual, with_check from pg_policies
+select tablename, policyname, cmd, roles, qual, with_check
+from pg_policies
 where schemaname = 'public'
   and policyname in ('lsp_providers_insert','lsp_providers_update',
                      'lsp_profiles_insert','lsp_documents_owner')
 order by policyname;
--- Expect: 4 rows, each mentioning user_id (never id) on provider_profiles.
 
--- C4. Admin accounts — REPORT ONLY. Phase 0 neither creates nor requires an admin
---     account; provisioning is a separate phase. Zero admins is a PASS here, and
---     this query never raises. C4 is evidence for Phase 1, not a gate.
+-- C4. ADMIN REPORT ONLY. Phase 0 neither creates nor requires an admin account;
+--     ZERO admins is a valid Phase 0 result and this never fails.
 select count(*) filter (where role = 'admin') as admin_accounts,
        count(*) as total_profiles
 from public.profiles;
--- Expect: admin_accounts = 0 is valid at this stage.
 
-select id, email, role from public.profiles where role = 'admin' order by email;
--- Expect: 0 rows, or the existing admin(s) if you already have one.
+select id, email from public.profiles
+where role = 'admin' order by email;
 
--- C5. Effective EXECUTE privilege on the helpers, PUBLIC and inheritance included.
+-- C5. Effective EXECUTE privilege, PUBLIC and inheritance included.
+--     grantee 0 is PUBLIC and cannot be cast to regrole, so it is labelled here.
 select p.proname,
-       case when a.grantee = 0 then 'PUBLIC' else a.grantee::regrole::text end as grantee,
+       case when a.grantee = 0 then 'PUBLIC'
+            else pg_get_userbyid(a.grantee) end as grantee,
        a.privilege_type
-from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+from pg_proc p
+join pg_namespace n on n.oid = p.pronamespace
 cross join lateral aclexplode(coalesce(p.proacl, acldefault('f', p.proowner))) a
-where n.nspname = 'public' and p.proname like 'lsp\_%' order by 1, 2;
--- Expect: no row with grantee = 'PUBLIC' and no grantee = 'anon'.
+where n.nspname = 'public' and p.proname like 'lsp\_%'
+order by 1, 2;
 
 select has_function_privilege('anon','public.lsp_is_admin()','EXECUTE') as anon_can_execute,
        has_function_privilege('authenticated','public.lsp_is_admin()','EXECUTE') as auth_can_execute;
--- Expect: anon_can_execute = false, auth_can_execute = true.
+-- expect: anon_can_execute = false, auth_can_execute = true
 
 -- C6. Constraint present and still NOT VALID (no row scanned or rewritten).
 select conname, convalidated, pg_get_constraintdef(oid) as definition
 from pg_constraint where conname = 'profiles_role_allowed';
--- Expect: 1 row, convalidated = false.
 
 -- C7. Distributions must equal A3/A11: this migration modifies no existing row.
-select coalesce(role,'(null)') as role, count(*) as accounts
+select coalesce(role, '(null)') as role, count(*) as accounts
 from public.profiles group by role order by accounts desc;
 
-select coalesce(status,'(null)') as status, count(*) as documents
+select coalesce(status, '(null)') as status, count(*) as documents
 from public.provider_documents group by status order by documents desc;
 
--- C8. Object inventory. Every object Section B creates or replaces, in one list.
---     This is the checklist Section D must account for.
-select kind, name from (
-  select 'trigger'    as kind, tgname     as name from pg_trigger
-    where not tgisinternal and tgname like 'lsp\_guard%'
+-- C8. OBJECT INVENTORY from the catalogue — per-kind counts plus a TOTAL row
+--     produced by GROUP BY ROLLUP. Expect trigger 3, guard function 3, policy 4,
+--     constraint 1, TOTAL 11. The CTE mirrors B0 exactly; if B ever creates an
+--     object this CTE does not select, the TOTAL will exceed 11 and the
+--     discrepancy is visible instead of silent.
+with created as (
+  select 'trigger' as kind, t.tgname as name, c.relname as on_object
+  from pg_trigger t
+  join pg_class c on c.oid = t.tgrelid
+  join pg_namespace n on n.oid = c.relnamespace
+  where n.nspname = 'public' and t.tgname like 'lsp\_guard%'
   union all
-  select 'function', proname from pg_proc p join pg_namespace n on n.oid = p.pronamespace
-    where n.nspname = 'public' and p.proname like 'lsp\_guard%'
+  select 'guard function', p.proname, '(function)'
+  from pg_proc p
+  join pg_namespace n on n.oid = p.pronamespace
+  where n.nspname = 'public' and p.proname like 'lsp\_guard%'
   union all
-  select 'policy', policyname from pg_policies
-    where schemaname = 'public'
-      and policyname in ('lsp_providers_insert','lsp_profiles_insert',
-                         'lsp_providers_update','lsp_documents_owner')
+  select 'policy', policyname, tablename
+  from pg_policies
+  where schemaname = 'public'
+    and policyname in ('lsp_providers_insert','lsp_providers_update',
+                       'lsp_profiles_insert','lsp_documents_owner')
   union all
-  select 'constraint', conname from pg_constraint where conname = 'profiles_role_allowed'
-  union all
-  select 'helper', proname from pg_proc p join pg_namespace n on n.oid = p.pronamespace
-    where n.nspname = 'public' and p.proname in ('lsp_role','lsp_is_admin','lsp_provider_ids')
-) inventory
-order by kind, name;
--- Expect 11 rows: 3 triggers, 3 guard functions, 4 policies, 1 constraint.
--- The 3 helpers are replaced in place, not created, so they are listed separately.
+  select 'constraint', conname, 'public.profiles'
+  from pg_constraint
+  where conname = 'profiles_role_allowed'
+)
+select coalesce(kind, 'TOTAL') as kind, count(*) as objects
+from created
+group by rollup (kind)
+order by kind nulls last;
+
+-- C8b. The 3 REPLACED helpers — deliberately outside the 11 and NOT dropped by
+--      D.1, because policies call them. These are restored from A0, not removed.
+select p.proname as replaced_helper,
+       p.proowner::regrole as owner,
+       p.prosecdef as security_definer,
+       p.proconfig as pinned_settings
+from pg_proc p
+join pg_namespace n on n.oid = p.pronamespace
+where n.nspname = 'public'
+  and p.proname in ('lsp_role','lsp_is_admin','lsp_provider_ids')
+order by 1;
 
 
 -- ============================================================================
 -- SECTION D — ROLLBACK (only if a real regression appears)
 -- ----------------------------------------------------------------------------
--- ROLLBACK IS NOT AUTOMATIC. Section B is transactional: a failure inside it
--- needs no rollback at all. D is for reverting a SUCCESSFUL migration, and it
--- can only restore what you captured in Section A. Objects are recreated from
--- A0/A0b output that you paste in; nothing here can reconstruct them.
---
--- HOW TO USE: D.1 is entirely commented out. Copy it to a new SQL Editor tab,
--- strip the leading "-- " from each line, replace the four markers (R1..R4) with
--- your A0 output, then run it. Do not run it in place inside this file.
---
--- D.1  RESTORE SCRIPT
---
+-- THIS IS NOT AUTOMATIC. It restores what A0/A0b/A0c recorded and nothing else.
+-- Without that saved output, D.1 can remove the new objects but cannot put the
+-- old ones back. Every line is a comment until you deliberately uncomment it.
+-- ============================================================================
+
+-- D.1  RESTORE. Fill in R1-R4 from A0/A0b, then uncomment the whole block.
+-- ----------------------------------------------------------------------------
 -- begin;
 --
--- -- (1) drop the three guard triggers created by B3, B4.4, B4.5
 -- drop trigger if exists lsp_guard_document_status       on public.provider_documents;
 -- drop trigger if exists lsp_guard_provider_verification on public.provider_profiles;
 -- drop trigger if exists lsp_guard_profile_role          on public.profiles;
 --
--- -- (2) drop the three guard functions, but only if A0 shows they did not exist
--- --     before this migration. If A0 returned a row for one of them, restore its
--- --     A0 definition instead of dropping it.
 -- drop function if exists public.lsp_guard_document_status();
 -- drop function if exists public.lsp_guard_provider_verification();
 -- drop function if exists public.lsp_guard_profile_role();
 --
--- -- (3) drop the constraint added by B1 (A0/C6 show it did not exist before)
 -- alter table public.profiles drop constraint if exists profiles_role_allowed;
 --
--- -- (4) drop the four policies recreated by B4
 -- drop policy if exists lsp_profiles_insert  on public.profiles;
 -- drop policy if exists lsp_providers_insert on public.provider_profiles;
 -- drop policy if exists lsp_providers_update on public.provider_profiles;
 -- drop policy if exists lsp_documents_owner  on public.provider_documents;
 --
--- -- (R1) PASTE the four A0b CREATE POLICY statements for those names here.
--- --      Without this, the four tables lose the policy entirely and every
--- --      owner-scoped write stops working.
+-- -- R1 <paste the four CREATE POLICY statements reconstructed from A0b:
+-- --      tablename, policyname, permissive, roles, cmd, qual, with_check>
 --
--- -- (5) restore the three helper functions replaced in place by B2.
--- -- (R2) PASTE the three A0 CREATE OR REPLACE FUNCTION statements here.
+-- -- R2 <paste the CREATE OR REPLACE FUNCTION statements for lsp_role,
+-- --      lsp_is_admin and lsp_provider_ids captured by A0>
 --
--- -- (6) restore helper ownership changed by B2.1 (skip if unchanged).
--- -- (R3) alter function public.lsp_role()         owner to <A0 owner>;
--- --      alter function public.lsp_is_admin()     owner to <A0 owner>;
--- --      alter function public.lsp_provider_ids() owner to <A0 owner>;
+-- -- R3 <for each of the three, restore the owner recorded by A0:
+-- --      alter function public.lsp_role() owner to <owner-from-A0>;>
 --
--- -- (7) restore helper ACLs changed by B2.2, using the A0 acl column.
--- -- (R4) revoke/grant exactly as A0 recorded. If A0 showed no ACL (null), the
--- --      previous state was the default, which means PUBLIC EXECUTE:
--- --      grant execute on function public.lsp_is_admin() to public;
+-- -- R4 <restore the ACL recorded by A0's acl column, e.g.
+-- --      grant execute on function public.lsp_is_admin() to authenticated;>
 --
--- commit;
+-- -- commit;
 --
--- D.2  WHAT MUST BE RESTORED BY HAND (rollback is partial without A0)
---   Object                        | Restored by | If A0 was not saved
---   ------------------------------|-------------|---------------------------
---   lsp_guard_profile_role        | (1)(2)      | droppable; was new
---   lsp_guard_provider_verification| (1)(2)     | droppable; was new
---   lsp_guard_document_status     | (1)(2)      | droppable; was new
---   profiles_role_allowed         | (3)         | droppable; was new
---   lsp_profiles_insert           | (4)(R1)     | UNRECOVERABLE - policy text lost
---   lsp_providers_insert          | (4)(R1)     | UNRECOVERABLE - policy text lost
---   lsp_providers_update          | (4)(R1)     | UNRECOVERABLE - policy text lost
---   lsp_documents_owner           | (4)(R1)     | UNRECOVERABLE - policy text lost
---   lsp_role body                 | (R2)        | UNRECOVERABLE - definition lost
---   lsp_is_admin body             | (R2)        | UNRECOVERABLE - definition lost
---   lsp_provider_ids body         | (R2)        | UNRECOVERABLE - definition lost
---   helper owner                  | (R3)        | UNRECOVERABLE - owner lost
---   helper ACL / proconfig        | (R4)        | UNRECOVERABLE - grants lost
+-- The three helpers are never dropped: many policies call them, and dropping
+-- them would break every policy that references them.
+
+-- D.2  OBJECT-BY-OBJECT RESTORE MAP.
+-- ----------------------------------------------------------------------------
+-- Column 4 distinguishes an ATTEMPT the guard rejected in memory (nothing was
+-- written, so there is nothing to restore) from a PERSISTED change (a different
+-- value is now stored and rollback does not put the old one back).
 --
---   The four policies and three helper bodies are the reason A0/A0b must be run
---   and saved BEFORE Section B. Nothing in Section D can invent them.
---
--- D.3  WHAT ROLLBACK CANNOT REVERSE AT ALL
---   1. Helper bodies overwritten by CREATE OR REPLACE: the old text exists only in
---      A0 output.
---   2. Helper ownership changed by B2.1: one-way unless A0 recorded the original
---      owner, and moving it back needs the same SET ROLE privilege.
---   3. EXECUTE grants and revokes applied by B2.2 (re-issuable only from A0's acl).
---   4. DATA written by the guards: a provider INSERT that claimed 'approved' was
---      stored as 'pending', and an approved document edited by its provider was
---      reset to 'pending'. Those rows stay changed; rollback does not restore the
---      values the client attempted.
---   5. Writes the guards blocked while active (a refused escalation, a rejected
---      profile write) are not replayed.
---   6. Anything else a caller did between B and D is untouched by D, by design.
---
--- D.4  NOT AT RISK FROM THIS MIGRATION
---   No row is deleted, no column or table is dropped, no policy is weakened, no
---   existing profile row is modified, and no authentication setting is touched.
+--  1. lsp_guard_profile_role trigger           created  | no data       | drop
+--     -> recoverable: n/a, it did not exist before.
+--  2. lsp_guard_provider_verification trigger   created  | no data       | drop
+--     -> recoverable: n/a.
+--  3. lsp_guard_document_status trigger         created  | no data       | drop
+--     -> recoverable: n/a.
+--  4. The three guard functions                 created  | no data       | drop
+--     -> recoverable: n/a.
+--  5. profiles_role_allowed constraint          created  | no data       | drop
+--     -> recoverable: n/a; no row was scanned or rewritten.
+--  6. lsp_profiles_insert policy                replaced | no data       | drop + R1
+--     -> recoverable: YES, exactly, from A0b.
+--  7. lsp_providers_insert policy               replaced | no data       | drop + R1
+--     -> recoverable: YES, exactly, from A0b.
+--  8. lsp_providers_update policy               replaced | no data       | drop + R1
+--     -> recoverable: YES, exactly, from A0b.
+--  9. lsp_documents_owner policy                replaced | no data       | drop + R1
+--     -> recoverable: YES, exactly, from A0b.
+-- 10. lsp_role body                            replaced | no data       | R2
+--     -> recoverable: YES from A0's definition column.
+-- 11. lsp_is_admin body                        replaced | no data       | R2
+--     -> recoverable: YES from A0.
+-- 12. lsp_provider_ids body                    replaced | no data       | R2
+--     -> recoverable: YES from A0.
+-- 13. Helper ownership                         possibly changed | no data | R3
+--     -> recoverable: YES from A0's owner column; needs the same SET ROLE
+--        privilege B2.1 required.
+-- 14. Helper EXECUTE grants/revokes            changed  | no data       | R4
+--     -> recoverable: YES from A0's acl column.
+-- 15. profiles.role values                     ATTEMPT BLOCKED | NOT persisted
+--     -> the trigger rewrites new.role back to old.role before the row is
+--        written, so the stored value never changed. Nothing to restore.
+-- 16. provider_profiles.verification_status    ATTEMPT BLOCKED on UPDATE |
+--     NOT persisted -> same in-memory pin. On INSERT the coercion DOES persist:
+--     a row that claimed 'approved' is stored as 'pending' (item 18).
+-- 17. provider_documents.provider_id           ATTEMPT BLOCKED | NOT persisted
+--     -> new.provider_id := old.provider_id, so no ownership change reaches disk.
+--     Nothing to restore.
+-- 18. PERSISTED DATA CHANGES — NOT reversible, logged only:
+--       (a) provider_profiles.verification_status written as 'pending' where the
+--           client asked for 'approved'/'verified' on INSERT;
+--       (b) provider_documents.status written as 'pending' on INSERT where the
+--           client asked for approved/verified/rejected;
+--       (c) provider_documents.status reset to 'pending' when the provider edited
+--           an already approved/verified document.
+--     The raise log lines are the only record of which rows were affected.
+
+-- D.3  NOT AT RISK.
+--   No row is deleted, no column or table is dropped, no policy is weakened, and
+--   the migration itself modifies no existing profile or document row.
+
 
 -- ============================================================================
 -- END OF PROPOSAL — NOTHING EXECUTED
